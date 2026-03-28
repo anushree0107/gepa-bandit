@@ -1,0 +1,125 @@
+ Surrogate-Guided Prompt Optimization (Revised Algorithm)
+
+ CORE IDEA
+Use a computationally cheap surrogate model to estimate the performance of prompt mutations before running expensive validation using a large language model (LLM). This enables generating a large number of candidates while only evaluating the most promising ones.
+
+The system is designed to ensure monotonic improvement: the best validation score never decreases across iterations.
+
+---
+
+ PIPELINE
+
+ 0. INITIALIZATION
+Maintain the following components:
+- Candidate Pool: Stores all prompts evaluated so far along with their validation scores
+- Top-P Set: Top p prompts selected based on validation performance
+- Best Prompt: Prompt with the highest validation score seen so far
+- Surrogate Model: A regression model (e.g., MLP) predicting prompt performance
+- Training Buffer: Stores tuples of (prompt, validation_question, actual_score)
+
+---
+
+ 1. SELECT PARENT PROMPTS
+- Randomly sample n prompts from the Top-P set
+- This ensures a balance between:
+  - Exploitation (high-performing prompts)
+  - Exploration (diversity via randomness)
+
+---
+
+ 2. GENERATE MUTATIONS
+For each of the n parent prompts:
+- Sample a minibatch from the training dataset
+- Use the proposer LLM to generate m mutated prompts
+
+Total candidates generated in one iteration:
+N = n × m
+
+- Feedback from parent prompts can be cached and reused
+
+---
+
+ 3. SURROGATE SCORING
+Each of the N prompts is scored using the surrogate model.
+
+Inputs:
+- Prompt text
+- Validation question
+- (Optional) minibatch context
+
+Model:
+Example_score = MLP( φ(prompt, validation_question) )
+
+Where:
+- φ represents concatenated embeddings of prompt and validation question
+
+Output:
+- Predicted score ∈ [0, 1]
+
+---
+
+ 4. SELECT TOP-K (BANDIT STRATEGY)
+- Rank all N prompts based on:
+  - Predicted score
+  - Optionally: Upper Confidence Bound (UCB)
+
+- Select Top-K prompts (K ≪ N)
+
+---
+
+ 5. FULL VALIDATION (EXPENSIVE STEP)
+- Run full validation using LLM on Top-K prompts
+- Obtain true validation scores
+
+---
+
+ 6. UPDATE CANDIDATE POOL
+- Add Top-K prompts and their scores to:
+  - Candidate Pool
+  - Training Buffer
+
+- Update Top-P set based on updated rankings
+
+---
+
+ 7. BEST PROMPT UPDATE (MONOTONICITY GUARANTEE)
+
+Let:
+- S_best = current best validation score
+- S_new = best score among Top-K prompts
+
+ Case 1: Improvement
+If S_new > S_best:
+- Update Best Prompt
+- Run evaluation on test set
+- Update results table
+
+ Case 2: No Improvement
+If S_new ≤ S_best:
+- Do NOT update Best Prompt
+- Do NOT run test set
+- Carry forward previous validation/test scores
+
+Guarantee:
+- Validation score is non-decreasing across iterations
+- Test evaluation is only triggered when improvement occurs
+
+---
+
+ 8. UPDATE SURROGATE MODEL
+- Train surrogate using accumulated data from Training Buffer
+
+Objective:
+Minimize Mean Squared Error:
+Loss = (actual_score - predicted_score)^2
+
+- Optimization: SGD or mini-batch SGD
+
+---
+
+ 9. REPEAT
+- Repeat steps 1–8 for a fixed number of iterations or until convergence
+
+---
+
+

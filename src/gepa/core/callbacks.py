@@ -253,6 +253,24 @@ class ErrorEvent(TypedDict):
     will_continue: bool
 
 
+class SurrogateScoredEvent(TypedDict):
+    """Event for on_surrogate_scored callback (bandit engine)."""
+
+    iteration: int
+    candidates: list[dict[str, str]]
+    surrogate_scores: list[float]
+    ucb_scores: list[float]
+
+
+class BanditSelectionEvent(TypedDict):
+    """Event for on_bandit_selection callback (bandit engine)."""
+
+    iteration: int
+    selected_indices: list[int]
+    selected_scores: list[float]
+    total_candidates: int
+
+
 @runtime_checkable
 class GEPACallback(Protocol):
     """Protocol for GEPA optimization callbacks.
@@ -389,6 +407,18 @@ class GEPACallback(Protocol):
         """Called when an error occurs during optimization."""
         ...
 
+    # =========================================================================
+    # Bandit / Surrogate Events
+    # =========================================================================
+
+    def on_surrogate_scored(self, event: SurrogateScoredEvent) -> None:
+        """Called after the surrogate model scores mutation candidates."""
+        ...
+
+    def on_bandit_selection(self, event: BanditSelectionEvent) -> None:
+        """Called after Top-K bandit selection from surrogate-scored candidates."""
+        ...
+
 
 class CompositeCallback:
     """A callback that delegates to multiple child callbacks.
@@ -522,6 +552,12 @@ class CompositeCallback:
 
     def on_error(self, event: ErrorEvent) -> None:
         self._notify("on_error", event)
+
+    def on_surrogate_scored(self, event: SurrogateScoredEvent) -> None:
+        self._notify("on_surrogate_scored", event)
+
+    def on_bandit_selection(self, event: BanditSelectionEvent) -> None:
+        self._notify("on_bandit_selection", event)
 
 
 def notify_callbacks(
