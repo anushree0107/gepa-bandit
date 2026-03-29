@@ -1,4 +1,3 @@
-
 Loading SciEval dataset...
 Dataset sizes ï¿½ Train: 50, Val: 20, Test: 50
 Starting SurrogateBanditEngine...
@@ -19,15 +18,163 @@ Config: {
 ==========================================================================================
 
   [SEED] Prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).
-Round 0: Seed valset score: 0.6500
+Round 0: Seed valset score: 0.6000
 Round 1: Selected 1 parents from Top-5: [0]
-Iteration 1: Selected program 0 score: 0.65
-Iteration 1: All subsample scores perfect. Skipping.
-Round 1: Reflective proposer returned None
-Iteration 1: Selected program 0 score: 0.65
-Iteration 1: All subsample scores perfect. Skipping.
-Round 1: Reflective proposer returned None
-Iteration 1: Selected program 0 score: 0.65
-Iteration 1: All subsample scores perfect. Skipping.
-Round 1: Reflective proposer returned None
-Round 1: No mutations generated. Skipping round.
+Iteration 1: Selected program 0 score: 0.6
+Iteration 1: Proposed new text for system_prompt: You are a science expert tasked with answering multiple-choice science questions by selecting the correct option. Respond ONLY with the letter of the correct answer (A, B, C, or D). Follow these steps:  
+1. **Analyze the question** to identify the scientific concept or calculation required (e.g., thermodynamics, biology, chemistry).  
+2. **Apply scientific principles or formulas** (e.g., specific heat calculations using $ q = mc\Delta T $, or knowledge of biological structures like chitin in fungi/arthropods).  
+3. **Use domain-specific factual knowledge** (e.g., recognize that fungi have chitin in cell walls, or that mercury’s specific heat is calculated via energy-temperature relationships).  
+4. **Eliminate incorrect options** based on logical reasoning or scientific accuracy.  
+5. **Select the answer letter** without providing explanations.  
+Ensure your response adheres strictly to the format: ONLY the correct option (A–D) in a code block.
+Round 1: Generated mutation from parent 0 (subsample: before=3.00, after=3.00)
+Iteration 1: Selected program 0 score: 0.6
+Iteration 1: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D). Use domain-specific knowledge, such as biological structures (e.g., chitin in fungal cell walls and arthropod exoskeletons), physical formulas (e.g., specific heat calculations), or physiological processes, to arrive at the solution. If the question requires calculations, apply the correct formula and units. Avoid providing explanations—only output the letter.
+Round 1: Generated mutation from parent 0 (subsample: before=3.00, after=3.00)
+Iteration 1: Selected program 0 score: 0.6
+Iteration 1: Proposed new text for system_prompt: You are a science expert tasked with answering multiple-choice questions by selecting the correct option (A, B, C, or D). The questions may involve various scientific domains, including biology, chemistry, physics, or medicine. Think carefully about the scientific concepts, principles, or formulas (e.g., thermodynamics, cellular biology, or chemical reactions) required to solve the problem. If the question requires domain-specific knowledge (e.g., characteristics of organisms, properties of materials, or biological relationships), rely on that expertise even if some details are not explicitly provided. Use generalizable strategies such as applying mathematical formulas, understanding biological or chemical relationships, or interpreting scientific data. Respond with ONLY the letter of the correct answer (A, B, C, or D), without additional explanations.
+Round 1: Generated mutation from parent 0 (subsample: before=3.00, after=3.00)
+Round 1: Generated 3 total mutations
+Round 1: Surrogate scores: min=0.5000, max=0.5000, mean=0.5000
+
+  [SURROGATE] Scored 3 candidates:
+    #0: surrogate=0.5000, ucb=1.6774 | You are a science expert tasked with answering multiple-choice science questions by selecting the co...
+    #1: surrogate=0.5000, ucb=1.6774 | You are a science expert. Answer the following science question by selecting the correct option. Thi...
+    #2: surrogate=0.5000, ucb=1.6774 | You are a science expert tasked with answering multiple-choice questions by selecting the correct op...
+Round 1: Selected Top-2 from 3 by UCB: [0, 1]
+  [BANDIT] Selected Top-2 from 3: indices=[0, 1]
+  [REJECTED] Not in Top-2 by UCB (rank 3/3)
+
+  [ACCEPTED] Candidate #1 (val=0.6000, parents=[0])
+  Prompt: You are a science expert tasked with answering multiple-choice science questions by selecting the correct option. Respond ONLY with the letter of the correct answer (A, B, C, or D). Follow these steps:  
+1. **Analyze the question** to identify the scientific concept or calculation required (e.g., thermodynamics, biology, chemistry).  
+2. **Apply scientific principles or formulas** (e.g., specific heat calculations using $ q = mc\Delta T $, or knowledge of biological structures like chitin in fungi/arthropods).  
+3. **Use domain-specific factual knowledge** (e.g., recognize that fungi have chitin in cell walls, or that mercury’s specific heat is calculated via energy-temperature relationships).  
+4. **Eliminate incorrect options** based on logical reasoning or scientific accuracy.  
+5. **Select the answer letter** without providing explanations.  
+Ensure your response adheres strictly to the format: ONLY the correct option (A–D) in a code block.
+  >> New best! val=0.6000
+Iteration 1: Valset score for new program: 0.6 (coverage 20 / 20)
+Iteration 1: Val aggregate for new program: 0.6
+Iteration 1: Individual valset scores for new program: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0}
+Iteration 1: New valset pareto front scores: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0}
+Iteration 1: Valset pareto front aggregate score: 0.6
+Iteration 1: Updated valset pareto front programs: {0: {0, 1}, 1: {0, 1}, 2: {0, 1}, 3: {0, 1}, 4: {0, 1}, 5: {0, 1}, 6: {0, 1}, 7: {0, 1}, 8: {0, 1}, 9: {0, 1}, 10: {0, 1}, 11: {0, 1}, 12: {0, 1}, 13: {0, 1}, 14: {0, 1}, 15: {0, 1}, 16: {0, 1}, 17: {0, 1}, 18: {0, 1}, 19: {0, 1}}
+Iteration 1: Best valset aggregate score so far: 0.6
+Iteration 1: Best program as per aggregate score on valset: 0
+Iteration 1: Best score on valset: 0.6
+Iteration 1: Linear pareto front program index: 0
+Iteration 1: New program candidate index: 1
+  [ACCEPTED] Candidate #1 score=0.6000 parents=[0]
+
+  [ACCEPTED] Candidate #2 (val=0.5500, parents=[0])
+  Prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D). Use domain-specific knowledge, such as biological structures (e.g., chitin in fungal cell walls and arthropod exoskeletons), physical formulas (e.g., specific heat calculations), or physiological processes, to arrive at the solution. If the question requires calculations, apply the correct formula and units. Avoid providing explanations—only output the letter.
+Iteration 1: Valset score for new program: 0.55 (coverage 20 / 20)
+Iteration 1: Val aggregate for new program: 0.55
+Iteration 1: Individual valset scores for new program: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 0.0, 18: 1.0, 19: 0.0}
+Iteration 1: New valset pareto front scores: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0}
+Iteration 1: Valset pareto front aggregate score: 0.6
+Iteration 1: Updated valset pareto front programs: {0: {0, 1, 2}, 1: {0, 1, 2}, 2: {0, 1, 2}, 3: {0, 1, 2}, 4: {0, 1, 2}, 5: {0, 1, 2}, 6: {0, 1, 2}, 7: {0, 1, 2}, 8: {0, 1, 2}, 9: {0, 1, 2}, 10: {0, 1, 2}, 11: {0, 1, 2}, 12: {0, 1, 2}, 13: {0, 1, 2}, 14: {0, 1, 2}, 15: {0, 1, 2}, 16: {0, 1, 2}, 17: {0, 1}, 18: {0, 1, 2}, 19: {0, 1, 2}}
+Iteration 1: Best valset aggregate score so far: 0.6
+Iteration 1: Best program as per aggregate score on valset: 0
+Iteration 1: Best score on valset: 0.6
+Iteration 1: Linear pareto front program index: 0
+Iteration 1: New program candidate index: 2
+  [ACCEPTED] Candidate #2 score=0.5500 parents=[0]
+Round 1: Exception: 'charmap' codec can't encode character '\u2717' in position 9: character maps to <undefined>
+Traceback (most recent call last):
+  File "C:\Users\Anushree\Desktop\gepa-bandit\scieval\..\src\gepa\core\bandit_engine.py", line 552, in run
+    self._log(
+  File "C:\Users\Anushree\Desktop\gepa-bandit\scieval\..\src\gepa\core\bandit_engine.py", line 161, in _log
+    self.logger.log(msg)
+  File "C:\Users\Anushree\Desktop\gepa-bandit\scieval\..\src\gepa\logging\logger.py", line 69, in log
+    print(*args, **kwargs)
+  File "C:\Users\Anushree\Desktop\gepa-bandit\scieval\..\src\gepa\logging\logger.py", line 23, in write
+    f.write(obj)
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2717' in position 9: character maps to <undefined>
+
+Loading SciEval dataset...
+Dataset sizes â€” Train: 50, Val: 20, Test: 50
+Starting SurrogateBanditEngine...
+==========================================================================================
+SciEval + Surrogate-Guided Bandit â€” OPTIMIZATION START
+Config: {
+  "perfect_score": 1.0,
+  "seed": 42,
+  "track_best_outputs": true,
+  "bandit_config": {
+    "top_p": 5,
+    "n_parents": 2,
+    "m_mutations": 3,
+    "top_k": 2,
+    "ucb_exploration": 1.0
+  }
+}
+==========================================================================================
+
+  [SEED] Prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).
+Loading gepa state from run dir
+Round 0: Seed valset score: 0.6000
+Round 2: Selected 1 parents from Top-5: [0]
+Iteration 2: Selected program 0 score: 0.6
+Iteration 2: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Respond with ONLY the letter of the correct answer. If the correct answer is not listed among the options, respond with "E" (indicating an error in the question). Use your knowledge of scientific principles, formulas, and factual data (e.g., the half-life of carbon-14 is 5.73Ã—10Â³ years) to determine the answer. Avoid guessing; rely on domain-specific knowledge and logical reasoning.
+Round 2: Generated mutation from parent 0 (subsample: before=2.00, after=2.00)
+Iteration 2: Selected program 0 score: 0.6
+Iteration 2: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved, including domain-specific knowledge such as:  
+- The half-life of carbon-14 is **5.73 Ã— 10Â³ years** (Option B in Example 2).  
+- Nuclear decay primarily produces **radiation** (e.g., alpha, beta particles) and **heat**, not chemical energy or magnetic waves (correct answer for Example 3 is D, though options may vary).  
+Respond with ONLY the letter of the correct answer. If the question requires applying formulas (e.g., half-life calculations), use scientific principles to derive the solution. Avoid guessing; prioritize factual accuracy and logical reasoning.
+Round 2: Generated mutation from parent 0 (subsample: before=2.00, after=2.00)
+Iteration 2: Selected program 0 score: 0.6
+Iteration 2: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Focus on applying foundational scientific principles, numerical calculations (e.g., half-life formulas), and domain-specific knowledge (e.g., energy types from nuclear decay). Respond with ONLY the letter of the correct answer. Avoid explanations.
+Round 2: Generated mutation from parent 0 (subsample: before=2.00, after=2.00)
+Round 2: Generated 3 total mutations
+Round 2: Surrogate scores: min=0.5000, max=0.5000, mean=0.5000
+
+  [SURROGATE] Scored 3 candidates:
+    #0: surrogate=0.5000, ucb=1.6774 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
+    #1: surrogate=0.5000, ucb=1.6774 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
+    #2: surrogate=0.5000, ucb=1.6774 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
+Round 2: Selected Top-2 from 3 by UCB: [0, 1]
+  [BANDIT] Selected Top-2 from 3: indices=[0, 1]
+  [REJECTED] Not in Top-2 by UCB (rank 3/3)
+
+  [ACCEPTED] Candidate #1 (val=0.5500, parents=[0])
+  Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Respond with ONLY the letter of the correct answer. If the correct answer is not listed among the options, respond with "E" (indicating an error in the question). Use your knowledge of scientific principles, formulas, and factual data (e.g., the half-life of carbon-14 is 5.73Ã—10Â³ years) to determine the answer. Avoid guessing; rely on domain-specific knowledge and logical reasoning.
+  >> New best! val=0.5500
+Iteration 2: Valset score for new program: 0.55 (coverage 20 / 20)
+Iteration 2: Val aggregate for new program: 0.55
+Iteration 2: Individual valset scores for new program: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 0.0, 18: 1.0, 19: 0.0}
+Iteration 2: New valset pareto front scores: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0}
+Iteration 2: Valset pareto front aggregate score: 0.6
+Iteration 2: Updated valset pareto front programs: {0: {0, 1}, 1: {0, 1}, 2: {0, 1}, 3: {0, 1}, 4: {0, 1}, 5: {0, 1}, 6: {0, 1}, 7: {0, 1}, 8: {0, 1}, 9: {0, 1}, 10: {0, 1}, 11: {0, 1}, 12: {0, 1}, 13: {0, 1}, 14: {0, 1}, 15: {0, 1}, 16: {0, 1}, 17: {0}, 18: {0, 1}, 19: {0, 1}}
+Iteration 2: Best valset aggregate score so far: 0.6
+Iteration 2: Best program as per aggregate score on valset: 0
+Iteration 2: Best score on valset: 0.6
+Iteration 2: Linear pareto front program index: 0
+Iteration 2: New program candidate index: 1
+  [ACCEPTED] Candidate #1 score=0.5500 parents=[0]
+
+  [ACCEPTED] Candidate #2 (val=0.5000, parents=[0])
+  Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved, including domain-specific knowledge such as:  
+- The half-life of carbon-14 is **5.73 Ã— 10Â³ years** (Option B in Example 2).  
+- Nuclear decay primarily produces **radiation** (e.g., alpha, beta particles) and **heat**, not chemical energy or magnetic waves (correct answer for Example 3 is D, though options may vary).  
+Respond with ONLY the letter of the correct answer. If the question requires applying formulas (e.g., half-life calculations), use scientific principles to derive the solution. Avoid guessing; prioritize factual accuracy and logical reasoning.
+Iteration 2: Valset score for new program: 0.5 (coverage 20 / 20)
+Iteration 2: Val aggregate for new program: 0.5
+Iteration 2: Individual valset scores for new program: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 0.0, 16: 0.0, 17: 0.0, 18: 1.0, 19: 0.0}
+Iteration 2: New valset pareto front scores: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0}
+Iteration 2: Valset pareto front aggregate score: 0.6
+Iteration 2: Updated valset pareto front programs: {0: {0, 1, 2}, 1: {0, 1, 2}, 2: {0, 1, 2}, 3: {0, 1, 2}, 4: {0, 1, 2}, 5: {0, 1, 2}, 6: {0, 1, 2}, 7: {0, 1, 2}, 8: {0, 1, 2}, 9: {0, 1, 2}, 10: {0, 1, 2}, 11: {0, 1, 2}, 12: {0, 1, 2}, 13: {0, 1, 2}, 14: {0, 1, 2}, 15: {0, 1}, 16: {0, 1, 2}, 17: {0}, 18: {0, 1, 2}, 19: {0, 1, 2}}
+Iteration 2: Best valset aggregate score so far: 0.6
+Iteration 2: Best program as per aggregate score on valset: 0
+Iteration 2: Best score on valset: 0.6
+Iteration 2: Linear pareto front program index: 0
+Iteration 2: New program candidate index: 2
+  [ACCEPTED] Candidate #2 score=0.5000 parents=[0]
+Round 2: âœ— No improvement. Best remains at 0.6000 (candidate #0)
+Round 2: Surrogate retrained. MSE loss = 0.011849

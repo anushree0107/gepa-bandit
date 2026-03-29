@@ -10,7 +10,7 @@ Uses the integrated GEPA components:
 
 Endpoint: local Ollama at http://10.5.30.32:11434 with qwen3:8b
 Dataset:  OpenDFM/SciEval from HuggingFace
-Config:   train=50, val=20, test=50, max_metric_calls=300
+Config:   train=50, val=20, test=50, max_metric_calls=200
 """
 
 from __future__ import annotations
@@ -240,12 +240,13 @@ Provide ONLY the answer (the letter or the value). Do not explain."""
 class SciEvalRoundLogger:
     """Callback that logs comprehensive metrics table and all prompts."""
 
-    def __init__(self, logger: Logger, test_set: list[dict], lm: OllamaLM, max_metric_calls: int):
+    def __init__(self, logger: Logger, test_set: list[dict], lm: OllamaLM, max_metric_calls: int, surrogate: SurrogateModel):
         self.logger = logger
         self.test_set = test_set
         self.lm = lm
         self.max_calls = max_metric_calls
         self.adapter = SciEvalAdapter(lm)
+        self.surrogate = surrogate
         self.round_metrics: list[dict] = []
         self.best_val_score = 0.0
         self.best_test_score = 0.0
@@ -347,7 +348,7 @@ class SciEvalRoundLogger:
                 "train_acc": train_acc,
                 "val_acc": self.best_val_score,
                 "test_acc": test_score,
-                "error_loss": 0.0,
+                "error_loss": self.surrogate.train() if self.surrogate.is_fitted else 0.0,
                 "max_metric_calls": self.max_calls,
                 "avg_topk": avg_topk,
                 "max_topk": max_topk,
@@ -469,7 +470,7 @@ def main():
         batch_sampler = EpochShuffledBatchSampler(minibatch_size=3, rng=rng)
 
         # Callback for logging
-        round_logger = SciEvalRoundLogger(file_logger, test_set, task_lm, MAX_METRIC_CALLS)
+        round_logger = SciEvalRoundLogger(file_logger, test_set, task_lm, MAX_METRIC_CALLS, surrogate)
         callbacks = [round_logger]
 
         # Reflective mutation proposer
@@ -481,7 +482,7 @@ def main():
             module_selector=module_selector,
             batch_sampler=batch_sampler,
             perfect_score=1.0,
-            skip_perfect_score=True,
+            skip_perfect_score=False,
             experiment_tracker=experiment_tracker,
             reflection_lm=reflection_lm,
             callbacks=callbacks,
