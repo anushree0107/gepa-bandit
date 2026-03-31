@@ -1,0 +1,8 @@
+{
+    "user_query": "Hello AI please give the few most attractive and related research title bu using the following title",
+    "crafted_request": "Generate a few most attractive and related research titles based on the following research paper title: Coverage of Child Sexual Abuse on a television news channel.",
+    "final_response": "Here are **10 attractive and related research titles** based on your original request, tailored to explore the coverage of child sexual abuse on **PTV News** (Pakistan Television Channel). These title",
+    "quality": 1.0,
+    "leakage": 0.0,
+    "combined": 1.0
+}

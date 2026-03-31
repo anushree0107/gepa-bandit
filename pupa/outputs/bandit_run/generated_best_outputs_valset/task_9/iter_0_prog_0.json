@@ -1,0 +1,8 @@
+{
+    "user_query": "Hello AI please give the few most attractive and related research title bu using the following title",
+    "crafted_request": "Please provide a few most attractive and related research titles based on the following research paper topic: Coverage of Child Sexual Abuse on a News Outlet.",
+    "final_response": "Here are **five refined and specific research titles** tailored to your original request about the coverage of child sexual abuse on **PTV News**, incorporating academic depth and engaging phrasing:\n\n",
+    "quality": 0.0,
+    "leakage": 0.0,
+    "combined": 0.5
+}

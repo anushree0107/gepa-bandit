@@ -45,8 +45,8 @@ class Tee:
 
 class Logger(LoggerProtocol):
     def __init__(self, filename, mode="a"):
-        self.file_handle = open(filename, mode)
-        self.file_handle_stderr = open(filename.replace("run_log.", "run_log_stderr."), mode)
+        self.file_handle = open(filename, mode, encoding="utf-8")
+        self.file_handle_stderr = open(filename.replace("run_log.", "run_log_stderr."), mode, encoding="utf-8")
         self.modified_sys = False
 
     def __enter__(self):

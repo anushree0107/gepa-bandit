@@ -1,0 +1,8 @@
+{
+    "user_query": "# tactiq.io free youtube transcript # CHEMISTRY 201: Solutions - Converting between Percent By Mass ",
+    "crafted_request": "[LLM_ERROR] HTTPConnectionPool(host='10.5.30.32', port=11434): Read timed out. (read timeout=120)",
+    "final_response": "[LLM_ERROR] HTTPConnectionPool(host='10.5.30.32', port=11434): Read timed out. (read timeout=120)",
+    "quality": 0.0,
+    "leakage": 0.0,
+    "combined": 0.5
+}
