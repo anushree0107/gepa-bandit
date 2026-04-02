@@ -96,5 +96,62 @@
       1.0,
       1.0
     ]
+  },
+  {
+    "i": 6,
+    "selected_program_candidate": 1,
+    "subsample_ids": [
+      10,
+      26,
+      36
+    ],
+    "subsample_scores": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "new_subsample_scores": [
+      1.0,
+      0.5,
+      1.0
+    ]
+  },
+  {
+    "i": 7,
+    "selected_program_candidate": 10,
+    "subsample_ids": [
+      0,
+      44,
+      18
+    ],
+    "subsample_scores": [
+      0.5,
+      1.0,
+      1.0
+    ],
+    "new_subsample_scores": [
+      0.5,
+      1.0,
+      0.5
+    ]
+  },
+  {
+    "i": 8,
+    "selected_program_candidate": 3,
+    "subsample_ids": [
+      42,
+      7,
+      35
+    ],
+    "subsample_scores": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "new_subsample_scores": [
+      1.0,
+      1.0,
+      1.0
+    ]
   }
 ]

@@ -62,8 +62,36 @@ from gepa.core.data_loader import ListDataLoader, ensure_loader
 from gepa.core.state import FrontierType
 from gepa.lm import LM
 from gepa.logging.experiment_tracker import create_experiment_tracker
-from gepa.logging.logger import Logger
+import logging
+from gepa.logging.logger import LoggerProtocol
 from gepa.proposer.reflective_mutation.base import CandidateSelector, ReflectionComponentSelector
+
+# Standard Python Logger Adapter for GEPA
+class StandardLoggerAdapter(LoggerProtocol):
+    def __init__(self, logger: logging.Logger):
+        self.logger = logger
+    def log(self, message: str):
+        self.logger.info(message)
+    def __enter__(self):
+        return self
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        pass
+
+def setup_logger(log_file: str) -> logging.Logger:
+    logger = logging.getLogger("pupa")
+    logger.setLevel(logging.INFO)
+    if not logger.handlers:
+        formatter = logging.Formatter(fmt="%(asctime)s | %(levelname)-8s | %(message)s", datefmt="%Y-%m-%d %H:%M:%S")
+        ch = logging.StreamHandler(sys.stdout)
+        ch.setFormatter(formatter)
+        logger.addHandler(ch)
+        fh = logging.FileHandler(log_file, mode="a", encoding="utf-8")
+        fh.setFormatter(formatter)
+        logger.addHandler(fh)
+    return logger
+
+
+    
 from gepa.proposer.reflective_mutation.reflective_mutation import ReflectiveMutationProposer
 from gepa.strategies.batch_sampler import EpochShuffledBatchSampler
 from gepa.strategies.candidate_selector import ParetoCandidateSelector
@@ -75,14 +103,14 @@ from gepa.utils import MaxMetricCallsStopper
 # ---------------------------------------------------------------------------
 # Config
 # ---------------------------------------------------------------------------
-OLLAMA_URL = "http://10.5.30.32:11434/api/generate"
+OLLAMA_URL = "http://103.42.50.203:11534/api/generate"
 TRUSTED_MODEL = "qwen3:8b"    # Small local model — this prompt is OPTIMIZED
 UNTRUSTED_MODEL = "qwen3:8b"  # Large external model — only sees redacted request
 
 TRAIN_SIZE = 50
-VAL_SIZE = 20
+VAL_SIZE = 30
 TEST_SIZE = 50
-MAX_METRIC_CALLS = 300
+MAX_METRIC_CALLS = 500
 
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "outputs")
 LOG_FILE = os.path.join(OUTPUT_DIR, "run_log.txt")
@@ -342,17 +370,19 @@ class PUPAAdapter:
 class PUPARoundLogger:
     """Callback that logs comprehensive metrics table and all prompts."""
 
-    def __init__(self, logger: Logger, test_set: list[dict], trusted_lm: OllamaLM, untrusted_lm: OllamaLM, max_metric_calls: int):
-        self.logger = logger
+    def __init__(self, logger: logging.Logger, test_set: list[dict], trusted_lm: OllamaLM, untrusted_lm: OllamaLM, max_metric_calls: int, surrogate: SurrogateModel):
+        self.logger = StandardLoggerAdapter(logger)
         self.test_set = test_set
         self.trusted_lm = trusted_lm
         self.untrusted_lm = untrusted_lm
         self.max_calls = max_metric_calls
+        self.surrogate = surrogate
         self.adapter = PUPAAdapter(trusted_lm, untrusted_lm)
         self.round_metrics: list[dict] = []
         self.best_val_score = 0.0
         self.best_test_score = 0.0
         self.best_prompt = ""
+        self.last_evaluated_test_prompt = ""
         self.round_topk_scores: list[float] = []
 
     def on_optimization_start(self, event: OptimizationStartEvent) -> None:
@@ -363,6 +393,13 @@ class PUPARoundLogger:
         seed = event["seed_candidate"]
         self.best_prompt = next(iter(seed.values()))
         self.logger.log(f"\n  [SEED] Redaction Prompt:\n{self.best_prompt}")
+        
+        # Evaluate seed candidate on test set to establish baseline
+        candidate = {"redaction_prompt": self.best_prompt}
+        eval_result = self.adapter.evaluate(self.test_set, candidate, capture_traces=False)
+        self.best_test_score = sum(eval_result.scores) / len(eval_result.scores) if eval_result.scores else 0.0
+        self.last_evaluated_test_prompt = self.best_prompt
+        self.logger.log(f"  [SEED] Baseline Test Accuracy: {self.best_test_score:.4f}")
 
     def on_valset_evaluated(self, event: ValsetEvaluatedEvent) -> None:
         self.round_topk_scores.append(event["average_score"])
@@ -416,32 +453,34 @@ class PUPARoundLogger:
                     best_state_score = sc
                     best_state_idx = i
 
+            # Monotonicity test eval: evaluate on test set ONLY when val improves
+            test_score = self.best_test_score
             if best_state_score > self.best_val_score:
                 self.best_val_score = best_state_score
-                self.best_prompt = next(iter(state.program_candidates[best_state_idx].values()))
+                new_best_prompt = next(iter(state.program_candidates[best_state_idx].values()))
 
-            # Test evaluation using best prompt
-            test_score = self.best_test_score
-            if self.best_prompt:
-                candidate = {"redaction_prompt": self.best_prompt}
-                eval_result = self.adapter.evaluate(self.test_set, candidate, capture_traces=False)
-                test_score = sum(eval_result.scores) / len(eval_result.scores) if eval_result.scores else 0.0
-                self.best_test_score = test_score
+                if new_best_prompt != self.last_evaluated_test_prompt:
+                    candidate = {"redaction_prompt": new_best_prompt}
+                    eval_result = self.adapter.evaluate(self.test_set, candidate, capture_traces=False)
+                    test_score = sum(eval_result.scores) / len(eval_result.scores) if eval_result.scores else 0.0
+                    self.best_test_score = test_score
+                    self.last_evaluated_test_prompt = new_best_prompt
+                
+                self.best_prompt = new_best_prompt
 
-            train_acc = best_state_score
+            val_acc = best_state_score
             topk = self.round_topk_scores if self.round_topk_scores else [0.0]
             avg_topk = sum(topk) / len(topk)
             max_topk = max(topk)
             min_topk = min(topk)
 
             metrics = {
-                "round": round_num,
+                "rounds": round_num,
                 "llm_calls": state.total_num_evals,
-                "train_acc": train_acc,
-                "val_acc": self.best_val_score,
-                "test_acc": test_score,
-                "error_loss": 0.0,
-                "max_metric_calls": self.max_calls,
+                "val_accuracy": val_acc,
+                "best_val_accuracy": self.best_val_score,
+                "test_accuracy": test_score,
+                "surrogate_loss": self.surrogate.train() if getattr(self.surrogate, "is_fitted", False) else 0.0,
                 "avg_topk": avg_topk,
                 "max_topk": max_topk,
                 "min_topk": min_topk,
@@ -484,8 +523,8 @@ class PUPARoundLogger:
 
     def _print_table(self) -> None:
         header = (
-            f"{'Round':>6} | {'LLM Calls':>10} | {'Train Acc':>10} | {'Val Acc':>10} | "
-            f"{'Test Acc':>10} | {'Error/Loss':>11} | {'Max Calls':>10} | "
+            f"{'Rounds':>6} | {'LLM Calls':>10} | {'Val Acc':>10} | {'Best Val Acc':>13} | "
+            f"{'Test Acc (Selected)':>20} | {'Surrogate Loss':>15} | "
             f"{'Avg Top-k':>10} | {'Max Top-k':>10} | {'Min Top-k':>10}"
         )
         sep = "-" * len(header)
@@ -493,12 +532,11 @@ class PUPARoundLogger:
         self.logger.log(header)
         self.logger.log(sep)
         for m in self.round_metrics:
-            loss_str = f"{m['error_loss']:.6f}" if m["error_loss"] != float("inf") else "     inf"
+            loss_str = f"{m['surrogate_loss']:.6f}" if m['surrogate_loss'] != float("inf") else "     inf"
             self.logger.log(
-                f"{m['round']:>6} | {m['llm_calls']:>10} | {m['train_acc']:>10.4f} | "
-                f"{m['val_acc']:>10.4f} | {m['test_acc']:>10.4f} | {loss_str:>11} | "
-                f"{m['max_metric_calls']:>10} | {m['avg_topk']:>10.4f} | "
-                f"{m['max_topk']:>10.4f} | {m['min_topk']:>10.4f}"
+                f"{m['rounds']:>6} | {m['llm_calls']:>10} | {m['val_accuracy']:>10.4f} | "
+                f"{m['best_val_accuracy']:>13.4f} | {m['test_accuracy']:>20.4f} | {loss_str:>15} | "
+                f"{m['avg_topk']:>10.4f} | {m['max_topk']:>10.4f} | {m['min_topk']:>10.4f}"
             )
         self.logger.log(sep)
 
@@ -509,7 +547,8 @@ class PUPARoundLogger:
 
 def main():
     os.makedirs(OUTPUT_DIR, exist_ok=True)
-    with Logger(LOG_FILE) as file_logger:
+    base_logger = setup_logger(LOG_FILE)
+    with StandardLoggerAdapter(base_logger) as file_logger:
         file_logger.log("Loading PUPA dataset (pupa_new)...")
         train_set, val_set, test_set = load_pupa_dataset()
         file_logger.log(f"Dataset sizes — Train: {len(train_set)}, Val: {len(val_set)}, Test: {len(test_set)}")
@@ -564,7 +603,7 @@ def main():
         batch_sampler = EpochShuffledBatchSampler(minibatch_size=3, rng=rng)
 
         # Callback
-        round_logger = PUPARoundLogger(file_logger, test_set, trusted_lm, untrusted_lm, MAX_METRIC_CALLS)
+        round_logger = PUPARoundLogger(base_logger, test_set, trusted_lm, untrusted_lm, MAX_METRIC_CALLS, surrogate)
         callbacks = [round_logger]
 
         # Reflective mutation proposer
