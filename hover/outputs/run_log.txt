@@ -150,3 +150,32 @@ Given a **claim** and **hop_details** (previous search queries, retrieved docume
 - Use the **claim’s unverified fragments** as query anchors.  
 - Incorporate **specific terms** from summaries (e.g., "ruined castle," "sitarist," "nine-tailed fox") to narrow results.  
 - Avoid vague terms; prioritize **exact phrasing** from the claim to align with Wikipedia’s structured data.
+2026-04-03 11:29:46 | INFO     | Round 1: Generated mutation from parent 0 (subsample: before=3.00, after=3.00)
+2026-04-03 11:29:46 | INFO     | Round 1: Generated 3 total mutations
+2026-04-03 11:29:46 | INFO     | Round 1: Surrogate scores: min=0.5000, max=0.5000, mean=0.5000
+2026-04-03 11:29:46 | INFO     | 
+  [SURROGATE] Scored 3 candidates:
+2026-04-03 11:29:46 | INFO     |     #0: surrogate=0.5000, ucb=1.6774 | summarize_prompt=You are a helpful assistant. Summarize the following Wikipedia documents to extract facts relevant to verifying the given claim. Focus on key entities (names, places, dates), relationships (e.g., "was born at," "helped introduce"), and factual details (e.g., "aired on SBS from August 11 to September 30, 2010"). Be concise but include all relevant information, even if some details are not explicitly mentioned in the documents. Prioritize exact matches of key terms from the claim (e.g., "Ballad Prince," "ruined castle") and note if critical elements of the claim (e.g., birthplace, collaboration) are confirmed, contradicted, or absent in the sources. Use domain-specific knowledge (e.g., historical contexts, cultural references) to contextualize findings where applicable. Ensure summaries explicitly state whether the claim is fully supported, partially supported, or unsupported based on the evidence.
+2026-04-03 11:29:46 | INFO     |     #1: surrogate=0.5000, ucb=1.6774 | summarize_prompt=You are a helpful assistant. Summarize the following Wikipedia documents to extract facts relevant to verifying the given claim. Focus on key entities, relationships, and factual details. Be concise but include all relevant information.
+2026-04-03 11:29:46 | INFO     |     #2: surrogate=0.5000, ucb=1.6774 | summarize_prompt=You are a helpful assistant. Summarize the following Wikipedia documents to extract facts relevant to verifying the given claim. Focus on key entities, relationships, and factual details. Be concise but include all relevant information.
+2026-04-03 11:29:46 | INFO     | Round 1: Selected Top-2 from 3 by UCB: [0, 1]
+2026-04-03 11:29:46 | INFO     |   [BANDIT] Selected Top-2 from 3: indices=[0, 1]
+2026-04-03 11:29:46 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 3/3)
+2026-04-03 11:40:35 | INFO     | 
+  [ACCEPTED] Candidate #1 (val=0.8000, parents=[0])
+2026-04-03 11:40:35 | INFO     |     summarize_prompt: You are a helpful assistant. Summarize the following Wikipedia documents to extract facts relevant to verifying the given claim. Focus on key entities (names, places, dates), relationships (e.g., "was born at," "helped introduce"), and factual details (e.g., "aired on SBS from August 11 to September 30, 2010"). Be concise but include all relevant information, even if some details are not explicitly mentioned in the documents. Prioritize exact matches of key terms from the claim (e.g., "Ballad Prince," "ruined castle") and note if critical elements of the claim (e.g., birthplace, collaboration) are confirmed, contradicted, or absent in the sources. Use domain-specific knowledge (e.g., historical contexts, cultural references) to contextualize findings where applicable. Ensure summaries explicitly state whether the claim is fully supported, partially supported, or unsupported based on the evidence.
+2026-04-03 11:40:35 | INFO     |     create_query_hop2_prompt: Based on the claim and the evidence summary from the first search, generate a follow-up search query to find additional Wikipedia articles that can help verify parts of the claim not yet covered. Return ONLY the query, nothing else.
+2026-04-03 11:40:35 | INFO     |     create_query_hop3_prompt: Based on the claim and the evidence collected so far, generate a final follow-up search query to find any remaining Wikipedia articles needed to fully verify the claim. Focus on entities or relationships not yet found. Return ONLY the query, nothing else.
+2026-04-03 11:40:35 | INFO     |   >> New best! val=0.8000
+2026-04-03 11:40:35 | INFO     | Iteration 1: Valset score for new program: 0.8 (coverage 30 / 30)
+2026-04-03 11:40:35 | INFO     | Iteration 1: Val aggregate for new program: 0.8
+2026-04-03 11:40:35 | INFO     | Iteration 1: Individual valset scores for new program: {0: 1.0, 1: 1.0, 2: 1.0, 3: 1.0, 4: 1.0, 5: 0.0, 6: 1.0, 7: 0.0, 8: 1.0, 9: 0.0, 10: 1.0, 11: 1.0, 12: 0.0, 13: 1.0, 14: 1.0, 15: 0.0, 16: 1.0, 17: 1.0, 18: 1.0, 19: 1.0, 20: 1.0, 21: 1.0, 22: 1.0, 23: 1.0, 24: 1.0, 25: 1.0, 26: 0.0, 27: 1.0, 28: 1.0, 29: 1.0}
+2026-04-03 11:40:35 | INFO     | Iteration 1: New valset pareto front scores: {0: 1.0, 1: 1.0, 2: 1.0, 3: 1.0, 4: 1.0, 5: 1.0, 6: 1.0, 7: 0.0, 8: 1.0, 9: 1.0, 10: 1.0, 11: 1.0, 12: 0.0, 13: 1.0, 14: 1.0, 15: 0.0, 16: 1.0, 17: 1.0, 18: 1.0, 19: 1.0, 20: 1.0, 21: 1.0, 22: 1.0, 23: 1.0, 24: 1.0, 25: 1.0, 26: 1.0, 27: 1.0, 28: 1.0, 29: 1.0}
+2026-04-03 11:40:35 | INFO     | Iteration 1: Valset pareto front aggregate score: 0.9
+2026-04-03 11:40:35 | INFO     | Iteration 1: Updated valset pareto front programs: {0: {0, 1}, 1: {0, 1}, 2: {0, 1}, 3: {0, 1}, 4: {0, 1}, 5: {0}, 6: {0, 1}, 7: {0, 1}, 8: {0, 1}, 9: {0}, 10: {0, 1}, 11: {0, 1}, 12: {0, 1}, 13: {0, 1}, 14: {0, 1}, 15: {0, 1}, 16: {0, 1}, 17: {1}, 18: {0, 1}, 19: {0, 1}, 20: {0, 1}, 21: {0, 1}, 22: {0, 1}, 23: {0, 1}, 24: {0, 1}, 25: {0, 1}, 26: {0}, 27: {0, 1}, 28: {0, 1}, 29: {0, 1}}
+2026-04-03 11:40:35 | INFO     | Iteration 1: Best valset aggregate score so far: 0.8666666666666667
+2026-04-03 11:40:35 | INFO     | Iteration 1: Best program as per aggregate score on valset: 0
+2026-04-03 11:40:35 | INFO     | Iteration 1: Best score on valset: 0.8666666666666667
+2026-04-03 11:40:35 | INFO     | Iteration 1: Linear pareto front program index: 0
+2026-04-03 11:40:35 | INFO     | Iteration 1: New program candidate index: 1
+2026-04-03 11:40:35 | INFO     |   [ACCEPTED] Candidate #1 score=0.8000 parents=[0]
