@@ -1,0 +1,23 @@
+{
+    "cover_match": 1.0,
+    "score": 1.0,
+    "gt_titles": [
+        "henry jaglom",
+        "rise blood hunter",
+        "sebastian gutierrez"
+    ],
+    "found_titles": [
+        "rise blood hunter",
+        "how glory goes",
+        "sebastian gutierrez",
+        "thomas amp mack center",
+        "alexander hall",
+        "patrick ramos",
+        "henry jaglom",
+        "todd haynes",
+        "bksh amp associates worldwide",
+        "pavel ruminov",
+        "sidney salkow"
+    ],
+    "label": "SUPPORTED"
+}

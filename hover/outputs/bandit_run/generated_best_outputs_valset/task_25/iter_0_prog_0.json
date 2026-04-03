@@ -1,0 +1,23 @@
+{
+    "cover_match": 1.0,
+    "score": 1.0,
+    "gt_titles": [
+        "east jaffrey historic district",
+        "new hampshire route 124",
+        "marlborough new hampshire"
+    ],
+    "found_titles": [
+        "carroll county ohio",
+        "how glory goes",
+        "new hampshire route 124",
+        "thomas amp mack center",
+        "john dunbar mp",
+        "edmonton",
+        "marlborough new hampshire",
+        "east jaffrey historic district",
+        "bksh amp associates worldwide",
+        "kentucky",
+        "east south central states"
+    ],
+    "label": "SUPPORTED"
+}

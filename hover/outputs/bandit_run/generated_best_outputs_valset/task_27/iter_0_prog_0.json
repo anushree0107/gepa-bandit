@@ -1,0 +1,24 @@
+{
+    "cover_match": 1.0,
+    "score": 1.0,
+    "gt_titles": [
+        "chengiopanax sciadophylloides",
+        "amaryllis",
+        "hippeastrum puniceum",
+        "eleutherococcus"
+    ],
+    "found_titles": [
+        "amaryllis",
+        "sonerila",
+        "thomas amp mack center",
+        "hippeastrum puniceum",
+        "polar bear cocktail",
+        "myrtus",
+        "eleutherococcus",
+        "eustoma",
+        "gabe turner",
+        "chengiopanax sciadophylloides",
+        "scaevola plant"
+    ],
+    "label": "NOT_SUPPORTED"
+}

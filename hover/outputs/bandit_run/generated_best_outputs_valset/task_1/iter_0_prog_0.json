@@ -1,0 +1,22 @@
+{
+    "cover_match": 1.0,
+    "score": 1.0,
+    "gt_titles": [
+        "broadfield railway station",
+        "east lancashire railway",
+        "summerseat railway station"
+    ],
+    "found_titles": [
+        "national league division",
+        "how glory goes",
+        "thomas amp mack center",
+        "john dunbar mp",
+        "east lancashire railway",
+        "summerseat railway station",
+        "bksh amp associates worldwide",
+        "broadfield railway station",
+        "southern railway austria",
+        "menu"
+    ],
+    "label": "SUPPORTED"
+}

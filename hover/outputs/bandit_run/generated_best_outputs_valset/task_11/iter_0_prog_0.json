@@ -1,0 +1,22 @@
+{
+    "cover_match": 1.0,
+    "score": 1.0,
+    "gt_titles": [
+        "advanced micro devices",
+        "level 3 communications",
+        "radeon hd 5000 series",
+        "amd eyefinity"
+    ],
+    "found_titles": [
+        "how glory goes",
+        "thomas amp mack center",
+        "massachusetts institute of technology",
+        "bksh amp associates worldwide",
+        "level 3 communications",
+        "amd eyefinity",
+        "gabe turner",
+        "advanced micro devices",
+        "radeon hd 5000 series"
+    ],
+    "label": "SUPPORTED"
+}

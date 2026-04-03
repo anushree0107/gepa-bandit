@@ -1,0 +1,7 @@
+[
+  {
+    "summarize_prompt": "You are a helpful assistant. Summarize the following Wikipedia documents to extract facts relevant to verifying the given claim. Focus on key entities, relationships, and factual details. Be concise but include all relevant information.",
+    "create_query_hop2_prompt": "Based on the claim and the evidence summary from the first search, generate a follow-up search query to find additional Wikipedia articles that can help verify parts of the claim not yet covered. Return ONLY the query, nothing else.",
+    "create_query_hop3_prompt": "Based on the claim and the evidence collected so far, generate a final follow-up search query to find any remaining Wikipedia articles needed to fully verify the claim. Focus on entities or relationships not yet found. Return ONLY the query, nothing else."
+  }
+]

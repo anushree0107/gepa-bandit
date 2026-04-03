@@ -1,0 +1,22 @@
+{
+    "cover_match": 1.0,
+    "score": 1.0,
+    "gt_titles": [
+        "highland mall",
+        "highland capital metrorail station"
+    ],
+    "found_titles": [
+        "how glory goes",
+        "george dayton",
+        "thomas amp mack center",
+        "georgetown washington dc",
+        "highland capital metrorail station",
+        "john dunbar mp",
+        "highland mall",
+        "bksh amp associates worldwide",
+        "rick galindo",
+        "advanced micro devices",
+        "b dalton"
+    ],
+    "label": "SUPPORTED"
+}

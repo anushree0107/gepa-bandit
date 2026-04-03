@@ -1,0 +1,22 @@
+{
+    "cover_match": 1.0,
+    "score": 1.0,
+    "gt_titles": [
+        "quantum universe",
+        "brian cox physicist"
+    ],
+    "found_titles": [
+        "hannah arendt",
+        "how glory goes",
+        "quantum universe",
+        "massachusetts institute of technology",
+        "thomas amp mack center",
+        "patrick ramos",
+        "brian cox physicist",
+        "bksh amp associates worldwide",
+        "gabe turner",
+        "polar bear cocktail",
+        "kazuo ishiguro"
+    ],
+    "label": "NOT_SUPPORTED"
+}

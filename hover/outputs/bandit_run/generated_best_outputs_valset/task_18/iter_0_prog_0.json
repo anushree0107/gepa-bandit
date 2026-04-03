@@ -1,0 +1,21 @@
+{
+    "cover_match": 1.0,
+    "score": 1.0,
+    "gt_titles": [
+        "fort mchenry",
+        "columbian iron works and dry dock co"
+    ],
+    "found_titles": [
+        "how glory goes",
+        "columbian iron works and dry dock co",
+        "thomas amp mack center",
+        "fort mchenry",
+        "john dunbar mp",
+        "buffalo bills",
+        "bksh amp associates worldwide",
+        "battle of antietam",
+        "kentucky",
+        "polar bear cocktail"
+    ],
+    "label": "SUPPORTED"
+}

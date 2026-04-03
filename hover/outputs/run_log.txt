@@ -1,0 +1,152 @@
+2026-04-02 23:36:10 | INFO     | Loading HoVer dataset...
+2026-04-02 23:37:53 | INFO     | Loading HoVer dataset...
+2026-04-02 23:38:23 | INFO     | Dataset sizes — Train: 50, Val: 30, Test: 50
+2026-04-02 23:38:23 | INFO     | Starting SurrogateBanditEngine...
+2026-04-02 23:38:23 | INFO     | ==========================================================================================
+2026-04-02 23:38:23 | INFO     | HoVer + Surrogate-Guided Bandit — OPTIMIZATION START
+2026-04-02 23:38:23 | INFO     | Config: {
+  "perfect_score": 1.0,
+  "seed": 42,
+  "track_best_outputs": true,
+  "bandit_config": {
+    "top_p": 5,
+    "n_parents": 2,
+    "m_mutations": 3,
+    "top_k": 2,
+    "ucb_exploration": 1.0
+  }
+}
+2026-04-02 23:38:23 | INFO     | ==========================================================================================
+2026-04-02 23:38:23 | INFO     | 
+  [SEED] summarize_prompt: You are a helpful assistant. Summarize the following Wikipedia documents to extract facts relevant to verifying the given claim. Focus on key entities, relationships, and factual details. Be concise b...
+2026-04-02 23:38:23 | INFO     | 
+  [SEED] create_query_hop2_prompt: Based on the claim and the evidence summary from the first search, generate a follow-up search query to find additional Wikipedia articles that can help verify parts of the claim not yet covered. Retu...
+2026-04-02 23:38:23 | INFO     | 
+  [SEED] create_query_hop3_prompt: Based on the claim and the evidence collected so far, generate a final follow-up search query to find any remaining Wikipedia articles needed to fully verify the claim. Focus on entities or relationsh...
+2026-04-02 23:39:48 | INFO     | Loading HoVer dataset...
+2026-04-02 23:39:48 | INFO     | Dataset sizes — Train: 50, Val: 30, Test: 50
+2026-04-02 23:39:48 | INFO     | Starting SurrogateBanditEngine...
+2026-04-02 23:39:48 | INFO     | ==========================================================================================
+2026-04-02 23:39:48 | INFO     | HoVer + Surrogate-Guided Bandit — OPTIMIZATION START
+2026-04-02 23:39:48 | INFO     | Config: {
+  "perfect_score": 1.0,
+  "seed": 42,
+  "track_best_outputs": true,
+  "bandit_config": {
+    "top_p": 5,
+    "n_parents": 2,
+    "m_mutations": 3,
+    "top_k": 2,
+    "ucb_exploration": 1.0
+  }
+}
+2026-04-02 23:39:48 | INFO     | ==========================================================================================
+2026-04-02 23:39:48 | INFO     | 
+  [SEED] summarize_prompt: You are a helpful assistant. Summarize the following Wikipedia documents to extract facts relevant to verifying the given claim. Focus on key entities, relationships, and factual details. Be concise but include all relevant information.
+2026-04-02 23:39:48 | INFO     | 
+  [SEED] create_query_hop2_prompt: Based on the claim and the evidence summary from the first search, generate a follow-up search query to find additional Wikipedia articles that can help verify parts of the claim not yet covered. Return ONLY the query, nothing else.
+2026-04-02 23:39:48 | INFO     | 
+  [SEED] create_query_hop3_prompt: Based on the claim and the evidence collected so far, generate a final follow-up search query to find any remaining Wikipedia articles needed to fully verify the claim. Focus on entities or relationships not yet found. Return ONLY the query, nothing else.
+2026-04-03 00:02:24 | INFO     | Loading HoVer dataset...
+2026-04-03 00:02:24 | INFO     | Dataset sizes — Train: 50, Val: 30, Test: 50
+2026-04-03 00:02:24 | INFO     | Starting SurrogateBanditEngine...
+2026-04-03 00:02:24 | INFO     | ==========================================================================================
+2026-04-03 00:02:24 | INFO     | HoVer + Surrogate-Guided Bandit — OPTIMIZATION START
+2026-04-03 00:02:24 | INFO     | Config: {
+  "perfect_score": 1.0,
+  "seed": 42,
+  "track_best_outputs": true,
+  "bandit_config": {
+    "top_p": 5,
+    "n_parents": 2,
+    "m_mutations": 3,
+    "top_k": 2,
+    "ucb_exploration": 1.0
+  }
+}
+2026-04-03 00:02:24 | INFO     | ==========================================================================================
+2026-04-03 00:02:24 | INFO     | 
+  [SEED] summarize_prompt: You are a helpful assistant. Summarize the following Wikipedia documents to extract facts relevant to verifying the given claim. Focus on key entities, relationships, and factual details. Be concise but include all relevant information.
+2026-04-03 00:02:24 | INFO     | 
+  [SEED] create_query_hop2_prompt: Based on the claim and the evidence summary from the first search, generate a follow-up search query to find additional Wikipedia articles that can help verify parts of the claim not yet covered. Return ONLY the query, nothing else.
+2026-04-03 00:02:24 | INFO     | 
+  [SEED] create_query_hop3_prompt: Based on the claim and the evidence collected so far, generate a final follow-up search query to find any remaining Wikipedia articles needed to fully verify the claim. Focus on entities or relationships not yet found. Return ONLY the query, nothing else.
+2026-04-03 09:40:06 | INFO     | Loading HoVer dataset...
+2026-04-03 09:40:07 | INFO     | Dataset sizes — Train: 50, Val: 30, Test: 50
+2026-04-03 09:40:07 | INFO     | Starting SurrogateBanditEngine...
+2026-04-03 09:40:07 | INFO     | ==========================================================================================
+2026-04-03 09:40:07 | INFO     | HoVer + Surrogate-Guided Bandit — OPTIMIZATION START
+2026-04-03 09:40:07 | INFO     | Config: {
+  "perfect_score": 1.0,
+  "seed": 42,
+  "track_best_outputs": true,
+  "bandit_config": {
+    "top_p": 5,
+    "n_parents": 2,
+    "m_mutations": 3,
+    "top_k": 2,
+    "ucb_exploration": 1.0
+  }
+}
+2026-04-03 09:40:07 | INFO     | ==========================================================================================
+2026-04-03 09:40:07 | INFO     | 
+  [SEED] summarize_prompt: You are a helpful assistant. Summarize the following Wikipedia documents to extract facts relevant to verifying the given claim. Focus on key entities, relationships, and factual details. Be concise but include all relevant information.
+2026-04-03 09:40:07 | INFO     | 
+  [SEED] create_query_hop2_prompt: Based on the claim and the evidence summary from the first search, generate a follow-up search query to find additional Wikipedia articles that can help verify parts of the claim not yet covered. Return ONLY the query, nothing else.
+2026-04-03 09:40:07 | INFO     | 
+  [SEED] create_query_hop3_prompt: Based on the claim and the evidence collected so far, generate a final follow-up search query to find any remaining Wikipedia articles needed to fully verify the claim. Focus on entities or relationships not yet found. Return ONLY the query, nothing else.
+2026-04-03 10:08:06 | INFO     |   [SEED] Baseline Test Accuracy: 0.0000
+2026-04-03 10:33:54 | INFO     | Loading HoVer dataset...
+2026-04-03 10:33:54 | INFO     | Dataset sizes — Train: 50, Val: 30, Test: 50
+2026-04-03 10:33:54 | INFO     | Building Wikipedia corpus for embedding retrieval...
+2026-04-03 10:42:22 | INFO     | Corpus ready: 357 documents indexed
+2026-04-03 10:42:22 | INFO     | Starting SurrogateBanditEngine...
+2026-04-03 10:42:22 | INFO     | ==========================================================================================
+2026-04-03 10:42:22 | INFO     | HoVer + Surrogate-Guided Bandit + Arctic Embed — OPTIMIZATION START
+2026-04-03 10:42:22 | INFO     | Config: {
+  "perfect_score": 1.0,
+  "seed": 42,
+  "track_best_outputs": true,
+  "bandit_config": {
+    "top_p": 5,
+    "n_parents": 2,
+    "m_mutations": 3,
+    "top_k": 2,
+    "ucb_exploration": 1.0
+  }
+}
+2026-04-03 10:42:22 | INFO     | ==========================================================================================
+2026-04-03 10:42:22 | INFO     | 
+  [SEED] summarize_prompt: You are a helpful assistant. Summarize the following Wikipedia documents to extract facts relevant to verifying the given claim. Focus on key entities, relationships, and factual details. Be concise but include all relevant information.
+2026-04-03 10:42:22 | INFO     | 
+  [SEED] create_query_hop2_prompt: Based on the claim and the evidence summary from the first search, generate a follow-up search query to find additional Wikipedia articles that can help verify parts of the claim not yet covered. Return ONLY the query, nothing else.
+2026-04-03 10:42:22 | INFO     | 
+  [SEED] create_query_hop3_prompt: Based on the claim and the evidence collected so far, generate a final follow-up search query to find any remaining Wikipedia articles needed to fully verify the claim. Focus on entities or relationships not yet found. Return ONLY the query, nothing else.
+2026-04-03 11:06:52 | INFO     |   [SEED] Baseline Test Cover Exact Match: 0.8600
+2026-04-03 11:21:05 | INFO     | Round 0: Seed valset score: 0.8667
+2026-04-03 11:21:05 | INFO     | Round 1: Selected 1 parents from Top-5: [0]
+2026-04-03 11:21:05 | INFO     | Iteration 1: Selected program 0 score: 0.8666666666666667
+2026-04-03 11:22:06 | INFO     | Iteration 1: Proposed new text for summarize_prompt: You are a helpful assistant. Summarize the following Wikipedia documents to extract facts relevant to verifying the given claim. Focus on key entities (names, places, dates), relationships (e.g., "was born at," "helped introduce"), and factual details (e.g., "aired on SBS from August 11 to September 30, 2010"). Be concise but include all relevant information, even if some details are not explicitly mentioned in the documents. Prioritize exact matches of key terms from the claim (e.g., "Ballad Prince," "ruined castle") and note if critical elements of the claim (e.g., birthplace, collaboration) are confirmed, contradicted, or absent in the sources. Use domain-specific knowledge (e.g., historical contexts, cultural references) to contextualize findings where applicable. Ensure summaries explicitly state whether the claim is fully supported, partially supported, or unsupported based on the evidence.
+2026-04-03 11:23:15 | INFO     | Round 1: Generated mutation from parent 0 (subsample: before=3.00, after=3.00)
+2026-04-03 11:23:15 | INFO     | Iteration 1: Selected program 0 score: 0.8666666666666667
+2026-04-03 11:24:13 | INFO     | Iteration 1: Proposed new text for create_query_hop2_prompt: Based on the claim and the evidence summary from the first search, identify specific elements of the claim that remain unverified. Generate a follow-up search query focused on these gaps, prioritizing precise terms (e.g., names, dates, titles) mentioned in the summary. Ensure the query is tailored to retrieve Wikipedia articles that address unconfirmed details, such as specific roles, locations, or events. Return ONLY the query, nothing else.
+2026-04-03 11:25:23 | INFO     | Round 1: Generated mutation from parent 0 (subsample: before=3.00, after=3.00)
+2026-04-03 11:25:23 | INFO     | Iteration 1: Selected program 0 score: 0.8666666666666667
+2026-04-03 11:26:24 | INFO     | Iteration 1: Proposed new text for create_query_hop3_prompt: ### Instruction  
+Given a **claim** and **hop_details** (previous search queries, retrieved documents, and summaries), generate a **final follow-up search query** to identify any **remaining Wikipedia articles** needed to fully verify the claim. Focus on **entities or relationships not yet confirmed** (e.g., specific dates, locations, roles, or unmentioned collaborators).  
+
+**Key Requirements:**  
+1. **Precision:** Prioritize exact matches for unverified details (e.g., "August 11–September 30, 2010" or "SBS channel").  
+2. **Entity Focus:** Highlight entities not yet resolved (e.g., "Cairnburgh Castle," "Ballad Prince," or "gayaki ang").  
+3. **Relationships:** Explicitly address unconfirmed relationships (e.g., "student of Baba Allauddin Khan").  
+4. **Format:** Return **only the search query** (no explanations, summaries, or additional text).  
+
+**Domain-Specific Guidance:**  
+- For claims involving **historical figures**, verify birth/death dates, notable works, or specific titles (e.g., "Isabella Kelly’s birthplace").  
+- For **cultural/intellectual claims**, confirm methodologies, influences, or collaborative roles (e.g., "Vilayat Khan’s development of gayaki ang").  
+- For **media-related claims**, ensure accuracy in airing dates, platforms, or cast members (e.g., "SBS romantic comedy with Lee Seung-gi").  
+
+**Generalizable Strategy:**  
+- Use the **claim’s unverified fragments** as query anchors.  
+- Incorporate **specific terms** from summaries (e.g., "ruined castle," "sitarist," "nine-tailed fox") to narrow results.  
+- Avoid vague terms; prioritize **exact phrasing** from the claim to align with Wikipedia’s structured data.

@@ -1,0 +1,24 @@
+{
+    "cover_match": 1.0,
+    "score": 1.0,
+    "gt_titles": [
+        "me 262 project",
+        "messerschmitt me 262"
+    ],
+    "found_titles": [
+        "how glory goes",
+        "messerschmitt me 262",
+        "thomas amp mack center",
+        "massachusetts institute of technology",
+        "polar bear cocktail",
+        "john dunbar mp",
+        "junkers",
+        "live band",
+        "todd haynes",
+        "pirelli",
+        "me 262 project",
+        "bksh amp associates worldwide",
+        "hugo stiglitz"
+    ],
+    "label": "SUPPORTED"
+}
