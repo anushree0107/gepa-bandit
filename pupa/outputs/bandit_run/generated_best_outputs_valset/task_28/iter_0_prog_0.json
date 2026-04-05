@@ -1,0 +1,8 @@
+{
+    "user_query": "\u4e2d\u8bd1\u82f1\uff1a\u5728\u54c8\u5c14\u6ee8\u5de5\u7a0b\u5927\u5b66\u5c31\u8bfb\u672c\u79d1\u671f\u95f4\uff0c\u6211\u7684\u7ee9\u70b9\u6392\u540d\u524d5%\uff0c\u5e76\u8363\u83b7\u6821\u7ea7\u5b66\u4e60\u4f18\u79c0\u5956\u3002\u5728\u675c\u4f26\u5927\u5b66\u5b8c\u6210\u65b0\u80fd\u6e90\u4e0e\u53ef\u518d\u751f\u80fd\u6e90\u672c\u7855\u8fde\u8bfb\u5b66\u4f4d\u671f\u95f4\uff0c\u6211\u4e5f\u5e76\u53d6\u5f97\u4e86\u4f18\u79c0\u6210\u7ee9\u5e76\u8363\u83b7\u4e00\u7b49\u5956\u5b66\u91d1\uff0c\u8fd8\u88ab\u8bc4\u4e3a\u5b66\u9662\u4f18\u79c0\u7814\u7a76\u751f\u3002\u6b64\u5916\uff0c\u5728",
+    "crafted_request": "Translate the following text into English: During undergraduate studies at a university in China, I ranked in the top 5% in GPA and received a university-level scholarship for academic excellence. Whi",
+    "final_response": "Here is the complete and polished translation of your original request:  \n\n**\"During my undergraduate studies at Harbin Engineering University in China, I ranked in the top 5% in GPA and was awarded t",
+    "quality": 0.0,
+    "leakage": 0.0,
+    "combined": 0.5
+}

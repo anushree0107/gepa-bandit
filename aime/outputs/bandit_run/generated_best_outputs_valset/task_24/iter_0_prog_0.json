@@ -1,0 +1,7 @@
+{
+    "problem": "There is a collection of $25$ indistinguishable white chips and $25$ indistinguishable black chips. Find the number of ways to place some of these chi",
+    "predicted": 2,
+    "correct": 902,
+    "response": "To solve the problem, we need to determine the number of **maximal** configurations of placing **some** of the 25 indistinguishable white and 25 indistinguishable black chips on a $5 \\times 5$ grid, under the following constraints:\n\n1. **Each cell contains at most one chip.**\n2. **All chips in the s",
+    "score": 0.0
+}

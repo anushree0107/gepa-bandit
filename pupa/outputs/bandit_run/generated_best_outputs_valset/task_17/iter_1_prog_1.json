@@ -1,0 +1,8 @@
+{
+    "user_query": "write an email to ms, yoyo ; tell her we are interested in to buying all the 15 units of FL#-U3-120S",
+    "crafted_request": "Write an email to a contact, requesting to purchase 15 units of FL#-U3-120S3C-C cameras. Ask them to send a product image for review by your supervisor and provide a performa invoice.",
+    "final_response": "**Subject:** Request for Purchase of FL#-U3-120S3C-C Cameras and Related Documents  \n\nDear Ms. Yoyo,  \n\nI hope this email finds you well. We are interested in purchasing **15 units of FL#-U3-120S3C-C ",
+    "quality": 1.0,
+    "leakage": 0.0,
+    "combined": 1.0
+}

@@ -1,0 +1,7 @@
+{
+    "problem": "There exists a unique positive integer $a$ for which the sum \\[U=\\sum_{n=1}^{2023}\\left\\lfloor\\dfrac{n^{2}-na}{5}\\right\\rfloor\\] is an integer strictl",
+    "predicted": 944,
+    "correct": 944,
+    "response": "To solve the problem, we are given the sum:\n\n$$\nU = \\sum_{n=1}^{2023} \\left\\lfloor \\frac{n^2 - na}{5} \\right\\rfloor\n$$\n\nand told that there exists a **unique positive integer** $ a $ such that $ U $ is an integer strictly between $-1000$ and $1000$. We are to find $ a + U $.\n\n---\n\n### Step 1: Unders",
+    "score": 1.0
+}

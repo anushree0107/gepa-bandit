@@ -1,0 +1,7 @@
+{
+    "problem": "Find the number of cubic polynomials $p(x) = x^3 + ax^2 + bx + c,$ where $a, b,$ and $c$ are integers in $\\{-20,-19,-18,\\ldots,18,19,20\\},$ such that ",
+    "predicted": 738,
+    "correct": 738,
+    "response": "To solve the problem, we are given a cubic polynomial of the form:\n\n$$\np(x) = x^3 + ax^2 + bx + c\n$$\n\nwhere $ a, b, c \\in \\{-20, -19, \\dots, 19, 20\\} $, and we are to count the number of such polynomials for which there exists a **unique integer** $ m \\neq 2 $ such that $ p(m) = p(2) $.\n\n---\n\n### St",
+    "score": 1.0
+}

@@ -1,0 +1,7 @@
+{
+    "problem": "Let $\\triangle ABC$ have circumcenter $O$ and incenter $I$ with $\\overline{IA}\\perp\\overline{OI}$, circumradius $13$, and inradius $6$. Find $AB\\cdot ",
+    "predicted": 468,
+    "correct": 468,
+    "response": "To solve the problem, we are given a triangle $ \\triangle ABC $ with:\n\n- Circumcenter $ O $ and incenter $ I $,\n- $ \\overline{IA} \\perp \\overline{OI} $,\n- Circumradius $ R = 13 $,\n- Inradius $ r = 6 $,\n- We are to find the product $ AB \\cdot AC $.\n\n---\n\n### Step 1: Use the Euler Formula for the Dist",
+    "score": 1.0
+}

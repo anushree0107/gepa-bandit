@@ -1,0 +1,7 @@
+{
+    "problem": "Jen enters a lottery by picking $4$ distinct numbers from $S=\\{1,2,3,\\cdots,9,10\\}.$ $4$ numbers are randomly chosen from $S.$ She wins a prize if at ",
+    "predicted": 116,
+    "correct": 116,
+    "response": "To solve the problem, we are given that Jen picks 4 distinct numbers from the set $ S = \\{1, 2, 3, \\ldots, 10\\} $, and then 4 numbers are randomly chosen from $ S $. She wins a prize if **at least two** of her numbers match the randomly chosen numbers, and she wins the **grand prize** if **all four*",
+    "score": 1.0
+}

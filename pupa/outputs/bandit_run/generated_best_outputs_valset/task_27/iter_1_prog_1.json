@@ -1,0 +1,8 @@
+{
+    "user_query": "rewrite this email to be pithier and still professional: Hi Andy & Jaime - as mentioned on call, we'",
+    "crafted_request": "rewrite this email to be pithier and still professional: Hi [Colleague 1] & [Colleague 2] - as discussed during our call, we\u2019d appreciate your help aggregating FY22 Revenue & Gross Margin by job famil",
+    "final_response": "**Subject:** FY22 Revenue & Gross Margin by Job Family \u2013 Request for Support  \n\nHi Andy & Jaime,  \n\nAs discussed, we\u2019d appreciate your help aggregating FY22 Revenue & Gross Margin by job family (e.g.,",
+    "quality": 1.0,
+    "leakage": 0.2,
+    "combined": 0.9
+}

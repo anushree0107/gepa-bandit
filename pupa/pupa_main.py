@@ -455,18 +455,12 @@ class PUPARoundLogger:
 
             # Monotonicity test eval: evaluate on test set ONLY when val improves
             test_score = self.best_test_score
-            if best_state_score > self.best_val_score:
-                self.best_val_score = best_state_score
-                new_best_prompt = next(iter(state.program_candidates[best_state_idx].values()))
-
-                if new_best_prompt != self.last_evaluated_test_prompt:
-                    candidate = {"redaction_prompt": new_best_prompt}
-                    eval_result = self.adapter.evaluate(self.test_set, candidate, capture_traces=False)
-                    test_score = sum(eval_result.scores) / len(eval_result.scores) if eval_result.scores else 0.0
-                    self.best_test_score = test_score
-                    self.last_evaluated_test_prompt = new_best_prompt
-                
-                self.best_prompt = new_best_prompt
+            if self.best_prompt != self.last_evaluated_test_prompt:
+                candidate = {"redaction_prompt": self.best_prompt}
+                eval_result = self.adapter.evaluate(self.test_set, candidate, capture_traces=False)
+                test_score = sum(eval_result.scores) / len(eval_result.scores) if eval_result.scores else 0.0
+                self.best_test_score = test_score
+                self.last_evaluated_test_prompt = self.best_prompt
 
             val_acc = best_state_score
             topk = self.round_topk_scores if self.round_topk_scores else [0.0]

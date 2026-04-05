@@ -1,0 +1,7 @@
+{
+    "problem": "For positive integers $a$, $b$, and $c$ with $a < b < c$, consider collections of postage stamps in denominations $a$, $b$, and $c$ cents that contain",
+    "predicted": null,
+    "correct": 188,
+    "response": "[LLM_ERROR] HTTPConnectionPool(host='103.42.50.203', port=11534): Read timed out. (read timeout=180)",
+    "score": 0.0
+}

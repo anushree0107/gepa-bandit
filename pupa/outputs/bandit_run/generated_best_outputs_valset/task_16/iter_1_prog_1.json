@@ -1,0 +1,8 @@
+{
+    "user_query": "\u8acb\u7ffb\u8b6f\u6b64\u6bb5\u82f1\u6587\u6210\u4e2d\u6587:This SAMSUNG SOLUTIONS ADDENDUM (\u201cAddendum\u201d) is entered into between Visa Worldwide Pte. ",
+    "crafted_request": "\u8acb\u7ffb\u8b6f\u6b64\u6bb5\u82f1\u6587\u6210\u4e2d\u6587\uff1aThis [a company] ADDENDUM (\"Addendum\") is entered into between [another company] (Reg No. [a registration number]) (\"[another company]\")",
+    "final_response": "\u672c SAMSUNG SOLUTIONS \u9644\u52a0\u534f\u8bae\uff08\u201c\u9644\u52a0\u6761\u6b3e\u201d\uff09\u7531 Visa Worldwide Pte. Limited\uff08\u6ce8\u518c\u53f7\uff1a200719281K\uff09\uff08\u201cVisa\u201d\uff09\u7b7e\u8ba2\u3002",
+    "quality": 0.0,
+    "leakage": 0.0,
+    "combined": 0.5
+}

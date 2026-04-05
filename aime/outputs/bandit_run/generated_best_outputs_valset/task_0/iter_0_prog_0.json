@@ -1,0 +1,7 @@
+{
+    "problem": "Eight circles of radius $34$ are sequentially tangent, and two of the circles are tangent to $AB$ and $BC$ of triangle $ABC$, respectively. $2024$ cir",
+    "predicted": 197,
+    "correct": 197,
+    "response": "To solve the problem, we analyze the geometric configuration of the triangle $ ABC $ and the arrangement of the circles. The key insight is that the circles are sequentially tangent to each other and to the sides $ AB $ and $ BC $, forming a chain of circles along the angle bisector of angle $ B $.\n",
+    "score": 1.0
+}

@@ -1,0 +1,7 @@
+{
+    "problem": "A circle with radius $6$ is externally tangent to a circle with radius $24$. Find the area of the triangular region bounded by the three common tangen",
+    "predicted": 192,
+    "correct": 192,
+    "response": "To solve the problem, we are given two circles with radii 6 and 24, which are **externally tangent**. This means the distance between their centers is the sum of their radii:\n\n$$\n\\text{Distance between centers} = 6 + 24 = 30\n$$\n\nWe are to find the **area of the triangular region bounded by the three",
+    "score": 1.0
+}

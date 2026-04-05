@@ -1,0 +1,7 @@
+{
+    "problem": "Among the 900 residents of Aimeville, there are 195 who own a diamond ring, 367 who own a set of golf clubs, and 562 who own a garden spade. In additi",
+    "predicted": 73,
+    "correct": 73,
+    "response": "To solve the problem, we are given the following information about 900 residents of Aimeville:\n\n- 195 own a diamond ring (D)\n- 367 own a set of golf clubs (G)\n- 562 own a garden spade (S)\n- Every resident owns a bag of candy hearts (C)\n- 437 residents own **exactly two** of these four items\n- 234 re",
+    "score": 1.0
+}

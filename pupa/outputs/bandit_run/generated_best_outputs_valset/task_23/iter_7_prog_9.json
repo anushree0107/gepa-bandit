@@ -1,8 +1,0 @@
-{
-    "user_query": "mongo error like this {\"code\":\"ENOTFOUND\",\"syscall\":\"querySrv\",\"hostname\":\"_mongodb._tcp.admass-test",
-    "crafted_request": "mongo error like this {\"code\":\"ENOTFOUND\",\"syscall\":\"querySrv\",\"hostname\":\"a MongoDB service endpoint\"}",
-    "final_response": "The error `{\"code\":\"ENOTFOUND\",\"syscall\":\"querySrv\",\"hostname\":\"_mongodb._tcp.admass-tests.vyc4g.mongodb.net\"}` indicates that your application is unable to resolve the MongoDB service endpoint via DN",
-    "quality": 0.0,
-    "leakage": 0.0,
-    "combined": 0.5
-}

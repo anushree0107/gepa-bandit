@@ -1,0 +1,7 @@
+{
+    "problem": "There is a positive real number $x$ not equal to either $\\tfrac{1}{20}$ or $\\tfrac{1}{2}$ such that\\[\\log_{20x} (22x)=\\log_{2x} (202x).\\]The value $\\l",
+    "predicted": 112,
+    "correct": 112,
+    "response": "To solve the equation:\n\n$$\n\\log_{20x}(22x) = \\log_{2x}(202x)\n$$\n\nwe begin by recognizing that both sides are logarithms with different bases. To simplify, we can use the **change of base formula**:\n\n$$\n\\log_b a = \\frac{\\log a}{\\log b}\n$$\n\nApplying this to both sides:\n\n$$\n\\frac{\\log(22x)}{\\log(20x)} ",
+    "score": 1.0
+}

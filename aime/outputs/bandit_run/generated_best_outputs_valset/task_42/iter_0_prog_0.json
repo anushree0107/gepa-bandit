@@ -1,0 +1,7 @@
+{
+    "problem": "For any finite set $X$, let $| X |$ denote the number of elements in $X$. Define\n\\[S_n = \\sum | A \\cap B | ,\\]\nwhere the sum is taken over all ordered",
+    "predicted": 245,
+    "correct": 245,
+    "response": "To solve the problem, we are given a function $ S_n $ defined as:\n\n$$\nS_n = \\sum |A \\cap B|\n$$\n\nwhere the sum is over all ordered pairs $(A, B)$ of subsets of $\\{1, 2, \\dots, n\\}$ such that $|A| = |B|$. We are asked to compute the ratio:\n\n$$\n\\frac{S_{2022}}{S_{2021}} = \\frac{p}{q}\n$$\n\nand find the v",
+    "score": 1.0
+}

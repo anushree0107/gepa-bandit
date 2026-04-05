@@ -1,7 +1,7 @@
 {
     "user_query": "write an email to ms, yoyo ; tell her we are interested in to buying all the 15 units of FL#-U3-120S",
-    "crafted_request": "Write an email to a contact named Yoyo; inform her that we are interested in purchasing all 15 units of the FL#-U3-120S3C-C cameras you have. Request a picture of the product to present to my supervis",
-    "final_response": "**Subject:** Request for Product Image and Performa Invoice for 15 Units of FL#-U3-120S3C-C Cameras  \n\nDear Ms. Yoyo,  \n\nI hope you\u2019re doing well. We are interested in purchasing all **15 units** of t",
+    "crafted_request": "Write an email to a contact, expressing interest in purchasing 15 units of the FL#-U3-120S3C-C camera model. Request a product image to show to my supervisor and a performa invoice.",
+    "final_response": "**Subject:** Request for Product Image and Performa Invoice for 15 Units of FL#-U3-120S3C-C Cameras  \n\nDear Ms. Yoyo,  \n\nI hope this email finds you well. I am writing to express our interest in purch",
     "quality": 1.0,
     "leakage": 0.5,
     "combined": 0.75

@@ -1,0 +1,7 @@
+{
+    "problem": "Two externally tangent circles $\\omega_1$ and $\\omega_2$ have centers $O_1$ and $O_2$, respectively. A third circle $\\Omega$ passing through $O_1$ and",
+    "predicted": null,
+    "correct": 140,
+    "response": "[LLM_ERROR] HTTPConnectionPool(host='103.42.50.203', port=11534): Read timed out. (read timeout=180)",
+    "score": 0.0
+}

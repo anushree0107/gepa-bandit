@@ -1,0 +1,7 @@
+{
+    "problem": "Let $ABCD$ be a parallelogram with $\\angle BAD < 90^\\circ.$ A circle tangent to sides $\\overline{DA},$ $\\overline{AB},$ and $\\overline{BC}$ intersects",
+    "predicted": 150,
+    "correct": 150,
+    "response": "To solve the problem, we are given a parallelogram $ABCD$ with a circle tangent to sides $\\overline{DA}$, $\\overline{AB}$, and $\\overline{BC}$, and intersecting the diagonal $\\overline{AC}$ at points $P$ and $Q$ such that $AP = 3$, $PQ = 9$, and $QC = 16$. We are to find the area of the parallelogra",
+    "score": 1.0
+}

@@ -1,0 +1,7 @@
+{
+    "problem": "Azar, Carl, Jon, and Sergey are the four players left in a singles tennis tournament. They are randomly assigned opponents in the semifinal matches, a",
+    "predicted": 125,
+    "correct": 125,
+    "response": "To determine the probability that **Carl** wins the tournament, we analyze the structure of the single-elimination tournament with four players: **Azar, Carl, Jon, and Sergey**. The tournament consists of two semifinal matches and one final match. The opponents are randomly assigned, and the outcome",
+    "score": 1.0
+}

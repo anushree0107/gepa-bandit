@@ -1,0 +1,8 @@
+{
+    "user_query": "Breakfast: McDONALDS FOOD CALORIES PROTEIN (g) FATS (g) CARBS (g) Restaurant Total Lunch: WENDY\u2019S FO",
+    "crafted_request": "Breakfast: [FAST-FOOD CHAIN] FOOD CALORIES PROTEIN (g) FATS (g) CARBS (g) Restaurant Total Lunch: [RESTAURANT] FOOD CALORIES PROTEIN (g) FATS (g) CARBS (g) Restaurant Total Dinner: [FAST-FOOD CHAIN] F",
+    "final_response": "Here's a structured meal tracking template tailored to your request, using the specified fast-food chains and restaurants. Replace placeholders with actual food items and nutritional data for accuracy",
+    "quality": 0.0,
+    "leakage": 0.0,
+    "combined": 0.5
+}

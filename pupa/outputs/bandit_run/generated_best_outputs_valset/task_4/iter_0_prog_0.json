@@ -1,7 +1,7 @@
 {
     "user_query": "Re-organize this paragraph (Today, I discussed with Prof Wang regard to my paper, and he gives some ",
-    "crafted_request": "Re-organize this paragraph (Today, a person discussed with a professor regarding a research paper, and the professor provided feedback and agreed to its submission)",
-    "final_response": "Here\u2019s a reorganized and polished version of your paragraph:  \n**\"Today, I discussed my paper with Prof. Wang regarding it, and he provided feedback and agreed to its submission.\"**  \n\nThis version ma",
+    "crafted_request": "Re-organize this paragraph (Today, a researcher discussed with a professor regarding a paper, and the professor provided feedback and agreed to submit it)",
+    "final_response": "Here\u2019s a reorganized and polished version of your paragraph:  \n**\"Today, I discussed my paper with Prof. Wang, who provided feedback and agreed to submit it.\"**  \n\nThis version corrects grammatical is",
     "quality": 1.0,
     "leakage": 0.0,
     "combined": 1.0

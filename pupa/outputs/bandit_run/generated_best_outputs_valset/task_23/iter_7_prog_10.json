@@ -1,8 +1,0 @@
-{
-    "user_query": "mongo error like this {\"code\":\"ENOTFOUND\",\"syscall\":\"querySrv\",\"hostname\":\"_mongodb._tcp.admass-test",
-    "crafted_request": "mongo error like this {\"code\":\"ENOTFOUND\",\"syscall\":\"querySrv\",\"hostname\":\"_mongodb._tcp.a test environment.a specific server identifier.mongodb.net\"}",
-    "final_response": "The error `{\"code\":\"ENOTFOUND\",\"syscall\":\"querySrv\",\"hostname\":\"_mongodb._tcp.admass-tests.vyc4g.mongodb.net\"}` indicates a **DNS resolution failure** when MongoDB attempts to connect to a service (li",
-    "quality": 1.0,
-    "leakage": 0.0,
-    "combined": 1.0
-}

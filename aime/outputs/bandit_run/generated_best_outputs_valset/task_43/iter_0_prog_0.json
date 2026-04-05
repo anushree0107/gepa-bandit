@@ -1,0 +1,7 @@
+{
+    "problem": "Ellina has twelve blocks, two each of red ($\\textbf{R}$), blue ($\\textbf{B}$), yellow ($\\textbf{Y}$), green ($\\textbf{G}$), orange ($\\textbf{O}$), and",
+    "predicted": 247,
+    "correct": 247,
+    "response": "To solve the problem, we are given that Ellina has 12 blocks, with two blocks of each of six different colors: red (R), blue (B), yellow (Y), green (G), orange (O), and purple (P). We are to find the probability that a random arrangement of these blocks is **even**, where an arrangement is defined a",
+    "score": 1.0
+}

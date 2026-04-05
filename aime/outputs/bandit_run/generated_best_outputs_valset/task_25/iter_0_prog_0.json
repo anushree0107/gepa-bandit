@@ -1,0 +1,7 @@
+{
+    "problem": "Twenty distinct points are marked on a circle and labeled $1$ through $20$ in clockwise order. A line segment is drawn between every pair of points wh",
+    "predicted": 72,
+    "correct": 72,
+    "response": "To solve the problem, we are given 20 points labeled $1$ through $20$ arranged in a circle. A line segment is drawn between every pair of points whose labels differ by a **prime number**. We are to count the number of **triangles** formed by these line segments, where a triangle is defined as a set ",
+    "score": 1.0
+}

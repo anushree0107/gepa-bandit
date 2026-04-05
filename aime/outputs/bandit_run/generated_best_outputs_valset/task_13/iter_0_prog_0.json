@@ -1,0 +1,7 @@
+{
+    "problem": "Let $w = \\dfrac{\\sqrt{3} + i}{2}$ and $z = \\dfrac{-1 + i\\sqrt{3}}{2},$ where $i = \\sqrt{-1}.$ Find the number of ordered pairs $(r,s)$ of positive int",
+    "predicted": 834,
+    "correct": 834,
+    "response": "To solve the problem, we are given two complex numbers:\n\n$$\nw = \\frac{\\sqrt{3} + i}{2}, \\quad z = \\frac{-1 + i\\sqrt{3}}{2}\n$$\n\nand the equation:\n\n$$\ni \\cdot w^r = z^s\n$$\n\nWe are to find the number of ordered pairs $(r, s)$ of **positive integers not exceeding 100** that satisfy this equation.\n\n---\n\n",
+    "score": 1.0
+}

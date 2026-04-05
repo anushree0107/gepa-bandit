@@ -1,0 +1,7 @@
+{
+    "problem": "The following analog clock has two hands that can move independently of each other.\n\nInitially, both hands point to the number $12$. The clock perform",
+    "predicted": null,
+    "correct": 608,
+    "response": "[LLM_ERROR] HTTPConnectionPool(host='103.42.50.203', port=11534): Read timed out. (read timeout=180)",
+    "score": 0.0
+}

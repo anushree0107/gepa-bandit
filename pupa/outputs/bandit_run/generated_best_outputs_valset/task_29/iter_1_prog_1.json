@@ -1,0 +1,8 @@
+{
+    "user_query": "Breakfast: McDONALDS FOOD CALORIES PROTEIN (g) FATS (g) CARBS (g) Restaurant Total Lunch: WENDY\u2019S FO",
+    "crafted_request": "Breakfast: A Fast-Food Restaurant's FOOD CALORIES PROTEIN (g) FATS (g) CARBS (g) Total for the Meal Lunch: Another Fast-Food Restaurant's FOOD CALORIES PROTEIN (g) FATS (g) CARBS (g) Total for the Mea",
+    "final_response": "Your request requires specific nutritional data for each meal and restaurant to calculate totals for **Protein, Fats, Carbs, and Calories**. Since the data is incomplete, I\u2019ll guide you on how to proc",
+    "quality": 1.0,
+    "leakage": 0.0,
+    "combined": 1.0
+}

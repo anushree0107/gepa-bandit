@@ -1,0 +1,7 @@
+{
+    "problem": "Equilateral triangle $\\triangle ABC$ is inscribed in circle $\\omega$ with radius $18.$ Circle $\\omega_A$ is tangent to sides $\\overline{AB}$ and $\\ove",
+    "predicted": null,
+    "correct": 378,
+    "response": "[LLM_ERROR] HTTPConnectionPool(host='103.42.50.203', port=11534): Read timed out. (read timeout=180)",
+    "score": 0.0
+}

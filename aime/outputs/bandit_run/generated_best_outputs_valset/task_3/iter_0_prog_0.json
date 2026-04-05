@@ -1,0 +1,7 @@
+{
+    "problem": "A plane contains $40$ lines, no $2$ of which are parallel. Suppose that there are $3$ points where exactly $3$ lines intersect, $4$ points where exact",
+    "predicted": 607,
+    "correct": 607,
+    "response": "To solve the problem, we are given:\n\n- A total of **40 lines**, with **no two parallel**.\n- There are **3 points** where **exactly 3 lines** intersect.\n- There are **4 points** where **exactly 4 lines** intersect.\n- There are **5 points** where **exactly 5 lines** intersect.\n- There are **6 points**",
+    "score": 1.0
+}

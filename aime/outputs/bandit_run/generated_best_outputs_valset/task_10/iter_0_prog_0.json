@@ -1,0 +1,7 @@
+{
+    "problem": "Every morning Aya goes for a $9$-kilometer-long walk and stops at a coffee shop afterwards. When she walks at a constant speed of $s$ kilometers per h",
+    "predicted": 204,
+    "correct": 204,
+    "response": "To solve the problem, we analyze the two scenarios Aya experiences during her walk and use the given information to determine the total time she spends walking and at the coffee shop when she walks at a speed of $ s + \\frac{1}{2} $ km/h.\n\n---\n\n### Step 1: Define Variables and Equations\n\nLet:\n- $ s $",
+    "score": 1.0
+}

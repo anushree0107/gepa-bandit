@@ -1,0 +1,7 @@
+{
+    "problem": "Find the number of rectangles that can be formed inside a fixed regular dodecagon ($12$-gon) where each side of the rectangle lies on either a side or",
+    "predicted": 15,
+    "correct": 315,
+    "response": "To solve the problem of counting the number of rectangles that can be formed inside a regular dodecagon (12-gon), where each side of the rectangle lies on either a side or a diagonal of the dodecagon, we need to carefully analyze the geometric and combinatorial structure of the dodecagon.\n\n---\n\n### ",
+    "score": 0.0
+}

@@ -1,8 +1,0 @@
-{
-    "user_query": "I am doing the Kaggle competition \u201cTitanic - Machine Learning from Disaster\u201d, my code: \"# This Pytho",
-    "crafted_request": "I am working on the Kaggle competition \"Titanic - Machine Learning from Disaster\". My current code uses a random forest classifier. I want to replace the model with a neural network. Show me the code.",
-    "final_response": "[LLM_ERROR] HTTPConnectionPool(host='10.5.30.32', port=11434): Read timed out. (read timeout=120)",
-    "quality": 0.0,
-    "leakage": 0.0,
-    "combined": 0.5
-}

@@ -1,8 +1,0 @@
-{
-    "user_query": "Breakfast: McDONALDS FOOD CALORIES PROTEIN (g) FATS (g) CARBS (g) Restaurant Total Lunch: WENDY\u2019S FO",
-    "crafted_request": "Breakfast: A FAST-FOOD CHAIN FOOD CALORIES PROTEIN (g) FATS (g) CARBS (g) A SPECIFIC RESTAURANT Total Lunch: ANOTHER FAST-FOOD CHAIN FOOD CALORIES PROTEIN (g) FATS (g) CARBS (g) A SPECIFIC RESTAURANT ",
-    "final_response": "Here\u2019s a structured meal plan based on your original request, using the specified fast-food chains and their typical nutritional data. Totals for each day and the weekend are included:\n\n---\n\n### **Bre",
-    "quality": 1.0,
-    "leakage": 0.0,
-    "combined": 1.0
-}

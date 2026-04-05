@@ -1,0 +1,7 @@
+{
+    "problem": "Quadratic polynomials $P(x)$ and $Q(x)$ have leading coefficients $2$ and $-2,$ respectively. The graphs of both polynomials pass through the two poin",
+    "predicted": 116,
+    "correct": 116,
+    "response": "To solve the problem, we are given two quadratic polynomials $ P(x) $ and $ Q(x) $, with the following properties:\n\n- $ P(x) $ has leading coefficient 2.\n- $ Q(x) $ has leading coefficient -2.\n- Both polynomials pass through the points $ (16, 54) $ and $ (20, 53) $.\n- We are to find $ P(0) + Q(0) $,",
+    "score": 1.0
+}

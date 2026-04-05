@@ -1,0 +1,7 @@
+{
+    "problem": "In $\\triangle ABC$ with side lengths $AB = 13,$ $BC = 14,$ and $CA = 15,$ let $M$ be the midpoint of $\\overline{BC}.$ Let $P$ be the point on the circ",
+    "predicted": null,
+    "correct": 247,
+    "response": "[LLM_ERROR] HTTPConnectionPool(host='103.42.50.203', port=11534): Read timed out. (read timeout=180)",
+    "score": 0.0
+}

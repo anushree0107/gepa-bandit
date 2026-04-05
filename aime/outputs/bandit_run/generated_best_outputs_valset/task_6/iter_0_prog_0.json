@@ -1,0 +1,7 @@
+{
+    "problem": "Let \\(O=(0,0)\\), \\(A=\\left(\\tfrac{1}{2},0\\right)\\), and \\(B=\\left(0,\\tfrac{\\sqrt{3}}{2}\\right)\\) be points in the coordinate plane. Let \\(\\mathcal{F}\\",
+    "predicted": 23,
+    "correct": 23,
+    "response": "To solve the problem, we are given three points in the coordinate plane:\n\n- $ O = (0, 0) $\n- $ A = \\left( \\frac{1}{2}, 0 \\right) $\n- $ B = \\left( 0, \\frac{\\sqrt{3}}{2} \\right) $\n\nWe are told that the segment $ \\overline{AB} $ is a unit-length segment, and that the family $ \\mathcal{F} $ consists of ",
+    "score": 1.0
+}

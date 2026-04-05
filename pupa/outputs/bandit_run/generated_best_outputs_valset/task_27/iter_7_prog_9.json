@@ -1,8 +1,0 @@
-{
-    "user_query": "rewrite this email to be pithier and still professional: Hi Andy & Jaime - as mentioned on call, we'",
-    "crafted_request": "Hi [Name] & [Name], as discussed, we\u2019d appreciate your assistance in compiling FY22 Revenue & Gross Margin by job family (e.g., revenue and profit from a specific group across FY22). Below is a list o",
-    "final_response": "**Revised Email:**  \n\nHi Andy & Jaime,  \n\nAs discussed, we\u2019d appreciate your help compiling FY22 Revenue & Gross Margin by job family (e.g., revenue and profit from 37x FPC reps). Below are the 15 job",
-    "quality": 1.0,
-    "leakage": 0.2,
-    "combined": 0.9
-}

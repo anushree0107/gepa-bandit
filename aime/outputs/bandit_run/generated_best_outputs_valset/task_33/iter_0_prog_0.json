@@ -1,0 +1,7 @@
+{
+    "problem": "Let $x,y,$ and $z$ be real numbers satisfying the system of equations\n\\begin{align*} xy + 4z &= 60 \\\\ yz + 4x &= 60 \\\\ zx + 4y &= 60. \\end{align*}\nLet",
+    "predicted": 273,
+    "correct": 273,
+    "response": "To solve the system of equations:\n\n$$\n\\begin{align*}\nxy + 4z &= 60 \\quad \\text{(1)} \\\\\nyz + 4x &= 60 \\quad \\text{(2)} \\\\\nzx + 4y &= 60 \\quad \\text{(3)}\n\\end{align*}\n$$\n\nwe aim to find all possible values of $ x $, and then compute the **sum of the squares** of these values.\n\n---\n\n### Step 1: Conside",
+    "score": 1.0
+}

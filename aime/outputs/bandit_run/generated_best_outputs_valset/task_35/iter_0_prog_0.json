@@ -1,0 +1,7 @@
+{
+    "problem": "Find the number of ordered pairs of integers $(a, b)$ such that the sequence\\[3, 4, 5, a, b, 30, 40, 50\\]is strictly increasing and no set of four (no",
+    "predicted": 250,
+    "correct": 228,
+    "response": "To solve the problem, we are given a sequence:\n\n$$\n3, 4, 5, a, b, 30, 40, 50\n$$\n\nWe are to find the number of **ordered pairs of integers** $(a, b)$ such that:\n\n1. The sequence is **strictly increasing**.\n2. **No set of four (not necessarily consecutive) terms** forms an **arithmetic progression** (",
+    "score": 0.0
+}

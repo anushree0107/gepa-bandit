@@ -1,0 +1,7 @@
+{
+    "problem": "Let $\\ell_A$ and $\\ell_B$ be two distinct parallel lines. For positive integers $m$ and $n$, distinct points $A_1, A_2, \\allowbreak A_3, \\allowbreak \\",
+    "predicted": 44,
+    "correct": 244,
+    "response": "To solve the problem, we are given a configuration of two distinct parallel lines, $ \\ell_A $ and $ \\ell_B $, with $ m $ and $ n $ distinct points respectively on each line. Segments are drawn between each point on $ \\ell_A $ and each point on $ \\ell_B $, and the condition is that **no point strictl",
+    "score": 0.0
+}

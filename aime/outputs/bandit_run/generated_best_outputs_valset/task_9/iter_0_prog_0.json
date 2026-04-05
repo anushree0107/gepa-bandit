@@ -1,0 +1,7 @@
+{
+    "problem": "Let $x,$ $y,$ and $z$ be positive real numbers satisfying the system of equations:\n\\begin{align*} \\sqrt{2x-xy} + \\sqrt{2y-xy} &= 1 \\\\ \\sqrt{2y-yz} + \\",
+    "predicted": 33,
+    "correct": 33,
+    "response": "To solve the given system of equations:\n\n$$\n\\begin{align*}\n\\sqrt{2x - xy} + \\sqrt{2y - xy} &= 1 \\\\\n\\sqrt{2y - yz} + \\sqrt{2z - yz} &= \\sqrt{2} \\\\\n\\sqrt{2z - zx} + \\sqrt{2x - zx} &= \\sqrt{3}\n\\end{align*}\n$$\n\nwe aim to find the value of:\n\n$$\n\\left[(1 - x)(1 - y)(1 - z)\\right]^2\n$$\n\n---\n\n### Step 1: Su",
+    "score": 1.0
+}

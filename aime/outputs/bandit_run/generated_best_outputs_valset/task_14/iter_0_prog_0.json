@@ -1,0 +1,7 @@
+{
+    "problem": "Find the number of ways to place a digit in each cell of a 2x3 grid so that the sum of the two numbers formed by reading left to right is $999$, and t",
+    "predicted": 45,
+    "correct": 45,
+    "response": "To solve the problem, we are given a 2\u00d73 grid where each cell is filled with a digit (0 through 9), and we are to count the number of such arrangements that satisfy two specific conditions:\n\n1. The sum of the two numbers formed by reading the rows left to right is 999.\n2. The sum of the three number",
+    "score": 1.0
+}

@@ -1,0 +1,7 @@
+{
+    "problem": "Each vertex of a regular dodecagon ($12$-gon) is to be colored either red or blue, and thus there are $2^{12}$ possible colorings. Find the number of ",
+    "predicted": 928,
+    "correct": 928,
+    "response": "To solve the problem, we consider a regular dodecagon (12-gon), where each vertex is to be colored either red or blue. The total number of possible colorings is $2^{12} = 4096$. However, we are only interested in those colorings where **no four vertices of the same color form the vertices of a recta",
+    "score": 1.0
+}

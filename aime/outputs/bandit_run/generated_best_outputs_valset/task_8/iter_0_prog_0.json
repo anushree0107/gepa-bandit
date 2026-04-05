@@ -1,0 +1,7 @@
+{
+    "problem": "Given $\\triangle ABC$ and a point $P$ on one of its sides, call line $\\ell$ the $\\textit{splitting line}$ of $\\triangle ABC$ through $P$ if $\\ell$ pas",
+    "predicted": null,
+    "correct": 459,
+    "response": "[LLM_ERROR] HTTPConnectionPool(host='103.42.50.203', port=11534): Read timed out. (read timeout=180)",
+    "score": 0.0
+}
