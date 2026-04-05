@@ -641,6 +641,7 @@ Follow-up query:"""
         """Run the full multi-hop retrieval pipeline, matching langProBe."""
         summarize_prompt = candidate.get("summarize_prompt", "")
         hop2_prompt = candidate.get("create_query_hop2_prompt", "")
+        hop3_prompt = candidate.get("create_query_hop3_prompt", "")
 
         all_retrieved_docs: list[str] = []
         hop_details: list[dict] = []
@@ -648,6 +649,7 @@ Follow-up query:"""
         # HOP 1: use claim directly as query (like langProBe retrieve(claim))
         hop1_docs = self.corpus.retrieve(claim, k=RETRIEVAL_K)
         all_retrieved_docs.extend(hop1_docs)
+        docs_text_1 = "\n\n".join(hop1_docs[:7])
         summary_1 = self._summarize_docs(hop1_docs, claim, summarize_prompt)
         hop_details.append({
             "query": claim[:100],
@@ -659,14 +661,40 @@ Follow-up query:"""
         hop2_query = self._generate_followup_query(claim, summary_1, hop2_prompt)
         hop2_docs = self.corpus.retrieve(hop2_query, k=RETRIEVAL_K)
         all_retrieved_docs.extend(hop2_docs)
+        docs_text_2 = "\n\n".join(hop2_docs[:7])
+        summary_2 = self._summarize_docs(hop2_docs, claim, summarize_prompt)
         hop_details.append({
-            "query": hop2_query[:100],
+            "query": hop2_query,
             "docs": [d.split(" | ")[0] for d in hop2_docs],
+            "summary": summary_2,
         })
+
+        # HOP 3: generate follow-up query from claim + summary_1 + summary_2
+        hop3_query = self._generate_followup_query(claim, summary_1, hop3_prompt, summary_2=summary_2)
+        hop3_docs = self.corpus.retrieve(hop3_query, k=RETRIEVAL_K)
+        all_retrieved_docs.extend(hop3_docs)
+        hop_details.append({
+            "query": hop3_query,
+            "docs": [d.split(" | ")[0] for d in hop3_docs],
+        })
+
+        components_traces = {
+            "summarize_prompt": [
+                {"claim": claim, "passages": docs_text_1, "summary": summary_1},
+                {"claim": claim, "passages": docs_text_2, "summary": summary_2},
+            ],
+            "create_query_hop2_prompt": [
+                {"claim": claim, "summary_1": summary_1, "query": hop2_query}
+            ],
+            "create_query_hop3_prompt": [
+                {"claim": claim, "summary_1": summary_1, "summary_2": summary_2, "query": hop3_query}
+            ]
+        }
 
         return {
             "all_retrieved_docs": all_retrieved_docs,
             "hop_details": hop_details,
+            "components_traces": components_traces,
         }
 
     def evaluate(
@@ -731,6 +759,9 @@ Follow-up query:"""
                     "cover_match": cover_match,
                     "feedback": feedback,
                     "hop_details": result["hop_details"],
+                    "components_traces": result.get("components_traces", {}),
+                    "all_retrieved": list(found_titles)[:10],
+                    "gold_titles": list(gt_titles),
                     "prompt_used": {k: v[:200] for k, v in candidate.items()},
                 })
 
@@ -751,16 +782,28 @@ Follow-up query:"""
             records = []
             if eval_batch.trajectories:
                 for trace in eval_batch.trajectories:
-                    records.append({
-                        "Inputs": {
-                            "claim": trace["claim"],
-                            "hop_details": json.dumps(trace["hop_details"], default=str)[:500],
-                        },
-                        "Generated Outputs": {
-                            "cover_match": str(trace["cover_match"]),
-                        },
-                        "Feedback": trace["feedback"],
-                    })
+                    feedback = trace["feedback"]
+                    
+                    if comp in trace.get("components_traces", {}):
+                        calls = trace["components_traces"][comp]
+                        for call in calls:
+                            if comp == "summarize_prompt":
+                                inputs = {"claim": call["claim"], "passages": call["passages"][:800]}
+                                outputs = {"summary": call["summary"]}
+                            elif comp == "create_query_hop2_prompt":
+                                inputs = {"claim": call["claim"], "summary_1": call["summary_1"]}
+                                outputs = {"query": call["query"]}
+                            elif comp == "create_query_hop3_prompt":
+                                inputs = {"claim": call["claim"], "summary_1": call["summary_1"], "summary_2": call["summary_2"]}
+                                outputs = {"query": call["query"]}
+                            else:
+                                continue
+
+                            records.append({
+                                "Inputs": inputs,
+                                "Generated Outputs": outputs,
+                                "Feedback": feedback + f"\nGold Evidence needed: {trace['gold_titles']}. Actually retrieved overall: {trace['all_retrieved']}",
+                            })
             result[comp] = records
         return result
 
@@ -864,18 +907,13 @@ class HoVerRoundLogger:
                     best_state_idx = i
 
             test_score = self.best_test_score
-            if best_state_score > self.best_val_score:
-                self.best_val_score = best_state_score
-                new_best = state.program_candidates[best_state_idx]
-                new_best_key = json.dumps(new_best, sort_keys=True)
+            new_best_key = json.dumps(self.best_prompt, sort_keys=True)
 
-                if new_best_key != self.last_evaluated_test_prompt:
-                    eval_result = self.adapter.evaluate(self.test_set, new_best, capture_traces=False)
-                    test_score = sum(eval_result.scores) / len(eval_result.scores) if eval_result.scores else 0.0
-                    self.best_test_score = test_score
-                    self.last_evaluated_test_prompt = new_best_key
-
-                self.best_prompt = dict(new_best)
+            if new_best_key != self.last_evaluated_test_prompt:
+                eval_result = self.adapter.evaluate(self.test_set, self.best_prompt, capture_traces=False)
+                test_score = sum(eval_result.scores) / len(eval_result.scores) if eval_result.scores else 0.0
+                self.best_test_score = test_score
+                self.last_evaluated_test_prompt = new_best_key
 
             val_acc = best_state_score
             topk = self.round_topk_scores if self.round_topk_scores else [0.0]
@@ -998,6 +1036,14 @@ def main():
                 "that can help verify parts of the claim not yet covered. "
                 "IMPORTANT: The search engine is a strict lexical keyword matcher. "
                 "Return ONLY 2-4 succinct keywords (e.g. 'Ralph Macchio Dancing Season 12'). "
+                "Return ONLY the keywords, nothing else."
+            ),
+            "create_query_hop3_prompt": (
+                "Based on the claim and two previous evidence summaries, "
+                "generate a final follow-up search query to find resolving Wikipedia articles "
+                "that can help verify the remaining aspects of the claim not yet covered. "
+                "IMPORTANT: The search engine is a strict lexical keyword matcher. "
+                "Return ONLY 2-4 succinct keywords. "
                 "Return ONLY the keywords, nothing else."
             ),
         }
