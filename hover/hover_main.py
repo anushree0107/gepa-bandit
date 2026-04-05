@@ -652,9 +652,9 @@ Follow-up query:"""
         docs_text_1 = "\n\n".join(hop1_docs[:7])
         summary_1 = self._summarize_docs(hop1_docs, claim, summarize_prompt)
         hop_details.append({
-            "query": claim[:100],
+            "query": claim,
             "docs": [d.split(" | ")[0] for d in hop1_docs],
-            "summary": summary_1[:200],
+            "summary": summary_1,
         })
 
         # HOP 2: generate follow-up query from claim + summary_1
