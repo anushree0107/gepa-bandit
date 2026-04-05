@@ -353,13 +353,15 @@ class SciEvalRoundLogger:
                     best_state_score = sc
                     best_state_idx = i
 
-            # Update our tracked best if state has a higher score
-            # Monotonicity test eval: evaluate on test set ONLY when val improves
-            test_score = self.best_test_score
+            current_round_best = state.program_candidates[best_state_idx]
+            current_round_best_prompt = next(iter(current_round_best.values()))
+
+            # Evaluate current round's best candidate on the test set
+            candidate = {"system_prompt": current_round_best_prompt}
+            eval_result = self.adapter.evaluate(self.test_set, candidate, capture_traces=False)
+            test_score = sum(eval_result.scores) / len(eval_result.scores) if eval_result.scores else 0.0
+
             if self.best_prompt != self.last_evaluated_test_prompt:
-                candidate = {"system_prompt": self.best_prompt}
-                eval_result = self.adapter.evaluate(self.test_set, candidate, capture_traces=False)
-                test_score = sum(eval_result.scores) / len(eval_result.scores) if eval_result.scores else 0.0
                 self.best_test_score = test_score
                 self.last_evaluated_test_prompt = self.best_prompt
 

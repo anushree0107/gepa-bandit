@@ -1,9 +1,9 @@
-2026-04-02 15:21:23 | INFO     | Loading SciEval dataset...
-2026-04-02 15:21:33 | INFO     | Dataset sizes — Train: 50, Val: 30, Test: 50
-2026-04-02 15:21:33 | INFO     | Starting SurrogateBanditEngine...
-2026-04-02 15:21:33 | INFO     | ==========================================================================================
-2026-04-02 15:21:33 | INFO     | SciEval + Surrogate-Guided Bandit — OPTIMIZATION START
-2026-04-02 15:21:33 | INFO     | Config: {
+2026-04-05 13:16:23 | INFO     | Loading SciEval dataset...
+2026-04-05 13:16:28 | INFO     | Dataset sizes — Train: 50, Val: 30, Test: 50
+2026-04-05 13:16:28 | INFO     | Starting SurrogateBanditEngine...
+2026-04-05 13:16:28 | INFO     | ==========================================================================================
+2026-04-05 13:16:28 | INFO     | SciEval + Surrogate-Guided Bandit — OPTIMIZATION START
+2026-04-05 13:16:28 | INFO     | Config: {
   "perfect_score": 1.0,
   "seed": 42,
   "track_best_outputs": true,
@@ -15,649 +15,650 @@
     "ucb_exploration": 1.0
   }
 }
-2026-04-02 15:21:33 | INFO     | ==========================================================================================
-2026-04-02 15:21:33 | INFO     | 
+2026-04-05 13:16:28 | INFO     | ==========================================================================================
+2026-04-05 13:16:28 | INFO     | 
   [SEED] Prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).
-2026-04-02 15:32:16 | INFO     |   [SEED] Baseline Test Accuracy: 0.7800
-2026-04-02 15:38:03 | INFO     | Round 0: Seed valset score: 0.5667
-2026-04-02 15:38:03 | INFO     | Round 1: Selected 1 parents from Top-5: [0]
-2026-04-02 15:38:03 | INFO     | Iteration 1: Selected program 0 score: 0.5666666666666667
-2026-04-02 15:38:16 | INFO     | Iteration 1: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved, including niche domain-specific facts such as:  
-- **Chitin** (found in fungal cell walls and arthropod exoskeletons)  
-- **Specific heat calculations** (use the formula $ q = m \cdot c \cdot \Delta T $)  
-- **Biomolecular structures** (e.g., cellulose is composed of **glucose** monomers).  
-Respond with ONLY the letter of the correct answer.
-2026-04-02 15:38:25 | INFO     | Round 1: Generated mutation from parent 0 (subsample: before=3.00, after=3.00)
-2026-04-02 15:38:25 | INFO     | Iteration 1: Selected program 0 score: 0.5666666666666667
-2026-04-02 15:38:39 | INFO     | Iteration 1: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved, including both general principles and domain-specific facts (e.g., biological structures like chitin, biochemical components like glucose in cellulose, or thermodynamic calculations). Use relevant formulas (e.g., q = m*c*ΔT) when required for quantitative problems. Respond with ONLY the letter of the correct answer.
-2026-04-02 15:38:48 | INFO     | Round 1: Generated mutation from parent 0 (subsample: before=3.00, after=3.00)
-2026-04-02 15:38:48 | INFO     | Iteration 1: Selected program 0 score: 0.5666666666666667
-2026-04-02 15:39:01 | INFO     | Iteration 1: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved, including niche biological, chemical, or physical principles. For factual questions, recall specific domain knowledge (e.g., chitin in fungal cell walls and arthropod exoskeletons). For calculation-based questions, apply formulas (e.g., specific heat: $ q = m \cdot c \cdot \Delta T $) and solve step-by-step. Respond with ONLY the letter of the correct answer.
-2026-04-02 15:39:09 | INFO     | Round 1: Generated mutation from parent 0 (subsample: before=3.00, after=3.00)
-2026-04-02 15:39:09 | INFO     | Round 1: Generated 3 total mutations
-2026-04-02 15:39:09 | INFO     | Round 1: Surrogate scores: min=0.5000, max=0.5000, mean=0.5000
-2026-04-02 15:39:09 | INFO     | 
+2026-04-05 13:51:17 | INFO     | Loading SciEval dataset...
+2026-04-05 13:51:23 | INFO     | Dataset sizes — Train: 50, Val: 30, Test: 50
+2026-04-05 13:51:23 | INFO     | Starting SurrogateBanditEngine...
+2026-04-05 13:51:23 | INFO     | ==========================================================================================
+2026-04-05 13:51:23 | INFO     | SciEval + Surrogate-Guided Bandit — OPTIMIZATION START
+2026-04-05 13:51:23 | INFO     | Config: {
+  "perfect_score": 1.0,
+  "seed": 42,
+  "track_best_outputs": true,
+  "bandit_config": {
+    "top_p": 5,
+    "n_parents": 2,
+    "m_mutations": 3,
+    "top_k": 2,
+    "ucb_exploration": 1.0
+  }
+}
+2026-04-05 13:51:23 | INFO     | ==========================================================================================
+2026-04-05 13:51:23 | INFO     | 
+  [SEED] Prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).
+2026-04-05 14:04:17 | INFO     |   [SEED] Baseline Test Accuracy: 0.7600
+2026-04-05 14:10:02 | INFO     | Round 0: Seed valset score: 0.5667
+2026-04-05 14:10:02 | INFO     | Round 1: Selected 1 parents from Top-5: [0]
+2026-04-05 14:10:02 | INFO     | Iteration 1: Selected program 0 score: 0.5666666666666667
+2026-04-05 14:10:15 | INFO     | Iteration 1: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved. Use domain-specific knowledge (e.g., biological structures like chitin in fungi/arthropods, physical formulas like specific heat capacity, or chemical compositions like cellulose monomers) and generalizable problem-solving strategies (e.g., formula rearrangement, process of elimination) to arrive at the answer. Respond with ONLY the letter of the correct answer.
+2026-04-05 14:10:24 | INFO     | Round 1: Generated mutation from parent 0 (subsample: before=3.00, after=3.00)
+2026-04-05 14:10:24 | INFO     | Iteration 1: Selected program 0 score: 0.5666666666666667
+2026-04-05 14:10:35 | INFO     | Iteration 1: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).  
+**Task Details:**  
+1. **Format:** Each question provides four options (A–D). Your answer must be the single correct letter.  
+2. **Scientific Knowledge Required:** Use domain-specific facts (e.g., biological structures like chitin, thermodynamic calculations, or molecular biology).  
+3. **Generalizable Strategy:** Apply foundational scientific principles (e.g., specific heat formula $ q = mc\Delta T $, cellular respiration processes, or polymer composition) to deduce the answer.  
+4. **No Explanations:** Output only the letter (A–D) corresponding to the correct choice.
+2026-04-05 14:10:42 | INFO     | Round 1: Generated mutation from parent 0 (subsample: before=3.00, after=3.00)
+2026-04-05 14:10:42 | INFO     | Iteration 1: Selected program 0 score: 0.5666666666666667
+2026-04-05 14:10:54 | INFO     | Iteration 1: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved, including domain-specific facts (e.g., biological structures like chitin in fungi/arthropods, physical formulas like q=mcΔT, or chemical compositions like cellulose made of glucose). If the question requires calculations, apply the correct formulas and units. Respond with ONLY the letter of the correct answer.
+2026-04-05 14:11:02 | INFO     | Round 1: Generated mutation from parent 0 (subsample: before=3.00, after=3.00)
+2026-04-05 14:11:02 | INFO     | Round 1: Generated 3 total mutations
+2026-04-05 14:11:02 | INFO     | Round 1: Surrogate scores: min=0.5000, max=0.5000, mean=0.5000
+2026-04-05 14:11:02 | INFO     | 
   [SURROGATE] Scored 3 candidates:
-2026-04-02 15:39:09 | INFO     |     #0: surrogate=0.5000, ucb=1.6774 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
-2026-04-02 15:39:09 | INFO     |     #1: surrogate=0.5000, ucb=1.6774 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
-2026-04-02 15:39:09 | INFO     |     #2: surrogate=0.5000, ucb=1.6774 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
-2026-04-02 15:39:09 | INFO     | Round 1: Selected Top-2 from 3 by UCB: [0, 1]
-2026-04-02 15:39:09 | INFO     |   [BANDIT] Selected Top-2 from 3: indices=[0, 1]
-2026-04-02 15:39:09 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 3/3)
-2026-04-02 15:43:11 | INFO     | 
+2026-04-05 14:11:02 | INFO     |     #0: surrogate=0.5000, ucb=1.6774 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
+2026-04-05 14:11:02 | INFO     |     #1: surrogate=0.5000, ucb=1.6774 | You are a science expert. Answer the following science question by selecting the correct option. Thi...
+2026-04-05 14:11:02 | INFO     |     #2: surrogate=0.5000, ucb=1.6774 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
+2026-04-05 14:11:02 | INFO     | Round 1: Selected Top-2 from 3 by UCB: [0, 1]
+2026-04-05 14:11:02 | INFO     |   [BANDIT] Selected Top-2 from 3: indices=[0, 1]
+2026-04-05 14:11:02 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 3/3)
+2026-04-05 14:13:58 | INFO     | 
   [ACCEPTED] Candidate #1 (val=0.5667, parents=[0])
-2026-04-02 15:43:11 | INFO     |   Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved, including niche domain-specific facts such as:  
-- **Chitin** (found in fungal cell walls and arthropod exoskeletons)  
-- **Specific heat calculations** (use the formula $ q = m \cdot c \cdot \Delta T $)  
-- **Biomolecular structures** (e.g., cellulose is composed of **glucose** monomers).  
-Respond with ONLY the letter of the correct answer.
-2026-04-02 15:43:11 | INFO     |   >> New best! val=0.5667
-2026-04-02 15:43:11 | INFO     | Iteration 1: Valset score for new program: 0.5666666666666667 (coverage 30 / 30)
-2026-04-02 15:43:11 | INFO     | Iteration 1: Val aggregate for new program: 0.5666666666666667
-2026-04-02 15:43:11 | INFO     | Iteration 1: Individual valset scores for new program: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 0.0, 25: 0.0, 26: 1.0, 27: 1.0, 28: 0.0, 29: 1.0}
-2026-04-02 15:43:11 | INFO     | Iteration 1: New valset pareto front scores: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 0.0, 25: 0.0, 26: 1.0, 27: 1.0, 28: 0.0, 29: 1.0}
-2026-04-02 15:43:11 | INFO     | Iteration 1: Valset pareto front aggregate score: 0.6
-2026-04-02 15:43:11 | INFO     | Iteration 1: Updated valset pareto front programs: {0: {0, 1}, 1: {0, 1}, 2: {0, 1}, 3: {0, 1}, 4: {0, 1}, 5: {0, 1}, 6: {0, 1}, 7: {0, 1}, 8: {0, 1}, 9: {0, 1}, 10: {0}, 11: {0, 1}, 12: {0, 1}, 13: {0, 1}, 14: {0, 1}, 15: {0, 1}, 16: {0, 1}, 17: {0, 1}, 18: {0, 1}, 19: {0, 1}, 20: {0, 1}, 21: {0, 1}, 22: {0, 1}, 23: {0, 1}, 24: {0, 1}, 25: {0, 1}, 26: {1}, 27: {0, 1}, 28: {0, 1}, 29: {0, 1}}
-2026-04-02 15:43:11 | INFO     | Iteration 1: Best valset aggregate score so far: 0.5666666666666667
-2026-04-02 15:43:11 | INFO     | Iteration 1: Best program as per aggregate score on valset: 0
-2026-04-02 15:43:11 | INFO     | Iteration 1: Best score on valset: 0.5666666666666667
-2026-04-02 15:43:11 | INFO     | Iteration 1: Linear pareto front program index: 0
-2026-04-02 15:43:11 | INFO     | Iteration 1: New program candidate index: 1
-2026-04-02 15:43:11 | INFO     |   [ACCEPTED] Candidate #1 score=0.5667 parents=[0]
-2026-04-02 15:49:54 | INFO     | 
-  [ACCEPTED] Candidate #2 (val=0.5333, parents=[0])
-2026-04-02 15:49:54 | INFO     |   Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved, including both general principles and domain-specific facts (e.g., biological structures like chitin, biochemical components like glucose in cellulose, or thermodynamic calculations). Use relevant formulas (e.g., q = m*c*ΔT) when required for quantitative problems. Respond with ONLY the letter of the correct answer.
-2026-04-02 15:49:54 | INFO     | Iteration 1: Valset score for new program: 0.5333333333333333 (coverage 30 / 30)
-2026-04-02 15:49:54 | INFO     | Iteration 1: Val aggregate for new program: 0.5333333333333333
-2026-04-02 15:49:54 | INFO     | Iteration 1: Individual valset scores for new program: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 0.0, 25: 0.0, 26: 0.0, 27: 1.0, 28: 0.0, 29: 1.0}
-2026-04-02 15:49:54 | INFO     | Iteration 1: New valset pareto front scores: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 0.0, 25: 0.0, 26: 1.0, 27: 1.0, 28: 0.0, 29: 1.0}
-2026-04-02 15:49:54 | INFO     | Iteration 1: Valset pareto front aggregate score: 0.6
-2026-04-02 15:49:54 | INFO     | Iteration 1: Updated valset pareto front programs: {0: {0, 1, 2}, 1: {0, 1, 2}, 2: {0, 1, 2}, 3: {0, 1, 2}, 4: {0, 1, 2}, 5: {0, 1, 2}, 6: {0, 1, 2}, 7: {0, 1, 2}, 8: {0, 1, 2}, 9: {0, 1, 2}, 10: {0}, 11: {0, 1, 2}, 12: {0, 1, 2}, 13: {0, 1, 2}, 14: {0, 1, 2}, 15: {0, 1, 2}, 16: {0, 1, 2}, 17: {0, 1, 2}, 18: {0, 1, 2}, 19: {0, 1, 2}, 20: {0, 1, 2}, 21: {0, 1, 2}, 22: {0, 1, 2}, 23: {0, 1, 2}, 24: {0, 1, 2}, 25: {0, 1, 2}, 26: {1}, 27: {0, 1, 2}, 28: {0, 1, 2}, 29: {0, 1, 2}}
-2026-04-02 15:49:54 | INFO     | Iteration 1: Best valset aggregate score so far: 0.5666666666666667
-2026-04-02 15:49:54 | INFO     | Iteration 1: Best program as per aggregate score on valset: 0
-2026-04-02 15:49:54 | INFO     | Iteration 1: Best score on valset: 0.5666666666666667
-2026-04-02 15:49:54 | INFO     | Iteration 1: Linear pareto front program index: 0
-2026-04-02 15:49:54 | INFO     | Iteration 1: New program candidate index: 2
-2026-04-02 15:49:54 | INFO     |   [ACCEPTED] Candidate #2 score=0.5333 parents=[0]
-2026-04-02 15:49:54 | INFO     | Round 1: ✗ No improvement. Best remains at 0.5667 (candidate #0)
-2026-04-02 15:49:54 | INFO     | Round 1: Surrogate retrained. MSE loss = 0.007403
-2026-04-02 15:49:54 | INFO     | 
+2026-04-05 14:13:58 | INFO     |   Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved. Use domain-specific knowledge (e.g., biological structures like chitin in fungi/arthropods, physical formulas like specific heat capacity, or chemical compositions like cellulose monomers) and generalizable problem-solving strategies (e.g., formula rearrangement, process of elimination) to arrive at the answer. Respond with ONLY the letter of the correct answer.
+2026-04-05 14:13:58 | INFO     |   >> New best! val=0.5667
+2026-04-05 14:13:58 | INFO     | Iteration 1: Valset score for new program: 0.5666666666666667 (coverage 30 / 30)
+2026-04-05 14:13:58 | INFO     | Iteration 1: Val aggregate for new program: 0.5666666666666667
+2026-04-05 14:13:58 | INFO     | Iteration 1: Individual valset scores for new program: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 0.0, 25: 0.0, 26: 1.0, 27: 1.0, 28: 0.0, 29: 1.0}
+2026-04-05 14:13:58 | INFO     | Iteration 1: New valset pareto front scores: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 0.0, 25: 0.0, 26: 1.0, 27: 1.0, 28: 0.0, 29: 1.0}
+2026-04-05 14:13:58 | INFO     | Iteration 1: Valset pareto front aggregate score: 0.6
+2026-04-05 14:13:58 | INFO     | Iteration 1: Updated valset pareto front programs: {0: {0, 1}, 1: {0, 1}, 2: {0, 1}, 3: {0, 1}, 4: {0, 1}, 5: {0, 1}, 6: {0, 1}, 7: {0, 1}, 8: {0, 1}, 9: {0, 1}, 10: {0}, 11: {0, 1}, 12: {0, 1}, 13: {0, 1}, 14: {0, 1}, 15: {0, 1}, 16: {0, 1}, 17: {0, 1}, 18: {0, 1}, 19: {0, 1}, 20: {0, 1}, 21: {0, 1}, 22: {0, 1}, 23: {0, 1}, 24: {0, 1}, 25: {0, 1}, 26: {1}, 27: {0, 1}, 28: {0, 1}, 29: {0, 1}}
+2026-04-05 14:13:58 | INFO     | Iteration 1: Best valset aggregate score so far: 0.5666666666666667
+2026-04-05 14:13:58 | INFO     | Iteration 1: Best program as per aggregate score on valset: 0
+2026-04-05 14:13:58 | INFO     | Iteration 1: Best score on valset: 0.5666666666666667
+2026-04-05 14:13:58 | INFO     | Iteration 1: Linear pareto front program index: 0
+2026-04-05 14:13:58 | INFO     | Iteration 1: New program candidate index: 1
+2026-04-05 14:13:58 | INFO     |   [ACCEPTED] Candidate #1 score=0.5667 parents=[0]
+2026-04-05 14:17:29 | INFO     | 
+  [ACCEPTED] Candidate #2 (val=0.5667, parents=[0])
+2026-04-05 14:17:29 | INFO     |   Prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).  
+**Task Details:**  
+1. **Format:** Each question provides four options (A–D). Your answer must be the single correct letter.  
+2. **Scientific Knowledge Required:** Use domain-specific facts (e.g., biological structures like chitin, thermodynamic calculations, or molecular biology).  
+3. **Generalizable Strategy:** Apply foundational scientific principles (e.g., specific heat formula $ q = mc\Delta T $, cellular respiration processes, or polymer composition) to deduce the answer.  
+4. **No Explanations:** Output only the letter (A–D) corresponding to the correct choice.
+2026-04-05 14:17:29 | INFO     | Iteration 1: Valset score for new program: 0.5666666666666667 (coverage 30 / 30)
+2026-04-05 14:17:29 | INFO     | Iteration 1: Val aggregate for new program: 0.5666666666666667
+2026-04-05 14:17:29 | INFO     | Iteration 1: Individual valset scores for new program: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 0.0, 25: 0.0, 26: 1.0, 27: 1.0, 28: 0.0, 29: 1.0}
+2026-04-05 14:17:29 | INFO     | Iteration 1: New valset pareto front scores: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 0.0, 25: 0.0, 26: 1.0, 27: 1.0, 28: 0.0, 29: 1.0}
+2026-04-05 14:17:29 | INFO     | Iteration 1: Valset pareto front aggregate score: 0.6
+2026-04-05 14:17:29 | INFO     | Iteration 1: Updated valset pareto front programs: {0: {0, 1, 2}, 1: {0, 1, 2}, 2: {0, 1, 2}, 3: {0, 1, 2}, 4: {0, 1, 2}, 5: {0, 1, 2}, 6: {0, 1, 2}, 7: {0, 1, 2}, 8: {0, 1, 2}, 9: {0, 1, 2}, 10: {0}, 11: {0, 1, 2}, 12: {0, 1, 2}, 13: {0, 1, 2}, 14: {0, 1, 2}, 15: {0, 1, 2}, 16: {0, 1, 2}, 17: {0, 1, 2}, 18: {0, 1, 2}, 19: {0, 1, 2}, 20: {0, 1, 2}, 21: {0, 1, 2}, 22: {0, 1, 2}, 23: {0, 1, 2}, 24: {0, 1, 2}, 25: {0, 1, 2}, 26: {1, 2}, 27: {0, 1, 2}, 28: {0, 1, 2}, 29: {0, 1, 2}}
+2026-04-05 14:17:29 | INFO     | Iteration 1: Best valset aggregate score so far: 0.5666666666666667
+2026-04-05 14:17:29 | INFO     | Iteration 1: Best program as per aggregate score on valset: 0
+2026-04-05 14:17:29 | INFO     | Iteration 1: Best score on valset: 0.5666666666666667
+2026-04-05 14:17:29 | INFO     | Iteration 1: Linear pareto front program index: 0
+2026-04-05 14:17:29 | INFO     | Iteration 1: New program candidate index: 2
+2026-04-05 14:17:29 | INFO     |   [ACCEPTED] Candidate #2 score=0.5667 parents=[0]
+2026-04-05 14:17:29 | INFO     | Round 1: ✗ No improvement. Best remains at 0.5667 (candidate #0)
+2026-04-05 14:17:29 | INFO     | Round 1: Surrogate retrained. MSE loss = 0.000353
+2026-04-05 14:27:56 | INFO     | 
 --------------------------------------------------------------------------------------------------------------------------------
-2026-04-02 15:49:54 | INFO     | Rounds |  LLM Calls |    Val Acc |  Best Val Acc |  Test Acc (Selected) |  Surrogate Loss |  Avg Top-k |  Max Top-k |  Min Top-k
-2026-04-02 15:49:54 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
-2026-04-02 15:49:54 | INFO     |      1 |        108 |     0.5667 |        0.5667 |               0.7800 |        0.008027 |     0.5500 |     0.5667 |     0.5333
-2026-04-02 15:49:54 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
-2026-04-02 15:49:54 | INFO     | 
-Round 1 summary: best_val=0.5667, test=0.7800, llm_calls=108
-2026-04-02 15:49:54 | INFO     | Round 2: Selected 2 parents from Top-5: [0, 1]
-2026-04-02 15:49:54 | INFO     | Iteration 2: Selected program 0 score: 0.5666666666666667
-2026-04-02 15:50:10 | INFO     | Iteration 2: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved, and compare all options to identify the most accurate answer. Note that options may be incomplete or partially provided in the input, so rely on your domain knowledge to eliminate incorrect choices. The correct answer may not always be the first option. Respond with ONLY the letter of the correct answer.
-2026-04-02 15:50:21 | INFO     | Round 2: Generated mutation from parent 0 (subsample: before=3.00, after=3.00)
-2026-04-02 15:50:21 | INFO     | Iteration 2: Selected program 0 score: 0.5666666666666667
-2026-04-02 15:50:39 | INFO     | Iteration 2: Proposed new text for system_prompt: You are a science expert tasked with answering multiple-choice questions by selecting the correct option (A, B, C, or D). Follow these guidelines:  
-1. **Focus on scientific concepts**: Prioritize accuracy based on established scientific principles, even if options are incomplete or ambiguous.  
-2. **Eliminate incorrect options**: Use logical reasoning and domain knowledge to discard implausible choices.  
-3. **Respond only with the correct letter**: Provide no additional explanations, just the answer (e.g., **C**).  
-4. **Handle incomplete options**: If an option is cut off (e.g., "B. Nuclear fission results from the fusion..."), infer the full meaning using general scientific knowledge.  
-5. **Rely on domain-specific facts**: Incorporate niche details (e.g., nuclear fission involves splitting heavy nuclei, not fusion) to distinguish correct answers.  
-6. **Avoid external reasoning**: Solve the task using only the information provided in the question and your inherent scientific expertise.
-2026-04-02 15:51:04 | INFO     | Round 2: Generated mutation from parent 0 (subsample: before=3.00, after=2.00)
-2026-04-02 15:51:04 | INFO     | Iteration 2: Selected program 1 score: 0.5666666666666667
-2026-04-02 15:51:18 | INFO     | Iteration 2: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Use the formula $ q = m \cdot c \cdot \Delta T $ for specific heat calculations. Recognize niche domain-specific facts such as:  
-- **Chitin** (structural component of fungal cell walls and arthropod exoskeletons)  
-- **Cellulose** (a polysaccharide composed of **glucose** monomers)  
-- **Biomolecular structures** (e.g., DNA, proteins, and carbohydrates)  
-- **Thermodynamic principles** (e.g., conservation of energy, entropy)  
-- **Nuclear reactions** (e.g., fission vs. fusion, radioactive decay)  
-Respond with ONLY the letter of the correct answer.
-2026-04-02 15:51:29 | INFO     | Round 2: Generated mutation from parent 0 (subsample: before=3.00, after=3.00)
-2026-04-02 15:51:29 | INFO     | Iteration 2: Selected program 0 score: 0.5666666666666667
-2026-04-02 15:51:50 | INFO     | Iteration 2: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Respond with ONLY the letter of the correct answer. Use your scientific knowledge to determine the correct choice, even if the options are incomplete or partially presented. Do not provide explanations or additional text.
-2026-04-02 15:52:11 | INFO     | Round 2: Generated mutation from parent 1 (subsample: before=3.00, after=3.00)
-2026-04-02 15:52:11 | INFO     | Iteration 2: Selected program 1 score: 0.5666666666666667
-2026-04-02 15:52:26 | INFO     | Iteration 2: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Use your knowledge of niche scientific concepts such as:  
-- **Chitin** (found in fungal cell walls and arthropod exoskeletons)  
-- **Specific heat calculations** (apply the formula $ q = m \cdot c \cdot \Delta T $ to solve problems involving heat transfer)  
-- **Biomolecular structures** (e.g., recognize that cellulose is a polysaccharide composed of glucose monomers).  
-Additionally, employ generalizable strategies like analyzing experimental data, applying thermodynamic principles, or interpreting molecular diagrams. Respond with ONLY the letter of the correct answer.
-2026-04-02 15:52:37 | INFO     | Round 2: Generated mutation from parent 1 (subsample: before=3.00, after=3.00)
-2026-04-02 15:52:37 | INFO     | Iteration 2: Selected program 1 score: 0.5666666666666667
-2026-04-02 15:52:58 | INFO     | Iteration 2: Proposed new text for system_prompt: You are a science expert tasked with answering multiple-choice questions (A-D) by selecting the correct option. Use your knowledge of scientific concepts, including niche domain-specific facts such as:  
-- **Chitin** (found in fungal cell walls and arthropod exoskeletons)  
-- **Specific heat calculations** (apply the formula $ q = m \cdot c \cdot \Delta T $)  
-- **Biomolecular structures** (e.g., cellulose is composed of **glucose** monomers)  
-- **Other scientific principles** (e.g., nuclear fission, percent error, medical physiology).  
-Respond ONLY with the letter of the correct answer. If the question requires calculations, formulas, or domain-specific terminology, prioritize accuracy based on these facts.
-2026-04-02 15:53:23 | INFO     | Round 2: Generated mutation from parent 1 (subsample: before=3.00, after=3.00)
-2026-04-02 15:53:23 | INFO     | Round 2: Generated 6 total mutations
-2026-04-02 15:53:23 | INFO     | Round 2: Surrogate scores: min=0.4555, max=0.5593, mean=0.5219
-2026-04-02 15:53:23 | INFO     | 
+2026-04-05 14:27:56 | INFO     | Rounds |  LLM Calls |    Val Acc |  Best Val Acc |  Test Acc (Selected) |  Surrogate Loss |  Avg Top-k |  Max Top-k |  Min Top-k
+2026-04-05 14:27:56 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 14:27:56 | INFO     |      1 |        108 |     0.5667 |        0.5667 |               0.7600 |        0.001456 |     0.5667 |     0.5667 |     0.5667
+2026-04-05 14:27:56 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 14:27:56 | INFO     | 
+Round 1 summary: best_val=0.5667, test=0.7600, llm_calls=108
+2026-04-05 14:27:56 | INFO     | Round 2: Selected 2 parents from Top-5: [0, 1]
+2026-04-05 14:27:56 | INFO     | Iteration 2: Selected program 0 score: 0.5666666666666667
+2026-04-05 14:28:27 | INFO     | Iteration 2: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved, including domain-specific principles (e.g., medical, physical, or biological knowledge). Respond with ONLY the letter of the correct answer. If the question involves niche factual information, prioritize accurate recall of specialized terminology or concepts. Use generalizable strategies such as applying scientific laws, evaluating experimental design, or diagnosing clinical scenarios when relevant. Do not include explanations, only the letter.
+2026-04-05 14:28:38 | INFO     | Round 2: Generated mutation from parent 0 (subsample: before=3.00, after=3.00)
+2026-04-05 14:28:38 | INFO     | Iteration 2: Selected program 0 score: 0.5666666666666667
+2026-04-05 14:28:57 | INFO     | Iteration 2: Proposed new text for system_prompt: You are a science expert tasked with answering multiple-choice questions by selecting the correct option (A, B, C, or D). Focus on applying scientific principles, definitions, and domain-specific knowledge (e.g., physics, chemistry, biology, or medical terminology) to determine the correct answer. Use precise reasoning, such as understanding the mathematical formula for percent error, the nuclear process of fission, or clinical diagnostic criteria for medical conditions. Avoid assumptions; rely on factual knowledge and logical elimination. If the question involves definitions (e.g., "percent error"), prioritize accuracy in terminology. For medical scenarios, integrate pathophysiology and diagnostic reasoning. Respond **only** with the letter of the correct answer.
+2026-04-05 14:29:08 | INFO     | Round 2: Generated mutation from parent 0 (subsample: before=3.00, after=3.00)
+2026-04-05 14:29:08 | INFO     | Iteration 2: Selected program 2 score: 0.5666666666666667
+2026-04-05 14:29:29 | INFO     | Iteration 2: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A–D). Use domain-specific knowledge (e.g., statistical formulas like percent error $ \text{Percent Error} = \frac{|\text{Experimental} - \text{Theoretical}|}{\text{Theoretical}} \times 100 $, nuclear fission mechanisms (induced by neutron absorption), or medical diagnostics (e.g., pulmonary edema symptoms: dyspnea, crackles, hypoxia)). Apply foundational principles (e.g., thermodynamics, cellular respiration, polymer structures) to deduce the answer. Respond with ONLY the letter corresponding to the correct choice.
+2026-04-05 14:29:39 | INFO     | Round 2: Generated mutation from parent 0 (subsample: before=3.00, after=3.00)
+2026-04-05 14:29:39 | INFO     | Iteration 2: Selected program 0 score: 0.5666666666666667
+2026-04-05 14:29:58 | INFO     | Iteration 2: Proposed new text for system_prompt: You are a science expert tasked with answering multiple-choice questions by selecting the correct option (A, B, C, or D). Respond with ONLY the letter of the correct answer.  
+
+**Key Requirements:**  
+1. **Scientific Accuracy:** Use domain-specific knowledge (e.g., definitions of terms like "percent error," understanding nuclear fission mechanisms, or medical diagnostic reasoning) to distinguish correct answers from incorrect ones.  
+2. **Conceptual Clarity:** Prioritize understanding core scientific principles over superficial matching of keywords. For example, recognize that percent error measures deviation from a known value, while percent deviation assesses consistency among experimental results.  
+3. **Elimination Strategy:** When options are ambiguous, apply logical elimination based on scientific rules (e.g., nuclear fission involves splitting heavy nuclei, not fusion).  
+4. **Medical Context:** For clinical scenarios (e.g., differential diagnoses), integrate pathophysiological knowledge (e.g., heart failure, pulmonary edema) to select the most plausible answer.  
+
+**Do Not Include:** Explanations, reasoning, or any text beyond the answer letter.
+2026-04-05 14:30:23 | INFO     | Round 2: Generated mutation from parent 1 (subsample: before=3.00, after=3.00)
+2026-04-05 14:30:23 | INFO     | Iteration 2: Selected program 2 score: 0.5666666666666667
+2026-04-05 14:30:42 | INFO     | Iteration 2: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).  
+**Task Details:**  
+1. **Format:** Each question provides four options (A–D). Your answer must be the single correct letter.  
+2. **Scientific Knowledge Required:** Use domain-specific facts (e.g., biological structures like chitin, thermodynamic calculations, molecular biology, or medical pathophysiology). For example, recognize that percent error is calculated using $ \text{Percent Error} = \frac{|\text{Experimental} - \text{Theoretical}|}{|\text{Theoretical}|} \times 100\% $, or that nuclear fission involves neutron-induced splitting of heavy nuclei.  
+3. **Generalizable Strategy:** Apply foundational principles (e.g., specific heat formula $ q = mc\Delta T $, cellular respiration stoichiometry, or polymer composition rules) to deduce answers even if the question is incomplete. For medical cases, use diagnostic reasoning (e.g., linking symptoms like dyspnea to conditions like pulmonary embolism or heart failure).  
+4. **No Explanations:** Output only the letter (A–D) corresponding to the correct choice.
+2026-04-05 14:30:55 | INFO     | Round 2: Generated mutation from parent 1 (subsample: before=3.00, after=3.00)
+2026-04-05 14:30:55 | INFO     | Iteration 2: Selected program 2 score: 0.5666666666666667
+2026-04-05 14:31:13 | INFO     | Iteration 2: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).  
+**Task Details:**  
+1. **Format:** Each question provides four options (A–D). Your answer must be the single correct letter.  
+2. **Scientific Knowledge Required:** Use domain-specific facts (e.g., biological structures like chitin, thermodynamic calculations, molecular biology, or medical diagnostics). For example, recognize that percent error is calculated as |experimental - theoretical| / theoretical × 100%, and nuclear fission involves splitting heavy nuclei via neutron absorption.  
+3. **Generalizable Strategy:** Apply foundational scientific principles (e.g., specific heat formula $ q = mc\Delta T $, cellular respiration stages, polymer composition rules, or medical triage priorities). For instance, in medical cases, prioritize physiological mechanisms (e.g., pulmonary edema in heart failure).  
+4. **No Explanations:** Output only the letter (A–D) corresponding to the correct choice.
+2026-04-05 14:31:26 | INFO     | Round 2: Generated mutation from parent 1 (subsample: before=3.00, after=3.00)
+2026-04-05 14:31:26 | INFO     | Round 2: Generated 6 total mutations
+2026-04-05 14:31:26 | INFO     | Round 2: Surrogate scores: min=0.4756, max=0.5633, mean=0.5305
+2026-04-05 14:31:26 | INFO     | 
   [SURROGATE] Scored 6 candidates:
-2026-04-02 15:53:23 | INFO     |     #0: surrogate=0.4729, ucb=0.6627 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
-2026-04-02 15:53:23 | INFO     |     #1: surrogate=0.4555, ucb=0.6453 | You are a science expert tasked with answering multiple-choice questions by selecting the correct op...
-2026-04-02 15:53:23 | INFO     |     #2: surrogate=0.5580, ucb=0.7478 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
-2026-04-02 15:53:23 | INFO     |     #3: surrogate=0.5341, ucb=0.7239 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
-2026-04-02 15:53:23 | INFO     |     #4: surrogate=0.5593, ucb=0.7491 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
-2026-04-02 15:53:23 | INFO     |     #5: surrogate=0.5515, ucb=0.7413 | You are a science expert tasked with answering multiple-choice questions (A-D) by selecting the corr...
-2026-04-02 15:53:23 | INFO     | Round 2: Selected Top-2 from 6 by UCB: [4, 2]
-2026-04-02 15:53:23 | INFO     |   [BANDIT] Selected Top-2 from 6: indices=[4, 2]
-2026-04-02 15:53:23 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 3/6)
-2026-04-02 15:53:23 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 4/6)
-2026-04-02 15:53:23 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 5/6)
-2026-04-02 15:53:23 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 6/6)
-2026-04-02 15:56:53 | INFO     | 
-  [BEST] Candidate #3 (val=0.6000, parents=[1])
-2026-04-02 15:56:53 | INFO     |   Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Use your knowledge of niche scientific concepts such as:  
-- **Chitin** (found in fungal cell walls and arthropod exoskeletons)  
-- **Specific heat calculations** (apply the formula $ q = m \cdot c \cdot \Delta T $ to solve problems involving heat transfer)  
-- **Biomolecular structures** (e.g., recognize that cellulose is a polysaccharide composed of glucose monomers).  
-Additionally, employ generalizable strategies like analyzing experimental data, applying thermodynamic principles, or interpreting molecular diagrams. Respond with ONLY the letter of the correct answer.
-2026-04-02 15:56:53 | INFO     |   >> New best! val=0.6000
-2026-04-02 15:56:53 | INFO     | Round 2: Found a better program on the valset with score 0.6.
-2026-04-02 15:56:53 | INFO     | Iteration 2: Valset score for new program: 0.6 (coverage 30 / 30)
-2026-04-02 15:56:53 | INFO     | Iteration 2: Val aggregate for new program: 0.6
-2026-04-02 15:56:53 | INFO     | Iteration 2: Individual valset scores for new program: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 1.0, 25: 0.0, 26: 1.0, 27: 1.0, 28: 0.0, 29: 1.0}
-2026-04-02 15:56:53 | INFO     | Iteration 2: New valset pareto front scores: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 1.0, 25: 0.0, 26: 1.0, 27: 1.0, 28: 0.0, 29: 1.0}
-2026-04-02 15:56:53 | INFO     | Iteration 2: Valset pareto front aggregate score: 0.6333333333333333
-2026-04-02 15:56:53 | INFO     | Iteration 2: Updated valset pareto front programs: {0: {0, 1, 2, 3}, 1: {0, 1, 2, 3}, 2: {0, 1, 2, 3}, 3: {0, 1, 2, 3}, 4: {0, 1, 2, 3}, 5: {0, 1, 2, 3}, 6: {0, 1, 2, 3}, 7: {0, 1, 2, 3}, 8: {0, 1, 2, 3}, 9: {0, 1, 2, 3}, 10: {0}, 11: {0, 1, 2, 3}, 12: {0, 1, 2, 3}, 13: {0, 1, 2, 3}, 14: {0, 1, 2, 3}, 15: {0, 1, 2, 3}, 16: {0, 1, 2, 3}, 17: {0, 1, 2, 3}, 18: {0, 1, 2, 3}, 19: {0, 1, 2, 3}, 20: {0, 1, 2, 3}, 21: {0, 1, 2, 3}, 22: {0, 1, 2, 3}, 23: {0, 1, 2, 3}, 24: {3}, 25: {0, 1, 2, 3}, 26: {1, 3}, 27: {0, 1, 2, 3}, 28: {0, 1, 2, 3}, 29: {0, 1, 2, 3}}
-2026-04-02 15:56:53 | INFO     | Iteration 2: Best valset aggregate score so far: 0.6
-2026-04-02 15:56:53 | INFO     | Iteration 2: Best program as per aggregate score on valset: 3
-2026-04-02 15:56:53 | INFO     | Iteration 2: Best score on valset: 0.6
-2026-04-02 15:56:53 | INFO     | Iteration 2: Linear pareto front program index: 3
-2026-04-02 15:56:53 | INFO     | Iteration 2: New program candidate index: 3
-2026-04-02 15:56:53 | INFO     |   [ACCEPTED] Candidate #3 score=0.6000 parents=[1]
-2026-04-02 16:01:04 | INFO     | 
-  [ACCEPTED] Candidate #4 (val=0.5667, parents=[1])
-2026-04-02 16:01:04 | INFO     |   Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Use the formula $ q = m \cdot c \cdot \Delta T $ for specific heat calculations. Recognize niche domain-specific facts such as:  
-- **Chitin** (structural component of fungal cell walls and arthropod exoskeletons)  
-- **Cellulose** (a polysaccharide composed of **glucose** monomers)  
-- **Biomolecular structures** (e.g., DNA, proteins, and carbohydrates)  
-- **Thermodynamic principles** (e.g., conservation of energy, entropy)  
-- **Nuclear reactions** (e.g., fission vs. fusion, radioactive decay)  
-Respond with ONLY the letter of the correct answer.
-2026-04-02 16:01:04 | INFO     | Iteration 2: Valset score for new program: 0.5666666666666667 (coverage 30 / 30)
-2026-04-02 16:01:04 | INFO     | Iteration 2: Val aggregate for new program: 0.5666666666666667
-2026-04-02 16:01:04 | INFO     | Iteration 2: Individual valset scores for new program: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 0.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 0.0, 25: 1.0, 26: 1.0, 27: 1.0, 28: 0.0, 29: 1.0}
-2026-04-02 16:01:04 | INFO     | Iteration 2: New valset pareto front scores: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 1.0, 25: 1.0, 26: 1.0, 27: 1.0, 28: 0.0, 29: 1.0}
-2026-04-02 16:01:04 | INFO     | Iteration 2: Valset pareto front aggregate score: 0.6666666666666666
-2026-04-02 16:01:04 | INFO     | Iteration 2: Updated valset pareto front programs: {0: {0, 1, 2, 3, 4}, 1: {0, 1, 2, 3, 4}, 2: {0, 1, 2, 3, 4}, 3: {0, 1, 2, 3, 4}, 4: {0, 1, 2, 3, 4}, 5: {0, 1, 2, 3, 4}, 6: {0, 1, 2, 3, 4}, 7: {0, 1, 2, 3, 4}, 8: {0, 1, 2, 3, 4}, 9: {0, 1, 2, 3, 4}, 10: {0}, 11: {0, 1, 2, 3, 4}, 12: {0, 1, 2, 3, 4}, 13: {0, 1, 2, 3, 4}, 14: {0, 1, 2, 3, 4}, 15: {0, 1, 2, 3}, 16: {0, 1, 2, 3, 4}, 17: {0, 1, 2, 3, 4}, 18: {0, 1, 2, 3, 4}, 19: {0, 1, 2, 3, 4}, 20: {0, 1, 2, 3, 4}, 21: {0, 1, 2, 3, 4}, 22: {0, 1, 2, 3, 4}, 23: {0, 1, 2, 3, 4}, 24: {3}, 25: {4}, 26: {1, 3, 4}, 27: {0, 1, 2, 3, 4}, 28: {0, 1, 2, 3, 4}, 29: {0, 1, 2, 3, 4}}
-2026-04-02 16:01:04 | INFO     | Iteration 2: Best valset aggregate score so far: 0.6
-2026-04-02 16:01:04 | INFO     | Iteration 2: Best program as per aggregate score on valset: 3
-2026-04-02 16:01:04 | INFO     | Iteration 2: Best score on valset: 0.6
-2026-04-02 16:01:04 | INFO     | Iteration 2: Linear pareto front program index: 3
-2026-04-02 16:01:04 | INFO     | Iteration 2: New program candidate index: 4
-2026-04-02 16:01:04 | INFO     |   [ACCEPTED] Candidate #4 score=0.5667 parents=[1]
-2026-04-02 16:01:04 | INFO     | Round 2: ✓ IMPROVEMENT! 0.5667 → 0.6000 (candidate #3)
-2026-04-02 16:01:04 | INFO     | Round 2: Surrogate retrained. MSE loss = 0.390057
-2026-04-02 16:01:04 | INFO     | 
+2026-04-05 14:31:26 | INFO     |     #0: surrogate=0.5274, ucb=0.7172 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
+2026-04-05 14:31:26 | INFO     |     #1: surrogate=0.5280, ucb=0.7178 | You are a science expert tasked with answering multiple-choice questions by selecting the correct op...
+2026-04-05 14:31:26 | INFO     |     #2: surrogate=0.5633, ucb=0.7531 | You are a science expert. Answer the following science question by selecting the correct option (A–D...
+2026-04-05 14:31:26 | INFO     |     #3: surrogate=0.4756, ucb=0.6654 | You are a science expert tasked with answering multiple-choice questions by selecting the correct op...
+2026-04-05 14:31:26 | INFO     |     #4: surrogate=0.5501, ucb=0.7399 | You are a science expert. Answer the following science question by selecting the correct option. Thi...
+2026-04-05 14:31:26 | INFO     |     #5: surrogate=0.5386, ucb=0.7284 | You are a science expert. Answer the following science question by selecting the correct option. Thi...
+2026-04-05 14:31:26 | INFO     | Round 2: Selected Top-2 from 6 by UCB: [2, 4]
+2026-04-05 14:31:26 | INFO     |   [BANDIT] Selected Top-2 from 6: indices=[2, 4]
+2026-04-05 14:31:26 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 3/6)
+2026-04-05 14:31:26 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 4/6)
+2026-04-05 14:31:26 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 5/6)
+2026-04-05 14:31:26 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 6/6)
+2026-04-05 14:37:06 | INFO     | 
+  [ACCEPTED] Candidate #3 (val=0.5333, parents=[2])
+2026-04-05 14:37:06 | INFO     |   Prompt: You are a science expert. Answer the following science question by selecting the correct option (A–D). Use domain-specific knowledge (e.g., statistical formulas like percent error $ \text{Percent Error} = \frac{|\text{Experimental} - \text{Theoretical}|}{\text{Theoretical}} \times 100 $, nuclear fission mechanisms (induced by neutron absorption), or medical diagnostics (e.g., pulmonary edema symptoms: dyspnea, crackles, hypoxia)). Apply foundational principles (e.g., thermodynamics, cellular respiration, polymer structures) to deduce the answer. Respond with ONLY the letter corresponding to the correct choice.
+2026-04-05 14:37:06 | INFO     | Iteration 2: Valset score for new program: 0.5333333333333333 (coverage 30 / 30)
+2026-04-05 14:37:06 | INFO     | Iteration 2: Val aggregate for new program: 0.5333333333333333
+2026-04-05 14:37:06 | INFO     | Iteration 2: Individual valset scores for new program: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 0.0, 25: 0.0, 26: 0.0, 27: 1.0, 28: 0.0, 29: 1.0}
+2026-04-05 14:37:06 | INFO     | Iteration 2: New valset pareto front scores: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 0.0, 25: 0.0, 26: 1.0, 27: 1.0, 28: 0.0, 29: 1.0}
+2026-04-05 14:37:06 | INFO     | Iteration 2: Valset pareto front aggregate score: 0.6
+2026-04-05 14:37:06 | INFO     | Iteration 2: Updated valset pareto front programs: {0: {0, 1, 2, 3}, 1: {0, 1, 2, 3}, 2: {0, 1, 2, 3}, 3: {0, 1, 2, 3}, 4: {0, 1, 2, 3}, 5: {0, 1, 2, 3}, 6: {0, 1, 2, 3}, 7: {0, 1, 2, 3}, 8: {0, 1, 2, 3}, 9: {0, 1, 2, 3}, 10: {0}, 11: {0, 1, 2, 3}, 12: {0, 1, 2, 3}, 13: {0, 1, 2, 3}, 14: {0, 1, 2, 3}, 15: {0, 1, 2, 3}, 16: {0, 1, 2, 3}, 17: {0, 1, 2, 3}, 18: {0, 1, 2, 3}, 19: {0, 1, 2, 3}, 20: {0, 1, 2, 3}, 21: {0, 1, 2, 3}, 22: {0, 1, 2, 3}, 23: {0, 1, 2, 3}, 24: {0, 1, 2, 3}, 25: {0, 1, 2, 3}, 26: {1, 2}, 27: {0, 1, 2, 3}, 28: {0, 1, 2, 3}, 29: {0, 1, 2, 3}}
+2026-04-05 14:37:06 | INFO     | Iteration 2: Best valset aggregate score so far: 0.5666666666666667
+2026-04-05 14:37:06 | INFO     | Iteration 2: Best program as per aggregate score on valset: 0
+2026-04-05 14:37:06 | INFO     | Iteration 2: Best score on valset: 0.5666666666666667
+2026-04-05 14:37:06 | INFO     | Iteration 2: Linear pareto front program index: 0
+2026-04-05 14:37:06 | INFO     | Iteration 2: New program candidate index: 3
+2026-04-05 14:37:06 | INFO     |   [ACCEPTED] Candidate #3 score=0.5333 parents=[2]
+2026-04-05 14:42:56 | INFO     | 
+  [ACCEPTED] Candidate #4 (val=0.5667, parents=[2])
+2026-04-05 14:42:56 | INFO     |   Prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).  
+**Task Details:**  
+1. **Format:** Each question provides four options (A–D). Your answer must be the single correct letter.  
+2. **Scientific Knowledge Required:** Use domain-specific facts (e.g., biological structures like chitin, thermodynamic calculations, molecular biology, or medical pathophysiology). For example, recognize that percent error is calculated using $ \text{Percent Error} = \frac{|\text{Experimental} - \text{Theoretical}|}{|\text{Theoretical}|} \times 100\% $, or that nuclear fission involves neutron-induced splitting of heavy nuclei.  
+3. **Generalizable Strategy:** Apply foundational principles (e.g., specific heat formula $ q = mc\Delta T $, cellular respiration stoichiometry, or polymer composition rules) to deduce answers even if the question is incomplete. For medical cases, use diagnostic reasoning (e.g., linking symptoms like dyspnea to conditions like pulmonary embolism or heart failure).  
+4. **No Explanations:** Output only the letter (A–D) corresponding to the correct choice.
+2026-04-05 14:42:56 | INFO     | Iteration 2: Valset score for new program: 0.5666666666666667 (coverage 30 / 30)
+2026-04-05 14:42:56 | INFO     | Iteration 2: Val aggregate for new program: 0.5666666666666667
+2026-04-05 14:42:56 | INFO     | Iteration 2: Individual valset scores for new program: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 1.0, 25: 0.0, 26: 0.0, 27: 1.0, 28: 0.0, 29: 1.0}
+2026-04-05 14:42:56 | INFO     | Iteration 2: New valset pareto front scores: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 1.0, 25: 0.0, 26: 1.0, 27: 1.0, 28: 0.0, 29: 1.0}
+2026-04-05 14:42:56 | INFO     | Iteration 2: Valset pareto front aggregate score: 0.6333333333333333
+2026-04-05 14:42:56 | INFO     | Iteration 2: Updated valset pareto front programs: {0: {0, 1, 2, 3, 4}, 1: {0, 1, 2, 3, 4}, 2: {0, 1, 2, 3, 4}, 3: {0, 1, 2, 3, 4}, 4: {0, 1, 2, 3, 4}, 5: {0, 1, 2, 3, 4}, 6: {0, 1, 2, 3, 4}, 7: {0, 1, 2, 3, 4}, 8: {0, 1, 2, 3, 4}, 9: {0, 1, 2, 3, 4}, 10: {0}, 11: {0, 1, 2, 3, 4}, 12: {0, 1, 2, 3, 4}, 13: {0, 1, 2, 3, 4}, 14: {0, 1, 2, 3, 4}, 15: {0, 1, 2, 3, 4}, 16: {0, 1, 2, 3, 4}, 17: {0, 1, 2, 3, 4}, 18: {0, 1, 2, 3, 4}, 19: {0, 1, 2, 3, 4}, 20: {0, 1, 2, 3, 4}, 21: {0, 1, 2, 3, 4}, 22: {0, 1, 2, 3, 4}, 23: {0, 1, 2, 3, 4}, 24: {4}, 25: {0, 1, 2, 3, 4}, 26: {1, 2}, 27: {0, 1, 2, 3, 4}, 28: {0, 1, 2, 3, 4}, 29: {0, 1, 2, 3, 4}}
+2026-04-05 14:42:56 | INFO     | Iteration 2: Best valset aggregate score so far: 0.5666666666666667
+2026-04-05 14:42:56 | INFO     | Iteration 2: Best program as per aggregate score on valset: 0
+2026-04-05 14:42:56 | INFO     | Iteration 2: Best score on valset: 0.5666666666666667
+2026-04-05 14:42:56 | INFO     | Iteration 2: Linear pareto front program index: 0
+2026-04-05 14:42:56 | INFO     | Iteration 2: New program candidate index: 4
+2026-04-05 14:42:56 | INFO     |   [ACCEPTED] Candidate #4 score=0.5667 parents=[2]
+2026-04-05 14:42:56 | INFO     | Round 2: ✗ No improvement. Best remains at 0.5667 (candidate #0)
+2026-04-05 14:42:56 | INFO     | Round 2: Surrogate retrained. MSE loss = 0.446212
+2026-04-05 14:53:16 | INFO     | 
 --------------------------------------------------------------------------------------------------------------------------------
-2026-04-02 16:01:04 | INFO     | Rounds |  LLM Calls |    Val Acc |  Best Val Acc |  Test Acc (Selected) |  Surrogate Loss |  Avg Top-k |  Max Top-k |  Min Top-k
-2026-04-02 16:01:04 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
-2026-04-02 16:01:04 | INFO     |      1 |        108 |     0.5667 |        0.5667 |               0.7800 |        0.008027 |     0.5500 |     0.5667 |     0.5333
-2026-04-02 16:01:04 | INFO     |      2 |        204 |     0.6000 |        0.6000 |               0.7800 |        0.346191 |     0.5833 |     0.6000 |     0.5667
-2026-04-02 16:01:04 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
-2026-04-02 16:01:04 | INFO     | 
-Round 2 summary: best_val=0.6000, test=0.7800, llm_calls=204
-2026-04-02 16:01:04 | INFO     | Round 3: Selected 2 parents from Top-5: [0, 2]
-2026-04-02 16:01:04 | INFO     | Iteration 3: Selected program 4 score: 0.5666666666666667
-2026-04-02 16:01:24 | INFO     | Iteration 3: Proposed new text for system_prompt: You are a versatile expert capable of answering questions across multiple domains, including science, medicine, and social sciences. When answering, select the correct option (A, B, C, or D) by applying domain-specific knowledge, formulas (e.g., $ q = m \cdot c \cdot \Delta T $ for specific heat calculations), and niche facts such as:  
-- **Chitin** (structural component of fungal cell walls and arthropod exoskeletons)  
-- **Cellulose** (a polysaccharide composed of **glucose** monomers)  
-- **Biomolecular structures** (e.g., DNA, proteins, carbohydrates)  
-- **Thermodynamic principles** (e.g., conservation of energy, entropy)  
-- **Nuclear reactions** (e.g., fission vs. fusion, radioactive decay)  
+2026-04-05 14:53:16 | INFO     | Rounds |  LLM Calls |    Val Acc |  Best Val Acc |  Test Acc (Selected) |  Surrogate Loss |  Avg Top-k |  Max Top-k |  Min Top-k
+2026-04-05 14:53:16 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 14:53:16 | INFO     |      1 |        108 |     0.5667 |        0.5667 |               0.7600 |        0.001456 |     0.5667 |     0.5667 |     0.5667
+2026-04-05 14:53:16 | INFO     |      2 |        204 |     0.5667 |        0.5667 |               0.7600 |        0.405743 |     0.5500 |     0.5667 |     0.5333
+2026-04-05 14:53:16 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 14:53:16 | INFO     | 
+Round 2 summary: best_val=0.5667, test=0.7600, llm_calls=204
+2026-04-05 14:53:16 | INFO     | Round 3: Selected 2 parents from Top-5: [1, 3]
+2026-04-05 14:53:16 | INFO     | Iteration 3: Selected program 4 score: 0.5666666666666667
+2026-04-05 14:53:37 | INFO     | Iteration 3: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).  
 
-For medical or clinical scenarios, apply diagnostic reasoning, pathophysiology, or treatment principles. For social science questions, use context-specific knowledge (e.g., demographic trends, cultural factors). Always prioritize domain-specific facts and formulas over general assumptions. Respond with ONLY the letter of the correct answer.
-2026-04-02 16:01:37 | INFO     | Round 3: Generated mutation from parent 0 (subsample: before=2.00, after=2.00)
-2026-04-02 16:01:37 | INFO     | Iteration 3: Selected program 3 score: 0.6
-2026-04-02 16:01:59 | INFO     | Iteration 3: Proposed new text for system_prompt: You are a multidisciplinary expert. Answer the following question by selecting the correct option (A, B, C, or D). Use your knowledge of niche scientific concepts such as:  
-- **Chitin** (found in fungal cell walls and arthropod exoskeletons)  
-- **Specific heat calculations** (apply the formula $ q = m \cdot c \cdot \Delta T $ to solve problems involving heat transfer)  
-- **Biomolecular structures** (e.g., recognize that cellulose is a polysaccharide composed of glucose monomers).  
-Additionally, employ generalizable strategies like analyzing experimental data, applying thermodynamic principles, or interpreting molecular diagrams. If the correct answer is not explicitly listed among the options, state "No correct answer available." Respond with ONLY the letter of the correct answer or "No correct answer available."
-2026-04-02 16:02:11 | INFO     | Round 3: Generated mutation from parent 0 (subsample: before=2.00, after=2.00)
-2026-04-02 16:02:11 | INFO     | Iteration 3: Selected program 4 score: 0.5666666666666667
-2026-04-02 16:02:26 | INFO     | Iteration 3: Proposed new text for system_prompt: You are a science expert. Answer the following question by selecting the correct option (A, B, C, or D). Use the formula $ q = m \cdot c \cdot \Delta T $ for specific heat calculations. Recognize niche domain-specific facts such as:  
-- **Chitin** (structural component of fungal cell walls and arthropod exoskeletons)  
-- **Cellulose** (a polysaccharide composed of **glucose** monomers)  
-- **Biomolecular structures** (e.g., DNA, proteins, and carbohydrates)  
-- **Thermodynamic principles** (e.g., conservation of energy, entropy)  
-- **Nuclear reactions** (e.g., fission vs. fusion, radioactive decay)  
-
-For non-scientific questions (e.g., medical case studies, social science scenarios), apply logical reasoning and contextual understanding while leveraging the above domain-specific knowledge when relevant. If the question requires generalizable strategies (e.g., evaluating study designs, interpreting symptoms), prioritize critical analysis of the scenario. Respond with ONLY the letter of the correct answer.
-2026-04-02 16:02:36 | INFO     | Round 3: Generated mutation from parent 0 (subsample: before=2.00, after=2.00)
-2026-04-02 16:02:36 | INFO     | Iteration 3: Selected program 0 score: 0.5666666666666667
-2026-04-02 16:02:58 | INFO     | Iteration 3: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Use your knowledge of scientific concepts, such as atomic structure, chemical reactivity, and biological processes, to determine the correct answer. Pay close attention to domain-specific facts, such as:  
-- Noble gases have **complete valence electron shells**, making them chemically inert (e.g., helium, neon).  
-- In medical contexts, behavioral changes in adolescents may indicate **neurological or psychiatric conditions** (e.g., schizophrenia, mood disorders).  
-- In research studies, **questionnaire surveys** are used to gather qualitative data on caregiving experiences.  
-
-When unsure, apply logical reasoning and eliminate incorrect options based on scientific principles. Respond with **only the letter of the correct answer** (A, B, C, or D).
-2026-04-02 16:03:08 | INFO     | Round 3: Generated mutation from parent 2 (subsample: before=2.00, after=2.00)
-2026-04-02 16:03:08 | INFO     | Iteration 3: Selected program 0 score: 0.5666666666666667
-2026-04-02 16:03:24 | INFO     | Iteration 3: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). If none of the provided options are scientifically accurate, respond with "no." Think carefully about the scientific concepts involved, and prioritize eliminating incorrect options based on domain-specific knowledge. For questions with incomplete or ambiguous options, use contextual clues and scientific principles to choose the most plausible answer. Avoid assumptions beyond the given information.
-2026-04-02 16:03:37 | INFO     | Round 3: Generated mutation from parent 2 (subsample: before=2.00, after=3.00)
-2026-04-02 16:03:37 | INFO     | Iteration 3: Selected program 0 score: 0.5666666666666667
-2026-04-02 16:03:55 | INFO     | Iteration 3: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Use your knowledge of scientific principles to analyze the question and eliminate incorrect choices. If the correct answer is not explicitly listed among the options, select the closest correct option or indicate that none of the options are correct. Respond with ONLY the letter of your choice (A, B, C, or D).
-2026-04-02 16:04:09 | INFO     | Round 3: Generated mutation from parent 2 (subsample: before=2.00, after=2.00)
-2026-04-02 16:04:09 | INFO     | Round 3: Generated 6 total mutations
-2026-04-02 16:04:09 | INFO     | Round 3: Surrogate scores: min=0.2048, max=0.2397, mean=0.2248
-2026-04-02 16:04:09 | INFO     | 
+**Task Details:**  
+1. **Format:** Each question provides four options (A–D). Your answer must be the single correct letter.  
+2. **Scientific Knowledge Required:** Use domain-specific facts (e.g., chemical properties of noble gases, medical diagnostic reasoning, thermodynamic formulas, or biological processes like cellular respiration). For incomplete questions, apply foundational principles (e.g., stoichiometry, polymer structure rules, or pathophysiology mechanisms) to deduce the answer.  
+3. **Generalizable Strategy:** Prioritize precise scientific reasoning over guesswork. For medical cases, link symptoms to etiologies (e.g., dyspnea → pulmonary embolism vs. heart failure). For chemistry, use periodic trends or reaction mechanisms. For physics, apply conservation laws or kinematic equations.  
+4. **No Explanations:** Output only the letter (A–D) corresponding to the correct choice. If the question is incomplete, select the most logically consistent answer based on scientific principles.
+2026-04-05 14:53:57 | INFO     | Round 3: Generated mutation from parent 1 (subsample: before=2.00, after=2.00)
+2026-04-05 14:53:57 | INFO     | Iteration 3: Selected program 2 score: 0.5666666666666667
+2026-04-05 14:54:16 | INFO     | Iteration 3: Proposed new text for system_prompt: You are a science expert. Answer the following question by selecting the correct option (A–D). Use domain-specific knowledge (e.g., molecular biology, thermodynamics, or biological structures like chitin) and generalizable scientific principles (e.g., formulas like $ q = mc\Delta T $, cellular respiration pathways, or polymer properties) to deduce the answer. If the correct answer is not directly known, apply foundational scientific reasoning to eliminate incorrect options. Respond with ONLY the letter of the correct choice.  
+**Key Requirements:**  
+1. Prioritize factual accuracy over assumptions.  
+2. For ambiguous cases, use generalizable strategies (e.g., stoichiometry, energy transformations, or evolutionary logic).  
+3. Avoid over-reliance on non-scientific context (e.g., cultural, clinical, or anecdotal details).  
+4. Ensure answers are derived from scientific principles, not external knowledge.
+2026-04-05 14:54:30 | INFO     | Round 3: Generated mutation from parent 1 (subsample: before=2.00, after=2.00)
+2026-04-05 14:54:30 | INFO     | Iteration 3: Selected program 4 score: 0.5666666666666667
+2026-04-05 14:54:52 | INFO     | Iteration 3: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).  
+**Task Details:**  
+1. **Format:** Each question provides four options (A–D). Your answer must be the single correct letter.  
+2. **Scientific Knowledge Required:** Use domain-specific facts (e.g., biological structures like chitin, thermodynamic calculations, molecular biology, or medical pathophysiology). For example, recognize that percent error is calculated using $ \text{Percent Error} = \frac{|\text{Experimental} - \text{Theoretical}|}{|\text{Theoretical}|} \times 100\% $, or that nuclear fission involves neutron-induced splitting of heavy nuclei.  
+3. **Generalizable Strategy:** Apply foundational principles (e.g., specific heat formula $ q = mc\Delta T $, cellular respiration stoichiometry, or polymer composition rules) to deduce answers even if the question is incomplete. For medical cases, use diagnostic reasoning (e.g., linking symptoms like dyspnea to conditions like pulmonary embolism or heart failure).  
+4. **No Explanations:** Output only the letter (A–D) corresponding to the correct choice.  
+**Additional Guidance:** Prioritize niche scientific facts (e.g., noble gas inertness due to full valence shells, DNA base pairing rules) and avoid assumptions. If the question is incomplete, infer using established scientific principles (e.g., gas laws, conservation of mass) to identify the most logically consistent answer.
+2026-04-05 14:55:05 | INFO     | Round 3: Generated mutation from parent 1 (subsample: before=2.00, after=2.00)
+2026-04-05 14:55:05 | INFO     | Iteration 3: Selected program 0 score: 0.5666666666666667
+2026-04-05 14:55:24 | INFO     | Iteration 3: Proposed new text for system_prompt: You are a science expert. Answer the following question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer. If the correct answer is not explicitly provided in the feedback (e.g., "Correct: no"), prioritize selecting the most scientifically valid option based on your knowledge. Avoid adding explanations or additional text. Ensure your response adheres to the format of a single letter (A, B, C, or D).
+2026-04-05 14:55:33 | INFO     | Round 3: Generated mutation from parent 3 (subsample: before=2.00, after=2.00)
+2026-04-05 14:55:33 | INFO     | Iteration 3: Selected program 0 score: 0.5666666666666667
+2026-04-05 14:55:48 | INFO     | Iteration 3: Proposed new text for system_prompt: You are to act as a science and reasoning expert, selecting the correct answer (A, B, C, or D) from multiple-choice questions. Follow these guidelines:  
+1. **Scientific Knowledge**: Use domain-specific facts (e.g., chemistry, biology, physics) and logical reasoning to evaluate options.  
+2. **Answer Format**: Respond *only* with the letter of the correct answer (A, B, C, or D). Do not provide explanations.  
+3. **No Correct Answer**: If the question is unanswerable or none of the options are correct, respond with **"no"**.  
+4. **Generalizable Strategy**: Prioritize eliminating clearly incorrect options, then deduce the best choice based on evidence.  
+5. **Domain Flexibility**: Apply reasoning to questions in science, medicine, social sciences, or other fields, ensuring alignment with factual accuracy.
+2026-04-05 14:56:00 | INFO     | Round 3: Generated mutation from parent 3 (subsample: before=2.00, after=3.00)
+2026-04-05 14:56:00 | INFO     | Iteration 3: Selected program 0 score: 0.5666666666666667
+2026-04-05 14:56:18 | INFO     | Iteration 3: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Respond with ONLY the letter of the correct answer. Think carefully about the scientific concepts involved, such as atomic structure, chemical reactivity, and fundamental principles. If the question involves niche domain knowledge (e.g., noble gases having full valence shells, inertness, or specific chemical properties), prioritize factual accuracy. If the correct answer is not explicitly listed in the options, select the closest correct choice based on scientific reasoning. Avoid providing explanations or additional text.
+2026-04-05 14:56:30 | INFO     | Round 3: Generated mutation from parent 3 (subsample: before=2.00, after=2.00)
+2026-04-05 14:56:30 | INFO     | Round 3: Generated 6 total mutations
+2026-04-05 14:56:30 | INFO     | Round 3: Surrogate scores: min=0.0674, max=0.1710, mean=0.1215
+2026-04-05 14:56:30 | INFO     | 
   [SURROGATE] Scored 6 candidates:
-2026-04-02 16:04:09 | INFO     |     #0: surrogate=0.2048, ucb=0.3456 | You are a versatile expert capable of answering questions across multiple domains, including science...
-2026-04-02 16:04:09 | INFO     |     #1: surrogate=0.2342, ucb=0.3750 | You are a multidisciplinary expert. Answer the following question by selecting the correct option (A...
-2026-04-02 16:04:09 | INFO     |     #2: surrogate=0.2397, ucb=0.3805 | You are a science expert. Answer the following question by selecting the correct option (A, B, C, or...
-2026-04-02 16:04:09 | INFO     |     #3: surrogate=0.2338, ucb=0.3746 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
-2026-04-02 16:04:09 | INFO     |     #4: surrogate=0.2084, ucb=0.3491 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
-2026-04-02 16:04:09 | INFO     |     #5: surrogate=0.2278, ucb=0.3686 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
-2026-04-02 16:04:09 | INFO     | Round 3: Selected Top-2 from 6 by UCB: [2, 1]
-2026-04-02 16:04:09 | INFO     |   [BANDIT] Selected Top-2 from 6: indices=[2, 1]
-2026-04-02 16:04:09 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 3/6)
-2026-04-02 16:04:09 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 4/6)
-2026-04-02 16:04:09 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 5/6)
-2026-04-02 16:04:09 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 6/6)
-2026-04-02 16:08:27 | INFO     | 
-  [ACCEPTED] Candidate #5 (val=0.5667, parents=[4])
-2026-04-02 16:08:27 | INFO     |   Prompt: You are a science expert. Answer the following question by selecting the correct option (A, B, C, or D). Use the formula $ q = m \cdot c \cdot \Delta T $ for specific heat calculations. Recognize niche domain-specific facts such as:  
-- **Chitin** (structural component of fungal cell walls and arthropod exoskeletons)  
-- **Cellulose** (a polysaccharide composed of **glucose** monomers)  
-- **Biomolecular structures** (e.g., DNA, proteins, and carbohydrates)  
-- **Thermodynamic principles** (e.g., conservation of energy, entropy)  
-- **Nuclear reactions** (e.g., fission vs. fusion, radioactive decay)  
-
-For non-scientific questions (e.g., medical case studies, social science scenarios), apply logical reasoning and contextual understanding while leveraging the above domain-specific knowledge when relevant. If the question requires generalizable strategies (e.g., evaluating study designs, interpreting symptoms), prioritize critical analysis of the scenario. Respond with ONLY the letter of the correct answer.
-2026-04-02 16:08:27 | INFO     | Iteration 3: Valset score for new program: 0.5666666666666667 (coverage 30 / 30)
-2026-04-02 16:08:27 | INFO     | Iteration 3: Val aggregate for new program: 0.5666666666666667
-2026-04-02 16:08:27 | INFO     | Iteration 3: Individual valset scores for new program: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 1.0, 25: 0.0, 26: 0.0, 27: 1.0, 28: 0.0, 29: 1.0}
-2026-04-02 16:08:27 | INFO     | Iteration 3: New valset pareto front scores: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 1.0, 25: 1.0, 26: 1.0, 27: 1.0, 28: 0.0, 29: 1.0}
-2026-04-02 16:08:27 | INFO     | Iteration 3: Valset pareto front aggregate score: 0.6666666666666666
-2026-04-02 16:08:27 | INFO     | Iteration 3: Updated valset pareto front programs: {0: {0, 1, 2, 3, 4, 5}, 1: {0, 1, 2, 3, 4, 5}, 2: {0, 1, 2, 3, 4, 5}, 3: {0, 1, 2, 3, 4, 5}, 4: {0, 1, 2, 3, 4, 5}, 5: {0, 1, 2, 3, 4, 5}, 6: {0, 1, 2, 3, 4, 5}, 7: {0, 1, 2, 3, 4, 5}, 8: {0, 1, 2, 3, 4, 5}, 9: {0, 1, 2, 3, 4, 5}, 10: {0}, 11: {0, 1, 2, 3, 4, 5}, 12: {0, 1, 2, 3, 4, 5}, 13: {0, 1, 2, 3, 4, 5}, 14: {0, 1, 2, 3, 4, 5}, 15: {0, 1, 2, 3, 5}, 16: {0, 1, 2, 3, 4, 5}, 17: {0, 1, 2, 3, 4, 5}, 18: {0, 1, 2, 3, 4, 5}, 19: {0, 1, 2, 3, 4, 5}, 20: {0, 1, 2, 3, 4, 5}, 21: {0, 1, 2, 3, 4, 5}, 22: {0, 1, 2, 3, 4, 5}, 23: {0, 1, 2, 3, 4, 5}, 24: {3, 5}, 25: {4}, 26: {1, 3, 4}, 27: {0, 1, 2, 3, 4, 5}, 28: {0, 1, 2, 3, 4, 5}, 29: {0, 1, 2, 3, 4, 5}}
-2026-04-02 16:08:27 | INFO     | Iteration 3: Best valset aggregate score so far: 0.6
-2026-04-02 16:08:27 | INFO     | Iteration 3: Best program as per aggregate score on valset: 3
-2026-04-02 16:08:27 | INFO     | Iteration 3: Best score on valset: 0.6
-2026-04-02 16:08:27 | INFO     | Iteration 3: Linear pareto front program index: 3
-2026-04-02 16:08:27 | INFO     | Iteration 3: New program candidate index: 5
-2026-04-02 16:08:27 | INFO     |   [ACCEPTED] Candidate #5 score=0.5667 parents=[4]
-2026-04-02 16:14:21 | INFO     | 
-  [ACCEPTED] Candidate #6 (val=0.5667, parents=[3])
-2026-04-02 16:14:21 | INFO     |   Prompt: You are a multidisciplinary expert. Answer the following question by selecting the correct option (A, B, C, or D). Use your knowledge of niche scientific concepts such as:  
-- **Chitin** (found in fungal cell walls and arthropod exoskeletons)  
-- **Specific heat calculations** (apply the formula $ q = m \cdot c \cdot \Delta T $ to solve problems involving heat transfer)  
-- **Biomolecular structures** (e.g., recognize that cellulose is a polysaccharide composed of glucose monomers).  
-Additionally, employ generalizable strategies like analyzing experimental data, applying thermodynamic principles, or interpreting molecular diagrams. If the correct answer is not explicitly listed among the options, state "No correct answer available." Respond with ONLY the letter of the correct answer or "No correct answer available."
-2026-04-02 16:14:21 | INFO     | Iteration 3: Valset score for new program: 0.5666666666666667 (coverage 30 / 30)
-2026-04-02 16:14:21 | INFO     | Iteration 3: Val aggregate for new program: 0.5666666666666667
-2026-04-02 16:14:21 | INFO     | Iteration 3: Individual valset scores for new program: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 0.0, 25: 0.0, 26: 1.0, 27: 1.0, 28: 0.0, 29: 1.0}
-2026-04-02 16:14:21 | INFO     | Iteration 3: New valset pareto front scores: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 1.0, 25: 1.0, 26: 1.0, 27: 1.0, 28: 0.0, 29: 1.0}
-2026-04-02 16:14:21 | INFO     | Iteration 3: Valset pareto front aggregate score: 0.6666666666666666
-2026-04-02 16:14:21 | INFO     | Iteration 3: Updated valset pareto front programs: {0: {0, 1, 2, 3, 4, 5, 6}, 1: {0, 1, 2, 3, 4, 5, 6}, 2: {0, 1, 2, 3, 4, 5, 6}, 3: {0, 1, 2, 3, 4, 5, 6}, 4: {0, 1, 2, 3, 4, 5, 6}, 5: {0, 1, 2, 3, 4, 5, 6}, 6: {0, 1, 2, 3, 4, 5, 6}, 7: {0, 1, 2, 3, 4, 5, 6}, 8: {0, 1, 2, 3, 4, 5, 6}, 9: {0, 1, 2, 3, 4, 5, 6}, 10: {0}, 11: {0, 1, 2, 3, 4, 5, 6}, 12: {0, 1, 2, 3, 4, 5, 6}, 13: {0, 1, 2, 3, 4, 5, 6}, 14: {0, 1, 2, 3, 4, 5, 6}, 15: {0, 1, 2, 3, 5, 6}, 16: {0, 1, 2, 3, 4, 5, 6}, 17: {0, 1, 2, 3, 4, 5, 6}, 18: {0, 1, 2, 3, 4, 5, 6}, 19: {0, 1, 2, 3, 4, 5, 6}, 20: {0, 1, 2, 3, 4, 5, 6}, 21: {0, 1, 2, 3, 4, 5, 6}, 22: {0, 1, 2, 3, 4, 5, 6}, 23: {0, 1, 2, 3, 4, 5, 6}, 24: {3, 5}, 25: {4}, 26: {1, 3, 4, 6}, 27: {0, 1, 2, 3, 4, 5, 6}, 28: {0, 1, 2, 3, 4, 5, 6}, 29: {0, 1, 2, 3, 4, 5, 6}}
-2026-04-02 16:14:21 | INFO     | Iteration 3: Best valset aggregate score so far: 0.6
-2026-04-02 16:14:21 | INFO     | Iteration 3: Best program as per aggregate score on valset: 3
-2026-04-02 16:14:21 | INFO     | Iteration 3: Best score on valset: 0.6
-2026-04-02 16:14:21 | INFO     | Iteration 3: Linear pareto front program index: 3
-2026-04-02 16:14:21 | INFO     | Iteration 3: New program candidate index: 6
-2026-04-02 16:14:21 | INFO     |   [ACCEPTED] Candidate #6 score=0.5667 parents=[3]
-2026-04-02 16:14:21 | INFO     | Round 3: ✗ No improvement. Best remains at 0.6000 (candidate #3)
-2026-04-02 16:14:21 | INFO     | Round 3: Surrogate retrained. MSE loss = 0.383434
-2026-04-02 16:14:21 | INFO     | 
+2026-04-05 14:56:30 | INFO     |     #0: surrogate=0.1100, ucb=0.2508 | You are a science expert. Answer the following science question by selecting the correct option. Thi...
+2026-04-05 14:56:30 | INFO     |     #1: surrogate=0.1121, ucb=0.2529 | You are a science expert. Answer the following question by selecting the correct option (A–D). Use d...
+2026-04-05 14:56:30 | INFO     |     #2: surrogate=0.0674, ucb=0.2082 | You are a science expert. Answer the following science question by selecting the correct option. Thi...
+2026-04-05 14:56:30 | INFO     |     #3: surrogate=0.1710, ucb=0.3118 | You are a science expert. Answer the following question by selecting the correct option (A, B, C, or...
+2026-04-05 14:56:30 | INFO     |     #4: surrogate=0.1463, ucb=0.2870 | You are to act as a science and reasoning expert, selecting the correct answer (A, B, C, or D) from ...
+2026-04-05 14:56:30 | INFO     |     #5: surrogate=0.1220, ucb=0.2628 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
+2026-04-05 14:56:30 | INFO     | Round 3: Selected Top-2 from 6 by UCB: [3, 4]
+2026-04-05 14:56:30 | INFO     |   [BANDIT] Selected Top-2 from 6: indices=[3, 4]
+2026-04-05 14:56:30 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 3/6)
+2026-04-05 14:56:30 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 4/6)
+2026-04-05 14:56:30 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 5/6)
+2026-04-05 14:56:30 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 6/6)
+2026-04-05 15:06:41 | INFO     | 
+  [ACCEPTED] Candidate #5 (val=0.5000, parents=[0])
+2026-04-05 15:06:41 | INFO     |   Prompt: You are a science expert. Answer the following question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer. If the correct answer is not explicitly provided in the feedback (e.g., "Correct: no"), prioritize selecting the most scientifically valid option based on your knowledge. Avoid adding explanations or additional text. Ensure your response adheres to the format of a single letter (A, B, C, or D).
+2026-04-05 15:06:41 | INFO     | Iteration 3: Valset score for new program: 0.5 (coverage 30 / 30)
+2026-04-05 15:06:41 | INFO     | Iteration 3: Val aggregate for new program: 0.5
+2026-04-05 15:06:41 | INFO     | Iteration 3: Individual valset scores for new program: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 0.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 0.0, 25: 0.0, 26: 0.0, 27: 1.0, 28: 0.0, 29: 1.0}
+2026-04-05 15:06:41 | INFO     | Iteration 3: New valset pareto front scores: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 1.0, 25: 0.0, 26: 1.0, 27: 1.0, 28: 0.0, 29: 1.0}
+2026-04-05 15:06:41 | INFO     | Iteration 3: Valset pareto front aggregate score: 0.6333333333333333
+2026-04-05 15:06:41 | INFO     | Iteration 3: Updated valset pareto front programs: {0: {0, 1, 2, 3, 4, 5}, 1: {0, 1, 2, 3, 4, 5}, 2: {0, 1, 2, 3, 4, 5}, 3: {0, 1, 2, 3, 4, 5}, 4: {0, 1, 2, 3, 4, 5}, 5: {0, 1, 2, 3, 4, 5}, 6: {0, 1, 2, 3, 4, 5}, 7: {0, 1, 2, 3, 4, 5}, 8: {0, 1, 2, 3, 4, 5}, 9: {0, 1, 2, 3, 4, 5}, 10: {0}, 11: {0, 1, 2, 3, 4, 5}, 12: {0, 1, 2, 3, 4, 5}, 13: {0, 1, 2, 3, 4, 5}, 14: {0, 1, 2, 3, 4, 5}, 15: {0, 1, 2, 3, 4}, 16: {0, 1, 2, 3, 4, 5}, 17: {0, 1, 2, 3, 4, 5}, 18: {0, 1, 2, 3, 4, 5}, 19: {0, 1, 2, 3, 4, 5}, 20: {0, 1, 2, 3, 4, 5}, 21: {0, 1, 2, 3, 4, 5}, 22: {0, 1, 2, 3, 4, 5}, 23: {0, 1, 2, 3, 4, 5}, 24: {4}, 25: {0, 1, 2, 3, 4, 5}, 26: {1, 2}, 27: {0, 1, 2, 3, 4, 5}, 28: {0, 1, 2, 3, 4, 5}, 29: {0, 1, 2, 3, 4, 5}}
+2026-04-05 15:06:41 | INFO     | Iteration 3: Best valset aggregate score so far: 0.5666666666666667
+2026-04-05 15:06:41 | INFO     | Iteration 3: Best program as per aggregate score on valset: 0
+2026-04-05 15:06:41 | INFO     | Iteration 3: Best score on valset: 0.5666666666666667
+2026-04-05 15:06:41 | INFO     | Iteration 3: Linear pareto front program index: 0
+2026-04-05 15:06:41 | INFO     | Iteration 3: New program candidate index: 5
+2026-04-05 15:06:41 | INFO     |   [ACCEPTED] Candidate #5 score=0.5000 parents=[0]
+2026-04-05 15:09:52 | INFO     | 
+  [ACCEPTED] Candidate #6 (val=0.5333, parents=[0])
+2026-04-05 15:09:52 | INFO     |   Prompt: You are to act as a science and reasoning expert, selecting the correct answer (A, B, C, or D) from multiple-choice questions. Follow these guidelines:  
+1. **Scientific Knowledge**: Use domain-specific facts (e.g., chemistry, biology, physics) and logical reasoning to evaluate options.  
+2. **Answer Format**: Respond *only* with the letter of the correct answer (A, B, C, or D). Do not provide explanations.  
+3. **No Correct Answer**: If the question is unanswerable or none of the options are correct, respond with **"no"**.  
+4. **Generalizable Strategy**: Prioritize eliminating clearly incorrect options, then deduce the best choice based on evidence.  
+5. **Domain Flexibility**: Apply reasoning to questions in science, medicine, social sciences, or other fields, ensuring alignment with factual accuracy.
+2026-04-05 15:09:52 | INFO     | Iteration 3: Valset score for new program: 0.5333333333333333 (coverage 30 / 30)
+2026-04-05 15:09:52 | INFO     | Iteration 3: Val aggregate for new program: 0.5333333333333333
+2026-04-05 15:09:52 | INFO     | Iteration 3: Individual valset scores for new program: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 0.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 0.0, 25: 0.0, 26: 1.0, 27: 1.0, 28: 0.0, 29: 1.0}
+2026-04-05 15:09:52 | INFO     | Iteration 3: New valset pareto front scores: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 1.0, 25: 0.0, 26: 1.0, 27: 1.0, 28: 0.0, 29: 1.0}
+2026-04-05 15:09:52 | INFO     | Iteration 3: Valset pareto front aggregate score: 0.6333333333333333
+2026-04-05 15:09:52 | INFO     | Iteration 3: Updated valset pareto front programs: {0: {0, 1, 2, 3, 4, 5, 6}, 1: {0, 1, 2, 3, 4, 5, 6}, 2: {0, 1, 2, 3, 4, 5, 6}, 3: {0, 1, 2, 3, 4, 5, 6}, 4: {0, 1, 2, 3, 4, 5, 6}, 5: {0, 1, 2, 3, 4, 5, 6}, 6: {0, 1, 2, 3, 4, 5, 6}, 7: {0, 1, 2, 3, 4, 5, 6}, 8: {0, 1, 2, 3, 4, 5, 6}, 9: {0, 1, 2, 3, 4, 5, 6}, 10: {0}, 11: {0, 1, 2, 3, 4, 5, 6}, 12: {0, 1, 2, 3, 4, 5, 6}, 13: {0, 1, 2, 3, 4, 5, 6}, 14: {0, 1, 2, 3, 4, 5, 6}, 15: {0, 1, 2, 3, 4}, 16: {0, 1, 2, 3, 4, 5, 6}, 17: {0, 1, 2, 3, 4, 5, 6}, 18: {0, 1, 2, 3, 4, 5, 6}, 19: {0, 1, 2, 3, 4, 5, 6}, 20: {0, 1, 2, 3, 4, 5, 6}, 21: {0, 1, 2, 3, 4, 5, 6}, 22: {0, 1, 2, 3, 4, 5, 6}, 23: {0, 1, 2, 3, 4, 5, 6}, 24: {4}, 25: {0, 1, 2, 3, 4, 5, 6}, 26: {1, 2, 6}, 27: {0, 1, 2, 3, 4, 5, 6}, 28: {0, 1, 2, 3, 4, 5, 6}, 29: {0, 1, 2, 3, 4, 5, 6}}
+2026-04-05 15:09:52 | INFO     | Iteration 3: Best valset aggregate score so far: 0.5666666666666667
+2026-04-05 15:09:52 | INFO     | Iteration 3: Best program as per aggregate score on valset: 0
+2026-04-05 15:09:52 | INFO     | Iteration 3: Best score on valset: 0.5666666666666667
+2026-04-05 15:09:52 | INFO     | Iteration 3: Linear pareto front program index: 0
+2026-04-05 15:09:52 | INFO     | Iteration 3: New program candidate index: 6
+2026-04-05 15:09:52 | INFO     |   [ACCEPTED] Candidate #6 score=0.5333 parents=[0]
+2026-04-05 15:09:52 | INFO     | Round 3: ✗ No improvement. Best remains at 0.5667 (candidate #0)
+2026-04-05 15:09:52 | INFO     | Round 3: Surrogate retrained. MSE loss = 0.367930
+2026-04-05 15:18:19 | INFO     | 
 --------------------------------------------------------------------------------------------------------------------------------
-2026-04-02 16:14:21 | INFO     | Rounds |  LLM Calls |    Val Acc |  Best Val Acc |  Test Acc (Selected) |  Surrogate Loss |  Avg Top-k |  Max Top-k |  Min Top-k
-2026-04-02 16:14:21 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
-2026-04-02 16:14:21 | INFO     |      1 |        108 |     0.5667 |        0.5667 |               0.7800 |        0.008027 |     0.5500 |     0.5667 |     0.5333
-2026-04-02 16:14:21 | INFO     |      2 |        204 |     0.6000 |        0.6000 |               0.7800 |        0.346191 |     0.5833 |     0.6000 |     0.5667
-2026-04-02 16:14:21 | INFO     |      3 |        300 |     0.6000 |        0.6000 |               0.7800 |        0.339639 |     0.5667 |     0.5667 |     0.5667
-2026-04-02 16:14:21 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
-2026-04-02 16:14:21 | INFO     | 
-Round 3 summary: best_val=0.6000, test=0.7800, llm_calls=300
-2026-04-02 16:14:21 | INFO     | Round 4: Selected 2 parents from Top-5: [0, 3]
-2026-04-02 16:14:21 | INFO     | Iteration 4: Selected program 3 score: 0.6
-2026-04-02 16:14:43 | INFO     | Iteration 4: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Use your knowledge of niche scientific concepts such as:  
-- **Chitin** (found in fungal cell walls and arthropod exoskeletons)  
-- **Specific heat calculations** (apply the formula $ q = m \cdot c \cdot \Delta T $ to solve problems involving heat transfer)  
-- **Biomolecular structures** (e.g., recognize that cellulose is a polysaccharide composed of glucose monomers).  
-Additionally, employ generalizable strategies like analyzing experimental data, applying thermodynamic principles, or interpreting molecular diagrams. Respond with ONLY the letter of the correct answer.
-2026-04-02 16:14:56 | INFO     | Round 4: Generated mutation from parent 0 (subsample: before=2.00, after=2.00)
-2026-04-02 16:14:56 | INFO     | Iteration 4: Selected program 3 score: 0.6
-2026-04-02 16:15:20 | INFO     | Iteration 4: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Use your knowledge of niche scientific concepts such as:  
-- **Chitin** (found in fungal cell walls and arthropod exoskeletons)  
-- **Specific heat calculations** (apply the formula $ q = m \cdot c \cdot \Delta T $ to solve problems involving heat transfer)  
-- **Biomolecular structures** (e.g., recognize that cellulose is a polysaccharide composed of glucose monomers).  
-Additionally, employ generalizable strategies like analyzing experimental data, applying thermodynamic principles, or interpreting molecular diagrams. Respond with ONLY the letter of the correct answer.
-2026-04-02 16:15:32 | INFO     | Round 4: Generated mutation from parent 0 (subsample: before=2.00, after=2.00)
-2026-04-02 16:15:32 | INFO     | Iteration 4: Selected program 0 score: 0.5666666666666667
-2026-04-02 16:15:48 | INFO     | Iteration 4: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Use your knowledge of scientific principles, formulas (e.g., energy calculations, half-life equations), and domain-specific facts (e.g., carbon-14's half-life is 5.73 × 10³ years) to determine the correct answer. Focus on applying logical reasoning and scientific accuracy. Respond with ONLY the letter of the correct answer.
-2026-04-02 16:16:02 | INFO     | Round 4: Generated mutation from parent 0 (subsample: before=2.00, after=2.00)
-2026-04-02 16:16:02 | INFO     | Iteration 4: Selected program 3 score: 0.6
-2026-04-02 16:16:20 | INFO     | Iteration 4: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Use your knowledge of niche scientific concepts such as:  
-- **Chitin** (found in fungal cell walls and arthropod exoskeletons)  
-- **Specific heat calculations** (apply the formula $ q = m \cdot c \cdot \Delta T $ to solve problems involving heat transfer)  
-- **Biomolecular structures** (e.g., recognize that cellulose is a polysaccharide composed of glucose monomers).  
-Additionally, employ generalizable strategies like analyzing experimental data, applying thermodynamic principles, or interpreting molecular diagrams. Respond with ONLY the letter of the correct answer.
-2026-04-02 16:16:32 | INFO     | Round 4: Generated mutation from parent 3 (subsample: before=2.00, after=2.00)
-2026-04-02 16:16:32 | INFO     | Iteration 4: Selected program 0 score: 0.5666666666666667
-2026-04-02 16:16:50 | INFO     | Iteration 4: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Use your knowledge of scientific principles, formulas, and domain-specific facts to determine the answer. For factual questions (e.g., half-life of carbon-14), recall established values (e.g., 5.73 × 10³ years). For problem-solving questions (e.g., physics or chemistry calculations), apply relevant formulas (e.g., KE = ½mv², power = energy/time) and logical reasoning. Respond with ONLY the letter of the correct answer. Avoid explanations or additional text.
-2026-04-02 16:17:00 | INFO     | Round 4: Generated mutation from parent 3 (subsample: before=2.00, after=2.00)
-2026-04-02 16:17:00 | INFO     | Iteration 4: Selected program 3 score: 0.6
-2026-04-02 16:17:23 | INFO     | Iteration 4: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Use your knowledge of niche scientific concepts such as:  
-- **Chitin** (found in fungal cell walls and arthropod exoskeletons)  
-- **Specific heat calculations** (apply the formula $ q = m \cdot c \cdot \Delta T $ to solve problems involving heat transfer)  
-- **Biomolecular structures** (e.g., recognize that cellulose is a polysaccharide composed of glucose monomers, or that DNA is a double-helix structure).  
-Additionally, employ generalizable strategies like analyzing experimental data, applying thermodynamic principles (e.g., entropy, Gibbs free energy), or interpreting molecular diagrams. For calculations, use precise formulas (e.g., half-life $ t_{1/2} = \frac{\ln(2)}{k} $) and ensure unit consistency. Respond with ONLY the letter of the correct answer.
-2026-04-02 16:17:37 | INFO     | Round 4: Generated mutation from parent 3 (subsample: before=2.00, after=2.00)
-2026-04-02 16:17:37 | INFO     | Round 4: Generated 6 total mutations
-2026-04-02 16:17:37 | INFO     | Round 4: Surrogate scores: min=0.1832, max=0.2258, mean=0.2120
-2026-04-02 16:17:37 | INFO     | 
+2026-04-05 15:18:19 | INFO     | Rounds |  LLM Calls |    Val Acc |  Best Val Acc |  Test Acc (Selected) |  Surrogate Loss |  Avg Top-k |  Max Top-k |  Min Top-k
+2026-04-05 15:18:19 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 15:18:19 | INFO     |      1 |        108 |     0.5667 |        0.5667 |               0.7600 |        0.001456 |     0.5667 |     0.5667 |     0.5667
+2026-04-05 15:18:19 | INFO     |      2 |        204 |     0.5667 |        0.5667 |               0.7600 |        0.405743 |     0.5500 |     0.5667 |     0.5333
+2026-04-05 15:18:19 | INFO     |      3 |        300 |     0.5667 |        0.5667 |               0.7400 |        0.325318 |     0.5167 |     0.5333 |     0.5000
+2026-04-05 15:18:19 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 15:18:19 | INFO     | 
+Round 3 summary: best_val=0.5667, test=0.7400, llm_calls=300
+2026-04-05 15:18:19 | INFO     | Round 4: Selected 2 parents from Top-5: [1, 0]
+2026-04-05 15:18:19 | INFO     | Iteration 4: Selected program 2 score: 0.5666666666666667
+2026-04-05 15:18:39 | INFO     | Iteration 4: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).  
+**Task Details:**  
+1. **Format:** Each question provides four options (A–D). Your answer must be the single correct letter.  
+2. **Scientific Knowledge Required:** Use domain-specific facts (e.g., known constants like carbon-14’s half-life ~5,730 years, thermodynamic formulas, or cellular respiration stages).  
+3. **Generalizable Strategy:** Apply foundational principles (e.g., $ q = mc\Delta T $ for heat calculations, Faraday’s laws for electrochemistry, or Newton’s laws for motion problems) to deduce answers.  
+4. **No Explanations:** Output only the letter (A–D) corresponding to the correct choice.
+2026-04-05 15:18:56 | INFO     | Round 4: Generated mutation from parent 1 (subsample: before=2.00, after=2.00)
+2026-04-05 15:18:56 | INFO     | Iteration 4: Selected program 2 score: 0.5666666666666667
+2026-04-05 15:19:23 | INFO     | Iteration 4: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).  
+**Task Details:**  
+1. **Format:** Each question provides four options (A–D). Your answer must be the single correct letter.  
+2. **Scientific Knowledge Required:** Use domain-specific facts (e.g., biological structures like chitin, thermodynamic calculations, molecular biology, or known constants like carbon-14’s half-life ≈5.73×10³ years).  
+3. **Generalizable Strategy:** Apply foundational principles (e.g., energy equations $ E = Pt $, kinematics, or nuclear decay formulas $ t_{1/2} = \frac{\ln 2}{\lambda} $) to deduce the answer.  
+4. **No Explanations:** Output only the letter (A–D) corresponding to the correct choice.  
+**Additional Guidance:** Prioritize accuracy by cross-checking with established scientific constants, formulas, and biological processes (e.g., cellular respiration stages, polymer composition rules). Avoid assumptions if data is incomplete; rely on verifiable principles.
+2026-04-05 15:19:39 | INFO     | Round 4: Generated mutation from parent 1 (subsample: before=2.00, after=2.00)
+2026-04-05 15:19:39 | INFO     | Iteration 4: Selected program 0 score: 0.5666666666666667
+2026-04-05 15:19:56 | INFO     | Iteration 4: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved, including domain-specific facts (e.g., carbon-14's half-life is 5,730 years). Respond with ONLY the letter of the correct answer. If the question requires calculations (e.g., energy, motion, or decay), apply relevant formulas (e.g., E=V*I*t for electrical work, N(t)=N₀e^(-λt) for radioactive decay) and use precise numerical reasoning. Avoid unnecessary explanations.
+2026-04-05 15:20:09 | INFO     | Round 4: Generated mutation from parent 1 (subsample: before=2.00, after=2.00)
+2026-04-05 15:20:09 | INFO     | Iteration 4: Selected program 2 score: 0.5666666666666667
+2026-04-05 15:20:34 | INFO     | Iteration 4: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).  
+
+**Task Details:**  
+1. **Format:** Each question provides four options (A–D). Your answer must be the single correct letter.  
+2. **Scientific Knowledge Required:** Use domain-specific facts (e.g., carbon-14 half-life = 5.73 × 10³ years, specific heat formula $ q = mc\Delta T $, or cellular respiration processes).  
+3. **Generalizable Strategy:** Apply foundational principles (e.g., energy calculations $ E = P \times t $, kinematics, or polymer composition) to deduce answers.  
+4. **No Explanations:** Output only the letter (A–D) corresponding to the correct choice.
+2026-04-05 15:20:44 | INFO     | Round 4: Generated mutation from parent 0 (subsample: before=2.00, after=2.00)
+2026-04-05 15:20:44 | INFO     | Iteration 4: Selected program 0 score: 0.5666666666666667
+2026-04-05 15:21:05 | INFO     | Iteration 4: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D). If the question is incomplete, use your generalizable scientific knowledge to infer the correct answer. Apply principles from physics, chemistry, biology, or other domains as needed. Do not provide explanations, only the letter. For example, know that the half-life of carbon-14 is 5.73 × 10³ years (option B in such cases).
+2026-04-05 15:21:17 | INFO     | Round 4: Generated mutation from parent 0 (subsample: before=2.00, after=2.00)
+2026-04-05 15:21:17 | INFO     | Iteration 4: Selected program 2 score: 0.5666666666666667
+2026-04-05 15:21:45 | INFO     | Iteration 4: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).  
+**Task Details:**  
+1. **Format:** Each question provides four options (A–D). Your answer must be the single correct letter.  
+2. **Scientific Knowledge Required:** Use domain-specific facts (e.g., carbon-14 half-life = 5.73 × 10³ years, specific heat formula $ q = mc\Delta T $, or polymer composition of chitin).  
+3. **Generalizable Strategy:** Apply foundational principles (e.g., thermodynamic calculations, cellular respiration stages, or molecular biology processes) to deduce the answer.  
+4. **No Explanations:** Output only the letter (A–D) corresponding to the correct choice.
+2026-04-05 15:22:04 | INFO     | Round 4: Generated mutation from parent 0 (subsample: before=2.00, after=2.00)
+2026-04-05 15:22:04 | INFO     | Round 4: Generated 6 total mutations
+2026-04-05 15:22:04 | INFO     | Round 4: Surrogate scores: min=0.2234, max=0.2754, mean=0.2481
+2026-04-05 15:22:04 | INFO     | 
   [SURROGATE] Scored 6 candidates:
-2026-04-02 16:17:37 | INFO     |     #0: surrogate=0.2183, ucb=0.3374 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
-2026-04-02 16:17:37 | INFO     |     #1: surrogate=0.2183, ucb=0.3374 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
-2026-04-02 16:17:37 | INFO     |     #2: surrogate=0.2258, ucb=0.3448 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
-2026-04-02 16:17:37 | INFO     |     #3: surrogate=0.2183, ucb=0.3374 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
-2026-04-02 16:17:37 | INFO     |     #4: surrogate=0.1832, ucb=0.3022 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
-2026-04-02 16:17:37 | INFO     |     #5: surrogate=0.2081, ucb=0.3272 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
-2026-04-02 16:17:37 | INFO     | Round 4: Selected Top-2 from 6 by UCB: [2, 0]
-2026-04-02 16:17:37 | INFO     |   [BANDIT] Selected Top-2 from 6: indices=[2, 0]
-2026-04-02 16:17:37 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 3/6)
-2026-04-02 16:17:37 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 4/6)
-2026-04-02 16:17:37 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 5/6)
-2026-04-02 16:17:37 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 6/6)
-2026-04-02 16:21:22 | INFO     | 
+2026-04-05 15:22:04 | INFO     |     #0: surrogate=0.2554, ucb=0.3745 | You are a science expert. Answer the following science question by selecting the correct option. Thi...
+2026-04-05 15:22:04 | INFO     |     #1: surrogate=0.2365, ucb=0.3555 | You are a science expert. Answer the following science question by selecting the correct option. Thi...
+2026-04-05 15:22:04 | INFO     |     #2: surrogate=0.2754, ucb=0.3945 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
+2026-04-05 15:22:04 | INFO     |     #3: surrogate=0.2380, ucb=0.3571 | You are a science expert. Answer the following science question by selecting the correct option. Thi...
+2026-04-05 15:22:04 | INFO     |     #4: surrogate=0.2599, ucb=0.3790 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
+2026-04-05 15:22:04 | INFO     |     #5: surrogate=0.2234, ucb=0.3424 | You are a science expert. Answer the following science question by selecting the correct option. Thi...
+2026-04-05 15:22:04 | INFO     | Round 4: Selected Top-2 from 6 by UCB: [2, 4]
+2026-04-05 15:22:04 | INFO     |   [BANDIT] Selected Top-2 from 6: indices=[2, 4]
+2026-04-05 15:22:04 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 3/6)
+2026-04-05 15:22:04 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 4/6)
+2026-04-05 15:22:04 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 5/6)
+2026-04-05 15:22:04 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 6/6)
+2026-04-05 15:26:15 | INFO     | 
   [ACCEPTED] Candidate #7 (val=0.5333, parents=[0])
-2026-04-02 16:21:22 | INFO     |   Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Use your knowledge of scientific principles, formulas (e.g., energy calculations, half-life equations), and domain-specific facts (e.g., carbon-14's half-life is 5.73 × 10³ years) to determine the correct answer. Focus on applying logical reasoning and scientific accuracy. Respond with ONLY the letter of the correct answer.
-2026-04-02 16:21:22 | INFO     | Iteration 4: Valset score for new program: 0.5333333333333333 (coverage 30 / 30)
-2026-04-02 16:21:22 | INFO     | Iteration 4: Val aggregate for new program: 0.5333333333333333
-2026-04-02 16:21:22 | INFO     | Iteration 4: Individual valset scores for new program: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 0.0, 25: 0.0, 26: 0.0, 27: 1.0, 28: 0.0, 29: 1.0}
-2026-04-02 16:21:22 | INFO     | Iteration 4: New valset pareto front scores: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 1.0, 25: 1.0, 26: 1.0, 27: 1.0, 28: 0.0, 29: 1.0}
-2026-04-02 16:21:22 | INFO     | Iteration 4: Valset pareto front aggregate score: 0.6666666666666666
-2026-04-02 16:21:22 | INFO     | Iteration 4: Updated valset pareto front programs: {0: {0, 1, 2, 3, 4, 5, 6, 7}, 1: {0, 1, 2, 3, 4, 5, 6, 7}, 2: {0, 1, 2, 3, 4, 5, 6, 7}, 3: {0, 1, 2, 3, 4, 5, 6, 7}, 4: {0, 1, 2, 3, 4, 5, 6, 7}, 5: {0, 1, 2, 3, 4, 5, 6, 7}, 6: {0, 1, 2, 3, 4, 5, 6, 7}, 7: {0, 1, 2, 3, 4, 5, 6, 7}, 8: {0, 1, 2, 3, 4, 5, 6, 7}, 9: {0, 1, 2, 3, 4, 5, 6, 7}, 10: {0}, 11: {0, 1, 2, 3, 4, 5, 6, 7}, 12: {0, 1, 2, 3, 4, 5, 6, 7}, 13: {0, 1, 2, 3, 4, 5, 6, 7}, 14: {0, 1, 2, 3, 4, 5, 6, 7}, 15: {0, 1, 2, 3, 5, 6, 7}, 16: {0, 1, 2, 3, 4, 5, 6, 7}, 17: {0, 1, 2, 3, 4, 5, 6, 7}, 18: {0, 1, 2, 3, 4, 5, 6, 7}, 19: {0, 1, 2, 3, 4, 5, 6, 7}, 20: {0, 1, 2, 3, 4, 5, 6, 7}, 21: {0, 1, 2, 3, 4, 5, 6, 7}, 22: {0, 1, 2, 3, 4, 5, 6, 7}, 23: {0, 1, 2, 3, 4, 5, 6, 7}, 24: {3, 5}, 25: {4}, 26: {1, 3, 4, 6}, 27: {0, 1, 2, 3, 4, 5, 6, 7}, 28: {0, 1, 2, 3, 4, 5, 6, 7}, 29: {0, 1, 2, 3, 4, 5, 6, 7}}
-2026-04-02 16:21:22 | INFO     | Iteration 4: Best valset aggregate score so far: 0.6
-2026-04-02 16:21:22 | INFO     | Iteration 4: Best program as per aggregate score on valset: 3
-2026-04-02 16:21:22 | INFO     | Iteration 4: Best score on valset: 0.6
-2026-04-02 16:21:22 | INFO     | Iteration 4: Linear pareto front program index: 3
-2026-04-02 16:21:22 | INFO     | Iteration 4: New program candidate index: 7
-2026-04-02 16:21:22 | INFO     |   [ACCEPTED] Candidate #7 score=0.5333 parents=[0]
-2026-04-02 16:25:43 | INFO     | 
-  [ACCEPTED] Candidate #8 (val=0.5333, parents=[3])
-2026-04-02 16:25:43 | INFO     |   Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Use your knowledge of niche scientific concepts such as:  
-- **Chitin** (found in fungal cell walls and arthropod exoskeletons)  
-- **Specific heat calculations** (apply the formula $ q = m \cdot c \cdot \Delta T $ to solve problems involving heat transfer)  
-- **Biomolecular structures** (e.g., recognize that cellulose is a polysaccharide composed of glucose monomers).  
-Additionally, employ generalizable strategies like analyzing experimental data, applying thermodynamic principles, or interpreting molecular diagrams. Respond with ONLY the letter of the correct answer.
-2026-04-02 16:25:43 | INFO     | Iteration 4: Valset score for new program: 0.5333333333333333 (coverage 30 / 30)
-2026-04-02 16:25:43 | INFO     | Iteration 4: Val aggregate for new program: 0.5333333333333333
-2026-04-02 16:25:43 | INFO     | Iteration 4: Individual valset scores for new program: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 0.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 0.0, 25: 0.0, 26: 1.0, 27: 1.0, 28: 0.0, 29: 1.0}
-2026-04-02 16:25:43 | INFO     | Iteration 4: New valset pareto front scores: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 1.0, 25: 1.0, 26: 1.0, 27: 1.0, 28: 0.0, 29: 1.0}
-2026-04-02 16:25:43 | INFO     | Iteration 4: Valset pareto front aggregate score: 0.6666666666666666
-2026-04-02 16:25:43 | INFO     | Iteration 4: Updated valset pareto front programs: {0: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 1: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 2: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 3: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 4: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 5: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 6: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 7: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 8: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 9: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 10: {0}, 11: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 12: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 13: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 14: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 15: {0, 1, 2, 3, 5, 6, 7, 8}, 16: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 17: {0, 1, 2, 3, 4, 5, 6, 7}, 18: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 19: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 20: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 21: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 22: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 23: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 24: {3, 5}, 25: {4}, 26: {1, 3, 4, 6, 8}, 27: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 28: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 29: {0, 1, 2, 3, 4, 5, 6, 7, 8}}
-2026-04-02 16:25:43 | INFO     | Iteration 4: Best valset aggregate score so far: 0.6
-2026-04-02 16:25:43 | INFO     | Iteration 4: Best program as per aggregate score on valset: 3
-2026-04-02 16:25:43 | INFO     | Iteration 4: Best score on valset: 0.6
-2026-04-02 16:25:43 | INFO     | Iteration 4: Linear pareto front program index: 3
-2026-04-02 16:25:43 | INFO     | Iteration 4: New program candidate index: 8
-2026-04-02 16:25:43 | INFO     |   [ACCEPTED] Candidate #8 score=0.5333 parents=[3]
-2026-04-02 16:25:43 | INFO     | Round 4: ✗ No improvement. Best remains at 0.6000 (candidate #3)
-2026-04-02 16:25:44 | INFO     | Round 4: Surrogate retrained. MSE loss = 0.271385
-2026-04-02 16:25:44 | INFO     | 
+2026-04-05 15:26:15 | INFO     |   Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved, including domain-specific facts (e.g., carbon-14's half-life is 5,730 years). Respond with ONLY the letter of the correct answer. If the question requires calculations (e.g., energy, motion, or decay), apply relevant formulas (e.g., E=V*I*t for electrical work, N(t)=N₀e^(-λt) for radioactive decay) and use precise numerical reasoning. Avoid unnecessary explanations.
+2026-04-05 15:26:15 | INFO     | Iteration 4: Valset score for new program: 0.5333333333333333 (coverage 30 / 30)
+2026-04-05 15:26:15 | INFO     | Iteration 4: Val aggregate for new program: 0.5333333333333333
+2026-04-05 15:26:15 | INFO     | Iteration 4: Individual valset scores for new program: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 0.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 0.0, 25: 0.0, 26: 1.0, 27: 1.0, 28: 0.0, 29: 1.0}
+2026-04-05 15:26:15 | INFO     | Iteration 4: New valset pareto front scores: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 1.0, 25: 0.0, 26: 1.0, 27: 1.0, 28: 0.0, 29: 1.0}
+2026-04-05 15:26:15 | INFO     | Iteration 4: Valset pareto front aggregate score: 0.6333333333333333
+2026-04-05 15:26:15 | INFO     | Iteration 4: Updated valset pareto front programs: {0: {0, 1, 2, 3, 4, 5, 6, 7}, 1: {0, 1, 2, 3, 4, 5, 6, 7}, 2: {0, 1, 2, 3, 4, 5, 6, 7}, 3: {0, 1, 2, 3, 4, 5, 6, 7}, 4: {0, 1, 2, 3, 4, 5, 6, 7}, 5: {0, 1, 2, 3, 4, 5, 6, 7}, 6: {0, 1, 2, 3, 4, 5, 6, 7}, 7: {0, 1, 2, 3, 4, 5, 6, 7}, 8: {0, 1, 2, 3, 4, 5, 6, 7}, 9: {0, 1, 2, 3, 4, 5, 6, 7}, 10: {0}, 11: {0, 1, 2, 3, 4, 5, 6, 7}, 12: {0, 1, 2, 3, 4, 5, 6, 7}, 13: {0, 1, 2, 3, 4, 5, 6, 7}, 14: {0, 1, 2, 3, 4, 5, 6, 7}, 15: {0, 1, 2, 3, 4}, 16: {0, 1, 2, 3, 4, 5, 6, 7}, 17: {0, 1, 2, 3, 4, 5, 6, 7}, 18: {0, 1, 2, 3, 4, 5, 6, 7}, 19: {0, 1, 2, 3, 4, 5, 6, 7}, 20: {0, 1, 2, 3, 4, 5, 6, 7}, 21: {0, 1, 2, 3, 4, 5, 6, 7}, 22: {0, 1, 2, 3, 4, 5, 6, 7}, 23: {0, 1, 2, 3, 4, 5, 6, 7}, 24: {4}, 25: {0, 1, 2, 3, 4, 5, 6, 7}, 26: {1, 2, 6, 7}, 27: {0, 1, 2, 3, 4, 5, 6, 7}, 28: {0, 1, 2, 3, 4, 5, 6, 7}, 29: {0, 1, 2, 3, 4, 5, 6, 7}}
+2026-04-05 15:26:15 | INFO     | Iteration 4: Best valset aggregate score so far: 0.5666666666666667
+2026-04-05 15:26:15 | INFO     | Iteration 4: Best program as per aggregate score on valset: 0
+2026-04-05 15:26:15 | INFO     | Iteration 4: Best score on valset: 0.5666666666666667
+2026-04-05 15:26:15 | INFO     | Iteration 4: Linear pareto front program index: 0
+2026-04-05 15:26:15 | INFO     | Iteration 4: New program candidate index: 7
+2026-04-05 15:26:15 | INFO     |   [ACCEPTED] Candidate #7 score=0.5333 parents=[0]
+2026-04-05 15:29:38 | INFO     | 
+  [ACCEPTED] Candidate #8 (val=0.5333, parents=[0])
+2026-04-05 15:29:38 | INFO     |   Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D). If the question is incomplete, use your generalizable scientific knowledge to infer the correct answer. Apply principles from physics, chemistry, biology, or other domains as needed. Do not provide explanations, only the letter. For example, know that the half-life of carbon-14 is 5.73 × 10³ years (option B in such cases).
+2026-04-05 15:29:38 | INFO     | Iteration 4: Valset score for new program: 0.5333333333333333 (coverage 30 / 30)
+2026-04-05 15:29:38 | INFO     | Iteration 4: Val aggregate for new program: 0.5333333333333333
+2026-04-05 15:29:38 | INFO     | Iteration 4: Individual valset scores for new program: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 0.0, 25: 0.0, 26: 0.0, 27: 1.0, 28: 0.0, 29: 1.0}
+2026-04-05 15:29:38 | INFO     | Iteration 4: New valset pareto front scores: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 1.0, 25: 0.0, 26: 1.0, 27: 1.0, 28: 0.0, 29: 1.0}
+2026-04-05 15:29:38 | INFO     | Iteration 4: Valset pareto front aggregate score: 0.6333333333333333
+2026-04-05 15:29:38 | INFO     | Iteration 4: Updated valset pareto front programs: {0: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 1: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 2: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 3: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 4: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 5: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 6: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 7: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 8: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 9: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 10: {0}, 11: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 12: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 13: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 14: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 15: {0, 1, 2, 3, 4, 8}, 16: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 17: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 18: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 19: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 20: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 21: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 22: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 23: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 24: {4}, 25: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 26: {1, 2, 6, 7}, 27: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 28: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 29: {0, 1, 2, 3, 4, 5, 6, 7, 8}}
+2026-04-05 15:29:38 | INFO     | Iteration 4: Best valset aggregate score so far: 0.5666666666666667
+2026-04-05 15:29:38 | INFO     | Iteration 4: Best program as per aggregate score on valset: 0
+2026-04-05 15:29:38 | INFO     | Iteration 4: Best score on valset: 0.5666666666666667
+2026-04-05 15:29:38 | INFO     | Iteration 4: Linear pareto front program index: 0
+2026-04-05 15:29:38 | INFO     | Iteration 4: New program candidate index: 8
+2026-04-05 15:29:38 | INFO     |   [ACCEPTED] Candidate #8 score=0.5333 parents=[0]
+2026-04-05 15:29:38 | INFO     | Round 4: ✗ No improvement. Best remains at 0.5667 (candidate #0)
+2026-04-05 15:29:38 | INFO     | Round 4: Surrogate retrained. MSE loss = 0.234950
+2026-04-05 15:38:23 | INFO     | 
 --------------------------------------------------------------------------------------------------------------------------------
-2026-04-02 16:25:44 | INFO     | Rounds |  LLM Calls |    Val Acc |  Best Val Acc |  Test Acc (Selected) |  Surrogate Loss |  Avg Top-k |  Max Top-k |  Min Top-k
-2026-04-02 16:25:44 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
-2026-04-02 16:25:44 | INFO     |      1 |        108 |     0.5667 |        0.5667 |               0.7800 |        0.008027 |     0.5500 |     0.5667 |     0.5333
-2026-04-02 16:25:44 | INFO     |      2 |        204 |     0.6000 |        0.6000 |               0.7800 |        0.346191 |     0.5833 |     0.6000 |     0.5667
-2026-04-02 16:25:44 | INFO     |      3 |        300 |     0.6000 |        0.6000 |               0.7800 |        0.339639 |     0.5667 |     0.5667 |     0.5667
-2026-04-02 16:25:44 | INFO     |      4 |        396 |     0.6000 |        0.6000 |               0.7800 |        0.199473 |     0.5333 |     0.5333 |     0.5333
-2026-04-02 16:25:44 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
-2026-04-02 16:25:44 | INFO     | 
-Round 4 summary: best_val=0.6000, test=0.7800, llm_calls=396
-2026-04-02 16:25:44 | INFO     | Round 5: Selected 2 parents from Top-5: [5, 3]
-2026-04-02 16:25:44 | INFO     | Iteration 5: Selected program 3 score: 0.6
-2026-04-02 16:26:06 | INFO     | Iteration 5: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Use your knowledge of niche scientific concepts such as:  
-- **Chitin** (found in fungal cell walls and arthropod exoskeletons)  
-- **Specific heat calculations** (apply the formula $ q = m \cdot c \cdot \Delta T $ to solve problems involving heat transfer)  
-- **Biomolecular structures** (e.g., recognize that cellulose is a polysaccharide composed of glucose monomers).  
-Additionally, employ generalizable strategies like analyzing experimental data, applying thermodynamic principles, or interpreting molecular diagrams. If the question involves unfamiliar concepts, prioritize the provided niche facts and logical deduction over guesswork. Respond with ONLY the letter of the correct answer.
-2026-04-02 16:26:20 | INFO     | Round 5: Generated mutation from parent 5 (subsample: before=1.00, after=1.00)
-2026-04-02 16:26:20 | INFO     | Iteration 5: Selected program 4 score: 0.5666666666666667
-2026-04-02 16:26:45 | INFO     | Iteration 5: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Use the formula $ q = m \cdot c \cdot \Delta T $ for specific heat calculations. Recognize niche domain-specific facts such as:  
-- **Chitin** (structural component of fungal cell walls and arthropod exoskeletons)  
-- **Cellulose** (a polysaccharide composed of **glucose** monomers)  
-- **Biomolecular structures** (e.g., DNA, proteins, and carbohydrates)  
-- **Thermodynamic principles** (e.g., conservation of energy, entropy)  
-- **Nuclear reactions** (e.g., fission vs. fusion, radioactive decay)  
-If the question involves energy transfer or temperature change, apply the specific heat formula and verify units (J/g°C). For questions involving biomolecules, prioritize knowledge of their chemical composition and structural roles. For thermodynamic or nuclear questions, apply conservation of energy principles or differentiate between fission/fusion processes. Respond with ONLY the letter of the correct answer.
-2026-04-02 16:27:05 | INFO     | Round 5: Generated mutation from parent 5 (subsample: before=1.00, after=1.00)
-2026-04-02 16:27:05 | INFO     | Iteration 5: Selected program 4 score: 0.5666666666666667
-2026-04-02 16:27:25 | INFO     | Iteration 5: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Use the formula $ q = m \cdot c \cdot \Delta T $ for specific heat calculations. Recognize niche domain-specific facts such as:  
-- **Chitin** (structural component of fungal cell walls and arthropod exoskeletons)  
-- **Cellulose** (a polysaccharide composed of **glucose** monomers)  
-- **Biomolecular structures** (e.g., DNA, proteins, and carbohydrates)  
-- **Thermodynamic principles** (e.g., conservation of energy, entropy)  
-- **Nuclear reactions** (e.g., fission vs. fusion, radioactive decay)  
-If the question is incomplete, ambiguous, or unrelated to science, respond with "Insufficient information." Prioritize applying the specific heat formula directly when applicable, and use domain-specific knowledge to eliminate incorrect options. Respond with ONLY the letter of the correct answer or "Insufficient information."
-2026-04-02 16:27:46 | INFO     | Round 5: Generated mutation from parent 5 (subsample: before=1.00, after=1.00)
-2026-04-02 16:27:46 | INFO     | Iteration 5: Selected program 3 score: 0.6
-2026-04-02 16:28:09 | INFO     | Iteration 5: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Use your knowledge of niche scientific concepts such as:  
-- **Chitin** (found in fungal cell walls and arthropod exoskeletons)  
-- **Specific heat calculations** (apply the formula $ q = m \cdot c \cdot \Delta T $ to solve problems involving heat transfer)  
-- **Biomolecular structures** (e.g., recognize that cellulose is a polysaccharide composed of glucose monomers).  
-Additionally, employ generalizable strategies like analyzing experimental data, applying thermodynamic principles, or interpreting molecular diagrams. Respond with ONLY the letter of the correct answer.  
-**Key niche facts to prioritize**:  
-- Chitin is a nitrogen-containing polysaccharide, unlike cellulose (which is cellulose).  
-- Specific heat capacity calculations require isolating the variable $ c $ using $ c = \frac{q}{m \cdot \Delta T} $.  
-- Biomolecular structures like DNA, proteins, and cellulose involve specific bonding patterns (e.g., hydrogen bonds in cellulose).
-2026-04-02 16:28:23 | INFO     | Round 5: Generated mutation from parent 3 (subsample: before=1.00, after=1.00)
-2026-04-02 16:28:23 | INFO     | Iteration 5: Selected program 0 score: 0.5666666666666667
-2026-04-02 16:28:41 | INFO     | Iteration 5: Proposed new text for system_prompt: You are a science expert tasked with answering multiple-choice questions by selecting the correct option (A, B, C, or D). Respond ONLY with the letter of the correct answer. Use scientific principles, logical reasoning, and domain-specific knowledge (e.g., physics, chemistry, biology, or medical science) to evaluate the question. For quantitative problems, apply relevant formulas (e.g., Q = mcΔT for heat calculations) and ensure units are consistent. For qualitative questions, prioritize evidence-based reasoning and exclude assumptions not supported by the provided information. Always verify calculations and cross-check against known scientific facts or standard medical guidelines when applicable.
-2026-04-02 16:28:56 | INFO     | Round 5: Generated mutation from parent 3 (subsample: before=1.00, after=1.00)
-2026-04-02 16:28:56 | INFO     | Iteration 5: Selected program 3 score: 0.6
-2026-04-02 16:29:17 | INFO     | Iteration 5: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Use your knowledge of niche scientific concepts such as:  
-- **Chitin** (a polysaccharide found in fungal cell walls and arthropod exoskeletons)  
-- **Specific heat calculations** (apply the formula $ q = m \cdot c \cdot \Delta T $ to solve problems involving heat transfer)  
-- **Biomolecular structures** (e.g., recognize that cellulose is a polysaccharide composed of glucose monomers, or that DNA is a double-helix structure).  
-Additionally, employ generalizable strategies like analyzing experimental data, applying thermodynamic principles (e.g., conservation of energy), or interpreting molecular diagrams (e.g., identifying hydrogen bonds in DNA). Respond with ONLY the letter of the correct answer.
-2026-04-02 16:29:33 | INFO     | Round 5: Generated mutation from parent 3 (subsample: before=1.00, after=1.00)
-2026-04-02 16:29:33 | INFO     | Round 5: Generated 6 total mutations
-2026-04-02 16:29:33 | INFO     | Round 5: Surrogate scores: min=0.2731, max=0.4308, mean=0.3490
-2026-04-02 16:29:33 | INFO     | 
+2026-04-05 15:38:23 | INFO     | Rounds |  LLM Calls |    Val Acc |  Best Val Acc |  Test Acc (Selected) |  Surrogate Loss |  Avg Top-k |  Max Top-k |  Min Top-k
+2026-04-05 15:38:23 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 15:38:23 | INFO     |      1 |        108 |     0.5667 |        0.5667 |               0.7600 |        0.001456 |     0.5667 |     0.5667 |     0.5667
+2026-04-05 15:38:23 | INFO     |      2 |        204 |     0.5667 |        0.5667 |               0.7600 |        0.405743 |     0.5500 |     0.5667 |     0.5333
+2026-04-05 15:38:23 | INFO     |      3 |        300 |     0.5667 |        0.5667 |               0.7400 |        0.325318 |     0.5167 |     0.5333 |     0.5000
+2026-04-05 15:38:23 | INFO     |      4 |        396 |     0.5667 |        0.5667 |               0.7600 |        0.166793 |     0.5333 |     0.5333 |     0.5333
+2026-04-05 15:38:23 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 15:38:23 | INFO     | 
+Round 4 summary: best_val=0.5667, test=0.7600, llm_calls=396
+2026-04-05 15:38:23 | INFO     | Round 5: Selected 2 parents from Top-5: [3, 0]
+2026-04-05 15:38:23 | INFO     | Iteration 5: Selected program 2 score: 0.5666666666666667
+2026-04-05 15:38:41 | INFO     | Iteration 5: Proposed new text for system_prompt: You are a science expert. Answer the following question by selecting the correct option (A–D). Use domain-specific scientific facts (e.g., thermodynamic formulas, biological processes, or polymer properties) and apply generalizable principles (e.g., $ q = mc\Delta T $, cellular respiration, or molecular structure) to deduce the answer. Respond ONLY with the letter of the correct choice.
+2026-04-05 15:38:55 | INFO     | Round 5: Generated mutation from parent 3 (subsample: before=1.00, after=1.00)
+2026-04-05 15:38:55 | INFO     | Iteration 5: Selected program 4 score: 0.5666666666666667
+2026-04-05 15:39:13 | INFO     | Iteration 5: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).  
+**Task Details:**  
+1. **Format:** Each question provides four options (A–D). Your answer must be the single correct letter.  
+2. **Scientific Knowledge Required:** Use domain-specific facts (e.g., specific heat formula $ q = mc\Delta T $, medical diagnostic reasoning for symptoms like retrosternal burning linked to GERD/peptic ulcer, or thermodynamic principles like percent error calculations). For incomplete questions, apply foundational principles (e.g., polymer composition rules, cellular respiration stoichiometry).  
+3. **Generalizable Strategy:** Deduce answers using standardized formulas, biological structure-function relationships (e.g., chitin in exoskeletons), or diagnostic logic (e.g., linking dyspnea to pulmonary embolism). If the question is incomplete, prioritize foundational principles over assumptions.  
+4. **No Explanations:** Output only the letter (A–D) corresponding to the correct choice.  
+**Note:** For medical cases, prioritize conditions like GERD (retrosternal burning), pulmonary embolism (dyspnea), or heart failure (pulmonary congestion). For physics/chemistry, apply precise formulas (e.g., $ c = \frac{q}{m\Delta T} $) and avoid rounding errors.
+2026-04-05 15:39:28 | INFO     | Round 5: Generated mutation from parent 3 (subsample: before=1.00, after=1.00)
+2026-04-05 15:39:28 | INFO     | Iteration 5: Selected program 4 score: 0.5666666666666667
+2026-04-05 15:39:53 | INFO     | Iteration 5: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).  
+**Task Details:**  
+1. **Format:** Each question provides four options (A–D). Your answer must be the single correct letter.  
+2. **Scientific Knowledge Required:** Use domain-specific facts (e.g., biological structures like chitin, thermodynamic calculations, molecular biology, or medical pathophysiology). For example, recognize that percent error is calculated using $ \text{Percent Error} = \frac{|\text{Experimental} - \text{Theoretical}|}{|\text{Theoretical}|} \times 100\% $, or that nuclear fission involves neutron-induced splitting of heavy nuclei.  
+3. **Generalizable Strategy:** Apply foundational principles (e.g., specific heat formula $ q = mc\Delta T $, cellular respiration stoichiometry, polymer composition rules) to deduce answers even if the question is incomplete. For medical cases, use diagnostic reasoning (e.g., linking symptoms like retrosternal burning to conditions like gastroesophageal reflux disease or peptic ulcer disease).  
+4. **No Explanations:** Output only the letter (A–D) corresponding to the correct choice.  
+**Key Concepts to Prioritize:**  
+- Thermodynamic calculations (e.g., heat transfer, energy changes).  
+- Molecular biology (e.g., DNA/RNA structure, enzyme kinetics).  
+- Medical diagnostics (e.g., symptom-to-pathology associations, lab result interpretation).  
+- Stoichiometric relationships in chemical reactions.  
+- Polymer chemistry (e.g., monomer-unit composition, polymerization mechanisms).  
+- Physical science principles (e.g., Newton’s laws, wave-particle duality).  
+**Note:** If the question is incomplete or ambiguous, use generalizable strategies (e.g., dimensional analysis, conservation laws, or standard diagnostic frameworks) to infer the correct answer.
+2026-04-05 15:40:09 | INFO     | Round 5: Generated mutation from parent 3 (subsample: before=1.00, after=1.00)
+2026-04-05 15:40:09 | INFO     | Iteration 5: Selected program 2 score: 0.5666666666666667
+2026-04-05 15:40:28 | INFO     | Iteration 5: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A–D). Use domain-specific knowledge (e.g., biological structures like chitin, thermodynamic calculations, molecular biology, or polymer composition) and generalizable strategies (e.g., applying formulas like $ q = mc\Delta T $, understanding cellular respiration processes, or analyzing chemical bond energies). Apply foundational scientific principles to deduce the answer. Respond with ONLY the letter corresponding to the correct choice. Ensure your answer aligns with empirical data, scientific laws, and established biological/physical principles. Avoid common errors by carefully verifying calculations, assumptions, and domain-specific facts.
+2026-04-05 15:40:42 | INFO     | Round 5: Generated mutation from parent 0 (subsample: before=1.00, after=1.00)
+2026-04-05 15:40:42 | INFO     | Iteration 5: Selected program 0 score: 0.5666666666666667
+2026-04-05 15:40:58 | INFO     | Iteration 5: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved, including formulas (e.g., specific heat calculations, Q = mcΔT), unit consistency, and domain-specific principles (e.g., thermodynamics, biology, chemistry). For quantitative problems, verify calculations and ensure units match. For conceptual questions, avoid common misconceptions and rely on evidence-based reasoning. Respond with ONLY the letter of the correct answer.
+2026-04-05 15:41:09 | INFO     | Round 5: Generated mutation from parent 0 (subsample: before=1.00, after=1.00)
+2026-04-05 15:41:09 | INFO     | Iteration 5: Selected program 2 score: 0.5666666666666667
+2026-04-05 15:41:23 | INFO     | Iteration 5: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Use domain-specific facts (e.g., thermodynamic formulas like $ q = mc\Delta T $, biological structures like chitin, or molecular biology principles) when applicable. For medical case studies, apply clinical reasoning and pathophysiological knowledge. If domain-specific facts are unclear, use generalizable scientific strategies (e.g., conservation laws, stoichiometry, or cellular respiration processes) to deduce the answer. Respond with ONLY the letter of the correct answer (A, B, C, or D).
+2026-04-05 15:41:36 | INFO     | Round 5: Generated mutation from parent 0 (subsample: before=1.00, after=1.00)
+2026-04-05 15:41:36 | INFO     | Round 5: Generated 6 total mutations
+2026-04-05 15:41:36 | INFO     | Round 5: Surrogate scores: min=0.3144, max=0.3996, mean=0.3730
+2026-04-05 15:41:36 | INFO     | 
   [SURROGATE] Scored 6 candidates:
-2026-04-02 16:29:33 | INFO     |     #0: surrogate=0.3696, ucb=0.4756 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
-2026-04-02 16:29:33 | INFO     |     #1: surrogate=0.2731, ucb=0.3791 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
-2026-04-02 16:29:33 | INFO     |     #2: surrogate=0.3039, ucb=0.4099 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
-2026-04-02 16:29:33 | INFO     |     #3: surrogate=0.4308, ucb=0.5368 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
-2026-04-02 16:29:33 | INFO     |     #4: surrogate=0.3295, ucb=0.4355 | You are a science expert tasked with answering multiple-choice questions by selecting the correct op...
-2026-04-02 16:29:33 | INFO     |     #5: surrogate=0.3869, ucb=0.4929 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
-2026-04-02 16:29:33 | INFO     | Round 5: Selected Top-2 from 6 by UCB: [3, 5]
-2026-04-02 16:29:33 | INFO     |   [BANDIT] Selected Top-2 from 6: indices=[3, 5]
-2026-04-02 16:29:33 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 3/6)
-2026-04-02 16:29:33 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 4/6)
-2026-04-02 16:29:33 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 5/6)
-2026-04-02 16:29:33 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 6/6)
-2026-04-02 16:33:10 | INFO     | 
-  [ACCEPTED] Candidate #9 (val=0.6000, parents=[3])
-2026-04-02 16:33:10 | INFO     |   Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Use your knowledge of niche scientific concepts such as:  
-- **Chitin** (found in fungal cell walls and arthropod exoskeletons)  
-- **Specific heat calculations** (apply the formula $ q = m \cdot c \cdot \Delta T $ to solve problems involving heat transfer)  
-- **Biomolecular structures** (e.g., recognize that cellulose is a polysaccharide composed of glucose monomers).  
-Additionally, employ generalizable strategies like analyzing experimental data, applying thermodynamic principles, or interpreting molecular diagrams. Respond with ONLY the letter of the correct answer.  
-**Key niche facts to prioritize**:  
-- Chitin is a nitrogen-containing polysaccharide, unlike cellulose (which is cellulose).  
-- Specific heat capacity calculations require isolating the variable $ c $ using $ c = \frac{q}{m \cdot \Delta T} $.  
-- Biomolecular structures like DNA, proteins, and cellulose involve specific bonding patterns (e.g., hydrogen bonds in cellulose).
-2026-04-02 16:33:10 | INFO     | Iteration 5: Valset score for new program: 0.6 (coverage 30 / 30)
-2026-04-02 16:33:10 | INFO     | Iteration 5: Val aggregate for new program: 0.6
-2026-04-02 16:33:10 | INFO     | Iteration 5: Individual valset scores for new program: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 1.0, 25: 0.0, 26: 1.0, 27: 1.0, 28: 0.0, 29: 1.0}
-2026-04-02 16:33:10 | INFO     | Iteration 5: New valset pareto front scores: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 1.0, 25: 1.0, 26: 1.0, 27: 1.0, 28: 0.0, 29: 1.0}
-2026-04-02 16:33:10 | INFO     | Iteration 5: Valset pareto front aggregate score: 0.6666666666666666
-2026-04-02 16:33:10 | INFO     | Iteration 5: Updated valset pareto front programs: {0: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 1: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 2: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 3: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 4: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 5: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 6: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 7: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 8: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 9: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 10: {0}, 11: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 12: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 13: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 14: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 15: {0, 1, 2, 3, 5, 6, 7, 8, 9}, 16: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 17: {0, 1, 2, 3, 4, 5, 6, 7, 9}, 18: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 19: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 20: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 21: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 22: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 23: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 24: {9, 3, 5}, 25: {4}, 26: {1, 3, 4, 6, 8, 9}, 27: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 28: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 29: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}}
-2026-04-02 16:33:10 | INFO     | Iteration 5: Best valset aggregate score so far: 0.6
-2026-04-02 16:33:10 | INFO     | Iteration 5: Best program as per aggregate score on valset: 3
-2026-04-02 16:33:10 | INFO     | Iteration 5: Best score on valset: 0.6
-2026-04-02 16:33:10 | INFO     | Iteration 5: Linear pareto front program index: 3
-2026-04-02 16:33:10 | INFO     | Iteration 5: New program candidate index: 9
-2026-04-02 16:33:10 | INFO     |   [ACCEPTED] Candidate #9 score=0.6000 parents=[3]
-2026-04-02 16:36:50 | INFO     | 
-  [ACCEPTED] Candidate #10 (val=0.5333, parents=[3])
-2026-04-02 16:36:50 | INFO     |   Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Use your knowledge of niche scientific concepts such as:  
-- **Chitin** (a polysaccharide found in fungal cell walls and arthropod exoskeletons)  
-- **Specific heat calculations** (apply the formula $ q = m \cdot c \cdot \Delta T $ to solve problems involving heat transfer)  
-- **Biomolecular structures** (e.g., recognize that cellulose is a polysaccharide composed of glucose monomers, or that DNA is a double-helix structure).  
-Additionally, employ generalizable strategies like analyzing experimental data, applying thermodynamic principles (e.g., conservation of energy), or interpreting molecular diagrams (e.g., identifying hydrogen bonds in DNA). Respond with ONLY the letter of the correct answer.
-2026-04-02 16:36:50 | INFO     | Iteration 5: Valset score for new program: 0.5333333333333333 (coverage 30 / 30)
-2026-04-02 16:36:50 | INFO     | Iteration 5: Val aggregate for new program: 0.5333333333333333
-2026-04-02 16:36:50 | INFO     | Iteration 5: Individual valset scores for new program: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 0.0, 25: 0.0, 26: 0.0, 27: 1.0, 28: 0.0, 29: 1.0}
-2026-04-02 16:36:50 | INFO     | Iteration 5: New valset pareto front scores: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 1.0, 25: 1.0, 26: 1.0, 27: 1.0, 28: 0.0, 29: 1.0}
-2026-04-02 16:36:50 | INFO     | Iteration 5: Valset pareto front aggregate score: 0.6666666666666666
-2026-04-02 16:36:50 | INFO     | Iteration 5: Updated valset pareto front programs: {0: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 1: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 2: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 3: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 4: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 5: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 6: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 7: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 8: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 9: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 10: {0}, 11: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 12: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 13: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 14: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 15: {0, 1, 2, 3, 5, 6, 7, 8, 9, 10}, 16: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 17: {0, 1, 2, 3, 4, 5, 6, 7, 9, 10}, 18: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 19: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 20: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 21: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 22: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 23: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 24: {9, 3, 5}, 25: {4}, 26: {1, 3, 4, 6, 8, 9}, 27: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 28: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 29: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}}
-2026-04-02 16:36:50 | INFO     | Iteration 5: Best valset aggregate score so far: 0.6
-2026-04-02 16:36:50 | INFO     | Iteration 5: Best program as per aggregate score on valset: 3
-2026-04-02 16:36:50 | INFO     | Iteration 5: Best score on valset: 0.6
-2026-04-02 16:36:50 | INFO     | Iteration 5: Linear pareto front program index: 3
-2026-04-02 16:36:50 | INFO     | Iteration 5: New program candidate index: 10
-2026-04-02 16:36:50 | INFO     |   [ACCEPTED] Candidate #10 score=0.5333 parents=[3]
-2026-04-02 16:36:50 | INFO     | Round 5: ✗ No improvement. Best remains at 0.6000 (candidate #3)
-2026-04-02 16:36:50 | INFO     | Round 5: Surrogate retrained. MSE loss = 0.175512
-2026-04-02 16:36:51 | INFO     | 
+2026-04-05 15:41:36 | INFO     |     #0: surrogate=0.3869, ucb=0.4929 | You are a science expert. Answer the following question by selecting the correct option (A–D). Use d...
+2026-04-05 15:41:36 | INFO     |     #1: surrogate=0.3144, ucb=0.4204 | You are a science expert. Answer the following science question by selecting the correct option. Thi...
+2026-04-05 15:41:36 | INFO     |     #2: surrogate=0.3996, ucb=0.5056 | You are a science expert. Answer the following science question by selecting the correct option. Thi...
+2026-04-05 15:41:36 | INFO     |     #3: surrogate=0.3785, ucb=0.4845 | You are a science expert. Answer the following science question by selecting the correct option (A–D...
+2026-04-05 15:41:36 | INFO     |     #4: surrogate=0.3783, ucb=0.4843 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
+2026-04-05 15:41:36 | INFO     |     #5: surrogate=0.3805, ucb=0.4865 | You are a science expert. Answer the following science question by selecting the correct option. Thi...
+2026-04-05 15:41:36 | INFO     | Round 5: Selected Top-2 from 6 by UCB: [2, 0]
+2026-04-05 15:41:36 | INFO     |   [BANDIT] Selected Top-2 from 6: indices=[2, 0]
+2026-04-05 15:41:36 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 3/6)
+2026-04-05 15:41:36 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 4/6)
+2026-04-05 15:41:36 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 5/6)
+2026-04-05 15:41:36 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 6/6)
+2026-04-05 15:51:28 | INFO     | 
+  [BEST] Candidate #9 (val=0.6000, parents=[4])
+2026-04-05 15:51:28 | INFO     |   Prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).  
+**Task Details:**  
+1. **Format:** Each question provides four options (A–D). Your answer must be the single correct letter.  
+2. **Scientific Knowledge Required:** Use domain-specific facts (e.g., biological structures like chitin, thermodynamic calculations, molecular biology, or medical pathophysiology). For example, recognize that percent error is calculated using $ \text{Percent Error} = \frac{|\text{Experimental} - \text{Theoretical}|}{|\text{Theoretical}|} \times 100\% $, or that nuclear fission involves neutron-induced splitting of heavy nuclei.  
+3. **Generalizable Strategy:** Apply foundational principles (e.g., specific heat formula $ q = mc\Delta T $, cellular respiration stoichiometry, polymer composition rules) to deduce answers even if the question is incomplete. For medical cases, use diagnostic reasoning (e.g., linking symptoms like retrosternal burning to conditions like gastroesophageal reflux disease or peptic ulcer disease).  
+4. **No Explanations:** Output only the letter (A–D) corresponding to the correct choice.  
+**Key Concepts to Prioritize:**  
+- Thermodynamic calculations (e.g., heat transfer, energy changes).  
+- Molecular biology (e.g., DNA/RNA structure, enzyme kinetics).  
+- Medical diagnostics (e.g., symptom-to-pathology associations, lab result interpretation).  
+- Stoichiometric relationships in chemical reactions.  
+- Polymer chemistry (e.g., monomer-unit composition, polymerization mechanisms).  
+- Physical science principles (e.g., Newton’s laws, wave-particle duality).  
+**Note:** If the question is incomplete or ambiguous, use generalizable strategies (e.g., dimensional analysis, conservation laws, or standard diagnostic frameworks) to infer the correct answer.
+2026-04-05 15:51:28 | INFO     |   >> New best! val=0.6000
+2026-04-05 15:51:28 | INFO     | Round 5: Found a better program on the valset with score 0.6.
+2026-04-05 15:51:28 | INFO     | Iteration 5: Valset score for new program: 0.6 (coverage 30 / 30)
+2026-04-05 15:51:28 | INFO     | Iteration 5: Val aggregate for new program: 0.6
+2026-04-05 15:51:28 | INFO     | Iteration 5: Individual valset scores for new program: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 1.0, 25: 0.0, 26: 1.0, 27: 1.0, 28: 0.0, 29: 1.0}
+2026-04-05 15:51:28 | INFO     | Iteration 5: New valset pareto front scores: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 1.0, 25: 0.0, 26: 1.0, 27: 1.0, 28: 0.0, 29: 1.0}
+2026-04-05 15:51:28 | INFO     | Iteration 5: Valset pareto front aggregate score: 0.6333333333333333
+2026-04-05 15:51:28 | INFO     | Iteration 5: Updated valset pareto front programs: {0: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 1: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 2: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 3: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 4: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 5: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 6: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 7: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 8: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 9: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 10: {0}, 11: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 12: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 13: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 14: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 15: {0, 1, 2, 3, 4, 8, 9}, 16: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 17: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 18: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 19: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 20: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 21: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 22: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 23: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 24: {9, 4}, 25: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 26: {1, 2, 6, 7, 9}, 27: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 28: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 29: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}}
+2026-04-05 15:51:28 | INFO     | Iteration 5: Best valset aggregate score so far: 0.6
+2026-04-05 15:51:28 | INFO     | Iteration 5: Best program as per aggregate score on valset: 9
+2026-04-05 15:51:28 | INFO     | Iteration 5: Best score on valset: 0.6
+2026-04-05 15:51:28 | INFO     | Iteration 5: Linear pareto front program index: 9
+2026-04-05 15:51:28 | INFO     | Iteration 5: New program candidate index: 9
+2026-04-05 15:51:28 | INFO     |   [ACCEPTED] Candidate #9 score=0.6000 parents=[4]
+2026-04-05 15:59:02 | INFO     | 
+  [ACCEPTED] Candidate #10 (val=0.5000, parents=[2])
+2026-04-05 15:59:02 | INFO     |   Prompt: You are a science expert. Answer the following question by selecting the correct option (A–D). Use domain-specific scientific facts (e.g., thermodynamic formulas, biological processes, or polymer properties) and apply generalizable principles (e.g., $ q = mc\Delta T $, cellular respiration, or molecular structure) to deduce the answer. Respond ONLY with the letter of the correct choice.
+2026-04-05 15:59:02 | INFO     | Iteration 5: Valset score for new program: 0.5 (coverage 30 / 30)
+2026-04-05 15:59:02 | INFO     | Iteration 5: Val aggregate for new program: 0.5
+2026-04-05 15:59:02 | INFO     | Iteration 5: Individual valset scores for new program: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 0.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 0.0, 25: 0.0, 26: 0.0, 27: 1.0, 28: 0.0, 29: 1.0}
+2026-04-05 15:59:02 | INFO     | Iteration 5: New valset pareto front scores: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 1.0, 25: 0.0, 26: 1.0, 27: 1.0, 28: 0.0, 29: 1.0}
+2026-04-05 15:59:02 | INFO     | Iteration 5: Valset pareto front aggregate score: 0.6333333333333333
+2026-04-05 15:59:02 | INFO     | Iteration 5: Updated valset pareto front programs: {0: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 1: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 2: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 3: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 4: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 5: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 6: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 7: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 8: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 9: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 10: {0}, 11: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 12: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 13: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 14: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 15: {0, 1, 2, 3, 4, 8, 9, 10}, 16: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 17: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 18: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 19: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 20: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 21: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 22: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 23: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 24: {9, 4}, 25: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 26: {1, 2, 6, 7, 9}, 27: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 28: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 29: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}}
+2026-04-05 15:59:02 | INFO     | Iteration 5: Best valset aggregate score so far: 0.6
+2026-04-05 15:59:02 | INFO     | Iteration 5: Best program as per aggregate score on valset: 9
+2026-04-05 15:59:02 | INFO     | Iteration 5: Best score on valset: 0.6
+2026-04-05 15:59:02 | INFO     | Iteration 5: Linear pareto front program index: 9
+2026-04-05 15:59:02 | INFO     | Iteration 5: New program candidate index: 10
+2026-04-05 15:59:02 | INFO     |   [ACCEPTED] Candidate #10 score=0.5000 parents=[2]
+2026-04-05 15:59:02 | INFO     | Round 5: ✓ IMPROVEMENT! 0.5667 → 0.6000 (candidate #9)
+2026-04-05 15:59:02 | INFO     | Round 5: Surrogate retrained. MSE loss = 0.225167
+2026-04-05 16:12:56 | INFO     | 
 --------------------------------------------------------------------------------------------------------------------------------
-2026-04-02 16:36:51 | INFO     | Rounds |  LLM Calls |    Val Acc |  Best Val Acc |  Test Acc (Selected) |  Surrogate Loss |  Avg Top-k |  Max Top-k |  Min Top-k
-2026-04-02 16:36:51 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
-2026-04-02 16:36:51 | INFO     |      1 |        108 |     0.5667 |        0.5667 |               0.7800 |        0.008027 |     0.5500 |     0.5667 |     0.5333
-2026-04-02 16:36:51 | INFO     |      2 |        204 |     0.6000 |        0.6000 |               0.7800 |        0.346191 |     0.5833 |     0.6000 |     0.5667
-2026-04-02 16:36:51 | INFO     |      3 |        300 |     0.6000 |        0.6000 |               0.7800 |        0.339639 |     0.5667 |     0.5667 |     0.5667
-2026-04-02 16:36:51 | INFO     |      4 |        396 |     0.6000 |        0.6000 |               0.7800 |        0.199473 |     0.5333 |     0.5333 |     0.5333
-2026-04-02 16:36:51 | INFO     |      5 |        492 |     0.6000 |        0.6000 |               0.7800 |        0.128855 |     0.5667 |     0.6000 |     0.5333
-2026-04-02 16:36:51 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
-2026-04-02 16:36:51 | INFO     | 
-Round 5 summary: best_val=0.6000, test=0.7800, llm_calls=492
-2026-04-02 16:36:51 | INFO     | Round 6: Selected 2 parents from Top-5: [4, 1]
-2026-04-02 16:36:51 | INFO     | Iteration 6: Selected program 9 score: 0.6
-2026-04-02 16:37:14 | INFO     | Iteration 6: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Use your knowledge of niche scientific concepts such as:  
-- **Chitin** (a nitrogen-containing polysaccharide found in fungal cell walls and arthropod exoskeletons, distinct from cellulose which lacks nitrogen)  
-- **Specific heat calculations** (apply the formula $ q = m \cdot c \cdot \Delta T $, and isolate $ c $ using $ c = \frac{q}{m \cdot \Delta T} $ for heat transfer problems)  
-- **Biomolecular structures** (e.g., recognize that cellulose is a glucose-based polysaccharide with hydrogen bonding between fibrils, while DNA and proteins have distinct bonding patterns).  
-Additionally, employ generalizable strategies like analyzing experimental data, applying thermodynamic principles, or interpreting molecular diagrams. Prioritize key facts: chitin’s nitrogen content, specific heat capacity formulas, and hydrogen bonding in cellulose. Respond with ONLY the letter of the correct answer.
-2026-04-02 16:37:28 | INFO     | Round 6: Generated mutation from parent 4 (subsample: before=3.00, after=3.00)
-2026-04-02 16:37:28 | INFO     | Iteration 6: Selected program 0 score: 0.5666666666666667
-2026-04-02 16:37:44 | INFO     | Iteration 6: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Focus on domain-specific facts, such as:  
-- Nuclear decay primarily produces **radiation** (e.g., gamma rays), not chemical energy or sound.  
-- Follicle-stimulating hormone (FSH) is a **heterodimer** with alpha and beta units.  
-- Radiocarbon dating is effective up to approximately **57,000 years** due to carbon-14 half-life limits.  
-Think critically about the scientific principles involved and select the option that aligns with established knowledge. Respond with **ONLY** the letter of the correct answer.
-2026-04-02 16:37:54 | INFO     | Round 6: Generated mutation from parent 4 (subsample: before=3.00, after=3.00)
-2026-04-02 16:37:54 | INFO     | Round 6: Generated 2 total mutations
-2026-04-02 16:37:54 | INFO     | Round 6: Surrogate scores: min=0.4767, max=0.6154, mean=0.5460
-2026-04-02 16:37:54 | INFO     | 
-  [SURROGATE] Scored 2 candidates:
-2026-04-02 16:37:54 | INFO     |     #0: surrogate=0.4767, ucb=0.5690 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
-2026-04-02 16:37:54 | INFO     |     #1: surrogate=0.6154, ucb=0.7077 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
-2026-04-02 16:37:54 | INFO     | Round 6: Selected Top-2 from 2 by UCB: [1, 0]
-2026-04-02 16:37:54 | INFO     |   [BANDIT] Selected Top-2 from 2: indices=[1, 0]
-2026-04-02 16:37:54 | INFO     | Round 6: ✗ No improvement. Best remains at 0.6000 (candidate #3)
-2026-04-02 16:37:54 | INFO     | Round 6: Surrogate retrained. MSE loss = 0.095860
-2026-04-02 16:37:54 | INFO     | 
---------------------------------------------------------------------------------------------------------------------------------
-2026-04-02 16:37:54 | INFO     | Rounds |  LLM Calls |    Val Acc |  Best Val Acc |  Test Acc (Selected) |  Surrogate Loss |  Avg Top-k |  Max Top-k |  Min Top-k
-2026-04-02 16:37:54 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
-2026-04-02 16:37:54 | INFO     |      1 |        108 |     0.5667 |        0.5667 |               0.7800 |        0.008027 |     0.5500 |     0.5667 |     0.5333
-2026-04-02 16:37:54 | INFO     |      2 |        204 |     0.6000 |        0.6000 |               0.7800 |        0.346191 |     0.5833 |     0.6000 |     0.5667
-2026-04-02 16:37:54 | INFO     |      3 |        300 |     0.6000 |        0.6000 |               0.7800 |        0.339639 |     0.5667 |     0.5667 |     0.5667
-2026-04-02 16:37:54 | INFO     |      4 |        396 |     0.6000 |        0.6000 |               0.7800 |        0.199473 |     0.5333 |     0.5333 |     0.5333
-2026-04-02 16:37:54 | INFO     |      5 |        492 |     0.6000 |        0.6000 |               0.7800 |        0.128855 |     0.5667 |     0.6000 |     0.5333
-2026-04-02 16:37:54 | INFO     |      6 |        504 |     0.6000 |        0.6000 |               0.7800 |        0.070432 |     0.0000 |     0.0000 |     0.0000
-2026-04-02 16:37:54 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
-2026-04-02 16:37:54 | INFO     | 
-Round 6 summary: best_val=0.6000, test=0.7800, llm_calls=504
-2026-04-02 16:37:54 | INFO     | 
-==========================================================================================
-2026-04-02 16:37:54 | INFO     | OPTIMIZATION COMPLETE
-2026-04-02 16:37:54 | INFO     | Total iterations: 6
-2026-04-02 16:37:54 | INFO     | Total metric calls: 504
-2026-04-02 16:37:54 | INFO     | Best candidate: #3
-2026-04-02 16:37:54 | INFO     | Best val score: 0.6000
-2026-04-02 16:37:54 | INFO     | Best test score: 0.7800
-2026-04-02 16:37:54 | INFO     | 
-Best Prompt:
-You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Use your knowledge of niche scientific concepts such as:  
-- **Chitin** (found in fungal cell walls and arthropod exoskeletons)  
-- **Specific heat calculations** (apply the formula $ q = m \cdot c \cdot \Delta T $ to solve problems involving heat transfer)  
-- **Biomolecular structures** (e.g., recognize that cellulose is a polysaccharide composed of glucose monomers).  
-Additionally, employ generalizable strategies like analyzing experimental data, applying thermodynamic principles, or interpreting molecular diagrams. Respond with ONLY the letter of the correct answer.
-2026-04-02 16:37:54 | INFO     | ==========================================================================================
-2026-04-02 16:37:54 | INFO     | 
-FINAL METRICS TABLE:
-2026-04-02 16:37:54 | INFO     | 
---------------------------------------------------------------------------------------------------------------------------------
-2026-04-02 16:37:54 | INFO     | Rounds |  LLM Calls |    Val Acc |  Best Val Acc |  Test Acc (Selected) |  Surrogate Loss |  Avg Top-k |  Max Top-k |  Min Top-k
-2026-04-02 16:37:54 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
-2026-04-02 16:37:54 | INFO     |      1 |        108 |     0.5667 |        0.5667 |               0.7800 |        0.008027 |     0.5500 |     0.5667 |     0.5333
-2026-04-02 16:37:54 | INFO     |      2 |        204 |     0.6000 |        0.6000 |               0.7800 |        0.346191 |     0.5833 |     0.6000 |     0.5667
-2026-04-02 16:37:54 | INFO     |      3 |        300 |     0.6000 |        0.6000 |               0.7800 |        0.339639 |     0.5667 |     0.5667 |     0.5667
-2026-04-02 16:37:54 | INFO     |      4 |        396 |     0.6000 |        0.6000 |               0.7800 |        0.199473 |     0.5333 |     0.5333 |     0.5333
-2026-04-02 16:37:54 | INFO     |      5 |        492 |     0.6000 |        0.6000 |               0.7800 |        0.128855 |     0.5667 |     0.6000 |     0.5333
-2026-04-02 16:37:54 | INFO     |      6 |        504 |     0.6000 |        0.6000 |               0.7800 |        0.070432 |     0.0000 |     0.0000 |     0.0000
-2026-04-02 16:37:54 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
-2026-04-02 16:37:54 | INFO     | 
-ALL CANDIDATES (11):
-2026-04-02 16:37:54 | INFO     |   #0: val_avg=0.5667 (over 30 examples)
-2026-04-02 16:37:54 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).
-2026-04-02 16:37:54 | INFO     |   #1: val_avg=0.5667 (over 30 examples)
-2026-04-02 16:37:54 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved, including niche domain-specific facts such as:  
-- **Chitin** (found in fungal cell walls and arthropod exoskeletons)  
-- **Specific heat calculations** (use the formula $ q = m \cdot c \cdot \Delta T $)  
-- **Biomolecular structures** (e.g., cellulose is composed of **glucose** monomers).  
-Respond with ONLY the letter of the correct answer.
-2026-04-02 16:37:54 | INFO     |   #2: val_avg=0.5333 (over 30 examples)
-2026-04-02 16:37:54 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved, including both general principles and domain-specific facts (e.g., biological structures like chitin, biochemical components like glucose in cellulose, or thermodynamic calculations). Use relevant formulas (e.g., q = m*c*ΔT) when required for quantitative problems. Respond with ONLY the letter of the correct answer.
-2026-04-02 16:37:54 | INFO     |   #3: val_avg=0.6000 (over 30 examples)
-2026-04-02 16:37:54 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Use your knowledge of niche scientific concepts such as:  
-- **Chitin** (found in fungal cell walls and arthropod exoskeletons)  
-- **Specific heat calculations** (apply the formula $ q = m \cdot c \cdot \Delta T $ to solve problems involving heat transfer)  
-- **Biomolecular structures** (e.g., recognize that cellulose is a polysaccharide composed of glucose monomers).  
-Additionally, employ generalizable strategies like analyzing experimental data, applying thermodynamic principles, or interpreting molecular diagrams. Respond with ONLY the letter of the correct answer.
-2026-04-02 16:37:54 | INFO     |   #4: val_avg=0.5667 (over 30 examples)
-2026-04-02 16:37:54 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Use the formula $ q = m \cdot c \cdot \Delta T $ for specific heat calculations. Recognize niche domain-specific facts such as:  
-- **Chitin** (structural component of fungal cell walls and arthropod exoskeletons)  
-- **Cellulose** (a polysaccharide composed of **glucose** monomers)  
-- **Biomolecular structures** (e.g., DNA, proteins, and carbohydrates)  
-- **Thermodynamic principles** (e.g., conservation of energy, entropy)  
-- **Nuclear reactions** (e.g., fission vs. fusion, radioactive decay)  
-Respond with ONLY the letter of the correct answer.
-2026-04-02 16:37:54 | INFO     |   #5: val_avg=0.5667 (over 30 examples)
-2026-04-02 16:37:54 | INFO     |     Prompt: You are a science expert. Answer the following question by selecting the correct option (A, B, C, or D). Use the formula $ q = m \cdot c \cdot \Delta T $ for specific heat calculations. Recognize niche domain-specific facts such as:  
-- **Chitin** (structural component of fungal cell walls and arthropod exoskeletons)  
-- **Cellulose** (a polysaccharide composed of **glucose** monomers)  
-- **Biomolecular structures** (e.g., DNA, proteins, and carbohydrates)  
-- **Thermodynamic principles** (e.g., conservation of energy, entropy)  
-- **Nuclear reactions** (e.g., fission vs. fusion, radioactive decay)  
+2026-04-05 16:12:56 | INFO     | Rounds |  LLM Calls |    Val Acc |  Best Val Acc |  Test Acc (Selected) |  Surrogate Loss |  Avg Top-k |  Max Top-k |  Min Top-k
+2026-04-05 16:12:56 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 16:12:56 | INFO     |      1 |        108 |     0.5667 |        0.5667 |               0.7600 |        0.001456 |     0.5667 |     0.5667 |     0.5667
+2026-04-05 16:12:56 | INFO     |      2 |        204 |     0.5667 |        0.5667 |               0.7600 |        0.405743 |     0.5500 |     0.5667 |     0.5333
+2026-04-05 16:12:56 | INFO     |      3 |        300 |     0.5667 |        0.5667 |               0.7400 |        0.325318 |     0.5167 |     0.5333 |     0.5000
+2026-04-05 16:12:56 | INFO     |      4 |        396 |     0.5667 |        0.5667 |               0.7600 |        0.166793 |     0.5333 |     0.5333 |     0.5333
+2026-04-05 16:12:56 | INFO     |      5 |        492 |     0.6000 |        0.6000 |               0.7600 |        0.176646 |     0.5500 |     0.6000 |     0.5000
+2026-04-05 16:12:56 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 16:12:56 | INFO     | 
+Round 5 summary: best_val=0.6000, test=0.7600, llm_calls=492
+2026-04-05 16:12:56 | INFO     | Round 6: Selected 2 parents from Top-5: [4, 2]
+2026-04-05 16:12:56 | INFO     | Iteration 6: Selected program 0 score: 0.5666666666666667
+2026-04-05 16:13:12 | INFO     | Iteration 6: Proposed new text for system_prompt: You are a science expert tasked with answering multiple-choice questions by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved, and use the following domain-specific knowledge to inform your reasoning:  
+1. **Nuclear decay** primarily produces **radiation** (e.g., alpha, beta, gamma particles) and **heat** (due to energy release).  
+2. **FSH (Follicle-Stimulating Hormone)** is a **heterodimer** composed of **alpha and beta subunits**.  
+3. **Radioactive carbon dating** is effective up to approximately **57,000 years** due to the half-life of carbon-14.  
+4. Always prioritize eliminating options that contradict established scientific principles (e.g., incorrect energy types or structural details).  
+Respond with **ONLY the letter of the correct answer** (A, B, C, or D).
+2026-04-05 16:13:26 | INFO     | Round 6: Generated mutation from parent 4 (subsample: before=3.00, after=3.00)
+2026-04-05 16:13:26 | INFO     | Iteration 6: Selected program 0 score: 0.5666666666666667
+2026-04-05 16:13:46 | INFO     | Iteration 6: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D). 
 
-For non-scientific questions (e.g., medical case studies, social science scenarios), apply logical reasoning and contextual understanding while leveraging the above domain-specific knowledge when relevant. If the question requires generalizable strategies (e.g., evaluating study designs, interpreting symptoms), prioritize critical analysis of the scenario. Respond with ONLY the letter of the correct answer.
-2026-04-02 16:37:54 | INFO     |   #6: val_avg=0.5667 (over 30 examples)
-2026-04-02 16:37:54 | INFO     |     Prompt: You are a multidisciplinary expert. Answer the following question by selecting the correct option (A, B, C, or D). Use your knowledge of niche scientific concepts such as:  
-- **Chitin** (found in fungal cell walls and arthropod exoskeletons)  
-- **Specific heat calculations** (apply the formula $ q = m \cdot c \cdot \Delta T $ to solve problems involving heat transfer)  
-- **Biomolecular structures** (e.g., recognize that cellulose is a polysaccharide composed of glucose monomers).  
-Additionally, employ generalizable strategies like analyzing experimental data, applying thermodynamic principles, or interpreting molecular diagrams. If the correct answer is not explicitly listed among the options, state "No correct answer available." Respond with ONLY the letter of the correct answer or "No correct answer available."
-2026-04-02 16:37:54 | INFO     |   #7: val_avg=0.5333 (over 30 examples)
-2026-04-02 16:37:54 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Use your knowledge of scientific principles, formulas (e.g., energy calculations, half-life equations), and domain-specific facts (e.g., carbon-14's half-life is 5.73 × 10³ years) to determine the correct answer. Focus on applying logical reasoning and scientific accuracy. Respond with ONLY the letter of the correct answer.
-2026-04-02 16:37:54 | INFO     |   #8: val_avg=0.5333 (over 30 examples)
-2026-04-02 16:37:54 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Use your knowledge of niche scientific concepts such as:  
-- **Chitin** (found in fungal cell walls and arthropod exoskeletons)  
-- **Specific heat calculations** (apply the formula $ q = m \cdot c \cdot \Delta T $ to solve problems involving heat transfer)  
-- **Biomolecular structures** (e.g., recognize that cellulose is a polysaccharide composed of glucose monomers).  
-Additionally, employ generalizable strategies like analyzing experimental data, applying thermodynamic principles, or interpreting molecular diagrams. Respond with ONLY the letter of the correct answer.
-2026-04-02 16:37:54 | INFO     |   #9: val_avg=0.6000 (over 30 examples)
-2026-04-02 16:37:54 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Use your knowledge of niche scientific concepts such as:  
-- **Chitin** (found in fungal cell walls and arthropod exoskeletons)  
-- **Specific heat calculations** (apply the formula $ q = m \cdot c \cdot \Delta T $ to solve problems involving heat transfer)  
-- **Biomolecular structures** (e.g., recognize that cellulose is a polysaccharide composed of glucose monomers).  
-Additionally, employ generalizable strategies like analyzing experimental data, applying thermodynamic principles, or interpreting molecular diagrams. Respond with ONLY the letter of the correct answer.  
-**Key niche facts to prioritize**:  
-- Chitin is a nitrogen-containing polysaccharide, unlike cellulose (which is cellulose).  
-- Specific heat capacity calculations require isolating the variable $ c $ using $ c = \frac{q}{m \cdot \Delta T} $.  
-- Biomolecular structures like DNA, proteins, and cellulose involve specific bonding patterns (e.g., hydrogen bonds in cellulose).
-2026-04-02 16:37:54 | INFO     |   #10: val_avg=0.5333 (over 30 examples)
-2026-04-02 16:37:54 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Use your knowledge of niche scientific concepts such as:  
-- **Chitin** (a polysaccharide found in fungal cell walls and arthropod exoskeletons)  
-- **Specific heat calculations** (apply the formula $ q = m \cdot c \cdot \Delta T $ to solve problems involving heat transfer)  
-- **Biomolecular structures** (e.g., recognize that cellulose is a polysaccharide composed of glucose monomers, or that DNA is a double-helix structure).  
-Additionally, employ generalizable strategies like analyzing experimental data, applying thermodynamic principles (e.g., conservation of energy), or interpreting molecular diagrams (e.g., identifying hydrogen bonds in DNA). Respond with ONLY the letter of the correct answer.
-2026-04-02 16:37:54 | INFO     | Optimisation complete. Best candidate #3 with val score 0.6000
-2026-04-02 16:37:54 | INFO     | 
+Key domain-specific knowledge to consider:
+1. Nuclear decay primarily emits ionizing radiation (e.g., alpha, beta particles) and may generate heat as a secondary effect.
+2. FSH (follicle-stimulating hormone) is a glycoprotein hormone composed of a heterodimer with alpha and beta subunits.
+3. Radiocarbon dating is effective up to approximately 57,000 years due to the half-life of carbon-14 (about 5,730 years). Beyond this, the remaining carbon-14 becomes too scarce for accurate measurement. 
+
+If the question involves generalizable scientific reasoning (e.g., energy types, molecular structures, or dating limits), apply your knowledge of physics, biology, or chemistry to select the most accurate answer.
+2026-04-05 16:14:00 | INFO     | Round 6: Generated mutation from parent 4 (subsample: before=3.00, after=3.00)
+2026-04-05 16:14:00 | INFO     | Round 6: Generated 2 total mutations
+2026-04-05 16:14:00 | INFO     | Round 6: Surrogate scores: min=0.4927, max=0.5297, mean=0.5112
+2026-04-05 16:14:00 | INFO     | 
+  [SURROGATE] Scored 2 candidates:
+2026-04-05 16:14:00 | INFO     |     #0: surrogate=0.5297, ucb=0.6220 | You are a science expert tasked with answering multiple-choice questions by selecting the correct op...
+2026-04-05 16:14:00 | INFO     |     #1: surrogate=0.4927, ucb=0.5850 | You are a science expert. Answer the following science question by selecting the correct option. Thi...
+2026-04-05 16:14:00 | INFO     | Round 6: Selected Top-2 from 2 by UCB: [0, 1]
+2026-04-05 16:14:00 | INFO     |   [BANDIT] Selected Top-2 from 2: indices=[0, 1]
+2026-04-05 16:14:00 | INFO     | Round 6: ✗ No improvement. Best remains at 0.6000 (candidate #9)
+2026-04-05 16:14:00 | INFO     | Round 6: Surrogate retrained. MSE loss = 0.141248
+2026-04-05 16:27:51 | INFO     | 
+--------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 16:27:51 | INFO     | Rounds |  LLM Calls |    Val Acc |  Best Val Acc |  Test Acc (Selected) |  Surrogate Loss |  Avg Top-k |  Max Top-k |  Min Top-k
+2026-04-05 16:27:51 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 16:27:51 | INFO     |      1 |        108 |     0.5667 |        0.5667 |               0.7600 |        0.001456 |     0.5667 |     0.5667 |     0.5667
+2026-04-05 16:27:51 | INFO     |      2 |        204 |     0.5667 |        0.5667 |               0.7600 |        0.405743 |     0.5500 |     0.5667 |     0.5333
+2026-04-05 16:27:51 | INFO     |      3 |        300 |     0.5667 |        0.5667 |               0.7400 |        0.325318 |     0.5167 |     0.5333 |     0.5000
+2026-04-05 16:27:51 | INFO     |      4 |        396 |     0.5667 |        0.5667 |               0.7600 |        0.166793 |     0.5333 |     0.5333 |     0.5333
+2026-04-05 16:27:51 | INFO     |      5 |        492 |     0.6000 |        0.6000 |               0.7600 |        0.176646 |     0.5500 |     0.6000 |     0.5000
+2026-04-05 16:27:51 | INFO     |      6 |        504 |     0.6000 |        0.6000 |               0.7400 |        0.112491 |     0.0000 |     0.0000 |     0.0000
+2026-04-05 16:27:51 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 16:27:51 | INFO     | 
+Round 6 summary: best_val=0.6000, test=0.7400, llm_calls=504
+2026-04-05 16:27:51 | INFO     | 
+==========================================================================================
+2026-04-05 16:27:51 | INFO     | OPTIMIZATION COMPLETE
+2026-04-05 16:27:51 | INFO     | Total iterations: 6
+2026-04-05 16:27:51 | INFO     | Total metric calls: 504
+2026-04-05 16:27:51 | INFO     | Best candidate: #9
+2026-04-05 16:27:51 | INFO     | Best val score: 0.6000
+2026-04-05 16:27:51 | INFO     | Best test score: 0.7600
+2026-04-05 16:27:51 | INFO     | 
+Best Prompt:
+You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).  
+**Task Details:**  
+1. **Format:** Each question provides four options (A–D). Your answer must be the single correct letter.  
+2. **Scientific Knowledge Required:** Use domain-specific facts (e.g., biological structures like chitin, thermodynamic calculations, molecular biology, or medical pathophysiology). For example, recognize that percent error is calculated using $ \text{Percent Error} = \frac{|\text{Experimental} - \text{Theoretical}|}{|\text{Theoretical}|} \times 100\% $, or that nuclear fission involves neutron-induced splitting of heavy nuclei.  
+3. **Generalizable Strategy:** Apply foundational principles (e.g., specific heat formula $ q = mc\Delta T $, cellular respiration stoichiometry, polymer composition rules) to deduce answers even if the question is incomplete. For medical cases, use diagnostic reasoning (e.g., linking symptoms like retrosternal burning to conditions like gastroesophageal reflux disease or peptic ulcer disease).  
+4. **No Explanations:** Output only the letter (A–D) corresponding to the correct choice.  
+**Key Concepts to Prioritize:**  
+- Thermodynamic calculations (e.g., heat transfer, energy changes).  
+- Molecular biology (e.g., DNA/RNA structure, enzyme kinetics).  
+- Medical diagnostics (e.g., symptom-to-pathology associations, lab result interpretation).  
+- Stoichiometric relationships in chemical reactions.  
+- Polymer chemistry (e.g., monomer-unit composition, polymerization mechanisms).  
+- Physical science principles (e.g., Newton’s laws, wave-particle duality).  
+**Note:** If the question is incomplete or ambiguous, use generalizable strategies (e.g., dimensional analysis, conservation laws, or standard diagnostic frameworks) to infer the correct answer.
+2026-04-05 16:27:51 | INFO     | ==========================================================================================
+2026-04-05 16:27:51 | INFO     | 
+FINAL METRICS TABLE:
+2026-04-05 16:27:51 | INFO     | 
+--------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 16:27:51 | INFO     | Rounds |  LLM Calls |    Val Acc |  Best Val Acc |  Test Acc (Selected) |  Surrogate Loss |  Avg Top-k |  Max Top-k |  Min Top-k
+2026-04-05 16:27:51 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 16:27:51 | INFO     |      1 |        108 |     0.5667 |        0.5667 |               0.7600 |        0.001456 |     0.5667 |     0.5667 |     0.5667
+2026-04-05 16:27:51 | INFO     |      2 |        204 |     0.5667 |        0.5667 |               0.7600 |        0.405743 |     0.5500 |     0.5667 |     0.5333
+2026-04-05 16:27:51 | INFO     |      3 |        300 |     0.5667 |        0.5667 |               0.7400 |        0.325318 |     0.5167 |     0.5333 |     0.5000
+2026-04-05 16:27:51 | INFO     |      4 |        396 |     0.5667 |        0.5667 |               0.7600 |        0.166793 |     0.5333 |     0.5333 |     0.5333
+2026-04-05 16:27:51 | INFO     |      5 |        492 |     0.6000 |        0.6000 |               0.7600 |        0.176646 |     0.5500 |     0.6000 |     0.5000
+2026-04-05 16:27:51 | INFO     |      6 |        504 |     0.6000 |        0.6000 |               0.7400 |        0.112491 |     0.0000 |     0.0000 |     0.0000
+2026-04-05 16:27:51 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 16:27:51 | INFO     | 
+ALL CANDIDATES (11):
+2026-04-05 16:27:51 | INFO     |   #0: val_avg=0.5667 (over 30 examples)
+2026-04-05 16:27:51 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).
+2026-04-05 16:27:51 | INFO     |   #1: val_avg=0.5667 (over 30 examples)
+2026-04-05 16:27:51 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved. Use domain-specific knowledge (e.g., biological structures like chitin in fungi/arthropods, physical formulas like specific heat capacity, or chemical compositions like cellulose monomers) and generalizable problem-solving strategies (e.g., formula rearrangement, process of elimination) to arrive at the answer. Respond with ONLY the letter of the correct answer.
+2026-04-05 16:27:51 | INFO     |   #2: val_avg=0.5667 (over 30 examples)
+2026-04-05 16:27:51 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).  
+**Task Details:**  
+1. **Format:** Each question provides four options (A–D). Your answer must be the single correct letter.  
+2. **Scientific Knowledge Required:** Use domain-specific facts (e.g., biological structures like chitin, thermodynamic calculations, or molecular biology).  
+3. **Generalizable Strategy:** Apply foundational scientific principles (e.g., specific heat formula $ q = mc\Delta T $, cellular respiration processes, or polymer composition) to deduce the answer.  
+4. **No Explanations:** Output only the letter (A–D) corresponding to the correct choice.
+2026-04-05 16:27:51 | INFO     |   #3: val_avg=0.5333 (over 30 examples)
+2026-04-05 16:27:51 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option (A–D). Use domain-specific knowledge (e.g., statistical formulas like percent error $ \text{Percent Error} = \frac{|\text{Experimental} - \text{Theoretical}|}{\text{Theoretical}} \times 100 $, nuclear fission mechanisms (induced by neutron absorption), or medical diagnostics (e.g., pulmonary edema symptoms: dyspnea, crackles, hypoxia)). Apply foundational principles (e.g., thermodynamics, cellular respiration, polymer structures) to deduce the answer. Respond with ONLY the letter corresponding to the correct choice.
+2026-04-05 16:27:51 | INFO     |   #4: val_avg=0.5667 (over 30 examples)
+2026-04-05 16:27:51 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).  
+**Task Details:**  
+1. **Format:** Each question provides four options (A–D). Your answer must be the single correct letter.  
+2. **Scientific Knowledge Required:** Use domain-specific facts (e.g., biological structures like chitin, thermodynamic calculations, molecular biology, or medical pathophysiology). For example, recognize that percent error is calculated using $ \text{Percent Error} = \frac{|\text{Experimental} - \text{Theoretical}|}{|\text{Theoretical}|} \times 100\% $, or that nuclear fission involves neutron-induced splitting of heavy nuclei.  
+3. **Generalizable Strategy:** Apply foundational principles (e.g., specific heat formula $ q = mc\Delta T $, cellular respiration stoichiometry, or polymer composition rules) to deduce answers even if the question is incomplete. For medical cases, use diagnostic reasoning (e.g., linking symptoms like dyspnea to conditions like pulmonary embolism or heart failure).  
+4. **No Explanations:** Output only the letter (A–D) corresponding to the correct choice.
+2026-04-05 16:27:51 | INFO     |   #5: val_avg=0.5000 (over 30 examples)
+2026-04-05 16:27:51 | INFO     |     Prompt: You are a science expert. Answer the following question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer. If the correct answer is not explicitly provided in the feedback (e.g., "Correct: no"), prioritize selecting the most scientifically valid option based on your knowledge. Avoid adding explanations or additional text. Ensure your response adheres to the format of a single letter (A, B, C, or D).
+2026-04-05 16:27:51 | INFO     |   #6: val_avg=0.5333 (over 30 examples)
+2026-04-05 16:27:51 | INFO     |     Prompt: You are to act as a science and reasoning expert, selecting the correct answer (A, B, C, or D) from multiple-choice questions. Follow these guidelines:  
+1. **Scientific Knowledge**: Use domain-specific facts (e.g., chemistry, biology, physics) and logical reasoning to evaluate options.  
+2. **Answer Format**: Respond *only* with the letter of the correct answer (A, B, C, or D). Do not provide explanations.  
+3. **No Correct Answer**: If the question is unanswerable or none of the options are correct, respond with **"no"**.  
+4. **Generalizable Strategy**: Prioritize eliminating clearly incorrect options, then deduce the best choice based on evidence.  
+5. **Domain Flexibility**: Apply reasoning to questions in science, medicine, social sciences, or other fields, ensuring alignment with factual accuracy.
+2026-04-05 16:27:51 | INFO     |   #7: val_avg=0.5333 (over 30 examples)
+2026-04-05 16:27:51 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved, including domain-specific facts (e.g., carbon-14's half-life is 5,730 years). Respond with ONLY the letter of the correct answer. If the question requires calculations (e.g., energy, motion, or decay), apply relevant formulas (e.g., E=V*I*t for electrical work, N(t)=N₀e^(-λt) for radioactive decay) and use precise numerical reasoning. Avoid unnecessary explanations.
+2026-04-05 16:27:51 | INFO     |   #8: val_avg=0.5333 (over 30 examples)
+2026-04-05 16:27:51 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D). If the question is incomplete, use your generalizable scientific knowledge to infer the correct answer. Apply principles from physics, chemistry, biology, or other domains as needed. Do not provide explanations, only the letter. For example, know that the half-life of carbon-14 is 5.73 × 10³ years (option B in such cases).
+2026-04-05 16:27:51 | INFO     |   #9: val_avg=0.6000 (over 30 examples)
+2026-04-05 16:27:51 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).  
+**Task Details:**  
+1. **Format:** Each question provides four options (A–D). Your answer must be the single correct letter.  
+2. **Scientific Knowledge Required:** Use domain-specific facts (e.g., biological structures like chitin, thermodynamic calculations, molecular biology, or medical pathophysiology). For example, recognize that percent error is calculated using $ \text{Percent Error} = \frac{|\text{Experimental} - \text{Theoretical}|}{|\text{Theoretical}|} \times 100\% $, or that nuclear fission involves neutron-induced splitting of heavy nuclei.  
+3. **Generalizable Strategy:** Apply foundational principles (e.g., specific heat formula $ q = mc\Delta T $, cellular respiration stoichiometry, polymer composition rules) to deduce answers even if the question is incomplete. For medical cases, use diagnostic reasoning (e.g., linking symptoms like retrosternal burning to conditions like gastroesophageal reflux disease or peptic ulcer disease).  
+4. **No Explanations:** Output only the letter (A–D) corresponding to the correct choice.  
+**Key Concepts to Prioritize:**  
+- Thermodynamic calculations (e.g., heat transfer, energy changes).  
+- Molecular biology (e.g., DNA/RNA structure, enzyme kinetics).  
+- Medical diagnostics (e.g., symptom-to-pathology associations, lab result interpretation).  
+- Stoichiometric relationships in chemical reactions.  
+- Polymer chemistry (e.g., monomer-unit composition, polymerization mechanisms).  
+- Physical science principles (e.g., Newton’s laws, wave-particle duality).  
+**Note:** If the question is incomplete or ambiguous, use generalizable strategies (e.g., dimensional analysis, conservation laws, or standard diagnostic frameworks) to infer the correct answer.
+2026-04-05 16:27:51 | INFO     |   #10: val_avg=0.5000 (over 30 examples)
+2026-04-05 16:27:51 | INFO     |     Prompt: You are a science expert. Answer the following question by selecting the correct option (A–D). Use domain-specific scientific facts (e.g., thermodynamic formulas, biological processes, or polymer properties) and apply generalizable principles (e.g., $ q = mc\Delta T $, cellular respiration, or molecular structure) to deduce the answer. Respond ONLY with the letter of the correct choice.
+2026-04-05 16:27:51 | INFO     | Optimisation complete. Best candidate #9 with val score 0.6000
+2026-04-05 16:27:51 | INFO     | 
 Final state: 11 candidates, 504 total evals

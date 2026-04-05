@@ -1,0 +1,544 @@
+2026-04-05 18:19:51 | INFO     | Loading BIG-Bench Hard dataset (all subsets)...
+2026-04-05 18:20:58 | INFO     | Dataset sizes — Train: 150, Val: 80, Test: 150
+2026-04-05 18:20:58 | INFO     | Starting SurrogateBanditEngine for BIG-Bench Hard...
+2026-04-05 18:20:58 | INFO     | ==========================================================================================
+2026-04-05 18:20:58 | INFO     | BIG-Bench Hard + Surrogate-Guided Bandit — OPTIMIZATION START
+2026-04-05 18:20:58 | INFO     | Config: {
+  "perfect_score": 1.0,
+  "seed": 42,
+  "track_best_outputs": true,
+  "bandit_config": {
+    "top_p": 5,
+    "n_parents": 2,
+    "m_mutations": 3,
+    "top_k": 2,
+    "ucb_exploration": 1.0
+  }
+}
+2026-04-05 18:20:58 | INFO     | ==========================================================================================
+2026-04-05 18:20:58 | INFO     | 
+  [SEED] Prompt: You are an expert reasoning assistant. You will be given a challenging question that requires careful logical, mathematical, or commonsense reasoning. Think step by step before answering. If the question provides options, respond with ONLY the option label (e.g. (A), (B), etc.). If it is a yes/no question, respond with ONLY Yes or No. Otherwise, provide ONLY the exact answer with no explanation.
+2026-04-05 18:49:36 | INFO     |   [SEED] Baseline Test Accuracy: 0.8533
+2026-04-05 19:04:30 | INFO     | Round 0: Seed valset score: 0.8750
+2026-04-05 19:04:30 | INFO     | Round 1: Selected 1 parents from Top-5: [0]
+2026-04-05 19:04:30 | INFO     | Iteration 1: Selected program 0 score: 0.875
+2026-04-05 19:04:53 | INFO     | Iteration 1: Proposed new text for system_prompt: Task: Commonsense Reasoning  
+You are an expert assistant. You will be given a question that requires applying everyday knowledge, logical inference, or contextual understanding to determine the correct answer. If the question provides multiple-choice options, respond with ONLY the option label (e.g., (A), (B), etc.). If it is a yes/no question, respond with ONLY Yes or No. Otherwise, provide ONLY the exact answer with no explanation. Focus on real-world scenarios, implicit relationships, and standard assumptions. Avoid overcomplicating; prioritize clarity and practicality.
+2026-04-05 19:05:02 | INFO     | Round 1: Generated mutation from parent 0 (subsample: before=3.00, after=2.00)
+2026-04-05 19:05:02 | INFO     | Iteration 1: Selected program 0 score: 0.875
+2026-04-05 19:05:19 | INFO     | Iteration 1: Proposed new text for system_prompt: You are an expert reasoning assistant. You will be given a task requiring logical, mathematical, or commonsense reasoning. Follow these guidelines:  
+1. **Task Type**: Identify the specific task (e.g., logical deduction, sports understanding, sarcasm detection) and adhere to its rules.  
+2. **Input Format**:  
+   - For multiple-choice questions, options are labeled (A), (B), etc.  
+   - For yes/no questions, respond with "Yes" or "No".  
+   - For open-ended questions, provide the exact answer.  
+3. **Response Format**:  
+   - Output **only** the final answer (e.g., (A), No, or the precise answer).  
+   - **Do not** include explanations, reasoning, or markdown.  
+4. **Domain-Specific Knowledge**:  
+   - For sarcasm detection (e.g., "snarks" task), prioritize identifying irony, contradictions, or exaggerated phrasing.  
+   - For logical deduction tasks, ensure consistency with given premises and eliminate contradictions.  
+   - For sports/real-world questions, rely on factual knowledge (e.g., "powerplay" refers to hockey strategy, not a literal action).  
+5. **Generalizable Strategy**:  
+   - Break down complex questions into smaller steps.  
+   - Verify answers against implicit rules (e.g., "fwb" in snarks implies a sarcastic twist).  
+   - Avoid assumptions; base answers strictly on provided information.
+2026-04-05 19:05:31 | INFO     | Round 1: Generated mutation from parent 0 (subsample: before=2.00, after=2.00)
+2026-04-05 19:05:31 | INFO     | Iteration 1: Selected program 0 score: 0.875
+2026-04-05 19:05:46 | INFO     | Iteration 1: Proposed new text for system_prompt: [Task: Historical Timeline Deduction]
+You are given a set of events with ambiguous dates. Use historical knowledge to determine the correct chronological order. Answer with the option label (e.g., (A), (s)) corresponding to the sequence that aligns with verified historical records. If the task requires analyzing cause-effect relationships between events, prioritize events with direct causal links first. For ambiguous cases, select the option with the most widely accepted timeline.
+2026-04-05 19:05:56 | INFO     | Round 1: Generated mutation from parent 0 (subsample: before=3.00, after=2.00)
+2026-04-05 19:05:56 | INFO     | Round 1: Generated 3 total mutations
+2026-04-05 19:05:56 | INFO     | Round 1: Surrogate scores: min=0.5000, max=0.5000, mean=0.5000
+2026-04-05 19:05:56 | INFO     | 
+  [SURROGATE] Scored 3 candidates:
+2026-04-05 19:05:56 | INFO     |     #0: surrogate=0.5000, ucb=1.6774 | Task: Commonsense Reasoning  
+You are an expert assistant. You will be given a question that require...
+2026-04-05 19:05:56 | INFO     |     #1: surrogate=0.5000, ucb=1.6774 | You are an expert reasoning assistant. You will be given a task requiring logical, mathematical, or ...
+2026-04-05 19:05:56 | INFO     |     #2: surrogate=0.5000, ucb=1.6774 | [Task: Historical Timeline Deduction]
+You are given a set of events with ambiguous dates. Use histor...
+2026-04-05 19:05:56 | INFO     | Round 1: Selected Top-2 from 3 by UCB: [0, 1]
+2026-04-05 19:05:56 | INFO     |   [BANDIT] Selected Top-2 from 3: indices=[0, 1]
+2026-04-05 19:05:56 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 3/3)
+2026-04-05 19:21:06 | INFO     | 
+  [ACCEPTED] Candidate #1 (val=0.8125, parents=[0])
+2026-04-05 19:21:06 | INFO     |   Prompt: Task: Commonsense Reasoning  
+You are an expert assistant. You will be given a question that requires applying everyday knowledge, logical inference, or contextual understanding to determine the correct answer. If the question provides multiple-choice options, respond with ONLY the option label (e.g., (A), (B), etc.). If it is a yes/no question, respond with ONLY Yes or No. Otherwise, provide ONLY the exact answer with no explanation. Focus on real-world scenarios, implicit relationships, and standard assumptions. Avoid overcomplicating; prioritize clarity and practicality.
+2026-04-05 19:21:06 | INFO     |   >> New best! val=0.8125
+2026-04-05 19:21:06 | INFO     | Iteration 1: Valset score for new program: 0.8125 (coverage 80 / 80)
+2026-04-05 19:21:06 | INFO     | Iteration 1: Val aggregate for new program: 0.8125
+2026-04-05 19:21:06 | INFO     | Iteration 1: Individual valset scores for new program: {0: 1.0, 1: 0.0, 2: 1.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 0.0, 9: 1.0, 10: 1.0, 11: 1.0, 12: 0.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 1.0, 17: 1.0, 18: 1.0, 19: 1.0, 20: 1.0, 21: 1.0, 22: 1.0, 23: 1.0, 24: 1.0, 25: 1.0, 26: 1.0, 27: 1.0, 28: 1.0, 29: 0.0, 30: 1.0, 31: 0.0, 32: 0.0, 33: 1.0, 34: 1.0, 35: 1.0, 36: 1.0, 37: 1.0, 38: 1.0, 39: 1.0, 40: 1.0, 41: 0.0, 42: 1.0, 43: 1.0, 44: 1.0, 45: 1.0, 46: 1.0, 47: 1.0, 48: 1.0, 49: 1.0, 50: 0.0, 51: 0.0, 52: 1.0, 53: 1.0, 54: 1.0, 55: 1.0, 56: 1.0, 57: 1.0, 58: 1.0, 59: 1.0, 60: 1.0, 61: 1.0, 62: 1.0, 63: 1.0, 64: 0.0, 65: 1.0, 66: 1.0, 67: 1.0, 68: 1.0, 69: 0.0, 70: 1.0, 71: 1.0, 72: 1.0, 73: 1.0, 74: 0.0, 75: 1.0, 76: 0.0, 77: 1.0, 78: 1.0, 79: 1.0}
+2026-04-05 19:21:06 | INFO     | Iteration 1: New valset pareto front scores: {0: 1.0, 1: 1.0, 2: 1.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 1.0, 7: 1.0, 8: 0.0, 9: 1.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 1.0, 17: 1.0, 18: 1.0, 19: 1.0, 20: 1.0, 21: 1.0, 22: 1.0, 23: 1.0, 24: 1.0, 25: 1.0, 26: 1.0, 27: 1.0, 28: 1.0, 29: 1.0, 30: 1.0, 31: 1.0, 32: 1.0, 33: 1.0, 34: 1.0, 35: 1.0, 36: 1.0, 37: 1.0, 38: 1.0, 39: 1.0, 40: 1.0, 41: 0.0, 42: 1.0, 43: 1.0, 44: 1.0, 45: 1.0, 46: 1.0, 47: 1.0, 48: 1.0, 49: 1.0, 50: 0.0, 51: 1.0, 52: 1.0, 53: 1.0, 54: 1.0, 55: 1.0, 56: 1.0, 57: 1.0, 58: 1.0, 59: 1.0, 60: 1.0, 61: 1.0, 62: 1.0, 63: 1.0, 64: 0.0, 65: 1.0, 66: 1.0, 67: 1.0, 68: 1.0, 69: 0.0, 70: 1.0, 71: 1.0, 72: 1.0, 73: 1.0, 74: 0.0, 75: 1.0, 76: 1.0, 77: 1.0, 78: 1.0, 79: 1.0}
+2026-04-05 19:21:06 | INFO     | Iteration 1: Valset pareto front aggregate score: 0.9125
+2026-04-05 19:21:06 | INFO     | Iteration 1: Updated valset pareto front programs: {0: {0, 1}, 1: {0}, 2: {0, 1}, 3: {0, 1}, 4: {0, 1}, 5: {1}, 6: {0}, 7: {0, 1}, 8: {0, 1}, 9: {0, 1}, 10: {0, 1}, 11: {0, 1}, 12: {0}, 13: {0, 1}, 14: {0, 1}, 15: {0, 1}, 16: {0, 1}, 17: {0, 1}, 18: {0, 1}, 19: {0, 1}, 20: {0, 1}, 21: {0, 1}, 22: {0, 1}, 23: {0, 1}, 24: {0, 1}, 25: {0, 1}, 26: {0, 1}, 27: {0, 1}, 28: {0, 1}, 29: {0}, 30: {0, 1}, 31: {0}, 32: {0}, 33: {0, 1}, 34: {0, 1}, 35: {0, 1}, 36: {0, 1}, 37: {0, 1}, 38: {0, 1}, 39: {0, 1}, 40: {0, 1}, 41: {0, 1}, 42: {0, 1}, 43: {0, 1}, 44: {0, 1}, 45: {0, 1}, 46: {0, 1}, 47: {1}, 48: {0, 1}, 49: {0, 1}, 50: {0, 1}, 51: {0}, 52: {0, 1}, 53: {0, 1}, 54: {0, 1}, 55: {0, 1}, 56: {0, 1}, 57: {0, 1}, 58: {0, 1}, 59: {0, 1}, 60: {0, 1}, 61: {0, 1}, 62: {0, 1}, 63: {0, 1}, 64: {0, 1}, 65: {0, 1}, 66: {0, 1}, 67: {0, 1}, 68: {1}, 69: {0, 1}, 70: {0, 1}, 71: {0, 1}, 72: {0, 1}, 73: {0, 1}, 74: {0, 1}, 75: {0, 1}, 76: {0}, 77: {0, 1}, 78: {0, 1}, 79: {0, 1}}
+2026-04-05 19:21:06 | INFO     | Iteration 1: Best valset aggregate score so far: 0.875
+2026-04-05 19:21:06 | INFO     | Iteration 1: Best program as per aggregate score on valset: 0
+2026-04-05 19:21:06 | INFO     | Iteration 1: Best score on valset: 0.875
+2026-04-05 19:21:06 | INFO     | Iteration 1: Linear pareto front program index: 0
+2026-04-05 19:21:06 | INFO     | Iteration 1: New program candidate index: 1
+2026-04-05 19:21:06 | INFO     |   [ACCEPTED] Candidate #1 score=0.8125 parents=[0]
+2026-04-05 19:32:13 | INFO     | 
+  [ACCEPTED] Candidate #2 (val=0.8625, parents=[0])
+2026-04-05 19:32:13 | INFO     |   Prompt: You are an expert reasoning assistant. You will be given a task requiring logical, mathematical, or commonsense reasoning. Follow these guidelines:  
+1. **Task Type**: Identify the specific task (e.g., logical deduction, sports understanding, sarcasm detection) and adhere to its rules.  
+2. **Input Format**:  
+   - For multiple-choice questions, options are labeled (A), (B), etc.  
+   - For yes/no questions, respond with "Yes" or "No".  
+   - For open-ended questions, provide the exact answer.  
+3. **Response Format**:  
+   - Output **only** the final answer (e.g., (A), No, or the precise answer).  
+   - **Do not** include explanations, reasoning, or markdown.  
+4. **Domain-Specific Knowledge**:  
+   - For sarcasm detection (e.g., "snarks" task), prioritize identifying irony, contradictions, or exaggerated phrasing.  
+   - For logical deduction tasks, ensure consistency with given premises and eliminate contradictions.  
+   - For sports/real-world questions, rely on factual knowledge (e.g., "powerplay" refers to hockey strategy, not a literal action).  
+5. **Generalizable Strategy**:  
+   - Break down complex questions into smaller steps.  
+   - Verify answers against implicit rules (e.g., "fwb" in snarks implies a sarcastic twist).  
+   - Avoid assumptions; base answers strictly on provided information.
+2026-04-05 19:32:13 | INFO     |   >> New best! val=0.8625
+2026-04-05 19:32:13 | INFO     | Iteration 1: Valset score for new program: 0.8625 (coverage 80 / 80)
+2026-04-05 19:32:13 | INFO     | Iteration 1: Val aggregate for new program: 0.8625
+2026-04-05 19:32:13 | INFO     | Iteration 1: Individual valset scores for new program: {0: 1.0, 1: 0.0, 2: 1.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 1.0, 7: 1.0, 8: 0.0, 9: 1.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 1.0, 17: 1.0, 18: 1.0, 19: 1.0, 20: 1.0, 21: 1.0, 22: 1.0, 23: 1.0, 24: 1.0, 25: 1.0, 26: 1.0, 27: 1.0, 28: 1.0, 29: 1.0, 30: 1.0, 31: 1.0, 32: 1.0, 33: 1.0, 34: 1.0, 35: 1.0, 36: 1.0, 37: 1.0, 38: 1.0, 39: 1.0, 40: 1.0, 41: 0.0, 42: 1.0, 43: 1.0, 44: 1.0, 45: 1.0, 46: 1.0, 47: 0.0, 48: 1.0, 49: 1.0, 50: 1.0, 51: 1.0, 52: 1.0, 53: 0.0, 54: 1.0, 55: 1.0, 56: 1.0, 57: 1.0, 58: 1.0, 59: 1.0, 60: 1.0, 61: 1.0, 62: 1.0, 63: 1.0, 64: 0.0, 65: 1.0, 66: 1.0, 67: 1.0, 68: 0.0, 69: 0.0, 70: 1.0, 71: 1.0, 72: 1.0, 73: 1.0, 74: 0.0, 75: 1.0, 76: 0.0, 77: 1.0, 78: 1.0, 79: 1.0}
+2026-04-05 19:32:13 | INFO     | Iteration 1: New valset pareto front scores: {0: 1.0, 1: 1.0, 2: 1.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 1.0, 7: 1.0, 8: 0.0, 9: 1.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 1.0, 17: 1.0, 18: 1.0, 19: 1.0, 20: 1.0, 21: 1.0, 22: 1.0, 23: 1.0, 24: 1.0, 25: 1.0, 26: 1.0, 27: 1.0, 28: 1.0, 29: 1.0, 30: 1.0, 31: 1.0, 32: 1.0, 33: 1.0, 34: 1.0, 35: 1.0, 36: 1.0, 37: 1.0, 38: 1.0, 39: 1.0, 40: 1.0, 41: 0.0, 42: 1.0, 43: 1.0, 44: 1.0, 45: 1.0, 46: 1.0, 47: 1.0, 48: 1.0, 49: 1.0, 50: 1.0, 51: 1.0, 52: 1.0, 53: 1.0, 54: 1.0, 55: 1.0, 56: 1.0, 57: 1.0, 58: 1.0, 59: 1.0, 60: 1.0, 61: 1.0, 62: 1.0, 63: 1.0, 64: 0.0, 65: 1.0, 66: 1.0, 67: 1.0, 68: 1.0, 69: 0.0, 70: 1.0, 71: 1.0, 72: 1.0, 73: 1.0, 74: 0.0, 75: 1.0, 76: 1.0, 77: 1.0, 78: 1.0, 79: 1.0}
+2026-04-05 19:32:13 | INFO     | Iteration 1: Valset pareto front aggregate score: 0.925
+2026-04-05 19:32:13 | INFO     | Iteration 1: Updated valset pareto front programs: {0: {0, 1, 2}, 1: {0}, 2: {0, 1, 2}, 3: {0, 1, 2}, 4: {0, 1, 2}, 5: {1, 2}, 6: {0, 2}, 7: {0, 1, 2}, 8: {0, 1, 2}, 9: {0, 1, 2}, 10: {0, 1, 2}, 11: {0, 1, 2}, 12: {0, 2}, 13: {0, 1, 2}, 14: {0, 1, 2}, 15: {0, 1, 2}, 16: {0, 1, 2}, 17: {0, 1, 2}, 18: {0, 1, 2}, 19: {0, 1, 2}, 20: {0, 1, 2}, 21: {0, 1, 2}, 22: {0, 1, 2}, 23: {0, 1, 2}, 24: {0, 1, 2}, 25: {0, 1, 2}, 26: {0, 1, 2}, 27: {0, 1, 2}, 28: {0, 1, 2}, 29: {0, 2}, 30: {0, 1, 2}, 31: {0, 2}, 32: {0, 2}, 33: {0, 1, 2}, 34: {0, 1, 2}, 35: {0, 1, 2}, 36: {0, 1, 2}, 37: {0, 1, 2}, 38: {0, 1, 2}, 39: {0, 1, 2}, 40: {0, 1, 2}, 41: {0, 1, 2}, 42: {0, 1, 2}, 43: {0, 1, 2}, 44: {0, 1, 2}, 45: {0, 1, 2}, 46: {0, 1, 2}, 47: {1}, 48: {0, 1, 2}, 49: {0, 1, 2}, 50: {2}, 51: {0, 2}, 52: {0, 1, 2}, 53: {0, 1}, 54: {0, 1, 2}, 55: {0, 1, 2}, 56: {0, 1, 2}, 57: {0, 1, 2}, 58: {0, 1, 2}, 59: {0, 1, 2}, 60: {0, 1, 2}, 61: {0, 1, 2}, 62: {0, 1, 2}, 63: {0, 1, 2}, 64: {0, 1, 2}, 65: {0, 1, 2}, 66: {0, 1, 2}, 67: {0, 1, 2}, 68: {1}, 69: {0, 1, 2}, 70: {0, 1, 2}, 71: {0, 1, 2}, 72: {0, 1, 2}, 73: {0, 1, 2}, 74: {0, 1, 2}, 75: {0, 1, 2}, 76: {0}, 77: {0, 1, 2}, 78: {0, 1, 2}, 79: {0, 1, 2}}
+2026-04-05 19:32:13 | INFO     | Iteration 1: Best valset aggregate score so far: 0.875
+2026-04-05 19:32:13 | INFO     | Iteration 1: Best program as per aggregate score on valset: 0
+2026-04-05 19:32:13 | INFO     | Iteration 1: Best score on valset: 0.875
+2026-04-05 19:32:13 | INFO     | Iteration 1: Linear pareto front program index: 0
+2026-04-05 19:32:13 | INFO     | Iteration 1: New program candidate index: 2
+2026-04-05 19:32:13 | INFO     |   [ACCEPTED] Candidate #2 score=0.8625 parents=[0]
+2026-04-05 19:32:13 | INFO     | Round 1: ✗ No improvement. Best remains at 0.8750 (candidate #0)
+2026-04-05 19:32:15 | INFO     | Round 1: Surrogate retrained. MSE loss = 0.026191
+2026-04-05 20:01:49 | INFO     | 
+--------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 20:01:49 | INFO     | Rounds |  LLM Calls |    Val Acc |  Best Val Acc |  Test Acc (Selected) |  Surrogate Loss |  Avg Top-k |  Max Top-k |  Min Top-k
+2026-04-05 20:01:49 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 20:01:49 | INFO     |      1 |        258 |     0.8750 |        0.8625 |               0.8667 |        0.026413 |     0.8375 |     0.8625 |     0.8125
+2026-04-05 20:01:49 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 20:01:49 | INFO     | 
+Round 1 summary: best_val=0.8625, test=0.8667, llm_calls=258
+2026-04-05 20:01:49 | INFO     | Round 2: Selected 2 parents from Top-5: [0, 2]
+2026-04-05 20:01:49 | INFO     | Iteration 2: Selected program 2 score: 0.8625
+2026-04-05 20:02:08 | INFO     | Iteration 2: Proposed new text for system_prompt: You are an expert reasoning assistant. You will be given a task requiring logical, mathematical, or commonsense reasoning. Follow these guidelines:  
+1. **Task Type**: Identify the specific task (e.g., object counting, web of lies, logical deduction with fixed arrangements) and adhere to its rules. For object counting, count distinct items as individual units (e.g., "two heads of broccoli" = 1 vegetable). For web of lies, analyze truth/liar chains: if someone accuses another, their truthfulness depends on the accused’s status. For logical deduction with five objects, ensure consistency with positional/property constraints (e.g., "in a fixed order" implies sequential dependencies).  
+2. **Input Format**:  
+   - For multiple-choice questions, options are labeled (A), (B), etc.  
+   - For yes/no questions, respond with "Yes" or "No".  
+   - For open-ended questions, provide the exact answer.  
+3. **Response Format**:  
+   - Output **only** the final answer (e.g., (C), No, or the precise count).  
+   - **Do not** include explanations, reasoning, or markdown.  
+4. **Domain-Specific Knowledge**:  
+   - For object counting, treat grouped items (e.g., "two heads") as single units unless specified otherwise.  
+   - For web of lies, prioritize resolving contradictions in accusation chains (e.g., "Jerry says Alexis lies" → if Alexis is truthful, Jerry is lying).  
+   - For logical deduction with five objects, assume all statements are logically consistent and use elimination to resolve ambiguities.  
+5. **Generalizable Strategy**:  
+   - Break down complex questions into smaller steps (e.g., resolve individual claims before analyzing dependencies).  
+   - Verify answers against implicit rules (e.g., "fixed order" implies no random arrangement).  
+   - Avoid assumptions; base answers strictly on provided information.
+2026-04-05 20:02:21 | INFO     | Round 2: Generated mutation from parent 0 (subsample: before=3.00, after=2.00)
+2026-04-05 20:02:21 | INFO     | Iteration 2: Selected program 0 score: 0.875
+2026-04-05 20:02:42 | INFO     | Iteration 2: Proposed new text for system_prompt: You are an expert reasoning assistant. You will be given a task that requires careful logical, mathematical, or commonsense reasoning. Identify the task type (e.g., object counting, web of lies, logical deduction with five objects) and follow these guidelines:  
+1. **Object Counting**: Count distinct items, considering quantities (e.g., "two heads of broccoli" = 2 items). Sum all unique vegetables/fruits/etc.  
+2. **Web of Lies**: Determine truth-tellers/liars by analyzing contradictions. Assume each person’s statement is either entirely true or entirely false. Use chains of statements to resolve conflicts (e.g., if A says B lies, and B says A lies, only one can be truthful).  
+3. **Logical Deduction (Five Objects)**: Arrange five objects in a fixed order based on given constraints. Ensure all statements in the paragraph are logically consistent. Use elimination and positional logic (e.g., "the third object is red" narrows possibilities).  
+4. **Answer Format**: For multiple-choice questions, respond with **(A), (B), etc.**. For yes/no questions, respond with **Yes** or **No**. For open-ended answers, provide the **exact numerical or textual answer**.  
+5. **Domain-Specific Facts**: Use implicit rules (e.g., in web of lies, at least one person is lying; in five-object deduction, all constraints must be satisfied). Avoid assumptions beyond the given text.
+2026-04-05 20:03:00 | INFO     | Round 2: Generated mutation from parent 0 (subsample: before=3.00, after=3.00)
+2026-04-05 20:03:00 | INFO     | Iteration 2: Selected program 1 score: 0.8125
+2026-04-05 20:03:29 | INFO     | Iteration 2: Proposed new text for system_prompt: Task: Temporal Reasoning with Sequential Events  
+You are an expert assistant. You will be given a question that requires analyzing the sequence of events over time, considering cause-effect relationships, duration, and temporal dependencies. Focus on real-world scenarios, implicit chronological relationships, and standard assumptions about time-based interactions. If the question provides multiple-choice options, respond with ONLY the option label (e.g., (A), (B), etc.). If it is a yes/no question, respond with ONLY Yes or No. Otherwise, provide ONLY the exact answer with no explanation.  
+
+Key Details:  
+- Prioritize understanding of time intervals, overlaps, and dependencies (e.g., "If A happens before B, what must occur after B?").  
+- Consider standard temporal rules (e.g., "A day has 24 hours," "Events cannot occur simultaneously unless specified").  
+- Use logical deduction to resolve ambiguities in event ordering.  
+- Avoid assuming unrealistically complex scenarios; stick to common time-based reasoning.
+2026-04-05 20:03:45 | INFO     | Round 2: Generated mutation from parent 0 (subsample: before=3.00, after=3.00)
+2026-04-05 20:03:45 | INFO     | Iteration 2: Selected program 0 score: 0.875
+2026-04-05 20:04:27 | INFO     | Iteration 2: Proposed new text for system_prompt: You are an expert reasoning assistant. You will be given a challenging question that requires careful logical, mathematical, or commonsense reasoning. Think step by step before answering. If the question provides options, respond with ONLY the option label (e.g. (A), (B), etc.). If it is a yes/no question, respond with ONLY Yes or No. Otherwise, provide ONLY the exact answer with no explanation.  
+
+For tasks involving object counting, ensure all items are categorized correctly (e.g., potatoes, yams, broccoli, cauliflower are vegetables). For web-of-lies tasks, assume each person is either entirely truthful or lying, and trace contradictions step-by-step. For logical deduction tasks with fixed object arrangements, use elimination and positional constraints to resolve ambiguities. Always prioritize domain-specific rules (e.g., truth-telling logic, vegetable classifications) over assumptions.
+2026-04-05 20:04:41 | INFO     | Round 2: Generated mutation from parent 2 (subsample: before=3.00, after=3.00)
+2026-04-05 20:04:41 | INFO     | Iteration 2: Selected program 2 score: 0.8625
+2026-04-05 20:05:06 | INFO     | Iteration 2: Proposed new text for system_prompt: You are an expert reasoning assistant. You will be given a task requiring logical, mathematical, or commonsense reasoning. Follow these guidelines:  
+1. **Task Type**: Identify the specific task (e.g., logical deduction, sports understanding, sarcasm detection) and adhere to its rules.  
+2. **Input Format**:  
+   - For multiple-choice questions, options are labeled (A), (B), etc.  
+   - For yes/no questions, respond with "Yes" or "No".  
+   - For open-ended questions, provide the exact answer.  
+3. **Response Format**:  
+   - Output **only** the final answer (e.g., (A), No, or the precise answer).  
+   - **Do not** include explanations, reasoning, or markdown.  
+4. **Domain-Specific Knowledge**:  
+   - For sarcasm detection (e.g., "snarks" task), prioritize identifying irony, contradictions, or exaggerated phrasing.  
+   - For logical deduction tasks, ensure consistency with given premises and eliminate contradictions.  
+   - For sports/real-world questions, rely on factual knowledge (e.g., "powerplay" refers to hockey strategy, not a literal action).  
+5. **Generalizable Strategy**:  
+   - Break down complex questions into smaller steps.  
+   - Verify answers against implicit rules (e.g., "fwb" in snarks implies a sarcastic twist).  
+   - Avoid assumptions; base answers strictly on provided information.
+2026-04-05 20:05:16 | INFO     | Round 2: Generated mutation from parent 2 (subsample: before=3.00, after=3.00)
+2026-04-05 20:05:16 | INFO     | Iteration 2: Selected program 1 score: 0.8125
+2026-04-05 20:05:35 | INFO     | Iteration 2: Proposed new text for system_prompt: Task: Logical Deduction and Commonsense Reasoning  
+You are an expert assistant. You will be given a question requiring application of everyday knowledge, logical inference, or contextual understanding to determine the correct answer. If the question provides multiple-choice options, respond with ONLY the option label (e.g., (A), (B), etc.). If it is a yes/no question, respond with ONLY Yes or No. Otherwise, provide ONLY the exact answer with no explanation.  
+
+Focus on real-world scenarios, implicit relationships, and standard assumptions. Prioritize clarity and practicality. Avoid overcomplicating.  
+
+**Key Guidelines:**  
+1. **Object Counting:** Treat distinct items (e.g., broccoli heads, cauliflower florets) as separate entities unless explicitly stated otherwise.  
+2. **Web Of Lies:** Analyze chains of accusations/truths systematically, assuming each statement is either entirely true or entirely false.  
+3. **Logical Deduction (Five Objects):** Use provided constraints to deduce fixed-order arrangements, ensuring consistency across all statements.  
+4. **General Strategy:** Identify the most direct, practical answer based on common knowledge and logical consistency.
+2026-04-05 20:06:13 | INFO     | Round 2: Generated mutation from parent 2 (subsample: before=3.00, after=3.00)
+2026-04-05 20:06:13 | INFO     | Round 2: Generated 6 total mutations
+2026-04-05 20:06:13 | INFO     | Round 2: Surrogate scores: min=0.6749, max=0.8843, mean=0.7878
+2026-04-05 20:06:13 | INFO     | 
+  [SURROGATE] Scored 6 candidates:
+2026-04-05 20:06:13 | INFO     |     #0: surrogate=0.8843, ucb=1.0012 | You are an expert reasoning assistant. You will be given a task requiring logical, mathematical, or ...
+2026-04-05 20:06:13 | INFO     |     #1: surrogate=0.7570, ucb=0.8739 | You are an expert reasoning assistant. You will be given a task that requires careful logical, mathe...
+2026-04-05 20:06:13 | INFO     |     #2: surrogate=0.7302, ucb=0.8471 | Task: Temporal Reasoning with Sequential Events  
+You are an expert assistant. You will be given a q...
+2026-04-05 20:06:13 | INFO     |     #3: surrogate=0.6749, ucb=0.7918 | You are an expert reasoning assistant. You will be given a challenging question that requires carefu...
+2026-04-05 20:06:13 | INFO     |     #4: surrogate=0.8385, ucb=0.9554 | You are an expert reasoning assistant. You will be given a task requiring logical, mathematical, or ...
+2026-04-05 20:06:13 | INFO     |     #5: surrogate=0.8416, ucb=0.9585 | Task: Logical Deduction and Commonsense Reasoning  
+You are an expert assistant. You will be given a...
+2026-04-05 20:06:13 | INFO     | Round 2: Selected Top-2 from 6 by UCB: [0, 5]
+2026-04-05 20:06:13 | INFO     |   [BANDIT] Selected Top-2 from 6: indices=[0, 5]
+2026-04-05 20:06:13 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 3/6)
+2026-04-05 20:06:13 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 4/6)
+2026-04-05 20:06:13 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 5/6)
+2026-04-05 20:06:13 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 6/6)
+2026-04-05 20:17:38 | INFO     | 
+  [ACCEPTED] Candidate #3 (val=0.8750, parents=[2])
+2026-04-05 20:17:38 | INFO     |   Prompt: You are an expert reasoning assistant. You will be given a task requiring logical, mathematical, or commonsense reasoning. Follow these guidelines:  
+1. **Task Type**: Identify the specific task (e.g., object counting, web of lies, logical deduction with fixed arrangements) and adhere to its rules. For object counting, count distinct items as individual units (e.g., "two heads of broccoli" = 1 vegetable). For web of lies, analyze truth/liar chains: if someone accuses another, their truthfulness depends on the accused’s status. For logical deduction with five objects, ensure consistency with positional/property constraints (e.g., "in a fixed order" implies sequential dependencies).  
+2. **Input Format**:  
+   - For multiple-choice questions, options are labeled (A), (B), etc.  
+   - For yes/no questions, respond with "Yes" or "No".  
+   - For open-ended questions, provide the exact answer.  
+3. **Response Format**:  
+   - Output **only** the final answer (e.g., (C), No, or the precise count).  
+   - **Do not** include explanations, reasoning, or markdown.  
+4. **Domain-Specific Knowledge**:  
+   - For object counting, treat grouped items (e.g., "two heads") as single units unless specified otherwise.  
+   - For web of lies, prioritize resolving contradictions in accusation chains (e.g., "Jerry says Alexis lies" → if Alexis is truthful, Jerry is lying).  
+   - For logical deduction with five objects, assume all statements are logically consistent and use elimination to resolve ambiguities.  
+5. **Generalizable Strategy**:  
+   - Break down complex questions into smaller steps (e.g., resolve individual claims before analyzing dependencies).  
+   - Verify answers against implicit rules (e.g., "fixed order" implies no random arrangement).  
+   - Avoid assumptions; base answers strictly on provided information.
+2026-04-05 20:17:38 | INFO     |   >> New best! val=0.8750
+2026-04-05 20:17:38 | INFO     | Iteration 2: Valset score for new program: 0.875 (coverage 80 / 80)
+2026-04-05 20:17:38 | INFO     | Iteration 2: Val aggregate for new program: 0.875
+2026-04-05 20:17:38 | INFO     | Iteration 2: Individual valset scores for new program: {0: 1.0, 1: 0.0, 2: 1.0, 3: 1.0, 4: 1.0, 5: 1.0, 6: 1.0, 7: 1.0, 8: 0.0, 9: 1.0, 10: 1.0, 11: 1.0, 12: 0.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 1.0, 17: 1.0, 18: 1.0, 19: 1.0, 20: 1.0, 21: 1.0, 22: 1.0, 23: 1.0, 24: 1.0, 25: 1.0, 26: 1.0, 27: 1.0, 28: 1.0, 29: 1.0, 30: 1.0, 31: 1.0, 32: 1.0, 33: 1.0, 34: 1.0, 35: 1.0, 36: 1.0, 37: 1.0, 38: 1.0, 39: 1.0, 40: 1.0, 41: 0.0, 42: 1.0, 43: 1.0, 44: 1.0, 45: 1.0, 46: 1.0, 47: 1.0, 48: 1.0, 49: 1.0, 50: 0.0, 51: 1.0, 52: 1.0, 53: 1.0, 54: 1.0, 55: 1.0, 56: 1.0, 57: 1.0, 58: 1.0, 59: 1.0, 60: 1.0, 61: 1.0, 62: 1.0, 63: 1.0, 64: 0.0, 65: 1.0, 66: 1.0, 67: 1.0, 68: 1.0, 69: 0.0, 70: 1.0, 71: 1.0, 72: 1.0, 73: 1.0, 74: 0.0, 75: 1.0, 76: 0.0, 77: 1.0, 78: 0.0, 79: 1.0}
+2026-04-05 20:17:38 | INFO     | Iteration 2: New valset pareto front scores: {0: 1.0, 1: 1.0, 2: 1.0, 3: 1.0, 4: 1.0, 5: 1.0, 6: 1.0, 7: 1.0, 8: 0.0, 9: 1.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 1.0, 17: 1.0, 18: 1.0, 19: 1.0, 20: 1.0, 21: 1.0, 22: 1.0, 23: 1.0, 24: 1.0, 25: 1.0, 26: 1.0, 27: 1.0, 28: 1.0, 29: 1.0, 30: 1.0, 31: 1.0, 32: 1.0, 33: 1.0, 34: 1.0, 35: 1.0, 36: 1.0, 37: 1.0, 38: 1.0, 39: 1.0, 40: 1.0, 41: 0.0, 42: 1.0, 43: 1.0, 44: 1.0, 45: 1.0, 46: 1.0, 47: 1.0, 48: 1.0, 49: 1.0, 50: 1.0, 51: 1.0, 52: 1.0, 53: 1.0, 54: 1.0, 55: 1.0, 56: 1.0, 57: 1.0, 58: 1.0, 59: 1.0, 60: 1.0, 61: 1.0, 62: 1.0, 63: 1.0, 64: 0.0, 65: 1.0, 66: 1.0, 67: 1.0, 68: 1.0, 69: 0.0, 70: 1.0, 71: 1.0, 72: 1.0, 73: 1.0, 74: 0.0, 75: 1.0, 76: 1.0, 77: 1.0, 78: 1.0, 79: 1.0}
+2026-04-05 20:17:38 | INFO     | Iteration 2: Valset pareto front aggregate score: 0.9375
+2026-04-05 20:17:38 | INFO     | Iteration 2: Updated valset pareto front programs: {0: {0, 1, 2, 3}, 1: {0}, 2: {0, 1, 2, 3}, 3: {3}, 4: {0, 1, 2, 3}, 5: {1, 2, 3}, 6: {0, 2, 3}, 7: {0, 1, 2, 3}, 8: {0, 1, 2, 3}, 9: {0, 1, 2, 3}, 10: {0, 1, 2, 3}, 11: {0, 1, 2, 3}, 12: {0, 2}, 13: {0, 1, 2, 3}, 14: {0, 1, 2, 3}, 15: {0, 1, 2, 3}, 16: {0, 1, 2, 3}, 17: {0, 1, 2, 3}, 18: {0, 1, 2, 3}, 19: {0, 1, 2, 3}, 20: {0, 1, 2, 3}, 21: {0, 1, 2, 3}, 22: {0, 1, 2, 3}, 23: {0, 1, 2, 3}, 24: {0, 1, 2, 3}, 25: {0, 1, 2, 3}, 26: {0, 1, 2, 3}, 27: {0, 1, 2, 3}, 28: {0, 1, 2, 3}, 29: {0, 2, 3}, 30: {0, 1, 2, 3}, 31: {0, 2, 3}, 32: {0, 2, 3}, 33: {0, 1, 2, 3}, 34: {0, 1, 2, 3}, 35: {0, 1, 2, 3}, 36: {0, 1, 2, 3}, 37: {0, 1, 2, 3}, 38: {0, 1, 2, 3}, 39: {0, 1, 2, 3}, 40: {0, 1, 2, 3}, 41: {0, 1, 2, 3}, 42: {0, 1, 2, 3}, 43: {0, 1, 2, 3}, 44: {0, 1, 2, 3}, 45: {0, 1, 2, 3}, 46: {0, 1, 2, 3}, 47: {1, 3}, 48: {0, 1, 2, 3}, 49: {0, 1, 2, 3}, 50: {2}, 51: {0, 2, 3}, 52: {0, 1, 2, 3}, 53: {0, 1, 3}, 54: {0, 1, 2, 3}, 55: {0, 1, 2, 3}, 56: {0, 1, 2, 3}, 57: {0, 1, 2, 3}, 58: {0, 1, 2, 3}, 59: {0, 1, 2, 3}, 60: {0, 1, 2, 3}, 61: {0, 1, 2, 3}, 62: {0, 1, 2, 3}, 63: {0, 1, 2, 3}, 64: {0, 1, 2, 3}, 65: {0, 1, 2, 3}, 66: {0, 1, 2, 3}, 67: {0, 1, 2, 3}, 68: {1, 3}, 69: {0, 1, 2, 3}, 70: {0, 1, 2, 3}, 71: {0, 1, 2, 3}, 72: {0, 1, 2, 3}, 73: {0, 1, 2, 3}, 74: {0, 1, 2, 3}, 75: {0, 1, 2, 3}, 76: {0}, 77: {0, 1, 2, 3}, 78: {0, 1, 2}, 79: {0, 1, 2, 3}}
+2026-04-05 20:17:38 | INFO     | Iteration 2: Best valset aggregate score so far: 0.875
+2026-04-05 20:17:38 | INFO     | Iteration 2: Best program as per aggregate score on valset: 0
+2026-04-05 20:17:38 | INFO     | Iteration 2: Best score on valset: 0.875
+2026-04-05 20:17:38 | INFO     | Iteration 2: Linear pareto front program index: 0
+2026-04-05 20:17:38 | INFO     | Iteration 2: New program candidate index: 3
+2026-04-05 20:17:38 | INFO     |   [ACCEPTED] Candidate #3 score=0.8750 parents=[2]
+2026-04-05 20:27:52 | INFO     | 
+  [ACCEPTED] Candidate #4 (val=0.8500, parents=[1])
+2026-04-05 20:27:52 | INFO     |   Prompt: Task: Logical Deduction and Commonsense Reasoning  
+You are an expert assistant. You will be given a question requiring application of everyday knowledge, logical inference, or contextual understanding to determine the correct answer. If the question provides multiple-choice options, respond with ONLY the option label (e.g., (A), (B), etc.). If it is a yes/no question, respond with ONLY Yes or No. Otherwise, provide ONLY the exact answer with no explanation.  
+
+Focus on real-world scenarios, implicit relationships, and standard assumptions. Prioritize clarity and practicality. Avoid overcomplicating.  
+
+**Key Guidelines:**  
+1. **Object Counting:** Treat distinct items (e.g., broccoli heads, cauliflower florets) as separate entities unless explicitly stated otherwise.  
+2. **Web Of Lies:** Analyze chains of accusations/truths systematically, assuming each statement is either entirely true or entirely false.  
+3. **Logical Deduction (Five Objects):** Use provided constraints to deduce fixed-order arrangements, ensuring consistency across all statements.  
+4. **General Strategy:** Identify the most direct, practical answer based on common knowledge and logical consistency.
+2026-04-05 20:27:52 | INFO     | Iteration 2: Valset score for new program: 0.85 (coverage 80 / 80)
+2026-04-05 20:27:52 | INFO     | Iteration 2: Val aggregate for new program: 0.85
+2026-04-05 20:27:52 | INFO     | Iteration 2: Individual valset scores for new program: {0: 1.0, 1: 0.0, 2: 1.0, 3: 1.0, 4: 1.0, 5: 1.0, 6: 1.0, 7: 1.0, 8: 0.0, 9: 1.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 1.0, 17: 1.0, 18: 1.0, 19: 1.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 1.0, 24: 1.0, 25: 1.0, 26: 0.0, 27: 1.0, 28: 1.0, 29: 1.0, 30: 1.0, 31: 0.0, 32: 0.0, 33: 1.0, 34: 1.0, 35: 1.0, 36: 1.0, 37: 1.0, 38: 1.0, 39: 1.0, 40: 1.0, 41: 0.0, 42: 1.0, 43: 1.0, 44: 1.0, 45: 1.0, 46: 1.0, 47: 1.0, 48: 1.0, 49: 1.0, 50: 0.0, 51: 1.0, 52: 1.0, 53: 1.0, 54: 1.0, 55: 1.0, 56: 1.0, 57: 1.0, 58: 1.0, 59: 1.0, 60: 1.0, 61: 1.0, 62: 1.0, 63: 1.0, 64: 0.0, 65: 1.0, 66: 1.0, 67: 1.0, 68: 1.0, 69: 0.0, 70: 1.0, 71: 1.0, 72: 1.0, 73: 1.0, 74: 0.0, 75: 1.0, 76: 0.0, 77: 1.0, 78: 1.0, 79: 1.0}
+2026-04-05 20:27:52 | INFO     | Iteration 2: New valset pareto front scores: {0: 1.0, 1: 1.0, 2: 1.0, 3: 1.0, 4: 1.0, 5: 1.0, 6: 1.0, 7: 1.0, 8: 0.0, 9: 1.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 1.0, 17: 1.0, 18: 1.0, 19: 1.0, 20: 1.0, 21: 1.0, 22: 1.0, 23: 1.0, 24: 1.0, 25: 1.0, 26: 1.0, 27: 1.0, 28: 1.0, 29: 1.0, 30: 1.0, 31: 1.0, 32: 1.0, 33: 1.0, 34: 1.0, 35: 1.0, 36: 1.0, 37: 1.0, 38: 1.0, 39: 1.0, 40: 1.0, 41: 0.0, 42: 1.0, 43: 1.0, 44: 1.0, 45: 1.0, 46: 1.0, 47: 1.0, 48: 1.0, 49: 1.0, 50: 1.0, 51: 1.0, 52: 1.0, 53: 1.0, 54: 1.0, 55: 1.0, 56: 1.0, 57: 1.0, 58: 1.0, 59: 1.0, 60: 1.0, 61: 1.0, 62: 1.0, 63: 1.0, 64: 0.0, 65: 1.0, 66: 1.0, 67: 1.0, 68: 1.0, 69: 0.0, 70: 1.0, 71: 1.0, 72: 1.0, 73: 1.0, 74: 0.0, 75: 1.0, 76: 1.0, 77: 1.0, 78: 1.0, 79: 1.0}
+2026-04-05 20:27:52 | INFO     | Iteration 2: Valset pareto front aggregate score: 0.9375
+2026-04-05 20:27:52 | INFO     | Iteration 2: Updated valset pareto front programs: {0: {0, 1, 2, 3, 4}, 1: {0}, 2: {0, 1, 2, 3, 4}, 3: {3, 4}, 4: {0, 1, 2, 3, 4}, 5: {1, 2, 3, 4}, 6: {0, 2, 3, 4}, 7: {0, 1, 2, 3, 4}, 8: {0, 1, 2, 3, 4}, 9: {0, 1, 2, 3, 4}, 10: {0, 1, 2, 3, 4}, 11: {0, 1, 2, 3, 4}, 12: {0, 2, 4}, 13: {0, 1, 2, 3, 4}, 14: {0, 1, 2, 3, 4}, 15: {0, 1, 2, 3, 4}, 16: {0, 1, 2, 3, 4}, 17: {0, 1, 2, 3, 4}, 18: {0, 1, 2, 3, 4}, 19: {0, 1, 2, 3, 4}, 20: {0, 1, 2, 3}, 21: {0, 1, 2, 3, 4}, 22: {0, 1, 2, 3, 4}, 23: {0, 1, 2, 3, 4}, 24: {0, 1, 2, 3, 4}, 25: {0, 1, 2, 3, 4}, 26: {0, 1, 2, 3}, 27: {0, 1, 2, 3, 4}, 28: {0, 1, 2, 3, 4}, 29: {0, 2, 3, 4}, 30: {0, 1, 2, 3, 4}, 31: {0, 2, 3}, 32: {0, 2, 3}, 33: {0, 1, 2, 3, 4}, 34: {0, 1, 2, 3, 4}, 35: {0, 1, 2, 3, 4}, 36: {0, 1, 2, 3, 4}, 37: {0, 1, 2, 3, 4}, 38: {0, 1, 2, 3, 4}, 39: {0, 1, 2, 3, 4}, 40: {0, 1, 2, 3, 4}, 41: {0, 1, 2, 3, 4}, 42: {0, 1, 2, 3, 4}, 43: {0, 1, 2, 3, 4}, 44: {0, 1, 2, 3, 4}, 45: {0, 1, 2, 3, 4}, 46: {0, 1, 2, 3, 4}, 47: {1, 3, 4}, 48: {0, 1, 2, 3, 4}, 49: {0, 1, 2, 3, 4}, 50: {2}, 51: {0, 2, 3, 4}, 52: {0, 1, 2, 3, 4}, 53: {0, 1, 3, 4}, 54: {0, 1, 2, 3, 4}, 55: {0, 1, 2, 3, 4}, 56: {0, 1, 2, 3, 4}, 57: {0, 1, 2, 3, 4}, 58: {0, 1, 2, 3, 4}, 59: {0, 1, 2, 3, 4}, 60: {0, 1, 2, 3, 4}, 61: {0, 1, 2, 3, 4}, 62: {0, 1, 2, 3, 4}, 63: {0, 1, 2, 3, 4}, 64: {0, 1, 2, 3, 4}, 65: {0, 1, 2, 3, 4}, 66: {0, 1, 2, 3, 4}, 67: {0, 1, 2, 3, 4}, 68: {1, 3, 4}, 69: {0, 1, 2, 3, 4}, 70: {0, 1, 2, 3, 4}, 71: {0, 1, 2, 3, 4}, 72: {0, 1, 2, 3, 4}, 73: {0, 1, 2, 3, 4}, 74: {0, 1, 2, 3, 4}, 75: {0, 1, 2, 3, 4}, 76: {0}, 77: {0, 1, 2, 3, 4}, 78: {0, 1, 2, 4}, 79: {0, 1, 2, 3, 4}}
+2026-04-05 20:27:52 | INFO     | Iteration 2: Best valset aggregate score so far: 0.875
+2026-04-05 20:27:52 | INFO     | Iteration 2: Best program as per aggregate score on valset: 0
+2026-04-05 20:27:52 | INFO     | Iteration 2: Best score on valset: 0.875
+2026-04-05 20:27:52 | INFO     | Iteration 2: Linear pareto front program index: 0
+2026-04-05 20:27:52 | INFO     | Iteration 2: New program candidate index: 4
+2026-04-05 20:27:52 | INFO     |   [ACCEPTED] Candidate #4 score=0.8500 parents=[1]
+2026-04-05 20:27:52 | INFO     | Round 2: ✗ No improvement. Best remains at 0.8750 (candidate #0)
+2026-04-05 20:27:53 | INFO     | Round 2: Surrogate retrained. MSE loss = 0.145867
+2026-04-05 21:01:40 | INFO     | 
+--------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 21:01:40 | INFO     | Rounds |  LLM Calls |    Val Acc |  Best Val Acc |  Test Acc (Selected) |  Surrogate Loss |  Avg Top-k |  Max Top-k |  Min Top-k
+2026-04-05 21:01:41 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 21:01:41 | INFO     |      1 |        258 |     0.8750 |        0.8625 |               0.8667 |        0.026413 |     0.8375 |     0.8625 |     0.8125
+2026-04-05 21:01:41 | INFO     |      2 |        454 |     0.8750 |        0.8750 |               0.8733 |        0.136740 |     0.8625 |     0.8750 |     0.8500
+2026-04-05 21:01:41 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 21:01:41 | INFO     | 
+Round 2 summary: best_val=0.8750, test=0.8733, llm_calls=454
+2026-04-05 21:01:41 | INFO     | Round 3: Selected 2 parents from Top-5: [3, 1]
+2026-04-05 21:01:41 | INFO     | Iteration 3: Selected program 3 score: 0.875
+2026-04-05 21:02:05 | INFO     | Iteration 3: Proposed new text for system_prompt: You are an expert reasoning assistant. You will be given a task requiring analysis of structured data (e.g., tables). Follow these guidelines:  
+1. **Task Type**: Analyze penguin data tables with headers and rows. Each row represents a penguin with attributes: name, age, height (cm), weight (kg). Answer questions about comparisons (e.g., "oldest penguin," "heaviest penguin") or missing values.  
+2. **Input Format**:  
+   - For multiple-choice questions, options are labeled (A), (B), etc.  
+   - For open-ended questions, provide the exact answer.  
+3. **Response Format**:  
+   - Output **only** the final answer (e.g., (A), or the precise value).  
+   - **Do not** include explanations, reasoning, or markdown.  
+4. **Domain-Specific Knowledge**:  
+   - Assume all data is complete unless stated otherwise.  
+   - Use numeric values directly for comparisons (e.g., "9 years" > "7 years").  
+   - If a row is incomplete (e.g., missing weight), treat it as invalid data.  
+5. **Generalizable Strategy**:  
+   - Parse tables strictly: first line is headers, subsequent lines are penguin entries.  
+   - Use column-specific logic: age (numeric), height/weight (numeric).  
+   - Avoid assumptions; base answers strictly on provided data.
+2026-04-05 21:02:14 | INFO     | Round 3: Generated mutation from parent 3 (subsample: before=3.00, after=3.00)
+2026-04-05 21:02:14 | INFO     | Iteration 3: Selected program 3 score: 0.875
+2026-04-05 21:02:37 | INFO     | Iteration 3: Proposed new text for system_prompt: You are an expert reasoning assistant. You will be given a task requiring logical, mathematical, or commonsense reasoning. Follow these guidelines:  
+1. **Task Type**: Identify the specific task (e.g., sports plausibility, penguin table analysis, data interpretation). For sports plausibility, assess whether a statement aligns with domain knowledge (e.g., NFL rules). For penguin table analysis, interpret tabular data, resolving ambiguities like missing fields (e.g., incomplete rows) or column-specific queries. For data interpretation, ensure answers align with explicit data and avoid assumptions.  
+2. **Input Format**:  
+   - For multiple-choice questions, options are labeled (A), (B), etc.  
+   - For yes/no questions, respond with "Yes" or "No".  
+   - For open-ended questions, provide the exact answer.  
+3. **Response Format**:  
+   - Output **only** the final answer (e.g., (A), No, or the precise count).  
+   - **Do not** include explanations, reasoning, or markdown.  
+4. **Domain-Specific Knowledge**:  
+   - For sports plausibility, prioritize rule-based reasoning (e.g., NFL penalties, scoring).  
+   - For penguin table analysis, treat incomplete rows as invalid unless specified, and resolve queries based on explicit data (e.g., "which penguin has missing weight?").  
+   - For data interpretation, assume all provided data is accurate and use column/row relationships to derive answers.  
+5. **Generalizable Strategy**:  
+   - Break down complex questions into smaller steps (e.g., verify data completeness before answering).  
+   - Verify answers against implicit rules (e.g., "missing fields invalidate a row").  
+   - Avoid assumptions; base answers strictly on provided information.
+2026-04-05 21:02:49 | INFO     | Round 3: Generated mutation from parent 3 (subsample: before=3.00, after=3.00)
+2026-04-05 21:02:49 | INFO     | Iteration 3: Selected program 2 score: 0.8625
+2026-04-05 21:03:10 | INFO     | Iteration 3: Proposed new text for system_prompt: You are an expert reasoning assistant. You will be given a task requiring logical deduction based on tabular data. Follow these guidelines:  
+1. **Task Type**: Identify the specific task (e.g., "Penguins In A Table") and adhere to its rules. For this task, answer questions about a table containing penguin data (name, age, height (cm), weight (kg)).  
+2. **Input Format**:  
+   - The input includes a table with headers (name, age, height (cm), weight (kg)) followed by data rows.  
+   - Questions will ask for specific information (e.g., "Which penguin is the oldest?" or "What is the weight of the penguin named Louis?").  
+   - Options are labeled (A), (B), etc., if provided.  
+3. **Response Format**:  
+   - Output **only** the final answer (e.g., (A), or the exact value).  
+   - **Do not** include explanations, reasoning, or markdown.  
+4. **Domain-Specific Knowledge**:  
+   - The table contains exactly four columns: name, age, height (cm), weight (kg).  
+   - All data rows are complete; no missing values.  
+   - Questions will require direct lookup or comparison of numerical values (e.g., age, height, weight).  
+5. **Generalizable Strategy**:  
+   - Parse the table to map headers to data columns.  
+   - For questions involving comparisons (e.g., "oldest"), identify the row with the maximum value in the relevant column.  
+   - For direct value questions (e.g., "weight of Louis"), locate the row with the matching name and extract the corresponding value.  
+   - Avoid assumptions; base answers strictly on the provided table.
+2026-04-05 21:03:18 | INFO     | Round 3: Generated mutation from parent 3 (subsample: before=3.00, after=3.00)
+2026-04-05 21:03:18 | INFO     | Iteration 3: Selected program 3 score: 0.875
+2026-04-05 21:03:44 | INFO     | Iteration 3: Proposed new text for system_prompt: You are an expert reasoning assistant. You will be given a task requiring logical, mathematical, or commonsense reasoning. Follow these guidelines:  
+1. **Task Type**: Identify the specific task (e.g., Sports Understanding, Penguins In A Table) and adhere to its rules. For Sports Understanding, assess plausibility based on sports rules (e.g., NFL penalties, basketball scoring). For Penguins In A Table, parse structured data tables (headers, rows), handle missing values, and answer questions about penguin attributes (name, age, height, weight).  
+2. **Input Format**:  
+   - For multiple-choice questions, options are labeled (A), (B), etc.  
+   - For yes/no questions, respond with "Yes" or "No".  
+   - For open-ended questions, provide the exact answer.  
+3. **Response Format**:  
+   - Output **only** the final answer (e.g., (C), No, or the precise count).  
+   - **Do not** include explanations, reasoning, or markdown.  
+4. **Domain-Specific Knowledge**:  
+   - For Sports Understanding, assume knowledge of standard sports rules (e.g., NFL penalties, soccer fouls).  
+   - For Penguins In A Table, treat missing values as invalid data points and prioritize rows with complete information.  
+5. **Generalizable Strategy**:  
+   - Break down complex questions into smaller steps (e.g., resolve missing data in tables before answering questions).  
+   - Verify answers against implicit rules (e.g., "fixed order" implies sequential dependencies; "complete data" requires no missing fields).  
+   - Avoid assumptions; base answers strictly on provided information.
+2026-04-05 21:03:57 | INFO     | Round 3: Generated mutation from parent 1 (subsample: before=3.00, after=3.00)
+2026-04-05 21:03:57 | INFO     | Iteration 3: Selected program 0 score: 0.875
+2026-04-05 21:04:13 | INFO     | Iteration 3: Proposed new text for system_prompt: You are an expert reasoning assistant. You will be given a task requiring logical, mathematical, or commonsense reasoning. Follow these guidelines:  
+1. **Format Output Based on Task Type**:  
+   - If the question provides multiple-choice options (e.g., (A), (B)), respond with **ONLY the option label**.  
+   - If it is a yes/no question, respond with **ONLY "Yes" or "No"**.  
+   - For open-ended questions, provide **ONLY the exact answer** (no explanations).  
+2. **Task-Specific Domain Knowledge**:  
+   - For **sports understanding** tasks, assume familiarity with sports terminology (e.g., "flag" refers to a penalty, "touchdown" is a scoring play).  
+   - For **table-based tasks** (e.g., "penguins_in_a_table"), parse headers (e.g., "name, age, height (cm), weight (kg)") and rows as structured data. Use column-specific units (e.g., "height" in centimeters, "weight" in kilograms).  
+3. **Generalizable Strategies**:  
+   - For tables, verify data consistency (e.g., check if numerical values align with units).  
+   - For plausibility questions, cross-reference facts with domain norms (e.g., "Drew Brees" is a NFL quarterback, so "flagged" is plausible as a penalty).  
+4. **Subset Context**: Always consider the task's subset (e.g., "sports_understanding" or "penguins_in_a_table") to guide reasoning.
+2026-04-05 21:04:25 | INFO     | Round 3: Generated mutation from parent 1 (subsample: before=3.00, after=3.00)
+2026-04-05 21:04:25 | INFO     | Iteration 3: Selected program 0 score: 0.875
+2026-04-05 21:04:38 | INFO     | Iteration 3: Proposed new text for system_prompt: You are an expert reasoning assistant. You will be given a task involving a table of penguin data. The table has headers: name, age, height (cm), weight (kg), followed by rows of penguin entries. Your task is to answer questions about the data, such as identifying the oldest penguin, comparing heights/weights, or determining missing values. If the question provides options, respond with ONLY the option label (e.g., (A), (B), etc.). Use the table structure and numerical values explicitly to derive answers. For example, if asked "Which penguin is the oldest?" compare the 'age' column across rows. Always prioritize the data in the table over external knowledge.
+2026-04-05 21:04:49 | INFO     | Round 3: Generated mutation from parent 1 (subsample: before=3.00, after=2.00)
+2026-04-05 21:04:49 | INFO     | Round 3: Generated 6 total mutations
+2026-04-05 21:04:50 | INFO     | Round 3: Surrogate scores: min=0.5922, max=0.8105, mean=0.6945
+2026-04-05 21:04:50 | INFO     | 
+  [SURROGATE] Scored 6 candidates:
+2026-04-05 21:04:50 | INFO     |     #0: surrogate=0.8105, ucb=0.8969 | You are an expert reasoning assistant. You will be given a task requiring analysis of structured dat...
+2026-04-05 21:04:50 | INFO     |     #1: surrogate=0.7369, ucb=0.8234 | You are an expert reasoning assistant. You will be given a task requiring logical, mathematical, or ...
+2026-04-05 21:04:50 | INFO     |     #2: surrogate=0.6011, ucb=0.6875 | You are an expert reasoning assistant. You will be given a task requiring logical deduction based on...
+2026-04-05 21:04:50 | INFO     |     #3: surrogate=0.7554, ucb=0.8418 | You are an expert reasoning assistant. You will be given a task requiring logical, mathematical, or ...
+2026-04-05 21:04:50 | INFO     |     #4: surrogate=0.5922, ucb=0.6787 | You are an expert reasoning assistant. You will be given a task requiring logical, mathematical, or ...
+2026-04-05 21:04:50 | INFO     |     #5: surrogate=0.6711, ucb=0.7575 | You are an expert reasoning assistant. You will be given a task involving a table of penguin data. T...
+2026-04-05 21:04:50 | INFO     | Round 3: Selected Top-2 from 6 by UCB: [0, 3]
+2026-04-05 21:04:50 | INFO     |   [BANDIT] Selected Top-2 from 6: indices=[0, 3]
+2026-04-05 21:04:50 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 3/6)
+2026-04-05 21:04:50 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 4/6)
+2026-04-05 21:04:50 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 5/6)
+2026-04-05 21:04:50 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 6/6)
+2026-04-05 21:16:43 | INFO     | 
+  [BEST] Candidate #5 (val=0.8875, parents=[3])
+2026-04-05 21:16:43 | INFO     |   Prompt: You are an expert reasoning assistant. You will be given a task requiring analysis of structured data (e.g., tables). Follow these guidelines:  
+1. **Task Type**: Analyze penguin data tables with headers and rows. Each row represents a penguin with attributes: name, age, height (cm), weight (kg). Answer questions about comparisons (e.g., "oldest penguin," "heaviest penguin") or missing values.  
+2. **Input Format**:  
+   - For multiple-choice questions, options are labeled (A), (B), etc.  
+   - For open-ended questions, provide the exact answer.  
+3. **Response Format**:  
+   - Output **only** the final answer (e.g., (A), or the precise value).  
+   - **Do not** include explanations, reasoning, or markdown.  
+4. **Domain-Specific Knowledge**:  
+   - Assume all data is complete unless stated otherwise.  
+   - Use numeric values directly for comparisons (e.g., "9 years" > "7 years").  
+   - If a row is incomplete (e.g., missing weight), treat it as invalid data.  
+5. **Generalizable Strategy**:  
+   - Parse tables strictly: first line is headers, subsequent lines are penguin entries.  
+   - Use column-specific logic: age (numeric), height/weight (numeric).  
+   - Avoid assumptions; base answers strictly on provided data.
+2026-04-05 21:16:43 | INFO     |   >> New best! val=0.8875
+2026-04-05 21:16:43 | INFO     | Round 3: Found a better program on the valset with score 0.8875.
+2026-04-05 21:16:43 | INFO     | Iteration 3: Valset score for new program: 0.8875 (coverage 80 / 80)
+2026-04-05 21:16:43 | INFO     | Iteration 3: Val aggregate for new program: 0.8875
+2026-04-05 21:16:43 | INFO     | Iteration 3: Individual valset scores for new program: {0: 1.0, 1: 0.0, 2: 1.0, 3: 1.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 0.0, 9: 1.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 1.0, 17: 1.0, 18: 1.0, 19: 1.0, 20: 1.0, 21: 1.0, 22: 1.0, 23: 1.0, 24: 1.0, 25: 1.0, 26: 1.0, 27: 1.0, 28: 1.0, 29: 1.0, 30: 1.0, 31: 1.0, 32: 0.0, 33: 1.0, 34: 1.0, 35: 1.0, 36: 1.0, 37: 1.0, 38: 1.0, 39: 1.0, 40: 1.0, 41: 0.0, 42: 1.0, 43: 1.0, 44: 1.0, 45: 1.0, 46: 1.0, 47: 1.0, 48: 1.0, 49: 1.0, 50: 1.0, 51: 1.0, 52: 1.0, 53: 1.0, 54: 1.0, 55: 0.0, 56: 1.0, 57: 1.0, 58: 1.0, 59: 1.0, 60: 1.0, 61: 1.0, 62: 1.0, 63: 1.0, 64: 0.0, 65: 1.0, 66: 1.0, 67: 1.0, 68: 1.0, 69: 0.0, 70: 1.0, 71: 1.0, 72: 1.0, 73: 1.0, 74: 0.0, 75: 1.0, 76: 1.0, 77: 1.0, 78: 1.0, 79: 1.0}
+2026-04-05 21:16:43 | INFO     | Iteration 3: New valset pareto front scores: {0: 1.0, 1: 1.0, 2: 1.0, 3: 1.0, 4: 1.0, 5: 1.0, 6: 1.0, 7: 1.0, 8: 0.0, 9: 1.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 1.0, 17: 1.0, 18: 1.0, 19: 1.0, 20: 1.0, 21: 1.0, 22: 1.0, 23: 1.0, 24: 1.0, 25: 1.0, 26: 1.0, 27: 1.0, 28: 1.0, 29: 1.0, 30: 1.0, 31: 1.0, 32: 1.0, 33: 1.0, 34: 1.0, 35: 1.0, 36: 1.0, 37: 1.0, 38: 1.0, 39: 1.0, 40: 1.0, 41: 0.0, 42: 1.0, 43: 1.0, 44: 1.0, 45: 1.0, 46: 1.0, 47: 1.0, 48: 1.0, 49: 1.0, 50: 1.0, 51: 1.0, 52: 1.0, 53: 1.0, 54: 1.0, 55: 1.0, 56: 1.0, 57: 1.0, 58: 1.0, 59: 1.0, 60: 1.0, 61: 1.0, 62: 1.0, 63: 1.0, 64: 0.0, 65: 1.0, 66: 1.0, 67: 1.0, 68: 1.0, 69: 0.0, 70: 1.0, 71: 1.0, 72: 1.0, 73: 1.0, 74: 0.0, 75: 1.0, 76: 1.0, 77: 1.0, 78: 1.0, 79: 1.0}
+2026-04-05 21:16:43 | INFO     | Iteration 3: Valset pareto front aggregate score: 0.9375
+2026-04-05 21:16:43 | INFO     | Iteration 3: Updated valset pareto front programs: {0: {0, 1, 2, 3, 4, 5}, 1: {0}, 2: {0, 1, 2, 3, 4, 5}, 3: {3, 4, 5}, 4: {0, 1, 2, 3, 4, 5}, 5: {1, 2, 3, 4, 5}, 6: {0, 2, 3, 4}, 7: {0, 1, 2, 3, 4, 5}, 8: {0, 1, 2, 3, 4, 5}, 9: {0, 1, 2, 3, 4, 5}, 10: {0, 1, 2, 3, 4, 5}, 11: {0, 1, 2, 3, 4, 5}, 12: {0, 2, 4, 5}, 13: {0, 1, 2, 3, 4, 5}, 14: {0, 1, 2, 3, 4, 5}, 15: {0, 1, 2, 3, 4, 5}, 16: {0, 1, 2, 3, 4, 5}, 17: {0, 1, 2, 3, 4, 5}, 18: {0, 1, 2, 3, 4, 5}, 19: {0, 1, 2, 3, 4, 5}, 20: {0, 1, 2, 3, 5}, 21: {0, 1, 2, 3, 4, 5}, 22: {0, 1, 2, 3, 4, 5}, 23: {0, 1, 2, 3, 4, 5}, 24: {0, 1, 2, 3, 4, 5}, 25: {0, 1, 2, 3, 4, 5}, 26: {0, 1, 2, 3, 5}, 27: {0, 1, 2, 3, 4, 5}, 28: {0, 1, 2, 3, 4, 5}, 29: {0, 2, 3, 4, 5}, 30: {0, 1, 2, 3, 4, 5}, 31: {0, 2, 3, 5}, 32: {0, 2, 3}, 33: {0, 1, 2, 3, 4, 5}, 34: {0, 1, 2, 3, 4, 5}, 35: {0, 1, 2, 3, 4, 5}, 36: {0, 1, 2, 3, 4, 5}, 37: {0, 1, 2, 3, 4, 5}, 38: {0, 1, 2, 3, 4, 5}, 39: {0, 1, 2, 3, 4, 5}, 40: {0, 1, 2, 3, 4, 5}, 41: {0, 1, 2, 3, 4, 5}, 42: {0, 1, 2, 3, 4, 5}, 43: {0, 1, 2, 3, 4, 5}, 44: {0, 1, 2, 3, 4, 5}, 45: {0, 1, 2, 3, 4, 5}, 46: {0, 1, 2, 3, 4, 5}, 47: {1, 3, 4, 5}, 48: {0, 1, 2, 3, 4, 5}, 49: {0, 1, 2, 3, 4, 5}, 50: {2, 5}, 51: {0, 2, 3, 4, 5}, 52: {0, 1, 2, 3, 4, 5}, 53: {0, 1, 3, 4, 5}, 54: {0, 1, 2, 3, 4, 5}, 55: {0, 1, 2, 3, 4}, 56: {0, 1, 2, 3, 4, 5}, 57: {0, 1, 2, 3, 4, 5}, 58: {0, 1, 2, 3, 4, 5}, 59: {0, 1, 2, 3, 4, 5}, 60: {0, 1, 2, 3, 4, 5}, 61: {0, 1, 2, 3, 4, 5}, 62: {0, 1, 2, 3, 4, 5}, 63: {0, 1, 2, 3, 4, 5}, 64: {0, 1, 2, 3, 4, 5}, 65: {0, 1, 2, 3, 4, 5}, 66: {0, 1, 2, 3, 4, 5}, 67: {0, 1, 2, 3, 4, 5}, 68: {1, 3, 4, 5}, 69: {0, 1, 2, 3, 4, 5}, 70: {0, 1, 2, 3, 4, 5}, 71: {0, 1, 2, 3, 4, 5}, 72: {0, 1, 2, 3, 4, 5}, 73: {0, 1, 2, 3, 4, 5}, 74: {0, 1, 2, 3, 4, 5}, 75: {0, 1, 2, 3, 4, 5}, 76: {0, 5}, 77: {0, 1, 2, 3, 4, 5}, 78: {0, 1, 2, 4, 5}, 79: {0, 1, 2, 3, 4, 5}}
+2026-04-05 21:16:43 | INFO     | Iteration 3: Best valset aggregate score so far: 0.8875
+2026-04-05 21:16:43 | INFO     | Iteration 3: Best program as per aggregate score on valset: 5
+2026-04-05 21:16:43 | INFO     | Iteration 3: Best score on valset: 0.8875
+2026-04-05 21:16:43 | INFO     | Iteration 3: Linear pareto front program index: 5
+2026-04-05 21:16:43 | INFO     | Iteration 3: New program candidate index: 5
+2026-04-05 21:16:43 | INFO     |   [ACCEPTED] Candidate #5 score=0.8875 parents=[3]
+2026-04-05 21:16:43 | INFO     | Round 3: ✓ IMPROVEMENT! 0.8750 → 0.8875 (candidate #5)
+2026-04-05 21:16:44 | INFO     | Round 3: Surrogate retrained. MSE loss = 0.121493
+2026-04-05 21:41:59 | INFO     | 
+--------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 21:41:59 | INFO     | Rounds |  LLM Calls |    Val Acc |  Best Val Acc |  Test Acc (Selected) |  Surrogate Loss |  Avg Top-k |  Max Top-k |  Min Top-k
+2026-04-05 21:41:59 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 21:41:59 | INFO     |      1 |        258 |     0.8750 |        0.8625 |               0.8667 |        0.026413 |     0.8375 |     0.8625 |     0.8125
+2026-04-05 21:41:59 | INFO     |      2 |        454 |     0.8750 |        0.8750 |               0.8733 |        0.136740 |     0.8625 |     0.8750 |     0.8500
+2026-04-05 21:41:59 | INFO     |      3 |        570 |     0.8875 |        0.8875 |               0.8333 |        0.114057 |     0.8875 |     0.8875 |     0.8875
+2026-04-05 21:41:59 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 21:41:59 | INFO     | 
+Round 3 summary: best_val=0.8875, test=0.8333, llm_calls=570
+2026-04-05 21:41:59 | INFO     | 
+==========================================================================================
+2026-04-05 21:41:59 | INFO     | OPTIMIZATION COMPLETE
+2026-04-05 21:41:59 | INFO     | Total iterations: 3
+2026-04-05 21:41:59 | INFO     | Total metric calls: 570
+2026-04-05 21:41:59 | INFO     | Best candidate: #5
+2026-04-05 21:41:59 | INFO     | Best val score: 0.8875
+2026-04-05 21:41:59 | INFO     | Best test score: 0.8333
+2026-04-05 21:41:59 | INFO     | 
+Best Prompt:
+You are an expert reasoning assistant. You will be given a task requiring analysis of structured data (e.g., tables). Follow these guidelines:  
+1. **Task Type**: Analyze penguin data tables with headers and rows. Each row represents a penguin with attributes: name, age, height (cm), weight (kg). Answer questions about comparisons (e.g., "oldest penguin," "heaviest penguin") or missing values.  
+2. **Input Format**:  
+   - For multiple-choice questions, options are labeled (A), (B), etc.  
+   - For open-ended questions, provide the exact answer.  
+3. **Response Format**:  
+   - Output **only** the final answer (e.g., (A), or the precise value).  
+   - **Do not** include explanations, reasoning, or markdown.  
+4. **Domain-Specific Knowledge**:  
+   - Assume all data is complete unless stated otherwise.  
+   - Use numeric values directly for comparisons (e.g., "9 years" > "7 years").  
+   - If a row is incomplete (e.g., missing weight), treat it as invalid data.  
+5. **Generalizable Strategy**:  
+   - Parse tables strictly: first line is headers, subsequent lines are penguin entries.  
+   - Use column-specific logic: age (numeric), height/weight (numeric).  
+   - Avoid assumptions; base answers strictly on provided data.
+2026-04-05 21:41:59 | INFO     | ==========================================================================================
+2026-04-05 21:41:59 | INFO     | 
+FINAL METRICS TABLE:
+2026-04-05 21:41:59 | INFO     | 
+--------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 21:41:59 | INFO     | Rounds |  LLM Calls |    Val Acc |  Best Val Acc |  Test Acc (Selected) |  Surrogate Loss |  Avg Top-k |  Max Top-k |  Min Top-k
+2026-04-05 21:41:59 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 21:41:59 | INFO     |      1 |        258 |     0.8750 |        0.8625 |               0.8667 |        0.026413 |     0.8375 |     0.8625 |     0.8125
+2026-04-05 21:41:59 | INFO     |      2 |        454 |     0.8750 |        0.8750 |               0.8733 |        0.136740 |     0.8625 |     0.8750 |     0.8500
+2026-04-05 21:41:59 | INFO     |      3 |        570 |     0.8875 |        0.8875 |               0.8333 |        0.114057 |     0.8875 |     0.8875 |     0.8875
+2026-04-05 21:41:59 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 21:41:59 | INFO     | 
+ALL CANDIDATES (6):
+2026-04-05 21:41:59 | INFO     |   #0: val_avg=0.8750 (over 80 examples)
+2026-04-05 21:41:59 | INFO     |     Prompt: You are an expert reasoning assistant. You will be given a challenging question that requires careful logical, mathematical, or commonsense reasoning. Think step by step before answering. If the question provides options, respond with ONLY the option label (e.g. (A), (B), etc.). If it is a yes/no question, respond with ONLY Yes or No. Otherwise, provide ONLY the exact answer with no explanation.
+2026-04-05 21:41:59 | INFO     |   #1: val_avg=0.8125 (over 80 examples)
+2026-04-05 21:41:59 | INFO     |     Prompt: Task: Commonsense Reasoning  
+You are an expert assistant. You will be given a question that requires applying everyday knowledge, logical inference, or contextual understanding to determine the correct answer. If the question provides multiple-choice options, respond with ONLY the option label (e.g., (A), (B), etc.). If it is a yes/no question, respond with ONLY Yes or No. Otherwise, provide ONLY the exact answer with no explanation. Focus on real-world scenarios, implicit relationships, and standard assumptions. Avoid overcomplicating; prioritize clarity and practicality.
+2026-04-05 21:41:59 | INFO     |   #2: val_avg=0.8625 (over 80 examples)
+2026-04-05 21:41:59 | INFO     |     Prompt: You are an expert reasoning assistant. You will be given a task requiring logical, mathematical, or commonsense reasoning. Follow these guidelines:  
+1. **Task Type**: Identify the specific task (e.g., logical deduction, sports understanding, sarcasm detection) and adhere to its rules.  
+2. **Input Format**:  
+   - For multiple-choice questions, options are labeled (A), (B), etc.  
+   - For yes/no questions, respond with "Yes" or "No".  
+   - For open-ended questions, provide the exact answer.  
+3. **Response Format**:  
+   - Output **only** the final answer (e.g., (A), No, or the precise answer).  
+   - **Do not** include explanations, reasoning, or markdown.  
+4. **Domain-Specific Knowledge**:  
+   - For sarcasm detection (e.g., "snarks" task), prioritize identifying irony, contradictions, or exaggerated phrasing.  
+   - For logical deduction tasks, ensure consistency with given premises and eliminate contradictions.  
+   - For sports/real-world questions, rely on factual knowledge (e.g., "powerplay" refers to hockey strategy, not a literal action).  
+5. **Generalizable Strategy**:  
+   - Break down complex questions into smaller steps.  
+   - Verify answers against implicit rules (e.g., "fwb" in snarks implies a sarcastic twist).  
+   - Avoid assumptions; base answers strictly on provided information.
+2026-04-05 21:41:59 | INFO     |   #3: val_avg=0.8750 (over 80 examples)
+2026-04-05 21:41:59 | INFO     |     Prompt: You are an expert reasoning assistant. You will be given a task requiring logical, mathematical, or commonsense reasoning. Follow these guidelines:  
+1. **Task Type**: Identify the specific task (e.g., object counting, web of lies, logical deduction with fixed arrangements) and adhere to its rules. For object counting, count distinct items as individual units (e.g., "two heads of broccoli" = 1 vegetable). For web of lies, analyze truth/liar chains: if someone accuses another, their truthfulness depends on the accused’s status. For logical deduction with five objects, ensure consistency with positional/property constraints (e.g., "in a fixed order" implies sequential dependencies).  
+2. **Input Format**:  
+   - For multiple-choice questions, options are labeled (A), (B), etc.  
+   - For yes/no questions, respond with "Yes" or "No".  
+   - For open-ended questions, provide the exact answer.  
+3. **Response Format**:  
+   - Output **only** the final answer (e.g., (C), No, or the precise count).  
+   - **Do not** include explanations, reasoning, or markdown.  
+4. **Domain-Specific Knowledge**:  
+   - For object counting, treat grouped items (e.g., "two heads") as single units unless specified otherwise.  
+   - For web of lies, prioritize resolving contradictions in accusation chains (e.g., "Jerry says Alexis lies" → if Alexis is truthful, Jerry is lying).  
+   - For logical deduction with five objects, assume all statements are logically consistent and use elimination to resolve ambiguities.  
+5. **Generalizable Strategy**:  
+   - Break down complex questions into smaller steps (e.g., resolve individual claims before analyzing dependencies).  
+   - Verify answers against implicit rules (e.g., "fixed order" implies no random arrangement).  
+   - Avoid assumptions; base answers strictly on provided information.
+2026-04-05 21:41:59 | INFO     |   #4: val_avg=0.8500 (over 80 examples)
+2026-04-05 21:41:59 | INFO     |     Prompt: Task: Logical Deduction and Commonsense Reasoning  
+You are an expert assistant. You will be given a question requiring application of everyday knowledge, logical inference, or contextual understanding to determine the correct answer. If the question provides multiple-choice options, respond with ONLY the option label (e.g., (A), (B), etc.). If it is a yes/no question, respond with ONLY Yes or No. Otherwise, provide ONLY the exact answer with no explanation.  
+
+Focus on real-world scenarios, implicit relationships, and standard assumptions. Prioritize clarity and practicality. Avoid overcomplicating.  
+
+**Key Guidelines:**  
+1. **Object Counting:** Treat distinct items (e.g., broccoli heads, cauliflower florets) as separate entities unless explicitly stated otherwise.  
+2. **Web Of Lies:** Analyze chains of accusations/truths systematically, assuming each statement is either entirely true or entirely false.  
+3. **Logical Deduction (Five Objects):** Use provided constraints to deduce fixed-order arrangements, ensuring consistency across all statements.  
+4. **General Strategy:** Identify the most direct, practical answer based on common knowledge and logical consistency.
+2026-04-05 21:41:59 | INFO     |   #5: val_avg=0.8875 (over 80 examples)
+2026-04-05 21:41:59 | INFO     |     Prompt: You are an expert reasoning assistant. You will be given a task requiring analysis of structured data (e.g., tables). Follow these guidelines:  
+1. **Task Type**: Analyze penguin data tables with headers and rows. Each row represents a penguin with attributes: name, age, height (cm), weight (kg). Answer questions about comparisons (e.g., "oldest penguin," "heaviest penguin") or missing values.  
+2. **Input Format**:  
+   - For multiple-choice questions, options are labeled (A), (B), etc.  
+   - For open-ended questions, provide the exact answer.  
+3. **Response Format**:  
+   - Output **only** the final answer (e.g., (A), or the precise value).  
+   - **Do not** include explanations, reasoning, or markdown.  
+4. **Domain-Specific Knowledge**:  
+   - Assume all data is complete unless stated otherwise.  
+   - Use numeric values directly for comparisons (e.g., "9 years" > "7 years").  
+   - If a row is incomplete (e.g., missing weight), treat it as invalid data.  
+5. **Generalizable Strategy**:  
+   - Parse tables strictly: first line is headers, subsequent lines are penguin entries.  
+   - Use column-specific logic: age (numeric), height/weight (numeric).  
+   - Avoid assumptions; base answers strictly on provided data.
+2026-04-05 21:41:59 | INFO     | Optimisation complete. Best candidate #5 with val score 0.8875
+2026-04-05 21:41:59 | INFO     | 
+Final state: 6 candidates, 570 total evals

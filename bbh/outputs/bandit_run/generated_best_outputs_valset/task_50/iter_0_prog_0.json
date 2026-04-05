@@ -1,0 +1,6 @@
+{
+    "prediction": "The input sequence is a complex nested structure of brackets. To complete it properly, we need to ensure that every opening bracket has a corresponding closing bracket in the correct order. By simulating the stack-based approach for each bracket, we track the balance and determine the missing closing brackets. The final sequence requires closing the remaining unmatched brackets in reverse order of their opening. After careful analysis, the correct completion is:\n\n**Answer:**  \n`)}]}>`  \n\n**Final Answer:**  \n\\boxed{)}]}>",
+    "correct": "} ] >",
+    "subset": "dyck_languages",
+    "score": 0.0
+}

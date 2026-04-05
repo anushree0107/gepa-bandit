@@ -20,7 +20,7 @@
   },
   {
     "i": 1,
-    "selected_program_candidate": 1,
+    "selected_program_candidate": 2,
     "subsample_ids": [
       11,
       4,
@@ -58,7 +58,7 @@
   },
   {
     "i": 3,
-    "selected_program_candidate": 3,
+    "selected_program_candidate": 2,
     "subsample_ids": [
       16,
       31,
@@ -77,7 +77,7 @@
   },
   {
     "i": 4,
-    "selected_program_candidate": 3,
+    "selected_program_candidate": 2,
     "subsample_ids": [
       12,
       3,

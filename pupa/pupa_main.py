@@ -400,6 +400,18 @@ class PUPARoundLogger:
         self.best_test_score = sum(eval_result.scores) / len(eval_result.scores) if eval_result.scores else 0.0
         self.last_evaluated_test_prompt = self.best_prompt
         self.logger.log(f"  [SEED] Baseline Test Accuracy: {self.best_test_score:.4f}")
+        
+        self.round_metrics.append({
+            "rounds": "Seed",
+            "llm_calls": len(self.test_set),
+            "val_accuracy": None,
+            "best_val_accuracy": 0.0, # updated dynamically later
+            "test_accuracy": self.best_test_score,
+            "surrogate_loss": None,
+            "avg_topk": None,
+            "max_topk": None,
+            "min_topk": None,
+        })
 
     def on_valset_evaluated(self, event: ValsetEvaluatedEvent) -> None:
         self.round_topk_scores.append(event["average_score"])
@@ -416,6 +428,9 @@ class PUPARoundLogger:
             self.best_val_score = event["average_score"]
             self.best_prompt = prompt_text
             self.logger.log(f"  >> New best! val={event['average_score']:.4f}")
+            # Update seed row val accuracy if this is the very first evaluation
+            if self.round_metrics and self.round_metrics[0]["rounds"] == "Seed" and self.round_metrics[0]["best_val_accuracy"] == 0.0:
+                self.round_metrics[0]["best_val_accuracy"] = self.best_val_score
 
     def on_candidate_accepted(self, event: CandidateAcceptedEvent) -> None:
         self.logger.log(
@@ -517,20 +532,34 @@ class PUPARoundLogger:
 
     def _print_table(self) -> None:
         header = (
-            f"{'Rounds':>6} | {'LLM Calls':>10} | {'Val Acc':>10} | {'Best Val Acc':>13} | "
-            f"{'Test Acc (Selected)':>20} | {'Surrogate Loss':>15} | "
-            f"{'Avg Top-k':>10} | {'Max Top-k':>10} | {'Min Top-k':>10}"
+            f"{'Round':<7} | {'LLM Calls':<10} | {'Training Acc':<13} | {'Validation Acc':<15} | "
+            f"{'Test Acc':<9} | {'Error / Loss':<13} | {'Top-k Score (Max / Avg / Min)':<30}"
         )
         sep = "-" * len(header)
         self.logger.log(f"\n{sep}")
         self.logger.log(header)
         self.logger.log(sep)
         for m in self.round_metrics:
-            loss_str = f"{m['surrogate_loss']:.6f}" if m['surrogate_loss'] != float("inf") else "     inf"
+            is_seed = (m["rounds"] == "Seed")
+            round_str = str(m["rounds"])
+            llm_calls = str(m["llm_calls"])
+            
+            if is_seed:
+                t_acc = ""
+                v_acc = f"{m['best_val_accuracy']:.4f}"
+                test_acc = f"{m['test_accuracy']:.4f}"
+                loss_str = ""
+                top_k = ""
+            else:
+                t_acc = f"{m['val_accuracy']:.4f}"
+                v_acc = f"{m['best_val_accuracy']:.4f}"
+                test_acc = f"{m['test_accuracy']:.4f}"
+                loss_str = f"{m['surrogate_loss']:.4f}" if m["surrogate_loss"] != float("inf") else "inf"
+                top_k = f"{m['max_topk']:.2f} / {m['avg_topk']:.2f} / {m['min_topk']:.2f}"
+                
             self.logger.log(
-                f"{m['rounds']:>6} | {m['llm_calls']:>10} | {m['val_accuracy']:>10.4f} | "
-                f"{m['best_val_accuracy']:>13.4f} | {m['test_accuracy']:>20.4f} | {loss_str:>15} | "
-                f"{m['avg_topk']:>10.4f} | {m['max_topk']:>10.4f} | {m['min_topk']:>10.4f}"
+                f"{round_str:<7} | {llm_calls:<10} | {t_acc:<13} | {v_acc:<15} | "
+                f"{test_acc:<9} | {loss_str:<13} | {top_k:<30}"
             )
         self.logger.log(sep)
 

@@ -1,0 +1,6 @@
+{
+    "prediction": "The input sequence ends with an open angle bracket `<` and an open square bracket `[`. To properly close all brackets, we need to add the corresponding closing brackets in reverse order of their opening. The last opened bracket is `<`, which requires `>` to close it, followed by the `[` which requires `]`. Thus, the completed sequence is the original input with `>` and `]` appended at the end.\n\n**Answer:**  \n[ ] { ( { < > } ) } [ ( ) ] { } [ { { ( < > ) } < > ] \n\nThe exact completed sequence is:  \n**[ ] { ( { < > } ) } [ ( ) ] { } [ { { ( < > ) } < > ]**  \n\n**Final Answer:**  \n[ ] { ( { < > } ) } [ ( ) ] { } [ { { ( < > ) } < > ]  \n\n**Answer:**  \n\\boxed{[ ] { ( { < > } ) } [ ( ) ] { } [ { { ( < > ) } < > ]}",
+    "correct": "> } ]",
+    "subset": "dyck_languages",
+    "score": 0.0
+}
