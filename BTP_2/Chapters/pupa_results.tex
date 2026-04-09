@@ -1,0 +1,130 @@
+\chapter{GEPA Prompt Optimization Evolution}
+\label{ch:prompt_evolution}
+
+\section{PUPA Dataset Optimization}
+This chapter shows the round-wise evolution of the redaction prompt produced by \textbf{SGPO} on the \textbf{PUPA} dataset (Privacy-Preserving User Query Anonymization). The objective is to produce a privacy-preserving reformulation that removes personally identifiable information (PII) while preserving intent and technical content.
+
+We report both:
+\begin{itemize}
+    \item \textbf{Quality:} training accuracy, validation accuracy, and test accuracy.
+    \item \textbf{Efficiency/optimization signals:} number of LLM calls and surrogate loss.
+\end{itemize}
+Here, \textbf{surrogate loss} refers to the loss used during surrogate model training for ranking mutations prior to expensive validation. The \textbf{Top-$k$ score (Max/Avg/Min)} summarizes the surrogate-ranked candidates selected for expensive evaluation at that round.
+
+\subsection{Round-wise Optimization Metrics}
+\begin{table}[H]
+\centering
+\small
+\caption{SGPO optimization metrics across rounds (\textit{PUPA}).}
+\label{tab:pupa_bandit_metrics}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{Round} & \textbf{LLM Calls} & \textbf{Training Acc} & \textbf{Validation Acc} & \textbf{Test Acc} & \textbf{Error/Loss} & \textbf{Top-$k$ Score (Max / Avg / Min)} \\
+\midrule
+Seed & 50  & ---    & 0.7625 & 0.7625 & ---    & --- \\
+1    & 108 & 0.8333 & 0.8333 & 0.7950 & 0.0151 & 0.83 / 0.82 / 0.81 \\
+2    & 192 & 0.8411 & 0.8411 & 0.8230 & 0.0612 & 0.84 / 0.81 / 0.77 \\
+3    & 285 & 0.8411 & 0.8411 & 0.8230 & 0.0636 & 0.83 / 0.80 / 0.76 \\
+4    & 381 & 0.8411 & 0.8411 & 0.8230 & 0.0622 & 0.78 / 0.77 / 0.76 \\
+5    & 477 & 0.8417 & 0.8417 & 0.8063 & 0.0646 & 0.84 / 0.80 / 0.76 \\
+6    & 495 & 0.8417 & 0.8417 & 0.8063 & 0.0611 & 0.00 / 0.00 / 0.00 \\
+7    & 501 & 0.8417 & 0.8417 & 0.8063 & 0.0561 & 0.00 / 0.00 / 0.00 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\subsection{How to Read the Evolution}
+The optimization shows three phases:
+\begin{enumerate}
+    \item \textbf{Large early gains:} The seed prompt is improved substantially by making PII removal requirements more explicit and adding constraints for preserving intent and technical details (Round 1).
+    \item \textbf{Plateau with exploration:} Several variants are explored (Rounds 2--4) but the best validation accuracy remains stable at 0.8411.
+    \item \textbf{Final improvement and stabilization:} A slightly improved prompt appears at Round 5 (0.8417), and later rounds do not exceed it. The best prompt remains stable under the monotonic update policy.
+\end{enumerate}
+
+\subsection{Round-wise Prompt Evolution (PUPA)}
+
+\begin{roundbox}
+\textbf{Seed Prompt (Candidate \#0)} \hfill \textbf{Val Acc: 0.7625}
+\end{roundbox}
+
+\noindent \textbf{Observation.} The seed prompt describes anonymization at a high level but does not fully specify edge cases such as indirect identifiers, inference risks, and consistency rules for placeholders.
+
+\begin{prompttext}
+Given a private user query, create a privacy-preserving request for a powerful external LLM. Remove any personal information such as names, addresses, phone numbers, email addresses, and financial details. Replace specific PII with generic placeholders (e.g., 'a person', 'a location'). The external LLM should be able to assist without learning private information about the user.
+\end{prompttext}
+
+\begin{roundbox}
+\textbf{Round 1 (Best Evaluated Candidate)} \hfill \textbf{Val Acc: 0.8333 \;\; Test Acc: 0.7950}
+\end{roundbox}
+
+\noindent \textbf{What changed.} The prompt becomes more systematic: it expands the PII list (including company names), adds concrete replacement guidance, and emphasizes preserving structure and technical specifics for actionability.
+
+\begin{prompttext}
+Given a private user query, create a privacy-preserving request for a powerful external LLM by systematically removing all personal information (PII) such as names, addresses, phone numbers, email addresses, financial details, and specific company names. Replace PII with generic placeholders (e.g., "a person," "a location," "a company"). Ensure the crafted request retains the original query's structure, intent, and technical specifics (e.g., industry terms, functional requirements) to enable accurate assistance without exposing sensitive data. Avoid truncating or omitting critical details from the user's query. For example:
+
+- Replace "Madera" with "a location" and "Tech Stop" with "a company."
+
+- Maintain technical terms like "IT/electronic repair" or "software development" as they are not PII.
+
+- Ensure the request is complete and actionable for the external LLM (e.g., avoid incomplete sentences or truncated questions).
+\end{prompttext}
+
+\begin{roundbox}
+\textbf{Round 2 (Best Evaluated Candidate)} \hfill \textbf{Val Acc: 0.8411 \;\; Test Acc: 0.8230}
+\end{roundbox}
+
+\noindent \textbf{What changed.} The prompt adopts a structured specification style (objective + requirements). This reduces ambiguity and improves consistency on indirect identifiers and inference-sensitive entities.
+
+\begin{prompttext}
+\textbf{Task Instruction: Anonymize and Reframe User Queries for Privacy-Preserving External LLM Interaction}
+
+\textbf{Objective}: \\
+Given a user query, anonymize it by removing all personally identifiable information (PII) and replacing it with generic placeholders (e.g., "a person," "a location," "a company"). Ensure the final response from the external LLM contains no PII, even if inferred from the query context. Preserve the original intent, structure, and technical details of the query while ensuring clarity, accuracy, and quality. Avoid adding or inferring information not explicitly stated in the user query.
+
+\textbf{Key Requirements}: \\
+1. \textbf{PII Removal}: Replace names, addresses, phone numbers, emails, financial details, company names, and other PII with placeholders. Remove indirect identifiers when necessary. \\
+2. \textbf{Contextual Anonymization}: Replace specific entities with generic terms to reduce inference. Avoid retaining entity-specific facts that enable re-identification. \\
+3. \textbf{Structure Preservation}: Maintain intent, formatting, and non-identifying technical terms (including code snippets, titles, and constraints). \\
+4. \textbf{Quality Assurance}: Do not add assumptions or speculative details; ensure the request remains actionable and PII-free.
+\end{prompttext}
+
+\begin{roundbox}
+\textbf{Rounds 3--4 (Exploration Without Improvement)} \hfill \textbf{Best Val Acc remains: 0.8411}
+\end{roundbox}
+
+\noindent \textbf{What happened.} The optimizer explored wording and constraint variants. Some candidates over-generalized by anonymizing too many non-PII technical details, which reduces usefulness for the external model and does not improve validation accuracy beyond the Round 2 best.
+
+\begin{prompttext}
+\textit{Takeaway:} Exploration can include overly restrictive anonymization rules; the algorithm does not permanently regress because it retains the best prompt based on validation.
+\end{prompttext}
+
+\begin{roundbox}
+\textbf{Round 5 (Best Evaluated Candidate)} \hfill \textbf{Val Acc: 0.8417 \;\; Test Acc: 0.8063}
+\end{roundbox}
+
+\noindent \textbf{What changed.} This round produces the best validation score. The prompt preserves the structured specification while explicitly retaining non-identifying technical details (acronyms, numeric constraints, formatting), avoiding over-generalization.
+
+\begin{prompttext}
+\textbf{Task Instruction: Anonymize and Reframe User Queries for Privacy-Preserving External LLM Interaction}
+
+\textbf{Objective}: \\
+Given a user query, anonymize it by removing all personally identifiable information (PII) and replacing it with generic placeholders (e.g., "a person," "a location," "a company"). Ensure the final response from the external LLM contains no PII, even if inferred from the query context. Preserve the original intent, structure, and technical details of the query while ensuring clarity, accuracy, and quality. Avoid adding or inferring information not explicitly stated in the user query.
+
+\textbf{Key Requirements}: \\
+1. \textbf{PII Removal}: Replace names, addresses, phone numbers, emails, financial details, company names, and indirect identifiers with placeholders. \\
+2. \textbf{Contextual Anonymization}: Replace specific entities with generic terms to avoid inference; avoid retaining entity-specific facts. \\
+3. \textbf{Structure Preservation}: Preserve intent, formatting, acronyms, and non-identifying technical terms; keep numeric constraints intact. \\
+4. \textbf{Quality Assurance}: Do not add assumptions; ensure the final request remains actionable and PII-free.
+\end{prompttext}
+
+\begin{roundbox}
+\textbf{Rounds 6--7 (No Further Improvement)} \hfill \textbf{Best Val Acc remains: 0.8417}
+\end{roundbox}
+
+\noindent \textbf{What happened.} After reaching the best validation score at Round 5, later rounds continue exploring but do not surpass it. Under the monotonic update policy, the best prompt remains fixed, preventing regressions and avoiding repeated test evaluations without validation improvement.
+
+\begin{prompttext}
+\textit{Takeaway:} The optimizer continues searching, but the best prompt stays stable and cost-aware once validation no longer improves.
+\end{prompttext}

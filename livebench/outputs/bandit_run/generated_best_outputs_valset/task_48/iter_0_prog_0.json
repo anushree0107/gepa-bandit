@@ -1,0 +1,5 @@
+{
+    "prediction": "The ratio of the area of circle $ A $ to the area of circle $ B $ is determined by the ratio of their radii squared. For a right triangle inscribed in a circle, the hypotenuse is the diameter of the circle. Thus, the radius of circle $ A $ is $ \\frac{5}{2} $ and the radius of circle $ B $ is $ \\frac{13}{2} $. The ratio of their areas is $ \\left(\\frac{5}{13}\\right)^2 = \\frac{25}{169} $. \n\n**Answer:** DDDDD",
+    "correct": "D",
+    "score": 1.0
+}

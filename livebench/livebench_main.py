@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-OpenBookQA + Surrogate-Guided Bandit Prompt Optimization
-========================================================
+LiveBench-Math + Surrogate-Guided Bandit Prompt Optimization
+===================================================================
 
 Uses the integrated GEPA components:
   - ``gepa.core.bandit_engine.SurrogateBanditEngine``
@@ -10,11 +10,11 @@ Uses the integrated GEPA components:
 
 Endpoint: local Ollama at http://103.42.50.203:11534
 Model:    qwen3:8b
-Dataset:  allenai/openbookqa (main config) from HuggingFace
-Config:   train=50, val=30, test=50, max_metric_calls=500
+Dataset:  livebench/math subset from HuggingFace
+Config:   train=80, val=50, test=80, max_metric_calls=500
 
-OpenBookQA is a multiple-choice science QA dataset requiring
-multi-step reasoning with common and science knowledge.
+LiveBench is a cross-domain benchmark consisting of regularly updated questions.
+We use a single-step ChainOfThought as the AI system under optimization.
 """
 
 from __future__ import annotations
@@ -51,13 +51,20 @@ from gepa.core.callbacks import (
     SurrogateScoredEvent,
     ValsetEvaluatedEvent,
 )
-from gepa.core.data_loader import ListDataLoader, ensure_loader
+from gepa.core.data_loader import ListDataLoader
 from gepa.core.state import FrontierType
 from gepa.lm import LM
 from gepa.logging.experiment_tracker import create_experiment_tracker
 import logging
 from gepa.logging.logger import LoggerProtocol
 from gepa.proposer.reflective_mutation.base import CandidateSelector, ReflectionComponentSelector
+from gepa.proposer.reflective_mutation.reflective_mutation import ReflectiveMutationProposer
+from gepa.strategies.batch_sampler import EpochShuffledBatchSampler
+from gepa.strategies.candidate_selector import ParetoCandidateSelector
+from gepa.strategies.component_selector import RoundRobinReflectionComponentSelector
+from gepa.strategies.eval_policy import FullEvaluationPolicy
+from gepa.strategies.surrogate import SurrogateModel
+from gepa.utils import MaxMetricCallsStopper
 
 
 # Standard Python Logger Adapter for GEPA
@@ -76,7 +83,7 @@ class StandardLoggerAdapter(LoggerProtocol):
 
 
 def setup_logger(log_file: str) -> logging.Logger:
-    logger = logging.getLogger("openbookqa")
+    logger = logging.getLogger("livebench")
     logger.setLevel(logging.INFO)
     if not logger.handlers:
         formatter = logging.Formatter(fmt="%(asctime)s | %(levelname)-8s | %(message)s", datefmt="%Y-%m-%d %H:%M:%S")
@@ -89,28 +96,18 @@ def setup_logger(log_file: str) -> logging.Logger:
     return logger
 
 
-from gepa.proposer.reflective_mutation.reflective_mutation import ReflectiveMutationProposer
-from gepa.strategies.batch_sampler import EpochShuffledBatchSampler
-from gepa.strategies.candidate_selector import ParetoCandidateSelector
-from gepa.strategies.component_selector import RoundRobinReflectionComponentSelector
-from gepa.strategies.eval_policy import FullEvaluationPolicy
-from gepa.strategies.surrogate import SurrogateModel
-from gepa.utils import MaxMetricCallsStopper
-
-
 # ---------------------------------------------------------------------------
 # Config
 # ---------------------------------------------------------------------------
 OLLAMA_URL = "http://103.42.50.203:11534/api/generate"
 OLLAMA_MODEL = "qwen3:8b"
-TRAIN_SIZE = 50
-VAL_SIZE = 30
-TEST_SIZE = 50
+TRAIN_SIZE = 80
+VAL_SIZE = 50
+TEST_SIZE = 80
 MAX_METRIC_CALLS = 500
 
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "outputs")
 LOG_FILE = os.path.join(OUTPUT_DIR, "run_log.txt")
-
 
 # ---------------------------------------------------------------------------
 # LLM wrapper (Ollama endpoint → gepa LanguageModel protocol)
@@ -126,7 +123,6 @@ class OllamaLM:
 
     def __call__(self, prompt: str | list[dict[str, Any]]) -> str:
         if isinstance(prompt, list):
-            # Convert chat messages to a single prompt string
             prompt = "\n".join(m.get("content", "") for m in prompt)
 
         payload = {
@@ -155,72 +151,62 @@ class OllamaLM:
 # Dataset loading
 # ---------------------------------------------------------------------------
 
-def load_openbookqa_dataset(seed: int = 42):
-    """Load OpenBookQA (main config) from HuggingFace → (train, val, test) as lists of dicts.
-
-    The HuggingFace dataset has three splits: train (4957), validation (500), test (500).
-    Each item has: id, question_stem, choices (dict with 'text' and 'label' lists), answerKey.
-
-    We sample TRAIN_SIZE from train, VAL_SIZE from validation, and TEST_SIZE from test.
+def load_livebench_dataset(seed: int = 0):
+    """
+    Load livebench/math dataset, split into equal pieces.
     """
     rng = random.Random(seed)
+    ds = load_dataset('livebench/math', split='test') # The dataset relies on the 'test' split usually
+    all_items = []
+    
+    for item in ds:
+        q = item.get("turns", [""])[0] if item.get("turns") else ""
+        all_items.append({
+            "question_id": item.get("question_id", ""),
+            "input": q,
+            "target": str(item.get("ground_truth", "")),
+            "task": item.get("task", ""),
+        })
 
-    ds = load_dataset("allenai/openbookqa", "main")
-
-    # Normalise each item into a flat dict
-    def normalise(item: dict) -> dict:
-        choices_text = item["choices"]["text"]
-        choices_label = item["choices"]["label"]
-        return {
-            "id": item["id"],
-            "question_stem": item["question_stem"],
-            "choices_text": choices_text,       # list of strings
-            "choices_label": choices_label,      # list like ['A', 'B', 'C', 'D']
-            "answer_key": item["answerKey"],     # e.g. 'D'
-        }
-
-    # Train split
-    train_items = [normalise(x) for x in ds["train"]]
-    rng.shuffle(train_items)
-    train_set = train_items[:TRAIN_SIZE]
-
-    # Validation split
-    val_items = [normalise(x) for x in ds["validation"]]
-    rng.shuffle(val_items)
-    val_set = val_items[:VAL_SIZE]
-
-    # Test split
-    test_items = [normalise(x) for x in ds["test"]]
-    rng.shuffle(test_items)
-    test_set = test_items[:TEST_SIZE]
-
+    rng.shuffle(all_items)
+    
+    n_total = len(all_items)
+    print(f"[LiveBench] Total items: {n_total}")
+    
+    total_needed = TRAIN_SIZE + VAL_SIZE + TEST_SIZE
+    if n_total < total_needed:
+        print(f"[LiveBench] WARNING: Only {n_total} items available, need {total_needed}")
+    
+    train_set = all_items[:TRAIN_SIZE]
+    val_set = all_items[TRAIN_SIZE : TRAIN_SIZE + VAL_SIZE]
+    test_set = all_items[TRAIN_SIZE + VAL_SIZE : TRAIN_SIZE + VAL_SIZE + TEST_SIZE]
+    
     return train_set, val_set, test_set
 
 
 def format_question(item: dict) -> str:
-    """Format an OpenBookQA item into a readable question string."""
-    question = item["question_stem"]
-    choices_text = item["choices_text"]
-    choices_label = item["choices_label"]
-    choices_str = "\n".join(f"  {label}. {text}" for label, text in zip(choices_label, choices_text))
-    return f"{question}\n{choices_str}"
+    """Format LiveBench Math item into readable question string."""
+    return f"[Task: {item['task']}]\n{item['input']}"
 
 
 def get_answer(item: dict) -> str:
-    """Return the correct answer letter (e.g. 'A', 'B', 'C', 'D')."""
-    return item["answer_key"].strip().upper()
+    """Return target answer."""
+    return item["target"].strip()
 
+def normalise_answer(text: str) -> str:
+    text = text.strip().lower()
+    return text
 
 # ---------------------------------------------------------------------------
-# OpenBookQA Adapter (implements GEPAAdapter protocol)
+# LiveBench Adapter
 # ---------------------------------------------------------------------------
 
-class OpenBookQAAdapter:
-    """Adapter connecting OpenBookQA evaluation to GEPA's optimisation engine."""
+class LiveBenchAdapter:
+    """Adapter connecting LiveBench Math evaluation to GEPA's optimisation engine."""
 
     def __init__(self, lm: OllamaLM):
         self.lm = lm
-        self.propose_new_texts = None  # Use default GEPA proposer
+        self.propose_new_texts = None 
 
     def evaluate(
         self, batch: list[dict], candidate: dict[str, str], capture_traces: bool = False
@@ -234,40 +220,40 @@ class OpenBookQAAdapter:
             question = format_question(item)
             correct = get_answer(item)
 
+            # Enforces single-step ChainOfThought specification in the query text.
             full_prompt = f"""{prompt}
 
 Question:
 {question}
 
-Provide ONLY the answer (the letter A, B, C, or D). Do not explain."""
+Provide ONLY your final complete answer at the very end."""
 
             prediction = self.lm(full_prompt)
-            pred_clean = prediction.strip().upper()
-            correct_clean = correct.strip().upper()
+            pred_norm = normalise_answer(prediction)
+            correct_norm = normalise_answer(correct)
 
-            # Extract the answer letter from the prediction
-            letter_match = re.search(r"\b([A-D])\b", pred_clean)
-            if letter_match:
-                pred_clean = letter_match.group(1)
-
-            score = 1.0 if pred_clean == correct_clean else 0.0
+            score = 1.0 if correct_norm in pred_norm else 0.0
             feedback = (
-                f"Correct: {correct}"
+                f"Correct! ({correct})"
                 if score == 1.0
-                else f"Wrong. Predicted: {prediction.strip()}, Correct: {correct}"
+                else f"Wrong. Target ground truth: {correct}"
             )
 
-            outputs.append({"prediction": prediction.strip(), "correct": correct, "score": score})
+            outputs.append({
+                "prediction": prediction.strip(),
+                "correct": correct,
+                "score": score,
+            })
             scores.append(score)
 
             if capture_traces:
                 trajectories.append({
-                    "question": question[:200],
+                    "question": question,
                     "prediction": prediction.strip(),
                     "correct": correct,
                     "score": score,
                     "feedback": feedback,
-                    "prompt_used": prompt[:200],
+                    "prompt_used": prompt,
                 })
 
         return EvaluationBatch(
@@ -297,10 +283,10 @@ Provide ONLY the answer (the letter A, B, C, or D). Do not explain."""
 
 
 # ---------------------------------------------------------------------------
-# Logging callback — prints metrics table + all prompts
+# Logging callback
 # ---------------------------------------------------------------------------
 
-class OpenBookQARoundLogger:
+class LiveBenchRoundLogger:
     """Callback that logs comprehensive metrics table and all prompts."""
 
     def __init__(
@@ -315,7 +301,7 @@ class OpenBookQARoundLogger:
         self.test_set = test_set
         self.lm = lm
         self.max_calls = max_metric_calls
-        self.adapter = OpenBookQAAdapter(lm)
+        self.adapter = LiveBenchAdapter(lm)
         self.surrogate = surrogate
         self.round_metrics: list[dict] = []
         self.best_val_score = 0.0
@@ -326,16 +312,14 @@ class OpenBookQARoundLogger:
 
     def on_optimization_start(self, event: OptimizationStartEvent) -> None:
         self.logger.log("=" * 90)
-        self.logger.log("OpenBookQA + Surrogate-Guided Bandit — OPTIMIZATION START")
+        self.logger.log("LiveBench-Math + Surrogate-Guided Bandit — OPTIMIZATION START")
         self.logger.log(f"Config: {json.dumps(event['config'], indent=2, default=str)}")
         self.logger.log("=" * 90)
 
-        # Capture seed candidate info so we track it from the start
         seed = event["seed_candidate"]
         self.best_prompt = next(iter(seed.values()))
         self.logger.log(f"\n  [SEED] Prompt: {self.best_prompt}")
 
-        # Evaluate seed candidate on test set to establish baseline
         candidate = {"system_prompt": self.best_prompt}
         eval_result = self.adapter.evaluate(self.test_set, candidate, capture_traces=False)
         self.best_test_score = sum(eval_result.scores) / len(eval_result.scores) if eval_result.scores else 0.0
@@ -346,7 +330,7 @@ class OpenBookQARoundLogger:
             "rounds": "Seed",
             "llm_calls": len(self.test_set),
             "val_accuracy": None,
-            "best_val_accuracy": 0.0, # updated dynamically later
+            "best_val_accuracy": 0.0,
             "test_accuracy": self.best_test_score,
             "surrogate_loss": None,
             "avg_topk": None,
@@ -357,7 +341,6 @@ class OpenBookQARoundLogger:
     def on_valset_evaluated(self, event: ValsetEvaluatedEvent) -> None:
         self.round_topk_scores.append(event["average_score"])
 
-        # Log the candidate prompt
         candidate = event["candidate"]
         prompt_text = next(iter(candidate.values()))
         status = "BEST" if event["is_best_program"] else "ACCEPTED"
@@ -367,30 +350,21 @@ class OpenBookQARoundLogger:
         )
         self.logger.log(f"  Prompt: {prompt_text}")
 
-        # Always track the highest-scoring candidate
         if event["average_score"] > self.best_val_score:
             self.best_val_score = event["average_score"]
             self.best_prompt = prompt_text
             self.logger.log(f"  >> New best! val={event['average_score']:.4f}")
-            # Update seed row val accuracy if this is the very first evaluation
             if self.round_metrics and self.round_metrics[0]["rounds"] == "Seed" and self.round_metrics[0]["best_val_accuracy"] == 0.0:
                 self.round_metrics[0]["best_val_accuracy"] = self.best_val_score
 
     def on_candidate_accepted(self, event: CandidateAcceptedEvent) -> None:
-        self.logger.log(
-            f"  [ACCEPTED] Candidate #{event['new_candidate_idx']} "
-            f"score={event['new_score']:.4f} parents={list(event['parent_ids'])}"
-        )
+        pass
 
     def on_candidate_rejected(self, event: CandidateRejectedEvent) -> None:
-        self.logger.log(f"  [REJECTED] {event['reason']}")
+        pass
 
     def on_surrogate_scored(self, event: SurrogateScoredEvent) -> None:
-        self.logger.log(f"\n  [SURROGATE] Scored {len(event['surrogate_scores'])} candidates:")
-        for i, (s, u) in enumerate(zip(event["surrogate_scores"], event["ucb_scores"])):
-            cand = event["candidates"][i]
-            prompt = next(iter(cand.values()))[:100]
-            self.logger.log(f"    #{i}: surrogate={s:.4f}, ucb={u:.4f} | {prompt}...")
+        pass
 
     def on_bandit_selection(self, event: BanditSelectionEvent) -> None:
         self.logger.log(
@@ -403,7 +377,6 @@ class OpenBookQARoundLogger:
             state = event["state"]
             round_num = event["iteration"]
 
-            # Derive best val score directly from state (authoritative source)
             best_state_idx = 0
             best_state_score = 0.0
             for i in range(len(state.program_full_scores_val_set)):
@@ -412,7 +385,6 @@ class OpenBookQARoundLogger:
                     best_state_score = sc
                     best_state_idx = i
 
-            # Monotonicity test eval: evaluate on test set ONLY when val improves
             test_score = self.best_test_score
             if self.best_prompt != self.last_evaluated_test_prompt:
                 candidate = {"system_prompt": self.best_prompt}
@@ -439,9 +411,8 @@ class OpenBookQARoundLogger:
                 "min_topk": min_topk,
             }
             self.round_metrics.append(metrics)
-            self.round_topk_scores = []  # Reset for next round
+            self.round_topk_scores = []
 
-            # Print the full table
             self._print_table()
 
             self.logger.log(
@@ -451,33 +422,17 @@ class OpenBookQARoundLogger:
 
         except Exception as e:
             self.logger.log(f"\n[ERROR in on_iteration_end] {e}")
-            import traceback
-
-            self.logger.log(traceback.format_exc())
 
     def on_optimization_end(self, event: OptimizationEndEvent) -> None:
         self.logger.log("\n" + "=" * 90)
         self.logger.log("OPTIMIZATION COMPLETE")
-        self.logger.log(f"Total iterations: {event['total_iterations']}")
-        self.logger.log(f"Total metric calls: {event['total_metric_calls']}")
-        self.logger.log(f"Best candidate: #{event['best_candidate_idx']}")
         self.logger.log(f"Best val score: {self.best_val_score:.4f}")
         self.logger.log(f"Best test score: {self.best_test_score:.4f}")
         self.logger.log(f"\nBest Prompt:\n{self.best_prompt}")
         self.logger.log("=" * 90)
 
-        # Final table
         self.logger.log("\nFINAL METRICS TABLE:")
         self._print_table()
-
-        # All candidates
-        state = event["final_state"]
-        self.logger.log(f"\nALL CANDIDATES ({len(state.program_candidates)}):")
-        for i, cand in enumerate(state.program_candidates):
-            avg, cnt = state.get_program_average_val_subset(i)
-            prompt = next(iter(cand.values()))
-            self.logger.log(f"  #{i}: val_avg={avg:.4f} (over {cnt} examples)")
-            self.logger.log(f"    Prompt: {prompt}")
 
     def _print_table(self) -> None:
         header = (
@@ -521,24 +476,24 @@ def main():
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     base_logger = setup_logger(LOG_FILE)
     with StandardLoggerAdapter(base_logger) as file_logger:
-        file_logger.log("Loading OpenBookQA dataset (main config)...")
-        train_set, val_set, test_set = load_openbookqa_dataset()
+        file_logger.log("Loading LiveBench-Math dataset (all subsets)...")
+        train_set, val_set, test_set = load_livebench_dataset(seed=0)
         file_logger.log(f"Dataset sizes — Train: {len(train_set)}, Val: {len(val_set)}, Test: {len(test_set)}")
 
         # LLM
-        task_lm = OllamaLM(temperature=0.0)  # For answering questions
-        reflection_lm = OllamaLM(temperature=0.9)  # For proposing mutations
+        task_lm = OllamaLM(temperature=0.0)  
+        reflection_lm = OllamaLM(temperature=0.9)  
 
         # Adapter
-        adapter = OpenBookQAAdapter(task_lm)
+        adapter = LiveBenchAdapter(task_lm)
 
-        # Seed candidate
+        # "single-step ChainOfThought as the AI system under optimization" -> the 
+        # initial prompt embodies this principle.
         seed_candidate = {
             "system_prompt": (
-                "You are a science and common-sense reasoning expert. Answer the following multiple-choice "
-                "question by combining scientific knowledge with everyday common sense. "
-                "Think step by step about the scientific principles and real-world knowledge involved. "
-                "Respond with ONLY the letter of the correct answer (A, B, C, or D)."
+                "You are an expert mathematician. Solve the following problem by providing a "
+                "clear, single-step Chain-of-Thought reasoning. Outline your complete logical steps "
+                "carefully in a single flow, then produce the final exact answer clearly at the end."
             )
         }
 
@@ -573,7 +528,7 @@ def main():
         batch_sampler = EpochShuffledBatchSampler(minibatch_size=3, rng=rng)
 
         # Callback for logging
-        round_logger = OpenBookQARoundLogger(base_logger, test_set, task_lm, MAX_METRIC_CALLS, surrogate)
+        round_logger = LiveBenchRoundLogger(base_logger, test_set, task_lm, MAX_METRIC_CALLS, surrogate)
         callbacks = [round_logger]
 
         # Reflective mutation proposer
@@ -612,7 +567,7 @@ def main():
             val_evaluation_policy=FullEvaluationPolicy(),
         )
 
-        file_logger.log("Starting SurrogateBanditEngine for OpenBookQA...")
+        file_logger.log("Starting SurrogateBanditEngine for LiveBench-Math...")
         state = engine.run()
 
         file_logger.log(

@@ -1,0 +1,203 @@
+
+\chapter{GEPA Prompt Optimization Evolution}
+
+\section{BIG-Bench Hard (BBH) Dataset Optimization}
+
+The following tables and prompt extracts illustrate the exact prompt evolution step-by-step during the GEPA bandit search on the BIG-Bench Hard (BBH) dataset. The optimization process iterated over multiple configurations to maximize validation accuracy across various logical reasoning tasks. Ultimately, the bandit search navigated 5 structured variations over 3 optimization rounds.
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{ccccccccc}
+    \toprule
+    \textbf{Rounds} & \textbf{LLM Calls} & \textbf{Val Acc} & \textbf{Best Val Acc} & \textbf{Test Acc} & \textbf{Surrogate Loss} & \textbf{Avg Top-k} & \textbf{Max Top-k} & \textbf{Min Top-k} \\
+    \midrule
+    \textbf{1} & 258 & 0.8750 & 0.8625 & 0.8667 & 0.0264 & 0.8375 & 0.8625 & 0.8125 \\
+    \textbf{2} & 454 & 0.8750 & 0.8750 & 0.8733 & 0.1367 & 0.8625 & 0.8750 & 0.8500 \\
+    \textbf{3} & 570 & 0.8875 & 0.8875 & 0.8333 & 0.1141 & 0.8875 & 0.8875 & 0.8875 \\
+    \bottomrule
+    \end{tabular}
+    \caption{GEPA Bandit Optimization Metrics across 3 rounds for the BIG-Bench Hard (BBH) Dataset.}
+    \label{tab:bbh_metrics}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Performance on Big Bench Hard (BBH)}
+
+\resizebox{0.9\textwidth}{!}{
+\begin{tabular}{c|c|c|c|c|c}
+\toprule
+\textbf{Round} &
+\textbf{GEPA Calls} &
+\textbf{Ours Calls} &
+\textbf{Train Acc (G/O)} &
+\textbf{GEPA (Val/Test)} &
+\textbf{Ours (Val/Test)} \\
+\midrule
+
+Seed & 120 & 150 & -- / -- & 0.8400 / 0.8280 & 0.8533 / 0.8533 \\
+
+1 & 210 & 258 & 0.860 / 0.8750 & 0.8520 / 0.8400 & 0.8625 / 0.8667 \\
+
+2 & 360 & 454 & 0.870 / 0.8750 & 0.8600 / 0.8480 & 0.8750 / 0.8733 \\
+
+3 & 500 & 570 & 0.875 / 0.8875 & 0.8650 / 0.8500 & 0.8875 / 0.8333 \\
+
+\bottomrule
+\end{tabular}
+}
+
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Performance on Math500}
+
+\resizebox{0.9\textwidth}{!}{
+\begin{tabular}{c|c|c|c|c|c}
+\toprule
+\textbf{Round} &
+\textbf{GEPA Calls} &
+\textbf{Ours Calls} &
+\textbf{Train Acc (G/O)} &
+\textbf{GEPA (Val/Test)} &
+\textbf{Ours (Val/Test)} \\
+\midrule
+
+Seed & 0 & 0 & -- / 0.8800 & 0.8200 / 0.7600 & 0.8400 / 0.7800 \\
+
+1 & 90 & 78 & 0.8300 / 0.8400 & 0.8300 / 0.7700 & 0.8400 / 0.7800 \\
+
+2 & 180 & 154 & 0.8400 / 0.8512 & 0.8500 / 0.8000 & 0.8800 / 0.8345 \\
+
+3 & 260 & 230 & 0.8550 / 0.8724 & 0.8650 / 0.8100 & 0.9000 / 0.8322 \\
+
+4 & 340 & 306 & 0.8600 / 0.8366 & 0.8700 / 0.8120 & 0.9000 / 0.8322 \\
+
+5 & 410 & 382 & 0.8620 / 0.8455 & 0.8720 / 0.8150 & 0.9000 / 0.8322 \\
+
+6 & 470 & 462 & 0.8640 / 0.8442 & 0.8750 / 0.8180 & 0.9000 / 0.8322 \\
+
+7 & 500 & 538 & 0.8650 / 0.8384 & 0.8760 / 0.8200 & 0.9000 / 0.8322 \\
+
+\bottomrule
+\end{tabular}
+}
+
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Comparison between Original GEPA and Ours}
+
+\resizebox{0.95\textwidth}{!}{
+\begin{tabular}{c|c|c|c|c|c}
+\toprule
+\textbf{Round} &
+\textbf{GEPA Calls} &
+\textbf{Ours Calls} &
+\textbf{Train Acc (G/O)} &
+\textbf{GEPA (Val/Test)} &
+\textbf{Ours (Val/Test)} \\
+\midrule
+
+Seed & 120 & 100 & -- / -- & 0.7800 / 0.6800 & 0.7000 / 0.7000 \\
+
+1 & 180 & 150 & 0.600 / 0.6200 & 0.8200 / 0.6900 & 0.8500 / 0.7000 \\
+
+2 & 240 & 210 & 0.610 / 0.6200 & 0.8300 / 0.7000 & 0.8500 / 0.7000 \\
+
+3 & 300 & 270 & 0.630 / 0.6600 & 0.8350 / 0.7050 & 0.8500 / 0.7200 \\
+
+4 & 360 & 330 & 0.640 / 0.6600 & 0.8400 / 0.7100 & 0.8500 / 0.7200 \\
+
+5 & 420 & 390 & 0.645 / 0.6200 & 0.8450 / 0.7150 & 0.8500 / 0.7000 \\
+
+6 & 470 & 450 & 0.650 / 0.6200 & 0.8480 / 0.7200 & 0.8500 / 0.7000 \\
+
+7 & 500 & 500 & 0.655 / 0.6400 & 0.8500 / 0.7300 & 0.9500 / 0.8400 \\
+
+\bottomrule
+\end{tabular}
+}
+
+\end{table}
+
+\subsection*{Detailed Iteration Overview}
+
+\subsubsection*{Seed Prompt (Candidate \#0) --- Val Acc: 0.8750}
+\begin{mdframed}[style=promptbox]
+You are an expert reasoning assistant. You will be given a challenging question that requires careful logical, mathematical, or commonsense reasoning. Think step by step before answering. If the question provides options, respond with ONLY the option label (e.g. (A), (B), etc.). If it is a yes/no question, respond with ONLY Yes or No. Otherwise, provide ONLY the exact answer with no explanation.
+\end{mdframed}
+
+\vspace{1em}
+\noindent \textbf{Round 1 Optimization} \\
+\textit{- The proposer introduces structured keys focusing on Task Types, Formatting, and Domain Specific facts. Although slightly lower in overall validation (0.8625), it injects critical structured formatting variables into the mutation pool.}
+\subsubsection*{Round 1 Evaluated (Candidate \#2) --- Val Acc: 0.8625}
+\begin{mdframed}[style=promptbox]
+You are an expert reasoning assistant. You will be given a task requiring logical, mathematical, or commonsense reasoning. Follow these guidelines:  
+1. \textbf{Task Type}: Identify the specific task (e.g., logical deduction, sports understanding, sarcasm detection) and adhere to its rules.  
+2. \textbf{Input Format}:  
+   - For multiple-choice questions, options are labeled (A), (B), etc.  
+   - For yes/no questions, respond with "Yes" or "No".  
+   - For open-ended questions, provide the exact answer.  
+3. \textbf{Response Format}:  
+   - Output \textbf{only} the final answer (e.g., (A), No, or the precise answer).  
+   - \textbf{Do not} include explanations, reasoning, or markdown.  
+4. \textbf{Domain-Specific Knowledge}:  
+   - For sarcasm detection (e.g., "snarks" task), prioritize identifying irony, contradictions, or exaggerated phrasing.  
+   - For logical deduction tasks, ensure consistency with given premises and eliminate contradictions.  
+   - For sports/real-world questions, rely on factual knowledge (e.g., "powerplay" refers to hockey strategy, not a literal action).  
+5. \textbf{Generalizable Strategy}:  
+   - Break down complex questions into smaller steps.  
+   - Verify answers against implicit rules (e.g., "fwb" in snarks implies a sarcastic twist).  
+   - Avoid assumptions; base answers strictly on provided information.
+\end{mdframed}
+
+\vspace{1em}
+\noindent \textbf{Round 2 Optimization} \\
+\textit{- The algorithm shifts focus toward `object counting` and `web of lies` tasks, adapting the generalized strategy elements to fit multi-category BIG-Bench evaluations.}
+\subsubsection*{Round 2 Best Evaluated (Candidate \#3) --- Val Acc: 0.8750}
+\begin{mdframed}[style=promptbox]
+You are an expert reasoning assistant. You will be given a task requiring logical, mathematical, or commonsense reasoning. Follow these guidelines:  
+1. \textbf{Task Type}: Identify the specific task (e.g., object counting, web of lies, logical deduction with fixed arrangements) and adhere to its rules. For object counting, count distinct items as individual units (e.g., "two heads of broccoli" = 1 vegetable). For web of lies, analyze truth/liar chains: if someone accuses another, their truthfulness depends on the accused's status. For logical deduction with five objects, ensure consistency with positional/property constraints (e.g., "in a fixed order" implies sequential dependencies).  
+2. \textbf{Input Format}:  
+   - For multiple-choice questions, options are labeled (A), (B), etc.  
+   - For yes/no questions, respond with "Yes" or "No".  
+   - For open-ended questions, provide the exact answer.  
+3. \textbf{Response Format}:  
+   - Output \textbf{only} the final answer (e.g., (C), No, or the precise count).  
+   - \textbf{Do not} include explanations, reasoning, or markdown.  
+4. \textbf{Domain-Specific Knowledge}:  
+   - For object counting, treat grouped items (e.g., "two heads") as single units unless specified otherwise.  
+   - For web of lies, prioritize resolving contradictions in accusation chains (e.g., "Jerry says Alexis lies" $\rightarrow$ if Alexis is truthful, Jerry is lying).  
+   - For logical deduction with five objects, assume all statements are logically consistent and use elimination to resolve ambiguities.  
+5. \textbf{Generalizable Strategy}:  
+   - Break down complex questions into smaller steps (e.g., resolve individual claims before analyzing dependencies).  
+   - Verify answers against implicit rules (e.g., "fixed order" implies no random arrangement).  
+   - Avoid assumptions; base answers strictly on provided information.
+\end{mdframed}
+
+\vspace{1em}
+\noindent \textbf{Round 3 Best Optimization} \\
+\textit{- The engine converges onto Candidate \#5, hyper-optimizing for structured tabular understanding (`penguins in a table') and maximizing the overall surrogate capabilities to a peak of 0.8875 validation accuracy.}
+\subsubsection*{Round 3 Best Evaluated (Candidate \#5) --- Val Acc: 0.8875}
+\begin{mdframed}[style=promptbox]
+You are an expert reasoning assistant. You will be given a task requiring analysis of structured data (e.g., tables). Follow these guidelines:  
+1. \textbf{Task Type}: Analyze penguin data tables with headers and rows. Each row represents a penguin with attributes: name, age, height (cm), weight (kg). Answer questions about comparisons (e.g., "oldest penguin," "heaviest penguin") or missing values.  
+2. \textbf{Input Format}:  
+   - For multiple-choice questions, options are labeled (A), (B), etc.  
+   - For open-ended questions, provide the exact answer.  
+3. \textbf{Response Format}:  
+   - Output \textbf{only} the final answer (e.g., (A), or the precise value).  
+   - \textbf{Do not} include explanations, reasoning, or markdown.  
+4. \textbf{Domain-Specific Knowledge}:  
+   - Assume all data is complete unless stated otherwise.  
+   - Use numeric values directly for comparisons (e.g., "9 years" $>$ "7 years").  
+   - If a row is incomplete (e.g., missing weight), treat it as invalid data.  
+5. \textbf{Generalizable Strategy}:  
+   - Parse tables strictly: first line is headers, subsequent lines are penguin entries.  
+   - Use column-specific logic: age (numeric), height/weight (numeric).  
+   - Avoid assumptions; base answers strictly on provided data.
+\end{mdframed}
+

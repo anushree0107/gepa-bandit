@@ -1,0 +1,5 @@
+{
+    "prediction": "To compute the geometric mean of the numbers $-729$, $343$, and $-2$, we apply the standard formula for the geometric mean of $n$ numbers:\n\n$$\n\\text{Geometric Mean} = \\sqrt[n]{a_1 \\cdot a_2 \\cdot \\dots \\cdot a_n}\n$$\n\nHere, $n = 3$, and the numbers are $-729$, $343$, and $-2$. Let's proceed step by step.\n\n---\n\n### Step 1: Compute the Product\n\n$$\n(-729) \\cdot 343 \\cdot (-2)\n$$\n\nFirst, note that the product of two negative numbers is positive, and multiplying that by a positive number remains positive:\n\n$$\n(-729) \\cdot (-2) = 1458\n$$\n\nThen:\n\n$$\n1458 \\cdot 343 = 500,094\n$$\n\nSo the product is:\n\n$$\n500,094\n$$\n\n---\n\n### Step 2: Take the Cube Root\n\n$$\n\\text{Geometric Mean} = \\sqrt[3]{500,094}\n$$\n\nNow, observe that:\n\n$$\n63^3 = 250,047 \\quad \\text{and} \\quad 2 \\cdot 63^3 = 500,094\n$$\n\nTherefore:\n\n$$\n\\sqrt[3]{500,094} = \\sqrt[3]{2 \\cdot 63^3} = 63 \\cdot \\sqrt[3]{2}\n$$\n\n---\n\n### Final Answer\n\n$$\n\\boxed{63\\sqrt[3]{2}}\n$$",
+    "correct": "63 \\sqrt[3]{2}",
+    "score": 0.0
+}

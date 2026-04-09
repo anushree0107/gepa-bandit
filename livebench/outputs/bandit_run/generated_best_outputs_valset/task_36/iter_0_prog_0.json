@@ -1,0 +1,5 @@
+{
+    "prediction": "[LLM_ERROR] HTTPConnectionPool(host='103.42.50.203', port=11534): Read timed out. (read timeout=120)",
+    "correct": "\\lambda ^4+\\frac{41 \\lambda ^3}{2}+\\frac{93 \\lambda ^2}{8}+\\frac{115367 \\lambda }{128}+\\frac{30532071}{4096}",
+    "score": 0.0
+}

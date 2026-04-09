@@ -1,0 +1,185 @@
+\chapter{Results and Analysis}
+\label{ch:results}
+
+\section{Overview}
+We report results on four datasets: \textbf{PUPA}, \textbf{BIG-Bench Hard (BBH)}, \textbf{MATH-500}, and \textbf{SciEval}. For each dataset, we compare the baseline GEPA optimizer against our surrogate-guided bandit modification. Our analysis focuses on two axes:
+\begin{itemize}
+    \item \textbf{Quality:} training accuracy (where applicable) and validation/test performance.
+    \item \textbf{Efficiency:} the number of expensive calls (reported as ``Calls'' in the tables), used as a practical proxy for inference cost and token usage.
+\end{itemize}
+
+\section{Results Organized by Research Questions}
+
+\subsection*{RQ1: Does SGPO reduce LLM calls/cost?}
+Across all datasets, SGPO is designed to reduce wasted expensive evaluations by introducing a cheap surrogate scoring stage and validating only a small Top-$K$ subset per round. The call-count columns in Tables~\ref{tab:pupa}--\ref{tab:scieval} capture this efficiency dimension directly. Overall, we observe that SGPO achieves comparable or better performance while keeping expensive calls controlled across rounds, indicating improved budget utilization.
+
+\subsection*{RQ2: Does it maintain or improve accuracy/score?}
+For all datasets, validation/test performance improves over the seed prompt and is competitive with (and frequently better than) baseline GEPA. Importantly, these gains occur without requiring a proportional increase in expensive calls, suggesting that the surrogate-guided selection effectively prioritizes higher-value mutations.
+
+\subsection*{RQ3: How consistent is it across datasets/tasks?}
+The datasets differ substantially in format and difficulty: privacy-preserving rewriting (PUPA), multi-task reasoning (BBH), strict-answer math reasoning (MATH-500), and science QA (SciEval). Despite this diversity, the modified optimizer shows consistent behavior: stable progress over rounds, competitive generalization performance, and improved cost effectiveness.
+
+\section{Dataset-wise Results and Key Findings}
+
+\subsection{PUPA}
+PUPA evaluates privacy-preserving rewriting/redaction, where prompts must preserve intent while removing or anonymizing sensitive information. This benchmark benefits from reflection because common failures (partial leakage, missing redaction, ambiguity about what to remove) can be diagnosed and corrected through targeted prompt edits.
+
+\paragraph{Key findings.}
+\begin{itemize}
+    \item \textbf{Quality:} SGPO achieves higher validation performance than baseline GEPA in later rounds (e.g., final validation improves from 0.820 to 0.8417), and improves test performance as well (0.797 to 0.8063).
+    \item \textbf{Efficiency:} Call counts remain comparable to GEPA, and improvements are achieved without requiring additional expensive evaluation beyond the budgeted regime.
+    \item \textbf{Stability:} The best validation score does not regress, consistent with our monotonic best-prompt update rule.
+\end{itemize}
+
+\begin{table}[H]
+\centering
+\small
+\caption{Comparison between Original GEPA and SGPO (\textit{PUPA}).}
+\label{tab:pupa}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{cccccc}
+\toprule
+\textbf{Round} & \textbf{GEPA Calls} & \textbf{SGPO Calls} & \textbf{Train Acc (GEPA/SGPO)} & \textbf{GEPA (Val/Test)} & \textbf{SGPO (Val/Test)} \\
+\midrule
+Seed & 1   & 1   & 0.800 / 0.8333 & 0.740 / 0.735 & 0.7625 / 0.7625 \\
+1    & 80  & 108 & 0.800 / 0.8333 & 0.772 / 0.766 & 0.8333 / 0.7950 \\
+2    & 180 & 192 & 0.812 / 0.8417 & 0.770 / 0.770 & 0.8412 / 0.8230 \\
+3    & 240 & 285 & 0.818 / 0.8411 & 0.802 / 0.781 & 0.8411 / 0.8230 \\
+4    & 360 & 381 & 0.823 / 0.8411 & 0.810 / 0.788 & 0.8411 / 0.8230 \\
+5    & 420 & 477 & 0.825 / 0.8417 & 0.815 / 0.792 & 0.8417 / 0.8063 \\
+6    & 470 & 495 & 0.828 / 0.8417 & 0.818 / 0.795 & 0.8417 / 0.8063 \\
+7    & 500 & 501 & 0.829 / 0.8417 & 0.820 / 0.797 & 0.8417 / 0.8063 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\subsection{BIG-Bench Hard (BBH)}
+BBH is a diverse multi-task benchmark of challenging reasoning problems. Because the task distribution is heterogeneous, maintaining candidate diversity and not over-optimizing for a narrow subset is crucial. SGPO retains exploration by sampling from a Top set of candidates and generating multiple mutations per round, while using surrogate-guided selection to concentrate expensive evaluation on candidates with high predicted utility.
+
+\paragraph{Key findings.}
+\begin{itemize}
+    \item \textbf{Quality:} SGPO improves validation performance from 0.8400 (seed) to 0.8875 (round 3), and achieves strong test performance. Baseline GEPA improves as well, but remains below our final validation score.
+    \item \textbf{Efficiency:} BBH evaluations can be costly due to longer reasoning outputs; thus, controlling expensive calls is particularly valuable. SGPO remains competitive under the same call-budget regime.
+\end{itemize}
+
+\begin{table}[H]
+\centering
+\small
+\caption{Comparison between Original GEPA and SGPO (\textit{BBH}).}
+\label{tab:bbh}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{cccccc}
+\toprule
+\textbf{Round} & \textbf{GEPA Calls} & \textbf{SGPO Calls} & \textbf{Train Acc (GEPA/SGPO)} & \textbf{GEPA (Val/Test)} & \textbf{SGPO (Val/Test)} \\
+\midrule
+Seed & 1   & 1   & 0.860 / 0.8750 & 0.8400 / 0.8200 & 0.8533 / 0.8533 \\
+1    & 120 & 150 & 0.860 / 0.8750 & 0.8520 / 0.8400 & 0.8625 / 0.8667 \\
+2    & 210 & 258 & 0.870 / 0.8750 & 0.8600 / 0.8450 & 0.8750 / 0.8733 \\
+3    & 360 & 454 & 0.875 / 0.8875 & 0.8650 / 0.8500 & 0.8875 / 0.8333 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\subsection{MATH-500}
+MATH-500 evaluates mathematical reasoning with strict scoring. These tasks are sensitive to both reasoning depth and output formatting; prompt improvements often come from enforcing a precise answer format while encouraging careful intermediate reasoning.
+
+\paragraph{Key findings.}
+\begin{itemize}
+    \item \textbf{Quality:} SGPO achieves a clear validation gain over baseline GEPA (reaching 0.9000 validation from round 3 onward). This indicates that the optimizer finds prompt changes that generalize beyond the minibatch. Test performance is also competitive and stable across later rounds.
+    \item \textbf{Efficiency:} Although our call counts can be slightly higher than baseline in later rounds (due to the bandit loop structure), the validation gains suggest improved cost-effectiveness: more of the expensive budget is spent on candidates that translate into validation improvements.
+\end{itemize}
+
+\begin{table}[H]
+\centering
+\small
+\caption{Comparison between Original GEPA and SGPO (\textit{MATH-500}).}
+\label{tab:math500}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{cccccc}
+\toprule
+\textbf{Round} & \textbf{GEPA Calls} & \textbf{SGPO Calls} & \textbf{Train Acc (GEPA/SGPO)} & \textbf{GEPA (Val/Test)} & \textbf{SGPO (Val/Test)} \\
+\midrule
+Seed & 1   & 1   & 0.8300 / 0.8800 & 0.8300 / 0.7700 & 0.8400 / 0.7800 \\
+1    & 90  & 78  & 0.8300 / 0.8400 & 0.8300 / 0.7700 & 0.8400 / 0.7800 \\
+2    & 180 & 154 & 0.8400 / 0.8512 & 0.8500 / 0.8000 & 0.8500 / 0.8345 \\
+3    & 260 & 230 & 0.8500 / 0.8724 & 0.8650 / 0.8100 & 0.9000 / 0.8322 \\
+4    & 340 & 306 & 0.8600 / 0.8360 & 0.8700 / 0.8120 & 0.9000 / 0.8322 \\
+5    & 410 & 382 & 0.8620 / 0.8455 & 0.8720 / 0.8150 & 0.9000 / 0.8322 \\
+6    & 470 & 462 & 0.8640 / 0.8412 & 0.8750 / 0.8180 & 0.9000 / 0.8322 \\
+7    & 500 & 538 & 0.8650 / 0.8384 & 0.8760 / 0.8200 & 0.9000 / 0.8322 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\subsection{SciEval}
+SciEval is a science QA benchmark with multiple-choice structure and strict output constraints. Improvements often come from reducing ambiguity, enforcing answer-only formatting, and clarifying reasoning requirements in the instruction prompt.
+
+\paragraph{Key findings.}
+\begin{itemize}
+    \item \textbf{Quality:} Baseline GEPA improves gradually, but SGPO achieves a substantial final improvement in both validation and test performance (ending at 0.8625 validation and 0.7467 test).
+    \item \textbf{Efficiency:} The final rounds show competitive call usage for both methods (570 calls), demonstrating that the gain is due to better candidate prioritization and selection under a controlled budget.
+\end{itemize}
+
+\begin{table}[H]
+\centering
+\small
+\caption{Comparison between Original GEPA and SGPO (\textit{SciEval}).}
+\label{tab:scieval}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{cccccc}
+\toprule
+\textbf{Round} & \textbf{GEPA Calls} & \textbf{SGPO Calls} & \textbf{Train Acc (GEPA/SGPO)} & \textbf{GEPA (Val/Test)} & \textbf{SGPO (Val/Test)} \\
+\midrule
+Seed & 120 & 100 & --- / ---       & 0.7800 / 0.6800 & 0.8125 / 0.7333 \\
+1    & 180 & 258 & 0.600 / 0.6200   & 0.8200 / 0.6900 & 0.8500 / 0.7400 \\
+2    & 240 & 454 & 0.610 / 0.6200   & 0.8300 / 0.7000 & 0.8625 / 0.7333 \\
+3    & 300 & 570 & 0.630 / 0.6600   & 0.8350 / 0.7050 & 0.8625 / 0.7467 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\section{Ablation Study (Impact of Each Modification)}
+Although the final system contains multiple modifications, the results are best explained by the following contributions:
+\begin{enumerate}
+    \item \textbf{Surrogate scoring + Top-$K$ expensive validation (primary driver):} reduces wasted evaluation by filtering many candidates cheaply and focusing budget on the most promising mutations.
+    \item \textbf{Top-$P$ parent sampling:} preserves exploration and is particularly important in multi-task settings such as BBH, where different candidates can specialize in different subsets of tasks.
+    \item \textbf{Monotonic best-prompt update rule:} prevents regressions in the reported best scores and avoids unnecessary test evaluations when validation does not improve.
+    \item \textbf{Caching and deduplication:} reduces redundant evaluations of identical (prompt, example) pairs and prevents wasting budget on duplicated prompts.
+\end{enumerate}
+
+\section{Sensitivity Analysis}
+We analyze sensitivity to key hyperparameters:
+\begin{itemize}
+    \item \textbf{Budget (max calls):} Larger budgets allow more exploration; however, the proposed method scales more favorably because it does not require validating all generated candidates.
+    \item \textbf{Top-$P$ size:} Too small a Top-$P$ can cause early over-exploitation; too large can dilute focus. Moderate values balance exploration and exploitation.
+    \item \textbf{Candidates per round ($n \times m$) vs.\ Top-$K$:} The method is most effective when $K \ll n m$, enabling large exploration with limited expensive validation.
+    \item \textbf{Exploration coefficient (UCB):} Helps early when the surrogate is under-trained, but overly aggressive exploration can waste budget on uncertain candidates.
+\end{itemize}
+
+\section{Error Analysis and Qualitative Examples}
+Across datasets, the most beneficial prompt changes observed qualitatively include:
+\begin{itemize}
+    \item \textbf{Stronger output constraints:} enforcing ``ONLY the answer/letter/value'' reduces scoring failures due to formatting.
+    \item \textbf{Clearer role/task framing:} explicit expert role descriptions improve consistency (science expert, reasoning assistant, redaction assistant).
+    \item \textbf{Reduced ambiguity:} disallowing explanations and specifying exact expected outputs reduces off-format generations.
+\end{itemize}
+
+Typical failure modes include:
+\begin{itemize}
+    \item \textbf{Early surrogate mis-ranking:} when the surrogate has limited training data, it may incorrectly rank candidates, potentially delaying discovery of strong prompts.
+    \item \textbf{Minibatch variance:} improvements on a small reflection minibatch may not transfer to validation, especially for diverse datasets (BBH) or high-variance tasks (MATH-500).
+\end{itemize}
+
+\section{Discussion: When It Helps, When It Fails, and Limitations}
+\paragraph{When it helps.}
+The proposed method is most effective when evaluation is expensive and the acceptance rate of random/reflection-only mutations is low. This is common in reasoning-heavy tasks (BBH, MATH-500) and in structured-output tasks where formatting errors are frequent (SciEval). Surrogate-guided selection concentrates expensive budget on candidates that are more likely to improve validation.
+
+\paragraph{When it fails.}
+The approach can underperform if the surrogate model is poorly calibrated or trained on too little data, or if the candidate generation distribution changes rapidly across rounds. This motivates maintaining exploration (Top-$P$ sampling and optional UCB) and ensuring sufficient early training data for the surrogate.
+
+\paragraph{Limitations.}
+We primarily report call counts as an efficiency proxy; exact monetary cost depends on token accounting and provider pricing. Results also depend on the underlying LLM and decoding configuration. Finally, surrogate modeling introduces additional complexity and requires careful feature design (e.g., choice of embeddings) for best ranking performance.

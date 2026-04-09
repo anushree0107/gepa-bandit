@@ -1,0 +1,35 @@
+\chapter{Introduction}
+
+\section{Background: Prompt Optimization and Why It Matters}
+Large Language Models (LLMs) have become a central component in modern NLP pipelines, often solving tasks through \emph{prompting} rather than task-specific fine-tuning. In many settings, the prompt acts as the ``program'': it specifies instructions, formatting constraints, demonstrations, and reasoning patterns that strongly influence model behavior. As a result, prompt quality directly impacts final task performance.
+
+However, prompt engineering is typically expensive and iterative. Manual prompt design requires substantial human effort and often does not generalize well across datasets, tasks, or models. Automated prompt optimization methods attempt to systematically search the space of prompts and identify prompts that maximize a target evaluation metric. Such approaches become especially valuable when prompts must be optimized for multiple tasks or datasets, performance is sensitive to phrasing and formatting, and the model is accessed via paid APIs where each evaluation incurs token and latency costs.
+
+A core challenge in automated prompt optimization is that the objective function is expensive: evaluating a candidate prompt requires running an LLM over many examples, potentially multiple times, and scoring the outputs. Therefore, the practicality of any prompt optimization algorithm is determined not only by the quality of the final prompt but also by the total number of LLM calls, tokens consumed, and end-to-end runtime.
+
+\section{Problem Statement: GEPA Efficiency Limitations}
+Reflective Evolutionary Prompt Optimization (GEPA) is an automated prompt optimization framework that iteratively proposes new prompt candidates through reflective mutation strategies and selects promising candidates using a Pareto-based filtering and candidate selection mechanism. In a typical iteration, GEPA (i) selects a candidate prompt from a maintained pool, (ii) chooses a module/strategy to update, (iii) uses an LLM-based proposer and feedback mechanism to generate improved prompts, (iv) evaluates the candidate on a minibatch (and in some cases across multiple task instances), and (v) updates the candidate pool based on whether performance improved.
+
+While GEPA is effective as a general optimization procedure, the main bottleneck in practice is \emph{evaluation cost}. Many candidate mutations must be evaluated to find improvements, and evaluation relies on LLM inference (both for generating mutations/feedback and for scoring/validation). As the prompt pool grows and as datasets become harder, the algorithm can spend a large fraction of its budget on candidates that do not ultimately improve validation performance.
+
+This leads to high API cost and slower experimentation, which limits scalability across multiple datasets (e.g., Pupa, SciEval, BBH, MATH-500) and prevents rapid iteration on algorithmic changes. Hence, improving GEPA's efficiency---specifically reducing the number of expensive LLM evaluations while preserving or improving quality---is a key practical objective.
+
+\section{Objectives and Contributions}
+This B.Tech Project focuses on making GEPA more \emph{cost-efficient} and \emph{LLM-call efficient} while maintaining the monotonic improvement behavior expected from a robust optimization process.
+
+The central idea of our modification is to introduce \emph{surrogate-guided selection with a bandit-style filtering step}. Instead of fully validating every mutation using expensive LLM calls, we first score a large set of mutated prompts using a computationally cheap surrogate model that predicts expected performance. Only a small top subset of candidates is then sent to the LLM for full validation. This enables generating many candidate prompts per iteration (improving exploration), while keeping the number of expensive evaluations small.
+
+Our main contributions are:
+\begin{enumerate}
+    \item \textbf{Surrogate-guided prompt optimization pipeline:} We propose a revised GEPA-style loop where candidate mutations are first ranked by a learned regression surrogate model (e.g., an MLP over embeddings of prompt text and validation questions).
+    \item \textbf{Bandit-style Top-$K$ selection:} We select a small Top-$K$ set of candidates using predicted scores (and optionally uncertainty-aware criteria such as UCB), reducing the number of full validations per iteration.
+    \item \textbf{Monotonic improvement guarantee:} We enforce an acceptance rule where the best prompt is updated only when the best newly validated candidate exceeds the current best validation score; test-set evaluation is triggered only on improvement.
+    \item \textbf{Cost-focused evaluation across benchmarks:} We run the improved algorithm on multiple datasets (e.g., Pupa, SciEval, BBH, MATH-500) and analyze both task performance and efficiency metrics such as number of LLM calls and token cost.
+\end{enumerate}
+
+\section{Scope and Assumptions}
+\subsection{Scope}
+The scope of this work is prompt optimization in settings where model access is mediated through LLM inference calls and evaluation cost is significant. The focus is on improving the efficiency of a GEPA-like iterative optimization pipeline rather than proposing an entirely new prompting paradigm. We evaluate across multiple datasets representing diverse reasoning and knowledge tasks.
+
+\subsection{Assumptions}
+We assume the availability of a validation set or validation procedure to compute a consistent evaluation score for a prompt. We also assume that prompt candidates can be represented in a form suitable for a surrogate model (e.g., via text embeddings). The surrogate model is not required to be perfectly accurate; it only needs to rank candidates well enough to reduce wasted LLM validations. Finally, we operate under a finite budget measured in LLM calls/tokens, making reductions in expensive steps practically meaningful.

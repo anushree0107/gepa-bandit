@@ -1,0 +1,188 @@
+\documentclass[16pt, a4paper, oneside]{Thesis}
+
+% --- Basic Packages ---
+\usepackage{wrapfig}
+\usepackage{lscape}
+\usepackage{rotating}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{amsmath}
+\usepackage{lineno,hyperref}
+\modulolinenumbers[5]
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{float}
+\usepackage{placeins}
+\usepackage{stackengine}
+\usepackage{url}
+\usepackage{numprint}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{siunitx}
+\usepackage{subfigure}
+\usepackage{booktabs}
+\graphicspath{{Pictures/}}
+\usepackage{natbib}
+\usepackage{xcolor}
+\usepackage{titlesec}
+
+
+
+% --- Keep mdframed if you use it elsewhere, but do NOT define prompt boxes with it ---
+\usepackage{mdframed}
+
+% --- tcolorbox (breakable boxes for prompts/headings) ---
+\usepackage[most]{tcolorbox}
+
+% --- (Optional) listings still allowed for code blocks, but NOT for prompt boxes ---
+\usepackage{listings}
+
+% Smaller chapter titles
+\titleformat{\chapter}[hang]
+  {\normalfont\Large\bfseries} % was huge; change to Large (or \large)
+  {\thechapter.\ }{0pt}{}
+
+% Reduce spacing around chapter titles
+\titlespacing*{\chapter}{0pt}{-10pt}{12pt}
+
+% ------------------------------------------------------------
+% PROMPT EVOLUTION BOX STYLES (NO NAME COLLISION)
+% ------------------------------------------------------------
+\definecolor{RoundBlue}{RGB}{12,52,120}
+\definecolor{PromptBlue}{RGB}{232,242,255}
+\definecolor{PromptBorder}{RGB}{40,90,160}
+
+\newtcolorbox{roundbox}{
+  enhanced,
+  breakable,
+  colback=RoundBlue,
+  colframe=RoundBlue,
+  coltext=white,
+  boxrule=0pt,
+  arc=1.5mm,
+  left=2mm,right=2mm,top=0.8mm,bottom=0.8mm
+}
+
+\newtcolorbox{prompttext}{
+  enhanced,
+  breakable,
+  colback=PromptBlue,
+  colframe=PromptBorder,
+  coltext=black,
+  boxrule=0.6pt,
+  arc=1.5mm,
+  left=2mm,right=2mm,top=1.0mm,bottom=1.0mm
+}
+
+% ------------------------------------------------------------
+% Misc from your preamble
+% ------------------------------------------------------------
+\nprounddigits{3}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+
+\setstackEOL{\#}
+\setstackgap{L}{10pt}
+
+\hypersetup{urlcolor=black, colorlinks=false}
+
+% --- The rest of your main.tex preamble ---
+\thesistitle{SGPO: Surrogate-Guided Prompt Optimization for Efficient GEPA}
+\supervisor{Professor Sourangshu Bhattacharya}
+\degree{Dual Degree (B.Tech + M.Tech)}
+\degreemajor{Computer Science Engineering}
+\authors{Srinjoy Das}
+\rollno{22CS30054}
+\university{Indian Institute of Technology Kharagpur}
+\department{Department of Computer Science and Engineering}
+\unisite{http://www.iitkgp.ac.in}
+\depsite{http://www.ecdept.iitkgp.ac.in}
+\placeshrt{Kharagpur}
+\placelng{Kharagpur - 721302, India}
+\datesub{April 9, 2026}
+\datesig{April 9, 2026}
+\semsub{Spring Semester, 2025-26}
+\coursecd{B.Tech Project (CS47006) }
+
+\title{\ttitle}
+
+\begin{document}
+
+% PDF meta-data
+\hypersetup{pdftitle={\ttitle}}
+\hypersetup{pdfsubject=\subjectname}
+\hypersetup{pdfauthor=\authornames}
+\hypersetup{pdfkeywords=\keywordnames}
+
+\frontmatter
+\setstretch{1.6}
+
+\fancyhead{}
+\rhead{\thepage}
+\lhead{}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+\maketitle
+\clearpage
+
+\Declaration
+
+
+%----------------------------------------------------------------------------------------
+% CERTIFICATE PAGE
+%----------------------------------------------------------------------------------------
+\addtotoc{Certificate}
+
+% Force no header/footer text and clear chapter marks on this page
+\clearpage
+\pagestyle{empty}
+\markboth{}{} % clears \leftmark/\rightmark so "Certificate" can't appear
+
+\certificate{
+% your certificate content here (or keep empty if class prints it)
+}
+
+\clearpage
+\pagestyle{plain} % or fancy later when you want it back
+
+\setstretch{1.3}
+\acknowledgements{
+% (your acknowledgement text unchanged)
+I would first and foremost like to express my deepest and most sincere gratitude to my supervisor, Prof. Dr. Sourangshu Bhattacharya. His insightful guidance, constant encouragement, and intellectual vision were instrumental in shaping this project from its inception to its completion. He not only helped me focus on the most important aspects of the research but also provided the freedom to explore my own ideas, for which I am truly grateful.
+
+My profound gratitude goes to my mentor, Shubhadip Nag. His invaluable advice, technical expertise, and continuous support were the bedrock of my day-to-day research. He was always available to discuss intricate details, debug complex issues, and consistently motivated me to push the boundaries of my work. This thesis would not have been possible without his unwavering guidance and mentorship.
+
+I am also immensely thankful to my batchmates and co-authors, Agniva Saha and Anushree Ghosh. Our collaborative brainstorming sessions, late-night discussions, and mutual support were not only crucial for the progress of this work but also made the entire research journey an enjoyable and memorable experience.
+
+I am very much thankful to Prof. Niloy Ganguly, Head of the Department of Computer Science and Engineering, for providing the necessary facilities to carry out this project work.
+
+Finally, I am deeply indebted to my parents for their unconditional love, endless support, and invaluable trust in all my choices. My heartfelt thanks also go to my friends, who were a constant source of encouragement and support in every situation.
+}
+\clearpage
+
+\pagestyle{fancy}
+\lhead{\emph{Contents}}
+\tableofcontents
+\clearpage
+
+\mainmatter
+\setstretch{1.25}
+\pagestyle{fancy}
+
+\input{Chapters/introduction}
+\input{Chapters/related_work}
+\input{Chapters/gepa_baseline}
+\input{Chapters/bandit_gepa}
+\input{Chapters/experimental_setup}
+\input{Chapters/results}
+\input{Chapters/pupa_results}
+\input{Chapters/bbh_results}
+\input{Chapters/scieval_results}
+\input{Chapters/conclusion}
+
+\label{Bibliography}
+\bibliographystyle{apalike}
+\bibliography{Bibliography}
+
+\end{document}

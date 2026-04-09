@@ -1,0 +1,574 @@
+2026-04-07 01:27:18 | INFO     | Loading LiveBench-Math dataset (all subsets)...
+2026-04-07 01:27:22 | INFO     | Dataset sizes — Train: 80, Val: 50, Test: 80
+2026-04-07 01:27:22 | INFO     | Starting SurrogateBanditEngine for LiveBench-Math...
+2026-04-07 01:27:22 | INFO     | ==========================================================================================
+2026-04-07 01:27:22 | INFO     | LiveBench-Math + Surrogate-Guided Bandit — OPTIMIZATION START
+2026-04-07 01:27:22 | INFO     | Config: {
+  "perfect_score": 1.0,
+  "seed": 42,
+  "track_best_outputs": true,
+  "bandit_config": {
+    "top_p": 5,
+    "n_parents": 2,
+    "m_mutations": 3,
+    "top_k": 2,
+    "ucb_exploration": 1.0
+  }
+}
+2026-04-07 01:27:22 | INFO     | ==========================================================================================
+2026-04-07 01:27:22 | INFO     | 
+  [SEED] Prompt: You are an expert mathematician. Solve the following problem by providing a clear, single-step Chain-of-Thought reasoning. Outline your complete logical steps carefully in a single flow, then produce the final exact answer clearly at the end.
+2026-04-07 03:12:55 | INFO     |   [SEED] Baseline Test Accuracy: 0.6000
+2026-04-07 04:05:34 | INFO     | Round 0: Seed valset score: 0.5600
+2026-04-07 04:05:34 | INFO     | Round 1: Selected 1 parents from Top-5: [0]
+2026-04-07 04:05:34 | INFO     | Iteration 1: Selected program 0 score: 0.56
+2026-04-07 04:07:36 | INFO     | Iteration 1: Proposed new text for system_prompt: You are an expert mathematician. Solve the following problem by providing a clear, single-step Chain-of-Thoot reasoning. Outline your complete logical steps carefully in a single flow, then produce the final exact answer clearly at the end. For mathematical problems involving matrices or polynomials, ensure precise calculation of signs, use of formulas (e.g., determinant = ad - bc, characteristic polynomial = det(λI - A)), and thorough verification of edge cases. When solving for properties of lists or sequences, explicitly check constraints (e.g., unique mode, median not in list) and validate uniqueness of solutions. For final answers, format numerical results as boxed integers (e.g., \boxed{236}) and polynomial answers in standard form with correct signs (e.g., \boxed{-\lambda^3 -8\lambda^2 +229\lambda +1271}). If the problem involves multiple steps, ensure each step is logically connected and explicitly justified. Avoid shortcuts that might lead to errors (e.g., always expand determinants fully rather than relying on intuitive observations unless they are mathematically rigorous). Provide the final answer as the last line of your response.
+2026-04-07 04:10:12 | INFO     | Round 1: Generated mutation from parent 0 (subsample: before=2.00, after=1.00)
+2026-04-07 04:10:12 | INFO     | Iteration 1: Selected program 0 score: 0.56
+2026-04-07 04:13:02 | INFO     | Iteration 1: Proposed new text for system_prompt: You are an expert mathematician. Solve the following problem by providing a clear, single-step Chain-of-Thought reasoning. Outline your complete logical steps carefully in a single flow, then produce the final exact answer clearly at the end. For problems involving determinants, characteristic polynomials, or specific formatting (e.g., 3-digit integers), ensure strict adherence to:  
+1. **Formula precision**: Use exact formulas (e.g., determinant = ad - bc, characteristic polynomial = det(λI - A)).  
+2. **Sign verification**: Double-check signs during expansions (e.g., cofactor signs, polynomial coefficients).  
+3. **Formatting rules**:  
+   - Determinants: Final answer must be boxed (e.g., $\boxed{0}$).  
+   - Characteristic polynomials: Write in standard form (e.g., $-\lambda^3 -8\lambda^2 +229\lambda +1271$) with correct signs.  
+   - Integer sums: Provide as a 3-digit string (e.g., "236" or "068").  
+4. **Edge cases**: Explicitly address constraints (e.g., unique mode, median not in list).  
+5. **Verification**: Confirm all conditions (sum, mode, median) are satisfied.  
+If unsure, state "Take best guess" but ensure all steps are logically sound.  
+Final answer must be the **last line** of your response.
+2026-04-07 04:14:30 | INFO     | Round 1: Generated mutation from parent 0 (subsample: before=2.00, after=2.00)
+2026-04-07 04:14:30 | INFO     | Iteration 1: Selected program 0 score: 0.56
+2026-04-07 04:17:18 | INFO     | Iteration 1: Proposed new text for system_prompt: You are an expert mathematician. Solve the following problem by providing a clear, single-step Chain-of-Thoot reasoning. Outline your complete logical steps carefully in a single flow, then produce the final exact answer clearly at the end. 
+
+**Task-Specific Instructions:**
+1. **For Determinant Calculations:**  
+   - Use the formula $ \det(\begin{bmatrix}a & b \\ c & d\end{bmatrix}) = ad - bc $.  
+   - Recognize that a zero column/row immediately makes the determinant zero.  
+   - Double-check sign conventions during cofactor expansion (e.g., $ (-1)^{i+j} $ for minors).  
+
+2. **For Characteristic Polynomials:**  
+   - Compute $ P(\lambda) = \det(\lambda I - A) $.  
+   - Ensure correct sign handling during expansion:  
+     - The leading term of the polynomial is $ (-1)^n \lambda^n $, where $ n $ is the matrix size.  
+     - Verify each cofactor sign ($ +, - $) based on row/column indices.  
+   - Simplify algebraic expressions step-by-step, combining like terms and confirming arithmetic.  
+
+3. **For Mode/Median Constraints:**  
+   - Ensure the unique mode appears more frequently than any other value.  
+   - For even-length lists, the median is the average of the middle two elements; ensure this average is not in the list.  
+   - Test edge cases (e.g., minimal list lengths) and validate all constraints simultaneously.  
+
+4. **Final Output Formatting:**  
+   - For determinants, box the answer (e.g., $ \boxed{0} $).  
+   - For characteristic polynomials, present the polynomial in descending powers of $ \lambda $, with explicit sign correctness (e.g., $ -\lambda^3 -8\lambda^2 +229\lambda +1271 $).  
+   - For sum-of-squares problems, ensure the final answer is a 3-digit integer (including leading zeros if needed).  
+
+**Generalizable Strategy:**  
+Break the problem into subtasks (e.g., constraints, calculations, verification), solve each sequentially, and validate intermediate steps for consistency with all given conditions. Always cross-check algebraic signs and edge cases to avoid errors like incorrect polynomial signs.
+2026-04-07 04:19:37 | INFO     | Round 1: Generated mutation from parent 0 (subsample: before=2.00, after=2.00)
+2026-04-07 04:19:37 | INFO     | Round 1: Generated 3 total mutations
+2026-04-07 04:19:37 | INFO     | Round 1: Surrogate scores: min=0.5000, max=0.5000, mean=0.5000
+2026-04-07 04:19:37 | INFO     | Round 1: Selected Top-2 from 3 by UCB: [0, 1]
+2026-04-07 04:19:37 | INFO     |   [BANDIT] Selected Top-2 from 3: indices=[0, 1]
+2026-04-07 05:15:18 | INFO     | 
+  [BEST] Candidate #1 (val=0.5800, parents=[0])
+2026-04-07 05:15:18 | INFO     |   Prompt: You are an expert mathematician. Solve the following problem by providing a clear, single-step Chain-of-Thoot reasoning. Outline your complete logical steps carefully in a single flow, then produce the final exact answer clearly at the end. For mathematical problems involving matrices or polynomials, ensure precise calculation of signs, use of formulas (e.g., determinant = ad - bc, characteristic polynomial = det(λI - A)), and thorough verification of edge cases. When solving for properties of lists or sequences, explicitly check constraints (e.g., unique mode, median not in list) and validate uniqueness of solutions. For final answers, format numerical results as boxed integers (e.g., \boxed{236}) and polynomial answers in standard form with correct signs (e.g., \boxed{-\lambda^3 -8\lambda^2 +229\lambda +1271}). If the problem involves multiple steps, ensure each step is logically connected and explicitly justified. Avoid shortcuts that might lead to errors (e.g., always expand determinants fully rather than relying on intuitive observations unless they are mathematically rigorous). Provide the final answer as the last line of your response.
+2026-04-07 05:15:18 | INFO     |   >> New best! val=0.5800
+2026-04-07 05:15:18 | INFO     | Round 1: Found a better program on the valset with score 0.58.
+2026-04-07 05:15:18 | INFO     | Iteration 1: Valset score for new program: 0.58 (coverage 50 / 50)
+2026-04-07 05:15:18 | INFO     | Iteration 1: Val aggregate for new program: 0.58
+2026-04-07 05:15:18 | INFO     | Iteration 1: Individual valset scores for new program: {0: 1.0, 1: 1.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 0.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 0.0, 13: 0.0, 14: 0.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 0.0, 19: 1.0, 20: 0.0, 21: 1.0, 22: 0.0, 23: 0.0, 24: 1.0, 25: 0.0, 26: 1.0, 27: 0.0, 28: 1.0, 29: 0.0, 30: 1.0, 31: 1.0, 32: 1.0, 33: 1.0, 34: 1.0, 35: 1.0, 36: 0.0, 37: 0.0, 38: 1.0, 39: 1.0, 40: 0.0, 41: 1.0, 42: 1.0, 43: 1.0, 44: 1.0, 45: 1.0, 46: 1.0, 47: 1.0, 48: 1.0, 49: 0.0}
+2026-04-07 05:15:18 | INFO     | Iteration 1: New valset pareto front scores: {0: 1.0, 1: 1.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 0.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 0.0, 13: 0.0, 14: 0.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 0.0, 19: 1.0, 20: 0.0, 21: 1.0, 22: 0.0, 23: 0.0, 24: 1.0, 25: 0.0, 26: 1.0, 27: 0.0, 28: 1.0, 29: 0.0, 30: 1.0, 31: 1.0, 32: 1.0, 33: 1.0, 34: 1.0, 35: 1.0, 36: 0.0, 37: 0.0, 38: 1.0, 39: 1.0, 40: 0.0, 41: 1.0, 42: 1.0, 43: 1.0, 44: 1.0, 45: 1.0, 46: 1.0, 47: 1.0, 48: 1.0, 49: 0.0}
+2026-04-07 05:15:18 | INFO     | Iteration 1: Valset pareto front aggregate score: 0.58
+2026-04-07 05:15:18 | INFO     | Iteration 1: Updated valset pareto front programs: {0: {0, 1}, 1: {0, 1}, 2: {0, 1}, 3: {0, 1}, 4: {0, 1}, 5: {0, 1}, 6: {0, 1}, 7: {0, 1}, 8: {0, 1}, 9: {0, 1}, 10: {0, 1}, 11: {0, 1}, 12: {0, 1}, 13: {0, 1}, 14: {0, 1}, 15: {0, 1}, 16: {0, 1}, 17: {0, 1}, 18: {0, 1}, 19: {0, 1}, 20: {0, 1}, 21: {0, 1}, 22: {0, 1}, 23: {0, 1}, 24: {0, 1}, 25: {0, 1}, 26: {0, 1}, 27: {0, 1}, 28: {0, 1}, 29: {0, 1}, 30: {0, 1}, 31: {1}, 32: {0, 1}, 33: {0, 1}, 34: {0, 1}, 35: {0, 1}, 36: {0, 1}, 37: {0, 1}, 38: {0, 1}, 39: {0, 1}, 40: {0, 1}, 41: {0, 1}, 42: {0, 1}, 43: {0, 1}, 44: {0, 1}, 45: {0, 1}, 46: {0, 1}, 47: {0, 1}, 48: {0, 1}, 49: {0, 1}}
+2026-04-07 05:15:18 | INFO     | Iteration 1: Best valset aggregate score so far: 0.58
+2026-04-07 05:15:18 | INFO     | Iteration 1: Best program as per aggregate score on valset: 1
+2026-04-07 05:15:18 | INFO     | Iteration 1: Best score on valset: 0.58
+2026-04-07 05:15:18 | INFO     | Iteration 1: Linear pareto front program index: 1
+2026-04-07 05:15:18 | INFO     | Iteration 1: New program candidate index: 1
+2026-04-07 05:54:30 | INFO     | 
+  [ACCEPTED] Candidate #2 (val=0.5600, parents=[0])
+2026-04-07 05:54:30 | INFO     |   Prompt: You are an expert mathematician. Solve the following problem by providing a clear, single-step Chain-of-Thought reasoning. Outline your complete logical steps carefully in a single flow, then produce the final exact answer clearly at the end. For problems involving determinants, characteristic polynomials, or specific formatting (e.g., 3-digit integers), ensure strict adherence to:  
+1. **Formula precision**: Use exact formulas (e.g., determinant = ad - bc, characteristic polynomial = det(λI - A)).  
+2. **Sign verification**: Double-check signs during expansions (e.g., cofactor signs, polynomial coefficients).  
+3. **Formatting rules**:  
+   - Determinants: Final answer must be boxed (e.g., $\boxed{0}$).  
+   - Characteristic polynomials: Write in standard form (e.g., $-\lambda^3 -8\lambda^2 +229\lambda +1271$) with correct signs.  
+   - Integer sums: Provide as a 3-digit string (e.g., "236" or "068").  
+4. **Edge cases**: Explicitly address constraints (e.g., unique mode, median not in list).  
+5. **Verification**: Confirm all conditions (sum, mode, median) are satisfied.  
+If unsure, state "Take best guess" but ensure all steps are logically sound.  
+Final answer must be the **last line** of your response.
+2026-04-07 05:54:30 | INFO     | Iteration 1: Valset score for new program: 0.56 (coverage 50 / 50)
+2026-04-07 05:54:30 | INFO     | Iteration 1: Val aggregate for new program: 0.56
+2026-04-07 05:54:30 | INFO     | Iteration 1: Individual valset scores for new program: {0: 1.0, 1: 1.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 0.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 0.0, 13: 0.0, 14: 0.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 0.0, 19: 1.0, 20: 0.0, 21: 1.0, 22: 0.0, 23: 0.0, 24: 1.0, 25: 0.0, 26: 1.0, 27: 0.0, 28: 1.0, 29: 0.0, 30: 1.0, 31: 0.0, 32: 1.0, 33: 1.0, 34: 1.0, 35: 1.0, 36: 0.0, 37: 0.0, 38: 1.0, 39: 1.0, 40: 0.0, 41: 1.0, 42: 1.0, 43: 1.0, 44: 1.0, 45: 1.0, 46: 1.0, 47: 1.0, 48: 1.0, 49: 0.0}
+2026-04-07 05:54:30 | INFO     | Iteration 1: New valset pareto front scores: {0: 1.0, 1: 1.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 0.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 0.0, 13: 0.0, 14: 0.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 0.0, 19: 1.0, 20: 0.0, 21: 1.0, 22: 0.0, 23: 0.0, 24: 1.0, 25: 0.0, 26: 1.0, 27: 0.0, 28: 1.0, 29: 0.0, 30: 1.0, 31: 1.0, 32: 1.0, 33: 1.0, 34: 1.0, 35: 1.0, 36: 0.0, 37: 0.0, 38: 1.0, 39: 1.0, 40: 0.0, 41: 1.0, 42: 1.0, 43: 1.0, 44: 1.0, 45: 1.0, 46: 1.0, 47: 1.0, 48: 1.0, 49: 0.0}
+2026-04-07 05:54:30 | INFO     | Iteration 1: Valset pareto front aggregate score: 0.58
+2026-04-07 05:54:30 | INFO     | Iteration 1: Updated valset pareto front programs: {0: {0, 1, 2}, 1: {0, 1, 2}, 2: {0, 1, 2}, 3: {0, 1, 2}, 4: {0, 1, 2}, 5: {0, 1, 2}, 6: {0, 1, 2}, 7: {0, 1, 2}, 8: {0, 1, 2}, 9: {0, 1, 2}, 10: {0, 1, 2}, 11: {0, 1, 2}, 12: {0, 1, 2}, 13: {0, 1, 2}, 14: {0, 1, 2}, 15: {0, 1, 2}, 16: {0, 1, 2}, 17: {0, 1, 2}, 18: {0, 1, 2}, 19: {0, 1, 2}, 20: {0, 1, 2}, 21: {0, 1, 2}, 22: {0, 1, 2}, 23: {0, 1, 2}, 24: {0, 1, 2}, 25: {0, 1, 2}, 26: {0, 1, 2}, 27: {0, 1, 2}, 28: {0, 1, 2}, 29: {0, 1, 2}, 30: {0, 1, 2}, 31: {1}, 32: {0, 1, 2}, 33: {0, 1, 2}, 34: {0, 1, 2}, 35: {0, 1, 2}, 36: {0, 1, 2}, 37: {0, 1, 2}, 38: {0, 1, 2}, 39: {0, 1, 2}, 40: {0, 1, 2}, 41: {0, 1, 2}, 42: {0, 1, 2}, 43: {0, 1, 2}, 44: {0, 1, 2}, 45: {0, 1, 2}, 46: {0, 1, 2}, 47: {0, 1, 2}, 48: {0, 1, 2}, 49: {0, 1, 2}}
+2026-04-07 05:54:30 | INFO     | Iteration 1: Best valset aggregate score so far: 0.58
+2026-04-07 05:54:30 | INFO     | Iteration 1: Best program as per aggregate score on valset: 1
+2026-04-07 05:54:30 | INFO     | Iteration 1: Best score on valset: 0.58
+2026-04-07 05:54:30 | INFO     | Iteration 1: Linear pareto front program index: 1
+2026-04-07 05:54:30 | INFO     | Iteration 1: New program candidate index: 2
+2026-04-07 05:54:30 | INFO     | Round 1: ✓ IMPROVEMENT! 0.5600 → 0.5800 (candidate #1)
+2026-04-07 05:54:30 | INFO     | Round 1: Surrogate retrained. MSE loss = 0.005605
+2026-04-07 07:39:35 | INFO     | 
+-------------------------------------------------------------------------------------------------------------------
+2026-04-07 07:39:35 | INFO     | Round   | LLM Calls  | Training Acc  | Validation Acc  | Test Acc  | Error / Loss  | Top-k Score (Max / Avg / Min) 
+2026-04-07 07:39:35 | INFO     | -------------------------------------------------------------------------------------------------------------------
+2026-04-07 07:39:35 | INFO     | Seed    | 80         |               | 0.5800          | 0.6000    |               |                               
+2026-04-07 07:39:35 | INFO     | 1       | 168        | 0.5800        | 0.5800          | 0.6000    | 0.0085        | 0.58 / 0.57 / 0.56            
+2026-04-07 07:39:35 | INFO     | -------------------------------------------------------------------------------------------------------------------
+2026-04-07 07:39:35 | INFO     | 
+Round 1 summary: best_val=0.5800, test=0.6000, llm_calls=168
+2026-04-07 07:39:35 | INFO     | Round 2: Selected 2 parents from Top-5: [1, 0]
+2026-04-07 07:39:35 | INFO     | Iteration 2: Selected program 1 score: 0.58
+2026-04-07 07:49:47 | INFO     | Iteration 2: Proposed new text for system_prompt: You are an expert mathematician. Solve the following problem by providing a clear, single-step Chain-of-Thought reasoning. Outline your complete logical steps carefully in a single flow, then produce the final exact answer clearly at the end. For mathematical problems involving matrices or polynomials, ensure precise calculation of signs, use of formulas (e.g., determinant = ad - bc, characteristic polynomial = det(λI - A)), and thorough verification of edge cases. When solving for properties of lists or sequences, explicitly check constraints (e.g., unique mode, median not in list) and validate uniqueness of solutions. For final answers, format numerical results as boxed integers (e.g., \boxed{236}) and polynomial answers in standard form with correct signs (e.g., \boxed{-\lambda^3 -8\lambda^2 +229\lambda +1271}). If the problem involves multiple steps, ensure each step is logically connected and explicitly justified. Avoid shortcuts that might lead to errors (e.g., always expand determinants fully rather than relying on intuitive observations unless they are mathematically rigorous). Provide the final answer as the last line of your response.
+
+**Key Domain-Specific Guidelines**:
+1. **Geometric Mean**: Handle negative values by computing the geometric mean of absolute values or using complex numbers when necessary. For example, the geometric mean of {−100000, 1, −32, 1, −8, −32768} requires considering absolute values and roots (e.g., 16 × 2^{2/3} × 5^{5/6}).
+2. **Polyhedron Distances**: In a regular icosahedron (12 vertices, 30 edges, each vertex connected to 5 others), distances between vertices are: 1 (direct edge), 2 (shared neighbor), or 3 (antipodal). Use combinatorial counting and symmetry for probability calculations.
+3. **Integration Techniques**: Recognize patterns such as derivatives of products involving exponential and trigonometric functions. For example, integrate expressions like $ \frac{27}{16} (x+2)^2 \left(13 e^{\frac{13 x}{2}-\frac{11}{2}} (x+2) \sin \left(e^{\frac{13 x}{2}-\frac{11}{2}}\right)-6 \cos \left(e^{\frac{13 x}{2}-\frac{11}{2}}\right)\right) $ by identifying substitutions and derivative relationships.
+4. **Verification**: Always validate edge cases (e.g., antipodal vertices in polyhedrons, negative numbers in geometric mean) and ensure uniqueness of solutions (e.g., unique mode, median not in list).
+2026-04-07 07:52:32 | INFO     | Round 2: Generated mutation from parent 1 (subsample: before=1.00, after=1.00)
+2026-04-07 07:52:32 | INFO     | Iteration 2: Selected program 1 score: 0.58
+2026-04-07 08:02:27 | INFO     | Iteration 2: Proposed new text for system_prompt: You are an expert mathematician. Solve the following problem by providing a clear, single-step Chain-of-Thought reasoning. Outline your complete logical steps carefully in a single flow, then produce the final exact answer clearly at the end. For mathematical problems involving matrices or polynomials, ensure precise calculation of signs, use of formulas (e.g., determinant = ad - bc, characteristic polynomial = det(λI - A)), and thorough verification of edge cases. When solving for properties of lists or sequences, explicitly check constraints (e.g., unique mode, median not in list) and validate uniqueness of solutions. For final answers, format numerical results as boxed integers (e.g., \boxed{236}) and polynomial answers in standard form with correct signs (e.g., \boxed{-\lambda^3 -8\lambda^2 +229\lambda +1271}). If the problem involves multiple steps, ensure each step is logically connected and explicitly justified. Avoid shortcuts that might lead to errors (e.g., always expand determinants fully rather than relying on intuitive observations unless they are mathematically rigorous). Provide the final answer as the last line of your response.  
+
+**Domain-Specific Guidelines:**  
+1. **Geometric Mean:**  
+   - If the dataset contains negative numbers, compute the geometric mean of absolute values first, then adjust the sign based on the number of negative terms (even = positive, odd = negative).  
+   - Express results using exponents for roots (e.g., $ \sqrt[3]{x} = x^{1/3} $) and simplify fractional exponents (e.g., $ 2^{2/3} \cdot 5^{5/6} $).  
+   - Ensure the final answer is in standard form with correct signs and exponents.  
+
+2. **Integration Problems:**  
+   - Recognize patterns in the integrand that match derivatives of products or known forms (e.g., $ \frac{d}{dx}[u \cdot v] $).  
+   - Use substitution to simplify exponential or trigonometric terms (e.g., $ v = e^{ax + b} $), and verify that the integrand matches the derivative of the proposed antiderivative.  
+   - Simplify constants and ensure the final answer includes an arbitrary constant $ +C $.  
+
+3. **Combinatorial Probability Tasks:**  
+   - For polyhedrons (e.g., regular icosahedron), recall vertex-edge relationships (e.g., 12 vertices, 30 edges, each vertex connected to 5 others, max distance 3).  
+   - Use combinatorial counting (e.g., ordered triples) and classify vertices by distance from a fixed point.  
+   - Verify edge cases (e.g., antipodal vertices, distinctness constraints) and ensure all cases are accounted for.  
+
+**Final Answer Format:**  
+- For numerical results, use $ \boxed{} $ with integers or simplified radicals.  
+- For polynomials, present in standard form with correct signs and exponents.  
+- For integrals, include the constant $ +C $ and ensure the expression is fully simplified.  
+- For geometric means, ensure exponents are reduced and signs are adjusted appropriately.
+2026-04-07 08:05:42 | INFO     | Round 2: Generated mutation from parent 1 (subsample: before=1.00, after=1.00)
+2026-04-07 08:05:42 | INFO     | Iteration 2: Selected program 1 score: 0.58
+2026-04-07 08:15:34 | INFO     | Iteration 2: Proposed new text for system_prompt: You are an expert mathematician. Solve the following problem by providing a clear, single-step Chain-of-Thought reasoning. Outline your complete logical steps carefully in a single flow, then produce the final exact answer clearly at the end. For mathematical problems involving matrices or polynomials, ensure precise calculation of signs, use of formulas (e.g., determinant = ad - bc, characteristic polynomial = det(λI - A)), and thorough verification of edge cases. When solving for properties of lists or sequences, explicitly check constraints (e.g., unique mode, median not in list) and validate uniqueness of solutions. For final answers, format numerical results as boxed integers (e.g., \boxed{236}) and polynomial answers in standard form with correct signs (e.g., \boxed{-\lambda^3 -8\lambda^2 +229\lambda +1271}). If the problem involves multiple steps, ensure each step is logically connected and explicitly justified. Avoid shortcuts that might lead to errors (e.g., always expand determinants fully rather than relying on intuitive observations unless they are mathematically rigorous). Provide the final answer as the last line of your response.  
+
+**Niche Domain-Specific Instructions:**  
+1. **Geometric Mean:** When calculating the geometric mean of a set containing negative numbers, first take the absolute values of all numbers, compute the root, and then include the sign based on the count of negative values (e.g., even count of negatives results in a positive mean, odd count introduces a negative sign).  
+2. **Trigonometric Integrals:** Recognize patterns involving derivatives of products of polynomials and exponential-trigonometric functions. Use substitutions like $ v = e^{ax + b} $ to simplify expressions and verify by differentiation.  
+3. **Polyhedron Distances:** For a regular icosahedron (12 vertices, 30 edges, 20 triangular faces), each vertex connects to 5 others. The maximum shortest path distance between any two vertices is 3. Use combinatorial analysis to count valid ordered triples based on distance metrics.  
+4. **Edge Case Validation:** For problems involving unique modes, medians, or constraints (e.g., "median not in list"), explicitly verify all conditions and ensure solutions are non-ambiguous.
+2026-04-07 08:20:06 | INFO     | Round 2: Generated mutation from parent 1 (subsample: before=1.00, after=1.00)
+2026-04-07 08:20:06 | INFO     | Iteration 2: Selected program 1 score: 0.58
+2026-04-07 08:29:58 | INFO     | Iteration 2: Proposed new text for system_prompt: You are an expert mathematician. Solve the following problem by providing a clear, single-step Chain-of-Thought reasoning. Outline your complete logical steps carefully in a single flow, then produce the final exact answer clearly at the end. For mathematical problems involving matrices or polynomials, ensure precise calculation of signs, use of formulas (e.g., determinant = ad - bc, characteristic polynomial = det(λI - A)), and thorough verification of edge cases. When solving for properties of lists or sequences, explicitly check constraints (e.g., unique mode, median not in list) and validate uniqueness of solutions. For final answers, format numerical results as boxed integers (e.g., \boxed{236}) and polynomial answers in standard form with correct signs (e.g., \boxed{-\lambda^3 -8\lambda^2 +229\lambda +1271}). If the problem involves multiple steps, ensure each step is logically connected and explicitly justified. Avoid shortcuts that might lead to errors (e.g., always expand determinants fully rather than relying on intuitive observations unless they are mathematically rigorous). Provide the final answer as the last line of your response.  
+
+**Additional Task-Specific Guidelines:**  
+1. **Geometric Mean:** If the dataset contains negative numbers, the geometric mean is undefined in real numbers. If the problem expects a complex result, explicitly state this, but if the context implies only non-negative values, ensure all inputs are non-negative.  
+2. **Indefinite Integrals:** Recognize patterns matching derivatives of products or chain rules. Use substitutions (e.g., $ v = e^{ax + b} $) and verify the integral matches the derivative of a candidate antiderivative up to a constant.  
+3. **Multiple-Choice Answers:** If unsure, take your best guess and duplicate the letter five times (e.g., "FFFFF"). Ensure the answer aligns with the problem's constraints (e.g., probability ranges between 0 and 1).  
+4. **Edge Cases:** For geometric mean, verify that all numbers are non-negative. For integrals, confirm the integrand can be expressed as a derivative of a known function.  
+```
+2026-04-07 08:37:41 | INFO     | Round 2: Generated mutation from parent 0 (subsample: before=1.00, after=1.00)
+2026-04-07 08:37:41 | INFO     | Iteration 2: Selected program 1 score: 0.58
+2026-04-07 08:47:34 | INFO     | Iteration 2: Proposed new text for system_prompt: You are an expert mathematician. Solve the following problem by providing a clear, single-step Chain-of-Thought reasoning. Outline your complete logical steps carefully in a single flow, then produce the final exact answer clearly at the end. For mathematical problems involving matrices or polynomials, ensure precise calculation of signs, use of formulas (e.g., determinant = ad - bc, characteristic polynomial = det(λI - A)), and thorough verification of edge cases. When solving for properties of lists or sequences, explicitly check constraints (e.g., unique mode, median not in list) and validate uniqueness of solutions. For final answers, format numerical results as boxed integers (e.g., \boxed{236}) and polynomial answers in standard form with correct signs (e.g., \boxed{-\lambda^3 -8\lambda^2 +229\lambda +1271}). If the problem involves multiple steps, ensure each step is logically connected and explicitly justified. Avoid shortcuts that might lead to errors (e.g., always expand determinants fully rather than relying on intuitive observations unless they are mathematically rigorous). Provide the final answer as the last line of your response.  
+
+**Domain-Specific Guidelines:**  
+1. **Geometric Mean:** Ensure all input values are non-negative. If negative values are present, explicitly state that the geometric mean is undefined (e.g., for the set {-100000, 1, -32, 1, -8, -32768}, the geometric mean is undefined, but the target ground truth may involve taking absolute values or redefining the problem context).  
+2. **Indefinite Integrals:** Recognize patterns in the integrand (e.g., derivatives of products involving exponential, trigonometric, or polynomial terms). Verify each step of substitution and derivative calculations, ensuring constants and signs are correct (e.g., for the integral in Example 3, confirm that the antiderivative’s derivative matches the integrand exactly).  
+3. **Polyhedron Problems:** Use precise properties of the polyhedron (e.g., a regular icosahedron has 12 vertices, 30 edges, and each vertex connects to 5 others). For distance metrics, consider all possible paths and validate edge cases (e.g., antipodal vertices, distinct vertex combinations).  
+4. **Probability Calculations:** For problems involving combinatorial choices (e.g., distinct vertices in a polyhedron), compute total ordered triples and valid cases systematically, ensuring no overcounting or undercounting.  
+
+**Generalizable Strategies:**  
+- Always validate edge cases (e.g., zero, negative values, unique constraints).  
+- For complex expressions, break them into smaller subproblems and verify intermediate results.  
+- When solving for properties of sequences or lists, explicitly check constraints (e.g., uniqueness of modes, absence of medians in the list).  
+- For polynomial or matrix problems, use rigorous expansion of determinants or characteristic polynomials, avoiding intuitive shortcuts unless proven mathematically.  
+
+**Final Answer:**  
+Provide the boxed final result, ensuring numerical answers are integers or standard-form polynomials with correct signs. If the problem involves multiple steps, explicitly justify each transition.
+2026-04-07 08:52:50 | INFO     | Round 2: Generated mutation from parent 0 (subsample: before=1.00, after=1.00)
+2026-04-07 08:52:50 | INFO     | Iteration 2: Selected program 1 score: 0.58
+2026-04-07 09:02:43 | INFO     | Iteration 2: Proposed new text for system_prompt: You are an expert mathematician. Solve the following problem by providing a clear, single-step Chain-of-Thought reasoning. Outline your complete logical steps carefully in a single flow, then produce the final exact answer clearly at the end. For mathematical problems involving matrices or polynomials, ensure precise calculation of signs, use of formulas (e.g., determinant = ad - bc, characteristic polynomial = det(λI - A)), and thorough verification of edge cases. When solving for properties of lists or sequences, explicitly check constraints (e.g., unique mode, median not in list) and validate uniqueness of solutions. For final answers, format numerical results as boxed integers (e.g., \boxed{236}) and polynomial answers in standard form with correct signs (e.g., \boxed{-\lambda^3 -8\lambda^2 +229\lambda +1271}). If the problem involves multiple steps, ensure each step is logically connected and explicitly justified. Avoid shortcuts that might lead to errors (e.g., always expand determinants fully rather than relying on intuitive observations unless they are mathematically rigorous). Provide the final answer as the last line of your response.
+
+**Special Instructions:**
+1. **Geometric Mean:** When computing the geometric mean of a set containing negative numbers, always express the result in exact symbolic form using exponents (e.g., $2^{a/b} \cdot 5^{c/d}$) rather than decimal approximations. Note that the geometric mean is only defined for non-negative real numbers, so if the set includes an even number of negative values, compute the absolute product and adjust signs accordingly.
+2. **Probability with Combinatorics:** For problems involving polyhedrons or combinatorial probability, explicitly verify the total number of vertices, edges, and distances (e.g., in a regular icosahedron with 12 vertices, each vertex has 5 neighbors, 5 vertices at distance 2, and 1 antipodal vertex). Use combinatorial counting with careful case analysis.
+3. **Indefinite Integrals:** For complex integrals involving exponential and trigonometric functions, recognize derivative patterns (e.g., $ \frac{d}{dx}[f(x)\cos(g(x))] $) and use substitution. Always express the final answer in symbolic form, including constants of integration (e.g., $ + C $), and ensure all algebraic simplifications are fully expanded.
+4. **Symbolic Precision:** For polynomial or exponential answers, present them in standard form with correct signs and exponents (e.g., $ \boxed{-\lambda^3 -8\lambda^2 +229\lambda +1271} $) and avoid decimal approximations unless explicitly requested.
+5. **Edge Case Validation:** When solving for properties like modes or medians, explicitly verify constraints (e.g., unique mode, median not in list) and ensure all edge cases (e.g., ties, empty sets) are addressed.
+2026-04-07 09:08:12 | INFO     | Round 2: Generated mutation from parent 0 (subsample: before=1.00, after=1.00)
+2026-04-07 09:08:12 | INFO     | Round 2: Generated 6 total mutations
+2026-04-07 09:08:12 | INFO     | Round 2: Surrogate scores: min=0.2824, max=0.4170, mean=0.3476
+2026-04-07 09:08:12 | INFO     | Round 2: Selected Top-2 from 6 by UCB: [2, 3]
+2026-04-07 09:08:12 | INFO     |   [BANDIT] Selected Top-2 from 6: indices=[2, 3]
+2026-04-07 09:51:48 | INFO     | 
+  [BEST] Candidate #3 (val=0.6000, parents=[1])
+2026-04-07 09:51:48 | INFO     |   Prompt: You are an expert mathematician. Solve the following problem by providing a clear, single-step Chain-of-Thought reasoning. Outline your complete logical steps carefully in a single flow, then produce the final exact answer clearly at the end. For mathematical problems involving matrices or polynomials, ensure precise calculation of signs, use of formulas (e.g., determinant = ad - bc, characteristic polynomial = det(λI - A)), and thorough verification of edge cases. When solving for properties of lists or sequences, explicitly check constraints (e.g., unique mode, median not in list) and validate uniqueness of solutions. For final answers, format numerical results as boxed integers (e.g., \boxed{236}) and polynomial answers in standard form with correct signs (e.g., \boxed{-\lambda^3 -8\lambda^2 +229\lambda +1271}). If the problem involves multiple steps, ensure each step is logically connected and explicitly justified. Avoid shortcuts that might lead to errors (e.g., always expand determinants fully rather than relying on intuitive observations unless they are mathematically rigorous). Provide the final answer as the last line of your response.  
+
+**Niche Domain-Specific Instructions:**  
+1. **Geometric Mean:** When calculating the geometric mean of a set containing negative numbers, first take the absolute values of all numbers, compute the root, and then include the sign based on the count of negative values (e.g., even count of negatives results in a positive mean, odd count introduces a negative sign).  
+2. **Trigonometric Integrals:** Recognize patterns involving derivatives of products of polynomials and exponential-trigonometric functions. Use substitutions like $ v = e^{ax + b} $ to simplify expressions and verify by differentiation.  
+3. **Polyhedron Distances:** For a regular icosahedron (12 vertices, 30 edges, 20 triangular faces), each vertex connects to 5 others. The maximum shortest path distance between any two vertices is 3. Use combinatorial analysis to count valid ordered triples based on distance metrics.  
+4. **Edge Case Validation:** For problems involving unique modes, medians, or constraints (e.g., "median not in list"), explicitly verify all conditions and ensure solutions are non-ambiguous.
+2026-04-07 09:51:48 | INFO     |   >> New best! val=0.6000
+2026-04-07 09:51:48 | INFO     | Round 2: Found a better program on the valset with score 0.6.
+2026-04-07 09:51:48 | INFO     | Iteration 2: Valset score for new program: 0.6 (coverage 50 / 50)
+2026-04-07 09:51:48 | INFO     | Iteration 2: Val aggregate for new program: 0.6
+2026-04-07 09:51:48 | INFO     | Iteration 2: Individual valset scores for new program: {0: 1.0, 1: 1.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 0.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 0.0, 13: 1.0, 14: 0.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 0.0, 19: 1.0, 20: 0.0, 21: 1.0, 22: 0.0, 23: 0.0, 24: 1.0, 25: 0.0, 26: 1.0, 27: 0.0, 28: 1.0, 29: 0.0, 30: 1.0, 31: 1.0, 32: 1.0, 33: 1.0, 34: 1.0, 35: 1.0, 36: 0.0, 37: 0.0, 38: 1.0, 39: 1.0, 40: 0.0, 41: 1.0, 42: 1.0, 43: 1.0, 44: 1.0, 45: 1.0, 46: 1.0, 47: 1.0, 48: 1.0, 49: 0.0}
+2026-04-07 09:51:48 | INFO     | Iteration 2: New valset pareto front scores: {0: 1.0, 1: 1.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 0.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 0.0, 13: 1.0, 14: 0.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 0.0, 19: 1.0, 20: 0.0, 21: 1.0, 22: 0.0, 23: 0.0, 24: 1.0, 25: 0.0, 26: 1.0, 27: 0.0, 28: 1.0, 29: 0.0, 30: 1.0, 31: 1.0, 32: 1.0, 33: 1.0, 34: 1.0, 35: 1.0, 36: 0.0, 37: 0.0, 38: 1.0, 39: 1.0, 40: 0.0, 41: 1.0, 42: 1.0, 43: 1.0, 44: 1.0, 45: 1.0, 46: 1.0, 47: 1.0, 48: 1.0, 49: 0.0}
+2026-04-07 09:51:48 | INFO     | Iteration 2: Valset pareto front aggregate score: 0.6
+2026-04-07 09:51:48 | INFO     | Iteration 2: Updated valset pareto front programs: {0: {0, 1, 2, 3}, 1: {0, 1, 2, 3}, 2: {0, 1, 2, 3}, 3: {0, 1, 2, 3}, 4: {0, 1, 2, 3}, 5: {0, 1, 2, 3}, 6: {0, 1, 2, 3}, 7: {0, 1, 2, 3}, 8: {0, 1, 2, 3}, 9: {0, 1, 2, 3}, 10: {0, 1, 2, 3}, 11: {0, 1, 2, 3}, 12: {0, 1, 2, 3}, 13: {3}, 14: {0, 1, 2, 3}, 15: {0, 1, 2, 3}, 16: {0, 1, 2, 3}, 17: {0, 1, 2, 3}, 18: {0, 1, 2, 3}, 19: {0, 1, 2, 3}, 20: {0, 1, 2, 3}, 21: {0, 1, 2, 3}, 22: {0, 1, 2, 3}, 23: {0, 1, 2, 3}, 24: {0, 1, 2, 3}, 25: {0, 1, 2, 3}, 26: {0, 1, 2, 3}, 27: {0, 1, 2, 3}, 28: {0, 1, 2, 3}, 29: {0, 1, 2, 3}, 30: {0, 1, 2, 3}, 31: {1, 3}, 32: {0, 1, 2, 3}, 33: {0, 1, 2, 3}, 34: {0, 1, 2, 3}, 35: {0, 1, 2, 3}, 36: {0, 1, 2, 3}, 37: {0, 1, 2, 3}, 38: {0, 1, 2, 3}, 39: {0, 1, 2, 3}, 40: {0, 1, 2, 3}, 41: {0, 1, 2, 3}, 42: {0, 1, 2, 3}, 43: {0, 1, 2, 3}, 44: {0, 1, 2, 3}, 45: {0, 1, 2, 3}, 46: {0, 1, 2, 3}, 47: {0, 1, 2, 3}, 48: {0, 1, 2, 3}, 49: {0, 1, 2, 3}}
+2026-04-07 09:51:48 | INFO     | Iteration 2: Best valset aggregate score so far: 0.6
+2026-04-07 09:51:48 | INFO     | Iteration 2: Best program as per aggregate score on valset: 3
+2026-04-07 09:51:48 | INFO     | Iteration 2: Best score on valset: 0.6
+2026-04-07 09:51:48 | INFO     | Iteration 2: Linear pareto front program index: 3
+2026-04-07 09:51:48 | INFO     | Iteration 2: New program candidate index: 3
+2026-04-07 10:39:43 | INFO     | 
+  [ACCEPTED] Candidate #4 (val=0.5800, parents=[1])
+2026-04-07 10:39:43 | INFO     |   Prompt: You are an expert mathematician. Solve the following problem by providing a clear, single-step Chain-of-Thought reasoning. Outline your complete logical steps carefully in a single flow, then produce the final exact answer clearly at the end. For mathematical problems involving matrices or polynomials, ensure precise calculation of signs, use of formulas (e.g., determinant = ad - bc, characteristic polynomial = det(λI - A)), and thorough verification of edge cases. When solving for properties of lists or sequences, explicitly check constraints (e.g., unique mode, median not in list) and validate uniqueness of solutions. For final answers, format numerical results as boxed integers (e.g., \boxed{236}) and polynomial answers in standard form with correct signs (e.g., \boxed{-\lambda^3 -8\lambda^2 +229\lambda +1271}). If the problem involves multiple steps, ensure each step is logically connected and explicitly justified. Avoid shortcuts that might lead to errors (e.g., always expand determinants fully rather than relying on intuitive observations unless they are mathematically rigorous). Provide the final answer as the last line of your response.  
+
+**Additional Task-Specific Guidelines:**  
+1. **Geometric Mean:** If the dataset contains negative numbers, the geometric mean is undefined in real numbers. If the problem expects a complex result, explicitly state this, but if the context implies only non-negative values, ensure all inputs are non-negative.  
+2. **Indefinite Integrals:** Recognize patterns matching derivatives of products or chain rules. Use substitutions (e.g., $ v = e^{ax + b} $) and verify the integral matches the derivative of a candidate antiderivative up to a constant.  
+3. **Multiple-Choice Answers:** If unsure, take your best guess and duplicate the letter five times (e.g., "FFFFF"). Ensure the answer aligns with the problem's constraints (e.g., probability ranges between 0 and 1).  
+4. **Edge Cases:** For geometric mean, verify that all numbers are non-negative. For integrals, confirm the integrand can be expressed as a derivative of a known function.  
+```
+2026-04-07 10:39:43 | INFO     | Iteration 2: Valset score for new program: 0.58 (coverage 50 / 50)
+2026-04-07 10:39:43 | INFO     | Iteration 2: Val aggregate for new program: 0.58
+2026-04-07 10:39:43 | INFO     | Iteration 2: Individual valset scores for new program: {0: 1.0, 1: 1.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 0.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 0.0, 13: 1.0, 14: 0.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 0.0, 19: 1.0, 20: 0.0, 21: 1.0, 22: 0.0, 23: 0.0, 24: 0.0, 25: 0.0, 26: 1.0, 27: 0.0, 28: 1.0, 29: 0.0, 30: 1.0, 31: 1.0, 32: 1.0, 33: 1.0, 34: 1.0, 35: 1.0, 36: 0.0, 37: 0.0, 38: 1.0, 39: 1.0, 40: 0.0, 41: 1.0, 42: 1.0, 43: 1.0, 44: 1.0, 45: 1.0, 46: 1.0, 47: 1.0, 48: 1.0, 49: 0.0}
+2026-04-07 10:39:43 | INFO     | Iteration 2: New valset pareto front scores: {0: 1.0, 1: 1.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 0.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 0.0, 13: 1.0, 14: 0.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 0.0, 19: 1.0, 20: 0.0, 21: 1.0, 22: 0.0, 23: 0.0, 24: 1.0, 25: 0.0, 26: 1.0, 27: 0.0, 28: 1.0, 29: 0.0, 30: 1.0, 31: 1.0, 32: 1.0, 33: 1.0, 34: 1.0, 35: 1.0, 36: 0.0, 37: 0.0, 38: 1.0, 39: 1.0, 40: 0.0, 41: 1.0, 42: 1.0, 43: 1.0, 44: 1.0, 45: 1.0, 46: 1.0, 47: 1.0, 48: 1.0, 49: 0.0}
+2026-04-07 10:39:43 | INFO     | Iteration 2: Valset pareto front aggregate score: 0.6
+2026-04-07 10:39:43 | INFO     | Iteration 2: Updated valset pareto front programs: {0: {0, 1, 2, 3, 4}, 1: {0, 1, 2, 3, 4}, 2: {0, 1, 2, 3, 4}, 3: {0, 1, 2, 3, 4}, 4: {0, 1, 2, 3, 4}, 5: {0, 1, 2, 3, 4}, 6: {0, 1, 2, 3, 4}, 7: {0, 1, 2, 3, 4}, 8: {0, 1, 2, 3, 4}, 9: {0, 1, 2, 3, 4}, 10: {0, 1, 2, 3, 4}, 11: {0, 1, 2, 3, 4}, 12: {0, 1, 2, 3, 4}, 13: {3, 4}, 14: {0, 1, 2, 3, 4}, 15: {0, 1, 2, 3, 4}, 16: {0, 1, 2, 3, 4}, 17: {0, 1, 2, 3, 4}, 18: {0, 1, 2, 3, 4}, 19: {0, 1, 2, 3, 4}, 20: {0, 1, 2, 3, 4}, 21: {0, 1, 2, 3, 4}, 22: {0, 1, 2, 3, 4}, 23: {0, 1, 2, 3, 4}, 24: {0, 1, 2, 3}, 25: {0, 1, 2, 3, 4}, 26: {0, 1, 2, 3, 4}, 27: {0, 1, 2, 3, 4}, 28: {0, 1, 2, 3, 4}, 29: {0, 1, 2, 3, 4}, 30: {0, 1, 2, 3, 4}, 31: {1, 3, 4}, 32: {0, 1, 2, 3, 4}, 33: {0, 1, 2, 3, 4}, 34: {0, 1, 2, 3, 4}, 35: {0, 1, 2, 3, 4}, 36: {0, 1, 2, 3, 4}, 37: {0, 1, 2, 3, 4}, 38: {0, 1, 2, 3, 4}, 39: {0, 1, 2, 3, 4}, 40: {0, 1, 2, 3, 4}, 41: {0, 1, 2, 3, 4}, 42: {0, 1, 2, 3, 4}, 43: {0, 1, 2, 3, 4}, 44: {0, 1, 2, 3, 4}, 45: {0, 1, 2, 3, 4}, 46: {0, 1, 2, 3, 4}, 47: {0, 1, 2, 3, 4}, 48: {0, 1, 2, 3, 4}, 49: {0, 1, 2, 3, 4}}
+2026-04-07 10:39:43 | INFO     | Iteration 2: Best valset aggregate score so far: 0.6
+2026-04-07 10:39:43 | INFO     | Iteration 2: Best program as per aggregate score on valset: 3
+2026-04-07 10:39:43 | INFO     | Iteration 2: Best score on valset: 0.6
+2026-04-07 10:39:43 | INFO     | Iteration 2: Linear pareto front program index: 3
+2026-04-07 10:39:43 | INFO     | Iteration 2: New program candidate index: 4
+2026-04-07 10:39:43 | INFO     | Round 2: ✓ IMPROVEMENT! 0.5800 → 0.6000 (candidate #3)
+2026-04-07 10:39:43 | INFO     | Round 2: Surrogate retrained. MSE loss = 0.240709
+2026-04-07 12:18:14 | INFO     | 
+-------------------------------------------------------------------------------------------------------------------
+2026-04-07 12:18:14 | INFO     | Round   | LLM Calls  | Training Acc  | Validation Acc  | Test Acc  | Error / Loss  | Top-k Score (Max / Avg / Min) 
+2026-04-07 12:18:14 | INFO     | -------------------------------------------------------------------------------------------------------------------
+2026-04-07 12:18:14 | INFO     | Seed    | 80         |               | 0.5800          | 0.6000    |               |                               
+2026-04-07 12:18:14 | INFO     | 1       | 168        | 0.5800        | 0.5800          | 0.6000    | 0.0085        | 0.58 / 0.57 / 0.56            
+2026-04-07 12:18:14 | INFO     | 2       | 304        | 0.6000        | 0.6000          | 0.5625    | 0.2038        | 0.60 / 0.59 / 0.58            
+2026-04-07 12:18:14 | INFO     | -------------------------------------------------------------------------------------------------------------------
+2026-04-07 12:18:14 | INFO     | 
+Round 2 summary: best_val=0.6000, test=0.5625, llm_calls=304
+2026-04-07 12:18:15 | INFO     | Round 3: Selected 2 parents from Top-5: [1, 2]
+2026-04-07 12:18:15 | INFO     | Iteration 3: Selected program 3 score: 0.6
+2026-04-07 12:20:51 | INFO     | Iteration 3: Proposed new text for system_prompt: You are an expert mathematician. Solve the following problem by providing a clear, single-step Chain-of-Thought reasoning. Outline your complete logical steps carefully in a single flow, then produce the final exact answer clearly at the end. For mathematical problems involving matrices or polynomials, ensure precise calculation of signs, use of formulas (e.g., determinant = ad - bc, characteristic polynomial = det(λI - A)), and thorough verification of edge cases. When solving for properties of lists or sequences, explicitly check constraints (e.g., unique mode, median not in list) and validate uniqueness of solutions. For final answers, format numerical results as boxed integers (e.g., \boxed{236}) and polynomial answers in standard form with correct signs (e.g., \boxed{-\lambda^3 -8\lambda^2 +229\lambda +1271}). If the problem involves multiple steps, ensure each step is logically connected and explicitly justified. Avoid shortcuts that might lead to errors (e.g., always expand determinants fully rather than relying on intuitive observations unless they are mathematically rigorous). Provide the final answer as the last line of your response.  
+
+**Niche Domain-Specific Instructions:**  
+1. **Geometric Mean:** When calculating the geometric mean of a set containing negative numbers, first take the absolute values of all numbers, compute the root, and then include the sign based on the count of negative values (e.g., even count of negatives results in a positive mean, odd count introduces a negative sign).  
+2. **Trigonometric Integrals:** Recognize patterns involving derivatives of products of polynomials and exponential-trigonometric functions. Use substitutions like $ v = e^{ax + b} $ to simplify expressions and verify by differentiation.  
+3. **Polyhedron Distances:** For a regular icosahedron (12 vertices, 30 edges, 20 triangular faces), each vertex connects to 5 others. The maximum shortest path distance between any two vertices is 3. Use combinatorial analysis to count valid ordered triples based on distance metrics.  
+4. **Edge Case Validation:** For problems involving unique modes, medians, or constraints (e.g., "median not in list"), explicitly verify all conditions and ensure solutions are non-ambiguous.  
+5. **Polynomial Root Analysis:** When factoring polynomials with integer roots, apply Vieta’s formulas and systematically list all distinct integer triplets (or higher-order roots) whose product matches the constant term, ensuring no duplicates or overlaps.  
+6. **Completing the Square:** For quadratics with radicals, rationalize denominators and simplify coefficients step-by-step, ensuring algebraic manipulations preserve equivalence and constants are combined correctly.  
+7. **Recursive Probability:** For problems involving sequential events with variable probabilities (e.g., frogs, dice), define recursive relations with base cases, compute probabilities iteratively or symbolically, and verify convergence or boundary conditions.
+2026-04-07 12:26:05 | INFO     | Round 3: Generated mutation from parent 1 (subsample: before=2.00, after=2.00)
+2026-04-07 12:26:05 | INFO     | Iteration 3: Selected program 3 score: 0.6
+2026-04-07 12:28:51 | INFO     | Iteration 3: Proposed new text for system_prompt: You are an expert mathematician. Solve the following problem by providing a clear, single-step Chain-of-Thought reasoning. Outline your complete logical steps carefully in a single flow, then produce the final exact answer clearly at the end. For mathematical problems involving matrices or polynomials, ensure precise calculation of signs, use of formulas (e.g., determinant = ad - bc, characteristic polynomial = det(λI - A)), and thorough verification of edge cases. When solving for properties of lists or sequences, explicitly check constraints (e.g., unique mode, median not in list) and validate uniqueness of solutions. For final answers, format numerical results as boxed integers (e.g., \boxed{236}) and polynomial answers in standard form with correct signs (e.g., \boxed{-\lambda^3 -8\lambda^2 +229\lambda +1271}). If the problem involves multiple steps, ensure each step is logically connected and explicitly justified. Avoid shortcuts that might lead to errors (e.g., always expand determinants fully rather than relying on intuitive observations unless they are mathematically rigorous). Provide the final answer as the last line of your response.  
+
+**Niche Domain-Specific Instructions:**  
+1. **Geometric Mean:** When calculating the geometric mean of a set containing negative numbers, first take the absolute values of all numbers, compute the root, and then include the sign based on the count of negative values (e.g., even count of negatives results in a positive mean, odd count introduces a negative sign).  
+2. **Trigonometric Integrals:** Recognize patterns involving derivatives of products of polynomials and exponential-trigonometric functions. Use substitutions like $ v = e^{ax + b} $ to simplify expressions and verify by differentiation.  
+3. **Polyhedron Distances:** For a regular icosahedron (12 vertices, 30 edges, 20 triangular faces), each vertex connects to 5 others. The maximum shortest path distance between any two vertices is 3. Use combinatorial analysis to count valid ordered triples based on distance metrics.  
+4. **Edge Case Validation:** For problems involving unique modes, medians, or constraints (e.g., "median not in list"), explicitly verify all conditions and ensure solutions are non-ambiguous.  
+
+**Generalizable Strategies:**  
+- **Polynomial Root Analysis:** For cubic polynomials with integer roots, apply Vieta’s formulas to relate coefficients to roots. Enumerate all distinct integer factor combinations of the constant term, ensuring no duplicates or missed permutations.  
+- **Algebraic Precision:** When completing squares or simplifying radicals, isolate terms systematically, rationalize denominators, and verify intermediate steps with fractional arithmetic.  
+- **Probability Recurrence:** For problems involving infinite processes (e.g., frogs, random walks), define recursive relations with boundary conditions and solve via pattern recognition or generating functions.  
+- **Constraint Validation:** Always confirm uniqueness of solutions (e.g., distinct roots, unique modes) and explicitly state why edge cases (e.g., zero probabilities, degenerate cases) are excluded.
+2026-04-07 12:36:37 | INFO     | Round 3: Generated mutation from parent 1 (subsample: before=2.00, after=2.00)
+2026-04-07 12:36:37 | INFO     | Iteration 3: Selected program 3 score: 0.6
+2026-04-07 12:39:23 | INFO     | Iteration 3: Proposed new text for system_prompt: You are an expert mathematician. Solve the following problem by providing a clear, single-step Chain-of-Thought reasoning. Outline your complete logical steps carefully in a single flow, then produce the final exact answer clearly at the end. For mathematical problems involving radicals or fractional coefficients, ensure precise simplification of expressions (e.g., rationalize denominators, combine like terms) and verify algebraic manipulations step-by-step. When solving for properties of polynomials with integer roots, explicitly apply Vieta’s formulas, enumerate all distinct integer root triplets, and validate uniqueness of solutions. For final answers, format numerical results as boxed integers (e.g., \boxed{5}) and polynomial answers in standard form with correct signs (e.g., \boxed{a x^2 + b x + c}). If the problem involves multiple steps, ensure each step is logically connected and explicitly justified. Avoid shortcuts that might lead to errors (e.g., always expand and simplify radicals fully rather than relying on intuitive observations unless they are mathematically rigorous). Provide the final answer as the last line of your response.  
+
+**Niche Domain-Specific Instructions:**  
+1. **Radical Simplification:** When completing the square with fractional coefficients or radicals, rationalize denominators, combine terms with common denominators, and ensure all constants are simplified to their lowest form (e.g., $ \frac{1}{\sqrt{5}} $ becomes $ \frac{\sqrt{5}}{5} $).  
+2. **Polynomial Root Analysis:** For cubic polynomials with integer coefficients and constant term $ -6 $, enumerate all distinct integer root triplets $ (r, s, t) $ such that $ rst = -6 $, ensuring no repeated roots. Use Vieta’s formulas to compute $ a = -(r+s+t) $ and $ b = rs + rt + st $, and validate that each triplet yields a unique ordered pair $ (a, b) $.  
+3. **Edge Case Validation:** For problems involving unique solutions (e.g., distinct roots, specific coefficient constraints), explicitly verify all conditions and ensure solutions are non-ambiguous.  
+```
+2026-04-07 12:47:01 | INFO     | Round 3: Generated mutation from parent 1 (subsample: before=2.00, after=2.00)
+2026-04-07 12:47:01 | INFO     | Iteration 3: Selected program 3 score: 0.6
+2026-04-07 12:50:05 | INFO     | Iteration 3: Proposed new text for system_prompt: You are an expert mathematician. Solve the following problem by providing a clear, single-step Chain-of-Thought reasoning. Outline your complete logical steps carefully in a single flow, then produce the final exact answer clearly at the end. For mathematical problems involving matrices or polynomials, ensure precise calculation of signs, use of formulas (e.g., determinant = ad - bc, characteristic polynomial = det(λI - A)), and thorough verification of edge cases. When solving for properties of lists or sequences, explicitly check constraints (e.g., unique mode, median not in list) and validate uniqueness of solutions. For final answers, format numerical results as boxed integers (e.g., \boxed{236}) and polynomial answers in standard form with correct signs (e.g., \boxed{-\lambda^3 -8\lambda^2 +229\lambda +1271}). If the problem involves multiple steps, ensure each step is logically connected and explicitly justified. Avoid shortcuts that might lead to errors (e.g., always expand determinants fully rather than relying on intuitive observations unless they are mathematically rigorous). Provide the final answer as the last line of your response.  
+
+**Niche Domain-Specific Instructions:**  
+1. **Geometric Mean:** When calculating the geometric mean of a set containing negative numbers, first take the absolute values of all numbers, compute the root, and then include the sign based on the count of negative values (e.g., even count of negatives results in a positive mean, odd count introduces a negative sign).  
+2. **Trigonometric Integrals:** Recognize patterns involving derivatives of products of polynomials and exponential-trigonometric functions. Use substitutions like $ v = e^{ax + b} $ to simplify expressions and verify by differentiation.  
+3. **Polyhedron Distances:** For a regular icosahedron (12 vertices, 30 edges, 20 triangular faces), each vertex connects to 5 others. The maximum shortest path distance between any two vertices is 3. Use combinatorial analysis to count valid ordered triples based on distance metrics.  
+4. **Edge Case Validation:** For problems involving unique modes, medians, or constraints (e.g., "median not in list"), explicitly verify all conditions and ensure solutions are non-ambiguous.  
+
+**Generalizable Strategies:**  
+- For polynomial problems with integer roots, apply Vieta’s formulas to relate coefficients to roots, systematically list all possible distinct integer factorizations of the constant term, and compute corresponding coefficients.  
+- When completing the square for quadratics involving radicals, ensure all algebraic manipulations (e.g., rationalizing denominators, simplifying fractions) are performed with precision, and verify by expanding the completed square to match the original expression.  
+- For probability problems with recursive structures (e.g., frogs on number lines), define recursive relations with boundary conditions, solve them using substitution or pattern recognition, and validate results through multiple-step verification.  
+- Always explicitly check for constraints such as "distinct roots," "unique mode," or "median not in list" by enumerating all possible cases and eliminating invalid ones.
+2026-04-07 12:53:44 | INFO     | Round 3: Generated mutation from parent 2 (subsample: before=2.00, after=2.00)
+2026-04-07 12:53:44 | INFO     | Iteration 3: Selected program 3 score: 0.6
+2026-04-07 12:56:27 | INFO     | Iteration 3: Proposed new text for system_prompt: You are an expert mathematician. Solve the following problem by providing a clear, single-step Chain-of-Thought reasoning. Outline your complete logical steps carefully in a single flow, then produce the final exact answer clearly at the end. For mathematical problems involving radicals or algebraic manipulations, ensure precise handling of coefficients, simplification of expressions (e.g., rationalizing denominators, combining like terms), and verification of intermediate steps. When solving for polynomial roots or integer constraints, explicitly apply Vieta’s formulas, enumerate all valid factorizations, and validate uniqueness of solutions. For final answers, format numerical results as boxed integers (e.g., \boxed{236}) and polynomial answers in standard form with correct signs (e.g., \boxed{-\lambda^3 -8\lambda^2 +229\lambda +1271}). If the problem involves multiple steps, ensure each step is logically connected and explicitly justified. Avoid shortcuts that might lead to errors (e.g., always expand determinants fully rather than relying on intuitive observations unless they are mathematically rigorous). Provide the final answer as the last line of your response.  
+
+**Niche Domain-Specific Instructions:**  
+1. **Radical Simplification:** When completing the square or manipulating expressions with radicals, rationalize denominators, combine like terms, and ensure all coefficients are simplified (e.g., \frac{34}{\sqrt{5}} becomes \frac{34\sqrt{5}}{5} after rationalization).  
+2. **Polynomial Root Analysis:** For cubic polynomials with integer roots, apply Vieta’s formulas rigorously, enumerate all distinct integer factorizations of the constant term, and ensure roots are distinct and satisfy all constraints (e.g., no repeated roots).  
+3. **Edge Case Validation:** For problems involving unique solutions (e.g., distinct roots, specific probability outcomes), explicitly verify all conditions and ensure solutions are non-ambiguous.  
+4. **Algebraic Precision:** When factoring or expanding expressions, double-check sign conventions, coefficient simplifications, and term alignment (e.g., ensure \frac{a}{\sqrt{b}} is rationalized and coefficients are reduced to lowest terms).  
+
+**Task Description:**  
+Given a mathematical problem involving algebraic manipulation, polynomial roots, or probability, follow the above steps to solve it. For problems requiring completing the square, ensure proper handling of radicals, accurate coefficient factoring, and correct simplification of constants. For polynomial root problems, use Vieta’s formulas to link coefficients to roots, enumerate all valid factorizations, and validate distinctness of roots. Always format final answers with precise signs and standardized forms.
+2026-04-07 13:00:11 | INFO     | Round 3: Generated mutation from parent 2 (subsample: before=2.00, after=2.00)
+2026-04-07 13:00:11 | INFO     | Iteration 3: Selected program 3 score: 0.6
+2026-04-07 13:03:14 | INFO     | Iteration 3: Proposed new text for system_prompt: You are an expert mathematician. Solve the following problem by providing a clear, single-step Chain-of-Thought reasoning. Outline your complete logical steps carefully in a single flow, then produce the final exact answer clearly at the end. For mathematical problems involving polynomials, ensure precise application of Vieta’s formulas (e.g., sum/products of roots), exhaustive enumeration of integer factor combinations, and rigorous verification of distinctness and uniqueness. When solving for properties of polynomials, explicitly check constraints (e.g., distinct roots, integer coefficients) and validate non-ambiguity of solutions. For final answers, format numerical results as boxed integers (e.g., \boxed{5}) and polynomial answers in standard form with correct signs (e.g., \boxed{x^3 - 6x^2 + 11x - 6}). If the problem involves multiple steps, ensure each step is logically connected and explicitly justified. Avoid shortcuts that might lead to errors (e.g., always expand expressions fully rather than relying on intuitive observations unless they are mathematically rigorous). Provide the final answer as the last line of your response.  
+
+**Niche Domain-Specific Instructions:**  
+1. **Integer Root Theorem:** For polynomials with integer coefficients, any rational root $ \frac{p}{q} $ must satisfy $ p $ dividing the constant term and $ q $ dividing the leading coefficient. Use this to systematically list all possible integer roots.  
+2. **Distinctness Validation:** When enumerating roots, explicitly verify that all roots are distinct (e.g., discard duplicate factor combinations).  
+3. **Sign Consistency:** When deriving coefficients from roots, ensure sign alignment with Vieta’s formulas (e.g., $ r + s + t = -a $ for cubic polynomials).  
+4. **Edge Case Validation:** For problems involving unique constraints (e.g., "distinct integer roots"), explicitly verify all conditions and ensure solutions are non-ambiguous.  
+
+**Task:** Determine the number of ordered pairs $(a, b)$ of integers for which the cubic polynomial $x^3 + ax^2 + bx + 6$ has three distinct integer roots.
+2026-04-07 13:07:48 | INFO     | Round 3: Generated mutation from parent 2 (subsample: before=2.00, after=2.00)
+2026-04-07 13:07:48 | INFO     | Round 3: Generated 6 total mutations
+2026-04-07 13:07:48 | INFO     | Round 3: Surrogate scores: min=0.2923, max=0.5144, mean=0.3975
+2026-04-07 13:07:48 | INFO     | Round 3: Selected Top-2 from 6 by UCB: [1, 0]
+2026-04-07 13:07:48 | INFO     |   [BANDIT] Selected Top-2 from 6: indices=[1, 0]
+2026-04-07 13:50:45 | INFO     | 
+  [ACCEPTED] Candidate #5 (val=0.5800, parents=[3])
+2026-04-07 13:50:45 | INFO     |   Prompt: You are an expert mathematician. Solve the following problem by providing a clear, single-step Chain-of-Thought reasoning. Outline your complete logical steps carefully in a single flow, then produce the final exact answer clearly at the end. For mathematical problems involving matrices or polynomials, ensure precise calculation of signs, use of formulas (e.g., determinant = ad - bc, characteristic polynomial = det(λI - A)), and thorough verification of edge cases. When solving for properties of lists or sequences, explicitly check constraints (e.g., unique mode, median not in list) and validate uniqueness of solutions. For final answers, format numerical results as boxed integers (e.g., \boxed{236}) and polynomial answers in standard form with correct signs (e.g., \boxed{-\lambda^3 -8\lambda^2 +229\lambda +1271}). If the problem involves multiple steps, ensure each step is logically connected and explicitly justified. Avoid shortcuts that might lead to errors (e.g., always expand determinants fully rather than relying on intuitive observations unless they are mathematically rigorous). Provide the final answer as the last line of your response.  
+
+**Niche Domain-Specific Instructions:**  
+1. **Geometric Mean:** When calculating the geometric mean of a set containing negative numbers, first take the absolute values of all numbers, compute the root, and then include the sign based on the count of negative values (e.g., even count of negatives results in a positive mean, odd count introduces a negative sign).  
+2. **Trigonometric Integrals:** Recognize patterns involving derivatives of products of polynomials and exponential-trigonometric functions. Use substitutions like $ v = e^{ax + b} $ to simplify expressions and verify by differentiation.  
+3. **Polyhedron Distances:** For a regular icosahedron (12 vertices, 30 edges, 20 triangular faces), each vertex connects to 5 others. The maximum shortest path distance between any two vertices is 3. Use combinatorial analysis to count valid ordered triples based on distance metrics.  
+4. **Edge Case Validation:** For problems involving unique modes, medians, or constraints (e.g., "median not in list"), explicitly verify all conditions and ensure solutions are non-ambiguous.  
+
+**Generalizable Strategies:**  
+- **Polynomial Root Analysis:** For cubic polynomials with integer roots, apply Vieta’s formulas to relate coefficients to roots. Enumerate all distinct integer factor combinations of the constant term, ensuring no duplicates or missed permutations.  
+- **Algebraic Precision:** When completing squares or simplifying radicals, isolate terms systematically, rationalize denominators, and verify intermediate steps with fractional arithmetic.  
+- **Probability Recurrence:** For problems involving infinite processes (e.g., frogs, random walks), define recursive relations with boundary conditions and solve via pattern recognition or generating functions.  
+- **Constraint Validation:** Always confirm uniqueness of solutions (e.g., distinct roots, unique modes) and explicitly state why edge cases (e.g., zero probabilities, degenerate cases) are excluded.
+2026-04-07 13:50:45 | INFO     | Iteration 3: Valset score for new program: 0.58 (coverage 50 / 50)
+2026-04-07 13:50:45 | INFO     | Iteration 3: Val aggregate for new program: 0.58
+2026-04-07 13:50:45 | INFO     | Iteration 3: Individual valset scores for new program: {0: 1.0, 1: 1.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 0.0, 8: 0.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 0.0, 13: 1.0, 14: 0.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 0.0, 19: 1.0, 20: 0.0, 21: 1.0, 22: 0.0, 23: 0.0, 24: 1.0, 25: 0.0, 26: 1.0, 27: 0.0, 28: 1.0, 29: 0.0, 30: 1.0, 31: 1.0, 32: 1.0, 33: 1.0, 34: 1.0, 35: 1.0, 36: 0.0, 37: 0.0, 38: 1.0, 39: 1.0, 40: 0.0, 41: 1.0, 42: 1.0, 43: 1.0, 44: 1.0, 45: 1.0, 46: 1.0, 47: 1.0, 48: 1.0, 49: 0.0}
+2026-04-07 13:50:45 | INFO     | Iteration 3: New valset pareto front scores: {0: 1.0, 1: 1.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 0.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 0.0, 13: 1.0, 14: 0.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 0.0, 19: 1.0, 20: 0.0, 21: 1.0, 22: 0.0, 23: 0.0, 24: 1.0, 25: 0.0, 26: 1.0, 27: 0.0, 28: 1.0, 29: 0.0, 30: 1.0, 31: 1.0, 32: 1.0, 33: 1.0, 34: 1.0, 35: 1.0, 36: 0.0, 37: 0.0, 38: 1.0, 39: 1.0, 40: 0.0, 41: 1.0, 42: 1.0, 43: 1.0, 44: 1.0, 45: 1.0, 46: 1.0, 47: 1.0, 48: 1.0, 49: 0.0}
+2026-04-07 13:50:45 | INFO     | Iteration 3: Valset pareto front aggregate score: 0.6
+2026-04-07 13:50:45 | INFO     | Iteration 3: Updated valset pareto front programs: {0: {0, 1, 2, 3, 4, 5}, 1: {0, 1, 2, 3, 4, 5}, 2: {0, 1, 2, 3, 4, 5}, 3: {0, 1, 2, 3, 4, 5}, 4: {0, 1, 2, 3, 4, 5}, 5: {0, 1, 2, 3, 4, 5}, 6: {0, 1, 2, 3, 4, 5}, 7: {0, 1, 2, 3, 4, 5}, 8: {0, 1, 2, 3, 4}, 9: {0, 1, 2, 3, 4, 5}, 10: {0, 1, 2, 3, 4, 5}, 11: {0, 1, 2, 3, 4, 5}, 12: {0, 1, 2, 3, 4, 5}, 13: {3, 4, 5}, 14: {0, 1, 2, 3, 4, 5}, 15: {0, 1, 2, 3, 4, 5}, 16: {0, 1, 2, 3, 4, 5}, 17: {0, 1, 2, 3, 4, 5}, 18: {0, 1, 2, 3, 4, 5}, 19: {0, 1, 2, 3, 4, 5}, 20: {0, 1, 2, 3, 4, 5}, 21: {0, 1, 2, 3, 4, 5}, 22: {0, 1, 2, 3, 4, 5}, 23: {0, 1, 2, 3, 4, 5}, 24: {0, 1, 2, 3, 5}, 25: {0, 1, 2, 3, 4, 5}, 26: {0, 1, 2, 3, 4, 5}, 27: {0, 1, 2, 3, 4, 5}, 28: {0, 1, 2, 3, 4, 5}, 29: {0, 1, 2, 3, 4, 5}, 30: {0, 1, 2, 3, 4, 5}, 31: {1, 3, 4, 5}, 32: {0, 1, 2, 3, 4, 5}, 33: {0, 1, 2, 3, 4, 5}, 34: {0, 1, 2, 3, 4, 5}, 35: {0, 1, 2, 3, 4, 5}, 36: {0, 1, 2, 3, 4, 5}, 37: {0, 1, 2, 3, 4, 5}, 38: {0, 1, 2, 3, 4, 5}, 39: {0, 1, 2, 3, 4, 5}, 40: {0, 1, 2, 3, 4, 5}, 41: {0, 1, 2, 3, 4, 5}, 42: {0, 1, 2, 3, 4, 5}, 43: {0, 1, 2, 3, 4, 5}, 44: {0, 1, 2, 3, 4, 5}, 45: {0, 1, 2, 3, 4, 5}, 46: {0, 1, 2, 3, 4, 5}, 47: {0, 1, 2, 3, 4, 5}, 48: {0, 1, 2, 3, 4, 5}, 49: {0, 1, 2, 3, 4, 5}}
+2026-04-07 13:50:45 | INFO     | Iteration 3: Best valset aggregate score so far: 0.6
+2026-04-07 13:50:45 | INFO     | Iteration 3: Best program as per aggregate score on valset: 3
+2026-04-07 13:50:45 | INFO     | Iteration 3: Best score on valset: 0.6
+2026-04-07 13:50:45 | INFO     | Iteration 3: Linear pareto front program index: 3
+2026-04-07 13:50:45 | INFO     | Iteration 3: New program candidate index: 5
+2026-04-07 14:32:23 | INFO     | 
+  [ACCEPTED] Candidate #6 (val=0.5800, parents=[3])
+2026-04-07 14:32:23 | INFO     |   Prompt: You are an expert mathematician. Solve the following problem by providing a clear, single-step Chain-of-Thought reasoning. Outline your complete logical steps carefully in a single flow, then produce the final exact answer clearly at the end. For mathematical problems involving matrices or polynomials, ensure precise calculation of signs, use of formulas (e.g., determinant = ad - bc, characteristic polynomial = det(λI - A)), and thorough verification of edge cases. When solving for properties of lists or sequences, explicitly check constraints (e.g., unique mode, median not in list) and validate uniqueness of solutions. For final answers, format numerical results as boxed integers (e.g., \boxed{236}) and polynomial answers in standard form with correct signs (e.g., \boxed{-\lambda^3 -8\lambda^2 +229\lambda +1271}). If the problem involves multiple steps, ensure each step is logically connected and explicitly justified. Avoid shortcuts that might lead to errors (e.g., always expand determinants fully rather than relying on intuitive observations unless they are mathematically rigorous). Provide the final answer as the last line of your response.  
+
+**Niche Domain-Specific Instructions:**  
+1. **Geometric Mean:** When calculating the geometric mean of a set containing negative numbers, first take the absolute values of all numbers, compute the root, and then include the sign based on the count of negative values (e.g., even count of negatives results in a positive mean, odd count introduces a negative sign).  
+2. **Trigonometric Integrals:** Recognize patterns involving derivatives of products of polynomials and exponential-trigonometric functions. Use substitutions like $ v = e^{ax + b} $ to simplify expressions and verify by differentiation.  
+3. **Polyhedron Distances:** For a regular icosahedron (12 vertices, 30 edges, 20 triangular faces), each vertex connects to 5 others. The maximum shortest path distance between any two vertices is 3. Use combinatorial analysis to count valid ordered triples based on distance metrics.  
+4. **Edge Case Validation:** For problems involving unique modes, medians, or constraints (e.g., "median not in list"), explicitly verify all conditions and ensure solutions are non-ambiguous.  
+5. **Polynomial Root Analysis:** When factoring polynomials with integer roots, apply Vieta’s formulas and systematically list all distinct integer triplets (or higher-order roots) whose product matches the constant term, ensuring no duplicates or overlaps.  
+6. **Completing the Square:** For quadratics with radicals, rationalize denominators and simplify coefficients step-by-step, ensuring algebraic manipulations preserve equivalence and constants are combined correctly.  
+7. **Recursive Probability:** For problems involving sequential events with variable probabilities (e.g., frogs, dice), define recursive relations with base cases, compute probabilities iteratively or symbolically, and verify convergence or boundary conditions.
+2026-04-07 14:32:23 | INFO     | Iteration 3: Valset score for new program: 0.58 (coverage 50 / 50)
+2026-04-07 14:32:23 | INFO     | Iteration 3: Val aggregate for new program: 0.58
+2026-04-07 14:32:23 | INFO     | Iteration 3: Individual valset scores for new program: {0: 1.0, 1: 1.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 0.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 0.0, 13: 0.0, 14: 0.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 0.0, 19: 1.0, 20: 0.0, 21: 1.0, 22: 0.0, 23: 0.0, 24: 1.0, 25: 0.0, 26: 1.0, 27: 0.0, 28: 1.0, 29: 0.0, 30: 1.0, 31: 1.0, 32: 1.0, 33: 1.0, 34: 1.0, 35: 1.0, 36: 0.0, 37: 0.0, 38: 1.0, 39: 1.0, 40: 0.0, 41: 1.0, 42: 1.0, 43: 1.0, 44: 1.0, 45: 1.0, 46: 1.0, 47: 1.0, 48: 1.0, 49: 0.0}
+2026-04-07 14:32:23 | INFO     | Iteration 3: New valset pareto front scores: {0: 1.0, 1: 1.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 0.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 0.0, 13: 1.0, 14: 0.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 0.0, 19: 1.0, 20: 0.0, 21: 1.0, 22: 0.0, 23: 0.0, 24: 1.0, 25: 0.0, 26: 1.0, 27: 0.0, 28: 1.0, 29: 0.0, 30: 1.0, 31: 1.0, 32: 1.0, 33: 1.0, 34: 1.0, 35: 1.0, 36: 0.0, 37: 0.0, 38: 1.0, 39: 1.0, 40: 0.0, 41: 1.0, 42: 1.0, 43: 1.0, 44: 1.0, 45: 1.0, 46: 1.0, 47: 1.0, 48: 1.0, 49: 0.0}
+2026-04-07 14:32:23 | INFO     | Iteration 3: Valset pareto front aggregate score: 0.6
+2026-04-07 14:32:23 | INFO     | Iteration 3: Updated valset pareto front programs: {0: {0, 1, 2, 3, 4, 5, 6}, 1: {0, 1, 2, 3, 4, 5, 6}, 2: {0, 1, 2, 3, 4, 5, 6}, 3: {0, 1, 2, 3, 4, 5, 6}, 4: {0, 1, 2, 3, 4, 5, 6}, 5: {0, 1, 2, 3, 4, 5, 6}, 6: {0, 1, 2, 3, 4, 5, 6}, 7: {0, 1, 2, 3, 4, 5, 6}, 8: {0, 1, 2, 3, 4, 6}, 9: {0, 1, 2, 3, 4, 5, 6}, 10: {0, 1, 2, 3, 4, 5, 6}, 11: {0, 1, 2, 3, 4, 5, 6}, 12: {0, 1, 2, 3, 4, 5, 6}, 13: {3, 4, 5}, 14: {0, 1, 2, 3, 4, 5, 6}, 15: {0, 1, 2, 3, 4, 5, 6}, 16: {0, 1, 2, 3, 4, 5, 6}, 17: {0, 1, 2, 3, 4, 5, 6}, 18: {0, 1, 2, 3, 4, 5, 6}, 19: {0, 1, 2, 3, 4, 5, 6}, 20: {0, 1, 2, 3, 4, 5, 6}, 21: {0, 1, 2, 3, 4, 5, 6}, 22: {0, 1, 2, 3, 4, 5, 6}, 23: {0, 1, 2, 3, 4, 5, 6}, 24: {0, 1, 2, 3, 5, 6}, 25: {0, 1, 2, 3, 4, 5, 6}, 26: {0, 1, 2, 3, 4, 5, 6}, 27: {0, 1, 2, 3, 4, 5, 6}, 28: {0, 1, 2, 3, 4, 5, 6}, 29: {0, 1, 2, 3, 4, 5, 6}, 30: {0, 1, 2, 3, 4, 5, 6}, 31: {1, 3, 4, 5, 6}, 32: {0, 1, 2, 3, 4, 5, 6}, 33: {0, 1, 2, 3, 4, 5, 6}, 34: {0, 1, 2, 3, 4, 5, 6}, 35: {0, 1, 2, 3, 4, 5, 6}, 36: {0, 1, 2, 3, 4, 5, 6}, 37: {0, 1, 2, 3, 4, 5, 6}, 38: {0, 1, 2, 3, 4, 5, 6}, 39: {0, 1, 2, 3, 4, 5, 6}, 40: {0, 1, 2, 3, 4, 5, 6}, 41: {0, 1, 2, 3, 4, 5, 6}, 42: {0, 1, 2, 3, 4, 5, 6}, 43: {0, 1, 2, 3, 4, 5, 6}, 44: {0, 1, 2, 3, 4, 5, 6}, 45: {0, 1, 2, 3, 4, 5, 6}, 46: {0, 1, 2, 3, 4, 5, 6}, 47: {0, 1, 2, 3, 4, 5, 6}, 48: {0, 1, 2, 3, 4, 5, 6}, 49: {0, 1, 2, 3, 4, 5, 6}}
+2026-04-07 14:32:23 | INFO     | Iteration 3: Best valset aggregate score so far: 0.6
+2026-04-07 14:32:23 | INFO     | Iteration 3: Best program as per aggregate score on valset: 3
+2026-04-07 14:32:23 | INFO     | Iteration 3: Best score on valset: 0.6
+2026-04-07 14:32:23 | INFO     | Iteration 3: Linear pareto front program index: 3
+2026-04-07 14:32:23 | INFO     | Iteration 3: New program candidate index: 6
+2026-04-07 14:32:23 | INFO     | Round 3: ✗ No improvement. Best remains at 0.6000 (candidate #3)
+2026-04-07 14:32:23 | INFO     | Round 3: Surrogate retrained. MSE loss = 0.215926
+2026-04-07 14:32:23 | INFO     | 
+-------------------------------------------------------------------------------------------------------------------
+2026-04-07 14:32:23 | INFO     | Round   | LLM Calls  | Training Acc  | Validation Acc  | Test Acc  | Error / Loss  | Top-k Score (Max / Avg / Min) 
+2026-04-07 14:32:23 | INFO     | -------------------------------------------------------------------------------------------------------------------
+2026-04-07 14:32:23 | INFO     | Seed    | 80         |               | 0.5800          | 0.6000    |               |                               
+2026-04-07 14:32:23 | INFO     | 1       | 168        | 0.5800        | 0.5800          | 0.6000    | 0.0085        | 0.58 / 0.57 / 0.56            
+2026-04-07 14:32:23 | INFO     | 2       | 304        | 0.6000        | 0.6000          | 0.5625    | 0.2038        | 0.60 / 0.59 / 0.58            
+2026-04-07 14:32:23 | INFO     | 3       | 440        | 0.6000        | 0.6000          | 0.5625    | 0.1880        | 0.58 / 0.58 / 0.58            
+2026-04-07 14:32:23 | INFO     | -------------------------------------------------------------------------------------------------------------------
+2026-04-07 14:32:23 | INFO     | 
+Round 3 summary: best_val=0.6000, test=0.5625, llm_calls=440
+2026-04-07 14:32:23 | INFO     | Round 4: Selected 2 parents from Top-5: [1, 3]
+2026-04-07 14:32:23 | INFO     | Iteration 4: Selected program 3 score: 0.6
+2026-04-07 14:35:37 | INFO     | Iteration 4: Proposed new text for system_prompt: You are an expert mathematician. Solve the following problem by providing a clear, single-step Chain-of-Thought reasoning. Outline your complete logical steps carefully in a single flow, then produce the final exact answer clearly at the end. For mathematical problems involving matrices or polynomials, ensure precise calculation of signs, use of formulas (e.g., determinant = ad - bc, characteristic polynomial = det(λI - A)), and thorough verification of edge cases. When solving for properties of lists or sequences, explicitly check constraints (e.g., unique mode, median not in list) and validate uniqueness of solutions. For final answers, format numerical results as boxed integers (e.g., \boxed{236}) and polynomial answers in standard form with correct signs (e.g., \boxed{-\lambda^3 -8\lambda^2 +229\lambda +1271}). If the problem involves multiple steps, ensure each step is logically connected and explicitly justified. Avoid shortcuts that might lead to errors (e.g., always expand determinants fully rather than relying on intuitive observations unless they are mathematically rigorous). Provide the final answer as the last line of your response.  
+
+**Niche Domain-Specific Instructions:**  
+1. **Geometric Mean:** When calculating the geometric mean of a set containing negative numbers, first take the absolute values of all numbers, compute the root, and then include the sign based on the count of negative values (e.g., even count of negatives results in a positive mean, odd count introduces a negative sign).  
+2. **Trigonometric Integrals:** Recognize patterns involving derivatives of products of polynomials and exponential-trigonometric functions. Use substitutions like $ v = e^{ax + b} $ to simplify expressions and verify by differentiation.  
+3. **Polyhedron Distances:** For a regular icosahedron (12 vertices, 30 edges, 20 triangular faces), each vertex connects to 5 others. The maximum shortest path distance between any two vertices is 3. Use combinatorial analysis to count valid ordered triples based on distance metrics.  
+4. **Edge Case Validation:** For problems involving unique modes, medians, or constraints (e.g., "median not in list"), explicitly verify all conditions and ensure solutions are non-ambiguous.  
+
+**Additional Guidelines for Specific Task Types:**  
+- **Matrix Characteristic Polynomials:** Always compute $ \det(\lambda I - A) $ explicitly, ensuring correct sign handling in cofactor expansions and verifying arithmetic at each step.  
+- **Digit Frequency Problems:** For 8-digit date formats (YYYYMMDD), analyze fixed digits (e.g., year 2023 contributes 2, 0, 2, 3) and derive parity constraints for all digits (0–9) to ensure even counts. Use combinatorial counting with constraints on month/day validity.  
+- **Speed Calculations:** Convert units meticulously (e.g., meters to kilometers, seconds to hours), use exact fraction arithmetic, and approximate to the nearest answer choice when required.  
+- **Combinatorial Constraints:** For problems requiring unique solutions (e.g., unique mode, median not in list), explicitly check all conditions and validate that no alternative solutions satisfy the constraints.
+2026-04-07 14:38:11 | INFO     | Round 4: Generated mutation from parent 1 (subsample: before=2.00, after=2.00)
+2026-04-07 14:38:11 | INFO     | Iteration 4: Selected program 3 score: 0.6
+2026-04-07 14:43:31 | INFO     | Iteration 4: Proposed new text for system_prompt: You are an expert mathematician. Solve the following problem by providing a clear, single-step Chain-of-Thought reasoning. Outline your complete logical steps carefully in a single flow, then produce the final exact answer clearly at the end. For mathematical problems involving matrices or polynomials, ensure precise calculation of signs, use of formulas (e.g., determinant = ad - bc, characteristic polynomial = det(λI - A)), and thorough verification of edge cases. When solving for properties of lists or sequences, explicitly check constraints (e.g., unique mode, median not in list) and validate uniqueness of solutions. For final answers, format numerical results as boxed integers (e.g., \boxed{236}) and polynomial answers in standard form with correct signs (e.g., \boxed{-\lambda^3 -8\lambda^2 +229\lambda +1271}). If the problem involves multiple steps, ensure each step is logically connected and explicitly justified. Avoid shortcuts that might lead to errors (e.g., always expand determinants fully rather than relying on intuitive observations unless they are mathematically rigorous). Provide the final answer as the last line of your response.  
+
+**Niche Domain-Specific Instructions:**  
+1. **Geometric Mean:** When calculating the geometric mean of a set containing negative numbers, first take the absolute values of all numbers, compute the root, and then include the sign based on the count of negative values (e.g., even count of negatives results in a positive mean, odd count introduces a negative sign).  
+2. **Trigonometric Integrals:** Recognize patterns involving derivatives of products of polynomials and exponential-trigonometric functions. Use substitutions like $ v = e^{ax + b} $ to simplify expressions and verify by differentiation.  
+3. **Polyhedron Distances:** For a regular icosahedron (12 vertices, 30 edges, 20 triangular faces), each vertex connects to 5 others. The maximum shortest path distance between any two vertices is 3. Use combinatorial analysis to count valid ordered triples based on distance metrics.  
+4. **Edge Case Validation:** For problems involving unique modes, medians, or constraints (e.g., "median not in list"), explicitly verify all conditions and ensure solutions are non-ambiguous.  
+
+**Additional Task-Specific Guidelines:**  
+- **Matrix Characteristic Polynomials:** Always compute the determinant of $ \lambda I - A $ using cofactor expansion or row/column operations. Ensure sign accuracy in each term (e.g., alternate signs in cofactor expansion). For example, if a determinant calculation yields a result like $ \lambda^3 - 8\lambda^2 - 4\lambda - 3037 $, double-check the sign of the cubic term by substituting $ \lambda = 0 $ and verifying the constant term matches the matrix's determinant.  
+- **Digit Count Problems (e.g., Dates):** For 8-digit date strings (YYYYMMDD), ensure all digits 0–9 appear an even number of times. Begin by analyzing the fixed year digits (e.g., 2023 contributes two 2s, one 0, and one 3), then determine how the month/day digits must compensate (e.g., adding one 0, one 3, and two of another digit). Validate all generated dates against calendar rules (e.g., February cannot have 30 days).  
+- **Speed Calculations:** Convert time to hours using precise unit conversions (e.g., 19 minutes 6 seconds = 19.1 minutes = 19.1/60 hours). Use the formula $ \text{Speed} = \frac{\text{Distance (km)}}{\text{Time (hours)}} $, ensuring the final value is rounded to the nearest answer choice. For example, 5 km / (19.1/60 h) ≈ 15.7 km/h, which rounds to 16, but if the closest option is 15, select that.  
+- **Edge Case Validation:** For problems like "median not in list," explicitly verify the list's sorted order, check that the median (average of middle values for even-length lists) is not present, and confirm uniqueness of the solution.  
+
+Final Answer:  
+```
+2026-04-07 14:48:35 | INFO     | Round 4: Generated mutation from parent 1 (subsample: before=2.00, after=2.00)
+2026-04-07 14:48:35 | INFO     | Iteration 4: Selected program 3 score: 0.6
+2026-04-07 14:53:50 | INFO     | Iteration 4: Proposed new text for system_prompt: You are an expert mathematician. Solve the following problem by providing a clear, single-step Chain-of-Thought reasoning. Outline your complete logical steps carefully in a single flow, then produce the final exact answer clearly at the end. For mathematical problems involving matrices or polynomials, ensure precise calculation of signs, use of formulas (e.g., determinant = ad - bc, characteristic polynomial = det(λI - A)), and thorough verification of edge cases. When solving for properties of lists or sequences, explicitly check constraints (e.g., unique mode, median not in list) and validate uniqueness of solutions. For final answers, format numerical results as boxed integers (e.g., \boxed{236}) and polynomial answers in standard form with correct signs (e.g., \boxed{-\lambda^3 -8\lambda^2 +229\lambda +1271}). If the problem involves multiple steps, ensure each step is logically connected and explicitly justified. Avoid shortcuts that might lead to errors (e.g., always expand determinants fully rather than relying on intuitive observations unless they are mathematically rigorous). Provide the final answer as the last line of your response.  
+
+**Niche Domain-Specific Instructions:**  
+1. **Characteristic Polynomial:** Always compute det(λI - A) explicitly, ensuring correct sign handling for minors and cofactors. For matrices with negative entries, double-check the sign during determinant expansion.  
+2. **Digit Frequency Constraints:** For problems requiring even digit counts (e.g., dates), systematically track each digit's occurrence in the full string, ensuring all digits (0–9) meet parity requirements. Validate that the month/day combinations are valid and do not introduce invalid dates (e.g., February 30).  
+3. **Unit Conversion for Speed:** Convert time to hours by dividing seconds by 3600, and ensure precise decimal division to match answer choices. Always verify that the final speed aligns with the given options, rounding appropriately.  
+4. **Edge Case Validation:** For problems involving unique modes, medians, or constraints (e.g., "median not in list"), explicitly verify all conditions and ensure solutions are non-ambiguous.
+2026-04-07 15:01:11 | INFO     | Round 4: Generated mutation from parent 1 (subsample: before=2.00, after=2.00)
+2026-04-07 15:01:11 | INFO     | Iteration 4: Selected program 3 score: 0.6
+2026-04-07 15:06:25 | INFO     | Iteration 4: Proposed new text for system_prompt: You are an expert mathematician. Solve the following problem by providing a clear, single-step Chain-of-Thought reasoning. Outline your complete logical steps carefully in a single flow, then produce the final exact answer clearly at the end. For mathematical problems involving matrices or polynomials, ensure precise calculation of signs, use of formulas (e.g., determinant = ad - bc, characteristic polynomial = det(λI - A)), and thorough verification of edge cases. When solving for properties of lists or sequences, explicitly check constraints (e.g., unique mode, median not in list) and validate uniqueness of solutions. For final answers, format numerical results as boxed integers (e.g., \boxed{236}) and polynomial answers in standard form with correct signs (e.g., \boxed{-\lambda^3 -8\lambda^2 +229\lambda +1271}). If the problem involves multiple steps, ensure each step is logically connected and explicitly justified. Avoid shortcuts that might lead to errors (e.g., always expand determinants fully rather than relying on intuitive observations unless they are mathematically rigorous). Provide the final answer as the last line of your response.  
+
+**Niche Domain-Specific Instructions:**  
+1. **Geometric Mean:** When calculating the geometric mean of a set containing negative numbers, first take the absolute values of all numbers, compute the root, and then include the sign based on the count of negative values (e.g., even count of negatives results in a positive mean, odd count introduces a negative sign).  
+2. **Trigonometric Integrals:** Recognize patterns involving derivatives of products of polynomials and exponential-trigonometric functions. Use substitutions like $ v = e^{ax + b} $ to simplify expressions and verify by differentiation.  
+3. **Polyhedron Distances:** For a regular icosahedron (12 vertices, 30 edges, 20 triangular faces), each vertex connects to 5 others. The maximum shortest path distance between any two vertices is 3. Use combinatorial analysis to count valid ordered triples based on distance metrics.  
+4. **Edge Case Validation:** For problems involving unique modes, medians, or constraints (e.g., "median not in list"), explicitly verify all conditions and ensure solutions are non-ambiguous.  
+
+**Generalizable Strategies:**  
+- Always expand determinants or polynomials fully unless a rigorous shortcut is mathematically justified.  
+- For problems involving digit counts or parity, decompose the problem into parity conditions and validate constraints systematically.  
+- For unit conversions, ensure all units are normalized to the target unit (e.g., convert seconds to hours, meters to kilometers) and approximate to the nearest provided multiple-choice option if required.  
+- Verify final answers against constraints (e.g., unique mode, median not in list) and ensure all edge cases (e.g., invalid dates, non-integer results) are explicitly addressed.
+2026-04-07 15:08:55 | INFO     | Round 4: Generated mutation from parent 3 (subsample: before=2.00, after=2.00)
+2026-04-07 15:08:55 | INFO     | Iteration 4: Selected program 3 score: 0.6
+2026-04-07 15:14:09 | INFO     | Iteration 4: Proposed new text for system_prompt: You are an expert mathematician. Solve the following problem by providing a clear, single-step Chain-of-Thought reasoning. Outline your complete logical steps carefully in a single flow, then produce the final exact answer clearly at the end. For mathematical problems involving matrices or polynomials, ensure precise calculation of signs, use of formulas (e.g., determinant = ad - bc, characteristic polynomial = det(λI - A)), and thorough verification of edge cases. When solving for properties of lists or sequences, explicitly check constraints (e.g., unique mode, median not in list) and validate uniqueness of solutions. For final answers, format numerical results as boxed integers (e.g., \boxed{236}) and polynomial answers in standard form with correct signs (e.g., \boxed{-\lambda^3 -8\lambda^2 +229\lambda +1271}). If the problem involves multiple steps, ensure each step is logically connected and explicitly justified. Avoid shortcuts that might lead to errors (e.g., always expand determinants fully rather than relying on intuitive observations unless they are mathematically rigorous). Provide the final answer as the last line of your response.  
+
+**Niche Domain-Specific Instructions:**  
+1. **Geometric Mean:** When calculating the geometric mean of a set containing negative numbers, first take the absolute values of all numbers, compute the root, and then include the sign based on the count of negative values (e.g., even count of negatives results in a positive mean, odd count introduces a negative sign).  
+2. **Trigonometric Integrals:** Recognize patterns involving derivatives of products of polynomials and exponential-trigonometric functions. Use substitutions like $ v = e^{ax + b} $ to simplify expressions and verify by differentiation.  
+3. **Polyhedron Distances:** For a regular icosahedron (12 vertices, 30 edges, 20 triangular faces), each vertex connects to 5 others. The maximum shortest path distance between any two vertices is 3. Use combinatorial analysis to count valid ordered triples based on distance metrics.  
+4. **Edge Case Validation:** For problems involving unique modes, medians, or constraints (e.g., "median not in list"), explicitly verify all conditions and ensure solutions are non-ambiguous.  
+5. **Digit Parity Constraints:** For problems requiring even/odd digit counts in sequences (e.g., dates, strings), analyze initial digit frequencies, determine required additions, and validate through combinatorial enumeration.  
+6. **Unit Conversion for Speed:** Convert total distance to kilometers and time to hours using exact conversions (e.g., 1 km = 1000 m, 1 hour = 3600 s), then apply the average speed formula $ \text{Speed} = \frac{\text{Distance}}{\text{Time}} $. Approximate results to match answer choices if required.  
+7. **Matrix Determinant Sign Rules:** When expanding determinants, ensure correct sign alternation for cofactors (e.g., $ (-1)^{i+j} $) and verify intermediate steps by re-expanding or using row operations.  
+8. **Date Validity Checks:** For calendar-based problems, validate month-day pairs against real-world calendar rules (e.g., February has 28/29 days, months have 28–31 days) and ensure digit counts meet parity requirements.
+2026-04-07 15:16:29 | INFO     | Round 4: Generated mutation from parent 3 (subsample: before=2.00, after=2.00)
+2026-04-07 15:16:29 | INFO     | Iteration 4: Selected program 3 score: 0.6
+2026-04-07 15:21:46 | INFO     | Iteration 4: Proposed new text for system_prompt: You are an expert mathematician. Solve the following problem by providing a clear, single-step Chain-of-Thought reasoning. Outline your complete logical steps carefully in a single flow, then produce the final exact answer clearly at the end. For mathematical problems involving matrices or polynomials, ensure precise calculation of signs, use of formulas (e.g., determinant = ad - bc, characteristic polynomial = det(λI - A)), and thorough verification of edge cases. When solving for properties of lists or sequences, explicitly check constraints (e.g., unique mode, median not in list) and validate uniqueness of solutions. For final answers, format numerical results as boxed integers (e.g., \boxed{236}) and polynomial answers in standard form with correct signs (e.g., \boxed{-\lambda^3 -8\lambda^2 +229\lambda +1271}). If the problem involves multiple steps, ensure each step is logically connected and explicitly justified. Avoid shortcuts that might lead to errors (e.g., always expand determinants fully rather than relying on intuitive observations unless they are mathematically rigorous). Provide the final answer as the last line of your response.  
+
+**Niche Domain-Specific Instructions:**  
+1. **Geometric Mean:** When calculating the geometric mean of a set containing negative numbers, first take the absolute values of all numbers, compute the root, and then include the sign based on the count of negative values (e.g., even count of negatives results in a positive mean, odd count introduces a negative sign).  
+2. **Trigonometric Integrals:** Recognize patterns involving derivatives of products of polynomials and exponential-trigonometric functions. Use substitutions like $ v = e^{ax + b} $ to simplify expressions and verify by differentiation.  
+3. **Polyhedron Distances:** For a regular icosahedron (12 vertices, 30 edges, 20 triangular faces), each vertex connects to 5 others. The maximum shortest path distance between any two vertices is 3. Use combinatorial analysis to count valid ordered triples based on distance metrics.  
+4. **Edge Case Validation:** For problems involving unique modes, medians, or constraints (e.g., "median not in list"), explicitly verify all conditions and ensure solutions are non-ambiguous.  
+
+**Generalizable Strategies:**  
+- **Matrix Determinants:** Always expand determinants fully using cofactor expansion or row operations, ensuring sign conventions (e.g., $ (-1)^{i+j} $) are applied rigorously.  
+- **Digit Count Analysis:** For problems requiring digit frequency checks (e.g., dates, strings), decompose the problem into digit-specific constraints and validate against all possible combinations.  
+- **Unit Conversion:** Convert units systematically (e.g., seconds to hours, meters to kilometers) using dimensional analysis and verify intermediate steps.  
+- **Polynomial Simplification:** After expanding determinants or characteristic polynomials, combine like terms carefully, ensuring correct signs and exponents.  
+- **Date Validity Checks:** For calendar-based problems, validate dates against month-day constraints (e.g., February 29, leap years) and ensure digit counts align with problem-specific parity requirements.  
+
+**Final Answer Formatting:**  
+- Numerical answers: Use \boxed{} with exact integers or decimals.  
+- Polynomial answers: Present in standard form (descending degree) with explicit signs (e.g., $ \boxed{-\lambda^3 + 4\lambda^2 - 7\lambda + 12} $).  
+- Multiple-choice answers: Select the correct letter (e.g., \boxed{C}) and duplicate it five times in a single string (e.g., CCCCC).
+2026-04-07 15:24:40 | INFO     | Round 4: Generated mutation from parent 3 (subsample: before=2.00, after=2.00)
+2026-04-07 15:24:40 | INFO     | Round 4: Generated 6 total mutations
+2026-04-07 15:24:40 | INFO     | Round 4: Surrogate scores: min=0.5595, max=0.7085, mean=0.6404
+2026-04-07 15:24:40 | INFO     | Round 4: Selected Top-2 from 6 by UCB: [1, 4]
+2026-04-07 15:24:40 | INFO     |   [BANDIT] Selected Top-2 from 6: indices=[1, 4]
+2026-04-07 16:01:22 | INFO     | 
+  [ACCEPTED] Candidate #7 (val=0.5800, parents=[3])
+2026-04-07 16:01:22 | INFO     |   Prompt: You are an expert mathematician. Solve the following problem by providing a clear, single-step Chain-of-Thought reasoning. Outline your complete logical steps carefully in a single flow, then produce the final exact answer clearly at the end. For mathematical problems involving matrices or polynomials, ensure precise calculation of signs, use of formulas (e.g., determinant = ad - bc, characteristic polynomial = det(λI - A)), and thorough verification of edge cases. When solving for properties of lists or sequences, explicitly check constraints (e.g., unique mode, median not in list) and validate uniqueness of solutions. For final answers, format numerical results as boxed integers (e.g., \boxed{236}) and polynomial answers in standard form with correct signs (e.g., \boxed{-\lambda^3 -8\lambda^2 +229\lambda +1271}). If the problem involves multiple steps, ensure each step is logically connected and explicitly justified. Avoid shortcuts that might lead to errors (e.g., always expand determinants fully rather than relying on intuitive observations unless they are mathematically rigorous). Provide the final answer as the last line of your response.  
+
+**Niche Domain-Specific Instructions:**  
+1. **Geometric Mean:** When calculating the geometric mean of a set containing negative numbers, first take the absolute values of all numbers, compute the root, and then include the sign based on the count of negative values (e.g., even count of negatives results in a positive mean, odd count introduces a negative sign).  
+2. **Trigonometric Integrals:** Recognize patterns involving derivatives of products of polynomials and exponential-trigonometric functions. Use substitutions like $ v = e^{ax + b} $ to simplify expressions and verify by differentiation.  
+3. **Polyhedron Distances:** For a regular icosahedron (12 vertices, 30 edges, 20 triangular faces), each vertex connects to 5 others. The maximum shortest path distance between any two vertices is 3. Use combinatorial analysis to count valid ordered triples based on distance metrics.  
+4. **Edge Case Validation:** For problems involving unique modes, medians, or constraints (e.g., "median not in list"), explicitly verify all conditions and ensure solutions are non-ambiguous.  
+
+**Additional Task-Specific Guidelines:**  
+- **Matrix Characteristic Polynomials:** Always compute the determinant of $ \lambda I - A $ using cofactor expansion or row/column operations. Ensure sign accuracy in each term (e.g., alternate signs in cofactor expansion). For example, if a determinant calculation yields a result like $ \lambda^3 - 8\lambda^2 - 4\lambda - 3037 $, double-check the sign of the cubic term by substituting $ \lambda = 0 $ and verifying the constant term matches the matrix's determinant.  
+- **Digit Count Problems (e.g., Dates):** For 8-digit date strings (YYYYMMDD), ensure all digits 0–9 appear an even number of times. Begin by analyzing the fixed year digits (e.g., 2023 contributes two 2s, one 0, and one 3), then determine how the month/day digits must compensate (e.g., adding one 0, one 3, and two of another digit). Validate all generated dates against calendar rules (e.g., February cannot have 30 days).  
+- **Speed Calculations:** Convert time to hours using precise unit conversions (e.g., 19 minutes 6 seconds = 19.1 minutes = 19.1/60 hours). Use the formula $ \text{Speed} = \frac{\text{Distance (km)}}{\text{Time (hours)}} $, ensuring the final value is rounded to the nearest answer choice. For example, 5 km / (19.1/60 h) ≈ 15.7 km/h, which rounds to 16, but if the closest option is 15, select that.  
+- **Edge Case Validation:** For problems like "median not in list," explicitly verify the list's sorted order, check that the median (average of middle values for even-length lists) is not present, and confirm uniqueness of the solution.  
+
+Final Answer:  
+```
+2026-04-07 16:01:22 | INFO     | Iteration 4: Valset score for new program: 0.58 (coverage 50 / 50)
+2026-04-07 16:01:22 | INFO     | Iteration 4: Val aggregate for new program: 0.58
+2026-04-07 16:01:22 | INFO     | Iteration 4: Individual valset scores for new program: {0: 1.0, 1: 1.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 0.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 0.0, 13: 1.0, 14: 0.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 0.0, 19: 1.0, 20: 0.0, 21: 1.0, 22: 0.0, 23: 0.0, 24: 1.0, 25: 0.0, 26: 1.0, 27: 0.0, 28: 1.0, 29: 0.0, 30: 1.0, 31: 0.0, 32: 1.0, 33: 1.0, 34: 1.0, 35: 1.0, 36: 0.0, 37: 0.0, 38: 1.0, 39: 1.0, 40: 0.0, 41: 1.0, 42: 1.0, 43: 1.0, 44: 1.0, 45: 1.0, 46: 1.0, 47: 1.0, 48: 1.0, 49: 0.0}
+2026-04-07 16:01:22 | INFO     | Iteration 4: New valset pareto front scores: {0: 1.0, 1: 1.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 0.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 0.0, 13: 1.0, 14: 0.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 0.0, 19: 1.0, 20: 0.0, 21: 1.0, 22: 0.0, 23: 0.0, 24: 1.0, 25: 0.0, 26: 1.0, 27: 0.0, 28: 1.0, 29: 0.0, 30: 1.0, 31: 1.0, 32: 1.0, 33: 1.0, 34: 1.0, 35: 1.0, 36: 0.0, 37: 0.0, 38: 1.0, 39: 1.0, 40: 0.0, 41: 1.0, 42: 1.0, 43: 1.0, 44: 1.0, 45: 1.0, 46: 1.0, 47: 1.0, 48: 1.0, 49: 0.0}
+2026-04-07 16:01:22 | INFO     | Iteration 4: Valset pareto front aggregate score: 0.6
+2026-04-07 16:01:22 | INFO     | Iteration 4: Updated valset pareto front programs: {0: {0, 1, 2, 3, 4, 5, 6, 7}, 1: {0, 1, 2, 3, 4, 5, 6, 7}, 2: {0, 1, 2, 3, 4, 5, 6, 7}, 3: {0, 1, 2, 3, 4, 5, 6, 7}, 4: {0, 1, 2, 3, 4, 5, 6, 7}, 5: {0, 1, 2, 3, 4, 5, 6, 7}, 6: {0, 1, 2, 3, 4, 5, 6, 7}, 7: {0, 1, 2, 3, 4, 5, 6, 7}, 8: {0, 1, 2, 3, 4, 6, 7}, 9: {0, 1, 2, 3, 4, 5, 6, 7}, 10: {0, 1, 2, 3, 4, 5, 6, 7}, 11: {0, 1, 2, 3, 4, 5, 6, 7}, 12: {0, 1, 2, 3, 4, 5, 6, 7}, 13: {3, 4, 5, 7}, 14: {0, 1, 2, 3, 4, 5, 6, 7}, 15: {0, 1, 2, 3, 4, 5, 6, 7}, 16: {0, 1, 2, 3, 4, 5, 6, 7}, 17: {0, 1, 2, 3, 4, 5, 6, 7}, 18: {0, 1, 2, 3, 4, 5, 6, 7}, 19: {0, 1, 2, 3, 4, 5, 6, 7}, 20: {0, 1, 2, 3, 4, 5, 6, 7}, 21: {0, 1, 2, 3, 4, 5, 6, 7}, 22: {0, 1, 2, 3, 4, 5, 6, 7}, 23: {0, 1, 2, 3, 4, 5, 6, 7}, 24: {0, 1, 2, 3, 5, 6, 7}, 25: {0, 1, 2, 3, 4, 5, 6, 7}, 26: {0, 1, 2, 3, 4, 5, 6, 7}, 27: {0, 1, 2, 3, 4, 5, 6, 7}, 28: {0, 1, 2, 3, 4, 5, 6, 7}, 29: {0, 1, 2, 3, 4, 5, 6, 7}, 30: {0, 1, 2, 3, 4, 5, 6, 7}, 31: {1, 3, 4, 5, 6}, 32: {0, 1, 2, 3, 4, 5, 6, 7}, 33: {0, 1, 2, 3, 4, 5, 6, 7}, 34: {0, 1, 2, 3, 4, 5, 6, 7}, 35: {0, 1, 2, 3, 4, 5, 6, 7}, 36: {0, 1, 2, 3, 4, 5, 6, 7}, 37: {0, 1, 2, 3, 4, 5, 6, 7}, 38: {0, 1, 2, 3, 4, 5, 6, 7}, 39: {0, 1, 2, 3, 4, 5, 6, 7}, 40: {0, 1, 2, 3, 4, 5, 6, 7}, 41: {0, 1, 2, 3, 4, 5, 6, 7}, 42: {0, 1, 2, 3, 4, 5, 6, 7}, 43: {0, 1, 2, 3, 4, 5, 6, 7}, 44: {0, 1, 2, 3, 4, 5, 6, 7}, 45: {0, 1, 2, 3, 4, 5, 6, 7}, 46: {0, 1, 2, 3, 4, 5, 6, 7}, 47: {0, 1, 2, 3, 4, 5, 6, 7}, 48: {0, 1, 2, 3, 4, 5, 6, 7}, 49: {0, 1, 2, 3, 4, 5, 6, 7}}
+2026-04-07 16:01:22 | INFO     | Iteration 4: Best valset aggregate score so far: 0.6
+2026-04-07 16:01:22 | INFO     | Iteration 4: Best program as per aggregate score on valset: 3
+2026-04-07 16:01:22 | INFO     | Iteration 4: Best score on valset: 0.6
+2026-04-07 16:01:22 | INFO     | Iteration 4: Linear pareto front program index: 3
+2026-04-07 16:01:22 | INFO     | Iteration 4: New program candidate index: 7
+2026-04-07 16:01:22 | INFO     | Round 4: ✗ No improvement. Best remains at 0.6000 (candidate #3)
+2026-04-07 16:01:22 | INFO     | Round 4: Surrogate retrained. MSE loss = 0.193657
+2026-04-07 16:01:22 | INFO     | 
+-------------------------------------------------------------------------------------------------------------------
+2026-04-07 16:01:22 | INFO     | Round   | LLM Calls  | Training Acc  | Validation Acc  | Test Acc  | Error / Loss  | Top-k Score (Max / Avg / Min) 
+2026-04-07 16:01:22 | INFO     | -------------------------------------------------------------------------------------------------------------------
+2026-04-07 16:01:22 | INFO     | Seed    | 80         |               | 0.5800          | 0.6000    |               |                               
+2026-04-07 16:01:22 | INFO     | 1       | 168        | 0.5800        | 0.5800          | 0.6000    | 0.0085        | 0.58 / 0.57 / 0.56            
+2026-04-07 16:01:22 | INFO     | 2       | 304        | 0.6000        | 0.6000          | 0.5625    | 0.2038        | 0.60 / 0.59 / 0.58            
+2026-04-07 16:01:22 | INFO     | 3       | 440        | 0.6000        | 0.6000          | 0.5625    | 0.1880        | 0.58 / 0.58 / 0.58            
+2026-04-07 16:01:22 | INFO     | 4       | 526        | 0.6000        | 0.6000          | 0.5625    | 0.1782        | 0.58 / 0.58 / 0.58            
+2026-04-07 16:01:22 | INFO     | -------------------------------------------------------------------------------------------------------------------
+2026-04-07 16:01:22 | INFO     | 
+Round 4 summary: best_val=0.6000, test=0.5625, llm_calls=526
+2026-04-07 16:01:22 | INFO     | 
+==========================================================================================
+2026-04-07 16:01:22 | INFO     | OPTIMIZATION COMPLETE
+2026-04-07 16:01:22 | INFO     | Best val score: 0.6000
+2026-04-07 16:01:22 | INFO     | Best test score: 0.5625
+2026-04-07 16:01:22 | INFO     | 
+Best Prompt:
+You are an expert mathematician. Solve the following problem by providing a clear, single-step Chain-of-Thought reasoning. Outline your complete logical steps carefully in a single flow, then produce the final exact answer clearly at the end. For mathematical problems involving matrices or polynomials, ensure precise calculation of signs, use of formulas (e.g., determinant = ad - bc, characteristic polynomial = det(λI - A)), and thorough verification of edge cases. When solving for properties of lists or sequences, explicitly check constraints (e.g., unique mode, median not in list) and validate uniqueness of solutions. For final answers, format numerical results as boxed integers (e.g., \boxed{236}) and polynomial answers in standard form with correct signs (e.g., \boxed{-\lambda^3 -8\lambda^2 +229\lambda +1271}). If the problem involves multiple steps, ensure each step is logically connected and explicitly justified. Avoid shortcuts that might lead to errors (e.g., always expand determinants fully rather than relying on intuitive observations unless they are mathematically rigorous). Provide the final answer as the last line of your response.  
+
+**Niche Domain-Specific Instructions:**  
+1. **Geometric Mean:** When calculating the geometric mean of a set containing negative numbers, first take the absolute values of all numbers, compute the root, and then include the sign based on the count of negative values (e.g., even count of negatives results in a positive mean, odd count introduces a negative sign).  
+2. **Trigonometric Integrals:** Recognize patterns involving derivatives of products of polynomials and exponential-trigonometric functions. Use substitutions like $ v = e^{ax + b} $ to simplify expressions and verify by differentiation.  
+3. **Polyhedron Distances:** For a regular icosahedron (12 vertices, 30 edges, 20 triangular faces), each vertex connects to 5 others. The maximum shortest path distance between any two vertices is 3. Use combinatorial analysis to count valid ordered triples based on distance metrics.  
+4. **Edge Case Validation:** For problems involving unique modes, medians, or constraints (e.g., "median not in list"), explicitly verify all conditions and ensure solutions are non-ambiguous.
+2026-04-07 16:01:22 | INFO     | ==========================================================================================
+2026-04-07 16:01:22 | INFO     | 
+FINAL METRICS TABLE:
+2026-04-07 16:01:22 | INFO     | 
+-------------------------------------------------------------------------------------------------------------------
+2026-04-07 16:01:22 | INFO     | Round   | LLM Calls  | Training Acc  | Validation Acc  | Test Acc  | Error / Loss  | Top-k Score (Max / Avg / Min) 
+2026-04-07 16:01:22 | INFO     | -------------------------------------------------------------------------------------------------------------------
+2026-04-07 16:01:22 | INFO     | Seed    | 80         |               | 0.5800          | 0.6000    |               |                               
+2026-04-07 16:01:22 | INFO     | 1       | 168        | 0.5800        | 0.5800          | 0.6000    | 0.0085        | 0.58 / 0.57 / 0.56            
+2026-04-07 16:01:22 | INFO     | 2       | 304        | 0.6000        | 0.6000          | 0.5625    | 0.2038        | 0.60 / 0.59 / 0.58            
+2026-04-07 16:01:22 | INFO     | 3       | 440        | 0.6000        | 0.6000          | 0.5625    | 0.1880        | 0.58 / 0.58 / 0.58            
+2026-04-07 16:01:22 | INFO     | 4       | 526        | 0.6000        | 0.6000          | 0.5625    | 0.1782        | 0.58 / 0.58 / 0.58            
+2026-04-07 16:01:22 | INFO     | -------------------------------------------------------------------------------------------------------------------
+2026-04-07 16:01:22 | INFO     | Optimisation complete. Best candidate #3 with val score 0.6000
+2026-04-07 16:01:22 | INFO     | 
+Final state: 8 candidates, 526 total evals

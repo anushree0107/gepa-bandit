@@ -1,0 +1,82 @@
+\chapter{Baseline: Original GEPA Algorithm}
+\label{ch:gepa_baseline}
+
+\section{Background}
+GEPA (Genetic-Pareto) is a prompt/text optimization framework that combines (i) evolutionary search over a candidate pool, (ii) Pareto-based selection to preserve diversity across instances or objectives, and (iii) \emph{reflective mutation}, where an LLM proposes targeted edits using textual feedback rather than relying only on scalar rewards. A key practical advantage of GEPA over simple best-of-$n$ selection is that it can retain multiple strong but different candidates via Pareto frontier tracking, which helps avoid premature collapse to a single prompt that overfits to a subset of instances. \citep{agrawal2025gepa,gepa_repo}
+
+GEPA is applicable whenever the optimized object is text (e.g., prompts, tool instructions, templates, multi-component system prompts) and an evaluator can return both a score and optional traces that describe how/why a candidate failed.
+
+\section{Problem Formulation and Notation}
+Let $\mathcal{D}_{\text{train}}$ be the training/feedback set used to form minibatches for reflective updates, and let $\mathcal{D}_{\text{val}}$ be the validation set used to track generalization performance. \citep{gepa_repo}
+
+A candidate prompt/program is represented as a dictionary of text components:
+\[
+\Phi \in \{\texttt{dict[str, str]}\}.
+\]
+For prompt-only optimization, $\Phi$ typically has a single component (e.g., system instruction). For more complex pipelines, $\Phi$ may include multiple components (system prompt, output format constraints, demonstrations, tool policy text, etc.).
+
+\subsection{Evaluation Outputs and Actionable Side Information}
+Evaluating a candidate $\Phi$ on an instance produces:
+\begin{itemize}
+    \item a scalar score (e.g., accuracy or reward), and
+    \item optional trajectories/traces (model messages, tool calls, parse errors, intermediate outputs).
+\end{itemize}
+GEPA uses these traces as \emph{actionable side information (ASI)} to guide mutation. This allows the proposer to make directed edits (e.g., add missing constraints, fix output format, clarify instructions) rather than relying on purely random perturbations. \citep{gepa_repo}
+
+\subsection{Candidate Pool and Pareto Frontier}
+GEPA maintains a candidate pool $\mathcal{P}$ containing all accepted candidates, as well as lineage links for analysis. In addition, it tracks a Pareto frontier mapping over \emph{frontier keys} (e.g., validation instances or objective dimensions). A candidate can be preserved if it is best on at least one key, which encourages diversity and retains specialized prompts that can later be improved through reflection. \citep{agrawal2025gepa,gepa_repo}
+
+\section{Method: Baseline GEPA}
+A single GEPA iteration follows the standard evolutionary pattern of selection $\rightarrow$ mutation $\rightarrow$ evaluation $\rightarrow$ acceptance:
+\begin{enumerate}
+    \item \textbf{Selection:} choose a parent from the pool via Pareto-based sampling.
+    \item \textbf{Minibatch evaluation:} evaluate the parent on a minibatch and capture traces/ASI.
+    \item \textbf{Reflective mutation:} construct a reflection dataset from the traces and propose a mutated candidate $\Phi'$.
+    \item \textbf{Acceptance:} re-evaluate $\Phi'$ on the same minibatch and accept if it improves the minibatch score.
+    \item \textbf{Update:} add accepted candidates to the pool and update validation/Pareto tracking.
+\end{enumerate}
+
+\section{Algorithm}
+\begin{algorithm}[H]
+\caption{GEPA (Baseline): Reflective Evolutionary Prompt Optimizer}
+\label{alg:gepa_baseline}
+\begin{algorithmic}[1]
+\Require Seed candidate $\Phi_0$, trainset $\mathcal{D}_{\text{train}}$, valset $\mathcal{D}_{\text{val}}$, metric $\mu$, budget $B$
+\Require Minibatch size $b$, candidate selector $\pi_{\text{cand}}$, component selector $\pi_{\text{comp}}$
+
+\State Initialize pool $\mathcal{P}\leftarrow\{\Phi_0\}$ and frontier tracking $\mathcal{F}$
+\While{$B$ not exhausted}
+    \State Select parent $k \sim \pi_{\text{cand}}(\mathcal{P},\mathcal{F})$; $\Phi\leftarrow \mathcal{P}[k]$
+    \State Sample minibatch $\mathcal{M}\subset\mathcal{D}_{\text{train}}$, $|\mathcal{M}|=b$
+    \State Evaluate $\Phi$ on $\mathcal{M}$ with trace capture $\rightarrow (T, s_{\text{before}})$
+    \If{no traces or (skip\_perfect\_score and all perfect)} \State \textbf{continue} \EndIf
+    \State Choose component(s) $C \leftarrow \pi_{\text{comp}}(T, s_{\text{before}}, \Phi)$
+    \State Build reflective dataset $R \leftarrow \texttt{MakeReflectiveDataset}(\Phi, T, s_{\text{before}}, C)$
+    \State Reflective mutation $\rightarrow$ propose $\Phi'$
+    \State Evaluate $\Phi'$ on $\mathcal{M}$ $\rightarrow s_{\text{after}}$
+    \If{$\sum s_{\text{after}} > \sum s_{\text{before}}$}
+        \State Accept $\Phi'$: add to $\mathcal{P}$ and update $\mathcal{F}$
+    \EndIf
+\EndWhile
+\State \Return best candidate by validation score
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]
+\caption{Pareto-Based Candidate Selection}
+\label{alg:pareto_selection}
+\begin{algorithmic}[1]
+\Require Frontier mapping $\mathcal{F}$ (key $\rightarrow$ best candidate indices)
+\State Remove dominated candidates to obtain $\hat{\mathcal{F}}$
+\State Compute frequency $f[i] =$ number of keys where candidate $i$ appears in $\hat{\mathcal{F}}$
+\State Sample candidate index proportional to $f[i]$
+\State \Return sampled index
+\end{algorithmic}
+\end{algorithm}
+
+\section{Computational Cost}
+Baseline GEPA cost is dominated by evaluation and reflection. A simplified per-iteration call estimate is:
+\[
+\text{Calls}_{\text{iter}} \approx b \;(\text{eval parent}) + c \;(\text{reflect}) + b \;(\text{eval mutation}),
+\]
+where $b$ is the minibatch size and $c \ge 1$ counts proposal/reflection calls (and can be larger for multi-component updates). This becomes expensive when many mutations are rejected after paying the full evaluation cost, and when running the optimizer across multiple datasets or repeated trials. These observations motivate adding a cheap pre-filtering stage (surrogate-guided Top-$K$ validation) in the next chapter. \citep{agrawal2025gepa,gepa_repo}

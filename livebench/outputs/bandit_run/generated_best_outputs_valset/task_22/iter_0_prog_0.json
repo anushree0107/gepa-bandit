@@ -1,0 +1,5 @@
+{
+    "prediction": "To factor the quadratic expression $5x^2 + 90x - 1040$, we proceed as follows:\n\n---\n\n### **Step 1: Factor out the greatest common factor (GCF)**\n\nThe coefficients of the terms are 5, 90, and -1040. The GCF of these numbers is **5**. So, we factor out 5:\n\n$$\n5x^2 + 90x - 1040 = 5(x^2 + 18x - 208)\n$$\n\n---\n\n### **Step 2: Factor the quadratic inside the parentheses**\n\nNow we focus on factoring $x^2 + 18x - 208$. We need two numbers that:\n\n- Multiply to $-208$\n- Add to $18$\n\nBy testing factor pairs of 208, we find that:\n\n$$\n26 \\times (-8) = -208 \\quad \\text{and} \\quad 26 + (-8) = 18\n$$\n\nSo, the quadratic factors as:\n\n$$\nx^2 + 18x - 208 = (x + 26)(x - 8)\n$$\n\n---\n\n### **Step 3: Combine the results**\n\nPutting it all together, the fully factored form of the original expression is:\n\n$$\n5(x + 26)(x - 8)\n$$\n\n---\n\n### **Final Answer:**\n\n$$\n\\boxed{5(x + 26)(x - 8)}\n$$",
+    "correct": "-5 (-x-26) (x-8)",
+    "score": 0.0
+}

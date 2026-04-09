@@ -1,0 +1,34 @@
+\chapter{Related Work}
+
+\section{Overview: Prompt Engineering vs.\ Prompt Optimization}
+Prompting is the dominant interface for applying LLMs to downstream tasks without parameter updates. Traditional prompt engineering is largely manual: practitioners iteratively adjust instruction wording, formatting constraints, and examples. While effective, manual tuning is slow and often unstable across models and datasets.
+
+Prompt optimization automates this process by searching over prompts (or prompt components) using an objective such as validation accuracy. The core challenge is cost: each candidate must be evaluated by running an LLM over many examples, so the loop is dominated by LLM calls, tokens, latency, and monetary expense.
+
+\section{Manual and Heuristic Prompt Engineering}
+Manual prompt design remains widely used because it is flexible and requires minimal infrastructure. Common heuristics include clear instruction structure, output schemas, few-shot demonstrations, and step-wise decomposition. Its main limitation is scalability: tuning prompts across many tasks/datasets or under strict inference budgets becomes difficult.
+
+\section{Automated Prompt Optimization Methods}
+\subsection{Instruction Generation and Selection (APE)}
+Automatic Prompt Engineer (APE) uses an LLM to generate candidate instructions and selects high-performing prompts via downstream evaluation~\citep{zhou2022ape}. The approach is simple and effective, but can be expensive when many candidates must be tested.
+
+\subsection{LLM-as-Optimizer (OPRO)}
+OPRO treats an LLM as an optimizer that iteratively proposes new candidates based on previously tried prompts and their scores~\citep{yang2023opro}. It demonstrates strong improvements, but repeated evaluation rounds can be costly.
+
+\subsection{Compiler-Based Optimization (DSPy, MIPROv2)}
+DSPy provides a programming model for LM pipelines and a compiler that optimizes prompts/demonstrations to maximize a metric~\citep{khattab2023dspy}. MIPROv2 extends this idea with joint optimization of instructions and demonstrations using sample-efficient search strategies~\citep{khattab2024miprov2}. These frameworks are powerful for multi-stage systems, but still rely on repeated evaluations whose cost scales with dataset size and pipeline complexity.
+
+\subsection{Textual ``Gradient'' Optimization (TextGrad)}
+TextGrad optimizes textual variables using LLM-generated feedback in an automatic-differentiation-like manner~\citep{yuksekgonul2024textgrad}. While general, it may require multiple LLM calls per update step, making cost a key concern in larger systems.
+
+\section{Evolutionary, Bandit, and RL-Style Search}
+Several methods treat prompts as a population and apply mutation/selection (evolutionary search) or allocate limited evaluation budget via exploration--exploitation (bandit-style search). A recurring practical theme is \emph{multi-fidelity evaluation}: cheaply filter many candidates, then spend expensive validation budget only on a small subset.
+
+\section{Cost-Aware Evaluation and Systems Optimizations}
+Because LLM inference dominates cost, many systems rely on caching/memoization, batching, and early stopping/adaptive evaluation. Another common technique is surrogate modeling, where a cheap predictor ranks candidates before expensive validation. These optimizations are complementary to the choice of optimizer and often determine real-world feasibility.
+
+\section{Benchmarks}
+We use common reasoning/prompting benchmarks: BIG-Bench Hard (BBH)~\citep{suzgun2022bbh}, SciEval~\citep{sun2023scieval}, and MATH (with the MATH-500 subset)~\citep{hendrycks2021math}. These datasets provide diverse task formats and difficulty levels, making them suitable for evaluating both quality and cost trade-offs.
+
+\section{Summary and Connection to This Work}
+Prior work shows prompt optimization can yield large gains but is often constrained by evaluation cost. This motivates cost-aware strategies such as surrogate-guided filtering and multi-fidelity evaluation. SGPO follows this direction by using a surrogate model to rank mutations and validating only a small Top-$K$ subset, while enforcing monotonic tracking of the best validation score.

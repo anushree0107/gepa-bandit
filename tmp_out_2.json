@@ -1,0 +1,17 @@
+{
+  "len": 368,
+  "sample": {
+    "question_id": "<class 'str'> | ef6c6830ebf0e71d74e7ceb45a242f2b87228933eebfe47db8d798d5738cdaeb",
+    "category": "<class 'str'> | math",
+    "task": "<class 'str'> | olympiad",
+    "subtask": "<class 'str'> | usamo",
+    "year": "<class 'str'> | 2023",
+    "turns": "<class 'list'> | ['You are given a question and its solution. The solution however has its formulae masked out using ",
+    "ground_truth": "<class 'str'> | 1,6,7,2,3,4,5",
+    "hardness": "<class 'float'> | 1.0",
+    "expressions": "<class 'str'> | <expression 1> \\angle AXM = \\angle MPC = 90^{\\circ} \n<expression 2> \\frac{MP}{MX} = \\frac{MC}{MA} = ",
+    "livebench_release_date": "<class 'datetime.datetime'> | 2024-08-31 00:00:00",
+    "livebench_removal_date": "<class 'str'> | ",
+    "release_date": "<class 'NoneType'> | None"
+  }
+}

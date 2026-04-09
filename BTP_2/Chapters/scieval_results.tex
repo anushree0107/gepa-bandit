@@ -1,0 +1,67 @@
+\section{SciEval Dataset Optimization}
+
+The following tables and prompt extracts illustrate the exact prompt evolution step-by-step during the SGPO search on the SciEval dataset. The optimization process focused on multiple-choice reasoning across chemistry, physics, and biology, navigating 3 optimization rounds to maximize scientific accuracy.
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{ccccccccc}
+    \toprule
+    \textbf{Rounds} & \textbf{LLM Calls} & \textbf{Val Acc} & \textbf{Best Val Acc} & \textbf{Test Acc} & \textbf{Surrogate Loss} & \textbf{Avg Top-k} & \textbf{Max Top-k} & \textbf{Min Top-k} \\
+    \midrule
+    \textbf{1} & 258 & 0.8500 & 0.8500 & 0.7400 & 0.0050 & 0.8438 & 0.8500 & 0.8375 \\
+    \textbf{2} & 454 & 0.8625 & 0.8625 & 0.7333 & 0.0640 & 0.8562 & 0.8625 & 0.8500 \\
+    \textbf{3} & 570 & 0.8625 & 0.8625 & 0.7467 & 0.1071 & 0.8500 & 0.8500 & 0.8500 \\
+    \bottomrule
+    \end{tabular}
+    \caption{SGPO Optimization Metrics across 3 rounds for the SciEval Dataset.}
+    \label{tab:scieval_metrics}
+\end{table}
+
+\subsection*{Detailed Iteration Overview}
+
+\begin{roundbox}
+\textbf{Seed Prompt (Candidate \#0)} \hfill \textbf{Val Acc: 0.8125}
+\end{roundbox}
+
+\begin{prompttext}
+You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).
+\end{prompttext}
+
+\vspace{1em}
+\noindent \textbf{Round 1 Optimization} \\
+\textit{- The proposer shifts towards a specialized medical and diagnostic reasoning framing. Accuracy improves significantly to 0.8500.}
+
+\begin{roundbox}
+\textbf{Round 1 Best Evaluated (Candidate \#2)} \hfill \textbf{Val Acc: 0.8500}
+\end{roundbox}
+
+\begin{prompttext}
+You are a medical science expert. Answer the following multiple-choice question by selecting the correct option (A, B, C, or D). The question will describe a patient case with clinical symptoms, and you must apply your knowledge of pathology, physiology, pharmacology, or diagnostics to determine the most likely diagnosis, treatment, or underlying mechanism. Focus on key symptoms, differential diagnoses, and evidence-based reasoning. Respond with ONLY the letter of the correct answer (A, B, C, or D).
+\end{prompttext}
+
+\vspace{1em}
+\noindent \textbf{Round 2 Optimization} \\
+\textit{- Integration of domain-specific guidance and generalizable strategies for scientific reasoning. The score reaches its peak of 0.8625.}
+
+\begin{roundbox}
+\textbf{Round 2 Best Evaluated (Candidate \#3)} \hfill \textbf{Val Acc: 0.8625}
+\end{roundbox}
+
+\begin{prompttext}
+You are a medical science expert. Answer the following multiple-choice question by selecting the correct option (A, B, C, or D). The question will describe a patient case with clinical symptoms, diagnostic findings, or ask about medical concepts (e.g., isotopes, cancer subtypes, nuclear decay mechanisms). Apply your knowledge of pathology, physiology, pharmacology, and diagnostics to determine the most likely diagnosis, treatment, or underlying mechanism. Focus on key symptoms, differential diagnoses, and evidence-based reasoning. Respond with ONLY the letter of the correct answer.  
+
+\textbf{Domain-Specific Guidance:}  
+1. For patient cases: Prioritize clinical presentations (e.g., tumor markers, imaging findings, lab results) and standard diagnostic protocols (e.g., biopsy, staging criteria for cancers).  
+2. For medical concepts: Use established facts (e.g., isotopic composition rules, energy types from nuclear decay, receptor-specific cancer therapies).  
+3. Avoid assumptions; rely on diagnostic criteria (e.g., estrogen receptor positivity in breast cancer) and pharmacologic mechanisms (e.g., chemotherapy agents targeting specific pathways).  
+
+\textbf{Generalizable Strategies:}  
+- Eliminate implausible options using process of elimination.  
+- Cross-reference symptoms with known disease patterns (e.g., invasive ductal carcinoma vs. lobular carcinoma).  
+- Ensure answers align with current medical guidelines (e.g., treatment for estrogen receptor-positive breast cancer).  
+- For isotopes or nuclear decay questions, apply atomic structure principles (e.g., atomic number = protons, mass number = protons + neutrons).
+\end{prompttext}
+
+\vspace{1em}
+\noindent \textbf{Round 3 Observations} \\
+\textit{- The algorithm explored more detailed niche fact integrations (evaluated Candidate \#5), which maintained the high validation score (0.85-0.86) and successfully improved the test generalization to 0.7467.}

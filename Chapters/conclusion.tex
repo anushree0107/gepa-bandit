@@ -1,0 +1,42 @@
+\chapter{Conclusion and Future Work}
+\label{ch:conclusion}
+
+\section{Summary of Contributions and Main Findings}
+This project addressed the main practical bottleneck of GEPA-style prompt optimization: high cost due to repeated expensive LLM evaluations during iterative search. We proposed a surrogate-guided, bandit-style modification that generates many candidate prompt mutations but performs full validation only on a small Top-$K$ subset chosen using a cheap surrogate predictor.
+
+The key contributions are:
+\begin{enumerate}
+    \item \textbf{Surrogate-guided filtering:} a learned surrogate model is trained on accumulated optimization data to estimate candidate quality before expensive validation.
+    \item \textbf{Bandit-style Top-$K$ validation:} expensive validation is reserved for the most promising candidates (optionally incorporating exploration).
+    \item \textbf{Monotonic best update:} the best prompt is updated only when validation improves, and test evaluation is triggered only on improvement.
+    \item \textbf{Evaluation across benchmarks:} we validated the approach on PUPA, BBH, MATH-500, and SciEval, analyzing both performance and expensive call usage.
+\end{enumerate}
+
+Overall, the results indicate that the proposed method can maintain or improve validation/test performance while using the expensive evaluation budget more effectively than baseline GEPA, and that this behavior is consistent across different task types.
+
+\section{Practical Takeaways}
+From the experiments, the following practical guidelines emerge:
+\begin{itemize}
+    \item The method is most useful when evaluation is expensive and many mutations are unproductive (common in reasoning-heavy datasets).
+    \item A good operating regime is to keep $K \ll n m$, so exploration is high but expensive validation remains limited.
+    \item Parent sampling from a Top-$P$ set improves robustness, especially on diverse benchmarks (e.g., BBH).
+    \item Engineering details matter: caching repeated evaluations, prompt deduplication, and batching inference can provide additional efficiency gains.
+\end{itemize}
+
+\section{Limitations}
+\begin{itemize}
+    \item \textbf{Dataset coverage:} experiments cover four datasets but do not exhaust all prompting scenarios (e.g., long-context RAG, multi-turn dialogue, tool-heavy agents).
+    \item \textbf{Model dependence:} prompt optima can change across model families and decoding settings; surrogate ranking quality can also depend on the embedding/representation choice.
+    \item \textbf{Evaluation noise:} minibatch-based decisions introduce variance; improvements on minibatches may not always transfer cleanly to validation/test.
+    \item \textbf{Surrogate cold start:} early in training, surrogate mis-ranking can filter out useful candidates; exploration mechanisms reduce but do not eliminate this risk.
+\end{itemize}
+
+\section{Future Work}
+Promising directions include:
+\begin{itemize}
+    \item \textbf{Multi-objective optimization:} explicitly model and select candidates using multiple objectives (e.g., accuracy and privacy leakage) rather than a single scalar score.
+    \item \textbf{Better credit assignment:} attribute gains to specific prompt edits and allocate more budget to mutation operators/components with higher historical yield.
+    \item \textbf{Improved surrogate modeling:} use stronger text representations, uncertainty-aware models, and ranking-based training objectives.
+    \item \textbf{Stronger caching and offline evaluation:} reuse evaluations more aggressively and incorporate cheap proxy metrics before full validation.
+    \item \textbf{Adaptive evaluation policies:} early stopping and dynamic minibatch sizing to spend evaluation budget only when needed.
+\end{itemize}

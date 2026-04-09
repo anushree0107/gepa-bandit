@@ -1,0 +1,54 @@
+\chapter{Experimental Setup}
+
+This chapter details the research methodology, benchmarking datasets, and computational configurations employed to evaluate the proposed \textbf{Surrogate-Guided Bandit GEPA} (Modified GEPA) framework. The experiments are designed to rigorously assess whether the introduction of a surrogate-driven candidate pruning mechanism achieves significant efficiency gains without compromising the quality of the discovered prompt solutions.
+
+\section{Research Questions}
+
+The empirical evaluation centers on three primary research questions (RQs):
+
+\begin{itemize}
+    \item \textbf{RQ1: Efficiency \& Cost Reduction —} Does the surrogate-guided bandit engine significantly reduce the number of expensive LLM evaluation calls and associated computational costs during the prompt optimization process?
+    \item \textbf{RQ2: Quality Preservation —} Does the bandit-driven selection mechanism maintain or improve the final task accuracy and the richness of the discovered Pareto frontier compared to an exhaustive GEPA baseline?
+    \item \textbf{RQ3: Domain Robustness —} How consistent and robust is the performance of the bandit optimization across diverse task domains, including privacy preservation, algorithmic reasoning, and mathematical problem-solving?
+\end{itemize}
+
+\section{Datasets and Task Definitions}
+
+To ensure a comprehensive evaluation, we utilize four distinct benchmarks that represent various reasoning types and evaluation complexities:
+
+\begin{enumerate}
+    \item \textbf{MATH-500 (Lightman et al., 2023):} The MATH-500 benchmark is a filtered subset of 500 challenging competition-level mathematical problems from the original MATH dataset. We utilize these as a specialized reasoning benchmark, splitting the dataset into 250 examples for training and validation and 250 for zero-shot testing. We optimize a single-step ChainOfThought prompt as the target system.
+
+    \item \textbf{PUPA (Zhang et al., 2024):} The Personalized Utility-Preserving Anonymization (PUPA) benchmark evaluates the PAPILLON pipeline's ability to optimize redaction prompts that remove PII while maintaining response utility. We utilize a subset of 130 examples, configuring the optimization with 50 training, 30 validation, and 50 test instances. The AI system under optimization is the three-step PAPILLON delegation pipeline.
+
+    \item \textbf{BIG-Bench Hard (Suzgun et al., 2023):} The BIG-Bench Hard (BBH) benchmark focuses on 23 challenging tasks where LLM performance was previously below human average. We evaluate multi-task reasoning by sampling proportionally across all subsets, using 150 training examples, 80 validation examples, and 150 test examples. The system under optimization is a zero-shot answer generation system.
+
+    \item \textbf{SciEval (Sun et al., 2023):} The SciEval benchmark evaluates scientific knowledge across chemistry, physics, and biology. We focus on multiple-choice reasoning using 50 training examples, 30 validation examples, and 50 test examples. Similar to the other benchmarks, we optimize a single-step scientific QA prompt.
+\end{enumerate}
+
+\section{Experimental Configuration}
+
+\subsection{Language Models and Decoding}
+The primary model for all experiments is \textbf{Qwen3:8B}, hosted locally via an \textit{Ollama} REST endpoint to ensure low-latency and deterministic evaluation tracking. 
+\begin{itemize}
+    \item \textbf{Task Execution (Target LLM):} Set to temperature $T=0.0$ for maximum determinism and reproducibility in scoring and answer generation.
+    \item \textbf{Reflective Mutation (Proposer LLM):} Set to $T=0.9$ to encourage high-variance, creative exploration during the prompt evolution phase.
+\end{itemize}
+
+\subsection{Surrogate-Guided Bandit Engine}
+The modified GEPA framework incorporates a \textbf{Multi-Layer Perceptron (MLP)} regressor as a surrogate model (hidden layers: 64, 32). The surrogate predicts candidate scores using TF-IDF features extracted from the concatenated prompt and question strings. 
+
+The selection process follows a \textbf{UCB1 Bandit} strategy:
+\[ UCB = \mu_{\text{pred}} + c \cdot \sqrt{\frac{\ln(N)}{1 + n}} \]
+where $N$ is the total candidate pool size and $n$ is the number of surrogate training samples. We configured the engine with $Top\text{-}P=5$ (elite parents), $n_{parents}=2$, $m_{mutations}=3$, and $Top\text{-}K=2$ (candidates advanced to full LLM validation).
+
+\section{Baselines and Constraints}
+
+\begin{itemize}
+    \item \textbf{Original GEPA:} An exhaustive baseline where every generated prompt mutation undergoes full validation set evaluation.
+    \item \textbf{Random Selection:} An ablation baseline where candidates are selected for full evaluation randomly, bypassing the surrogate's UCB guidance.
+    \item \textbf{Budget Constraint:} Every optimization run is capped at a maximum of 500 LLM metric calls to simulate real-world API cost limitations.
+\end{itemize}
+
+\section{Reproducibility}
+All experiments are executed with a fixed seed (\texttt{Seed = 42}) for deterministic dataset splits, shuffling, and model generation. Surrogate models are retrained each round with a warm-start configuration to maintain consistency across the optimization trajectory.

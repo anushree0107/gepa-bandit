@@ -1,0 +1,209 @@
+\documentclass{report}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+\usepackage{booktabs}
+\usepackage{mdframed}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{caption}
+
+\definecolor{promptbg}{HTML}{F8F9FA}
+\definecolor{promptframe}{HTML}{DEE2E6}
+
+\mdfdefinestyle{promptbox}{
+    backgroundcolor=promptbg,
+    linecolor=promptframe,
+    linewidth=1pt,
+    roundcorner=4pt,
+    innertopmargin=10pt,
+    innerbottommargin=10pt,
+    innerrightmargin=10pt,
+    innerleftmargin=10pt,
+}
+
+\begin{document}
+
+\chapter{GEPA Prompt Optimization Evolution}
+
+\section{PUPA Dataset Optimization}
+
+The following tables and prompt extracts illustrate the exact prompt evolution step-by-step during the GEPA bandit search on the PUPA dataset (Privacy-Preserving User Query Anonymization). The optimization process dynamically navigated through numerous variations over 7 iterations.
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{ccccccccc}
+    \toprule
+    \textbf{Rounds} & \textbf{LLM Calls} & \textbf{Val Acc} & \textbf{Best Val Acc} & \textbf{Test Acc} & \textbf{Surrogate Loss} & \textbf{Avg Top-k} & \textbf{Max Top-k} & \textbf{Min Top-k} \\
+    \midrule
+    \textbf{1} & 108 & 0.8333 & 0.8333 & 0.7950 & 0.0151 & 0.8192 & 0.8333 & 0.8050 \\
+    \textbf{2} & 192 & 0.8411 & 0.8411 & 0.8230 & 0.0612 & 0.8064 & 0.8411 & 0.7717 \\
+    \textbf{3} & 285 & 0.8411 & 0.8411 & 0.8230 & 0.0636 & 0.7967 & 0.8300 & 0.7633 \\
+    \textbf{4} & 381 & 0.8411 & 0.8411 & 0.8230 & 0.0622 & 0.7733 & 0.7833 & 0.7633 \\
+    \textbf{5} & 477 & 0.8417 & 0.8417 & 0.8063 & 0.0646 & 0.8008 & 0.8417 & 0.7600 \\
+    \textbf{6} & 495 & 0.8417 & 0.8417 & 0.8063 & 0.0611 & 0.0000 & 0.0000 & 0.0000 \\
+    \textbf{7} & 501 & 0.8417 & 0.8417 & 0.8063 & 0.0561 & 0.0000 & 0.0000 & 0.0000 \\
+    \bottomrule
+    \end{tabular}
+    \caption{GEPA Bandit Optimization Metrics across 7 rounds for the PUPA Dataset.}
+    \label{tab:pupa_metrics}
+\end{table}
+
+\subsection*{Detailed Iteration Overview}
+
+\subsubsection*{Seed Prompt (Candidate \#0) --- Val Acc: 0.7625}
+\begin{mdframed}[style=promptbox]
+Given a private user query, create a privacy-preserving request for a powerful external LLM. Remove any personal information such as names, addresses, phone numbers, email addresses, and financial details. Replace specific PII with generic placeholders (e.g., 'a person', 'a location'). The external LLM should be able to assist without learning private information about the user.
+\end{mdframed}
+
+\vspace{1em}
+\noindent \textbf{Round 1 Optimization} \\
+\textit{- The algorithm discovers a significantly stronger, specific instruction format. Score leaps up by over 0.07.}
+\subsubsection*{Round 1 Best Evaluated (Candidate \#2) --- Val Acc: 0.8333}
+\begin{mdframed}[style=promptbox]
+Given a private user query, create a privacy-preserving request for a powerful external LLM by systematically removing all personal information (PII) such as names, addresses, phone numbers, email addresses, financial details, and specific company names. Replace PII with generic placeholders (e.g., "a person," "a location," "a company"). Ensure the crafted request retains the original query's structure, intent, and technical specifics (e.g., industry terms, functional requirements) to enable accurate assistance without exposing sensitive data. Avoid truncating or omitting critical details from the user's query. For example:
+
+- Replace "Madera" with "a location" and "Tech Stop" with "a company."
+
+- Maintain technical terms like "IT/electronic repair" or "software development" as they are not PII.
+
+- Ensure the request is complete and actionable for the external LLM (e.g., avoid incomplete sentences or truncated questions).
+\end{mdframed}
+
+\vspace{1em}
+\noindent \textbf{Round 2 Optimization} \\
+\textit{- Moving towards structured headers and clearly defined requirements. The score reaches 0.8411.}
+\subsubsection*{Round 2 Best Evaluated (Candidate \#3) --- Val Acc: 0.8411}
+\begin{mdframed}[style=promptbox]
+\textbf{Task Instruction: Anonymize and Reframe User Queries for Privacy-Preserving External LLM Interaction}
+
+\textbf{Objective}: \\
+Given a user query, anonymize it by removing all personally identifiable information (PII) and replacing it with generic placeholders (e.g., "a person," "a location," "a company"). Ensure the final response from the external LLM contains no PII, even if inferred from the query context. Preserve the original intent, structure, and technical details of the query while ensuring clarity, accuracy, and quality. Avoid adding or inferring information not explicitly stated in the user query.
+
+\textbf{Key Requirements}: \\
+1. \textbf{PII Removal}: \\
+   - Replace names (e.g., "Narendra Modi" $\rightarrow$ "a public figure"), addresses, phone numbers, emails, financial details, company names, and other PII with placeholders. \\
+   - Remove any indirect references to PII (e.g., "Premier of India" $\rightarrow$ "a political leader").
+
+2. \textbf{Contextual Anonymization}: \\
+   - If the query mentions entities (e.g., "Tehran Stock Exchange"), replace them with generic terms (e.g., "a stock exchange") to avoid inferred details. \\
+   - Avoid retaining any domain-specific or factual information about entities (e.g., roles, biographical data) that could be inferred from the query.
+
+3. \textbf{Structure Preservation}: \\
+   - Maintain the original query's intent, technical terms, and formatting (e.g., code snippets, titles, questions). \\
+   - Ensure the anonymized request is actionable for the external LLM.
+
+4. \textbf{Quality Assurance}: \\
+   - Ensure the final response is free of PII, even if the external LLM infers details from the anonymized query. \\
+   - Avoid adding new information, assumptions, or speculative content not present in the original query.
+
+\textbf{Example Workflow}: \\
+- \textbf{User Query}: "@NarendraModi in real life Napisz za mnie zgloszenie i Zgłoś film na jaki temat mam zglosic na youtube" \\
+- \textbf{Crafted Request}: "@PublicFigure in real life Write a report for me and Report a video on what topic should I report on YouTube" \\
+- \textbf{Final Response}: Ensure no details about "PublicFigure" (e.g., their role, influence, or specific actions) are included, even if inferred from the query.
+
+\textbf{Notes for the Assistant}: \\
+- Use placeholders consistently for all PII, even if the query contains indirect references (e.g., "Premier of India" $\rightarrow$ "a political leader"). \\
+- Avoid retaining domain-specific terminology (e.g., "GARCH models," "stock exchange") unless it is critical to the query's intent. \\
+- Prioritize clarity and accuracy in anonymization to prevent ambiguity in the external LLM's response.
+\end{mdframed}
+
+\vspace{1em}
+\noindent \textbf{Round 3 \& 4 Observations} \\
+\textit{- The algorithm explored different wording variants and specific constraint injections (evaluating Candidates \#5 and \#8). They underperformed (0.8300 and 0.7833, respectively) compared to the Round 2 best, demonstrating the surrogate's capability to safely explore without permanent regression.}
+
+\subsubsection*{Round 4 Evaluated (Candidate \#8) --- Val Acc: 0.7833 [No Improvement]}
+\begin{mdframed}[style=promptbox]
+\textbf{Task Instruction: Anonymize and Reframe User Queries for Privacy-Preserving External LLM Interaction}
+
+\textbf{Objective}: \\
+Given a user query, anonymize it by removing all personally identifiable information (PII) and replacing specific entities (e.g., names, locations, technical terms, platforms) with generic placeholders (e.g., "a person," "a location," "a platform," "a system"). Ensure the final response from the external LLM contains no PII, even if inferred from the query context. Preserve the original intent, structure, and technical details of the query while ensuring clarity, accuracy, and quality. Avoid adding or inferring information not explicitly stated in the user query.
+
+\textbf{Key Requirements}: \\
+1. \textbf{PII and Entity Removal}: \\
+   - Replace names (e.g., "Narendra Modi" $\rightarrow$ "a public figure"), addresses, phone numbers, emails, financial details, company names, and other PII with placeholders. \\
+   - Remove or anonymize indirect references to PII (e.g., "Premier of India" $\rightarrow$ "a political leader," "Instagram" $\rightarrow$ "a social media platform"). \\
+   - Replace specific technical terms, platforms, or domain-specific entities (e.g., "stan store" $\rightarrow$ "a platform," "Meemu Atoll" $\rightarrow$ "a atoll," "GARCH models" $\rightarrow$ "a statistical model") with generic placeholders.
+
+2. \textbf{Contextual Anonymization}: \\
+   - Avoid retaining any domain-specific terminology (e.g., "stock exchange," "Windows," "SEO") unless it is critical to the query's intent (e.g., "SEO" can be anonymized as "search engine optimization" if it's a core term). \\
+   - Ensure the anonymized request does not enable the external LLM to infer specific details (e.g., "Muli, Naalaafushi, Kolhufushi" $\rightarrow$ "island 1, island 2, island 3").
+
+3. \textbf{Structure Preservation}: \\
+   - Maintain the original query's intent, technical terms, and formatting (e.g., code snippets, titles, questions). \\
+   - Ensure the anonymized request is actionable for the external LLM without introducing new information or assumptions.
+
+4. \textbf{Quality Assurance}: \\
+   - Ensure the final response is free of PII, even if the external LLM infers details from the anonymized query. \\
+   - Avoid adding new information, assumptions, or speculative content not present in the original query. \\
+   - Use placeholders consistently for all entities, including indirect references (e.g., "Premier of India" $\rightarrow$ "a political leader").
+
+\textbf{Example Workflow}: \\
+- \textbf{User Query}: "write a 1000 words article about Meemu Atoll in Maldives. Include the hot-spots in the following islands in the Atoll; Muli, Naalaafushi, Kolhufushi, Mulah, Veyvah" \\
+- \textbf{Crafted Request}: "Write a 1000-word article about a atoll in the Maldives. Include the hot-spots in the following islands in the atoll; island 1, island 2, island 3, island 4, island 5." \\
+- \textbf{Final Response}: Ensure no details about the atoll, islands, or specific locations are included, even if inferred from the query.
+
+\textbf{Notes for the Assistant}: \\
+- Use placeholders consistently for all entities, including indirect references (e.g., "Premier of India" $\rightarrow$ "a political leader"). \\
+- Avoid retaining domain-specific terminology (e.g., "GARCH models," "stock exchange") unless it is critical to the query's intent. \\
+- Prioritize clarity and accuracy in anonymization to prevent ambiguity in the external LLM's response. \\
+- Never add code, technical terms, or information not explicitly stated in the original query (e.g., do not add "using System;" unless it was explicitly in the query).
+\end{mdframed}
+
+\vspace{1em}
+\noindent \textbf{Round 5 Best Optimization} \\
+\textit{- By compounding successful structural elements from previous runs and resolving over-generalization mistakes detected in Rounds 3 and 4, Candidate \#9 achieves the highest overall validation score of 0.8417.}
+
+\subsubsection*{Round 5 Best Evaluated (Candidate \#9) --- Val Acc: 0.8417}
+\begin{mdframed}[style=promptbox]
+\textbf{Task Instruction: Anonymize and Reframe User Queries for Privacy-Preserving External LLM Interaction}
+
+\textbf{Objective}: \\
+Given a user query, anonymize it by removing all personally identifiable information (PII) and replacing it with generic placeholders (e.g., "a person," "a location," "a company"). Ensure the final response from the external LLM contains no PII, even if inferred from the query context. Preserve the original intent, structure, and technical details of the query while ensuring clarity, accuracy, and quality. Avoid adding or inferring information not explicitly stated in the user query.
+
+\textbf{Key Requirements}: \\
+1. \textbf{PII Removal}: \\
+   - Replace names (e.g., "Narendra Modi" $\rightarrow$ "a public figure"), addresses, phone numbers, emails, financial details, company names, and other PII with placeholders. \\
+   - Remove any indirect references to PII (e.g., "Premier of India" $\rightarrow$ "a political leader"). \\
+   - Retain technical terms, titles, or acronyms (e.g., "HHV") unless they are explicitly tied to PII or domain-specific details that could infer private information.
+
+2. \textbf{Contextual Anonymization}: \\
+   - Replace specific entities (e.g., "Tehran Stock Exchange" $\rightarrow$ "a stock exchange") with generic terms to avoid inferred details. \\
+   - Avoid retaining domain-specific terminology (e.g., "GARCH models," "stock exchange") unless critical to the query's intent. \\
+   - If the query includes indirect references to PII (e.g., "the CEO of a tech company"), replace them with "a corporate executive" or "a business leader."
+
+3. \textbf{Structure Preservation}: \\
+   - Maintain the original query's intent, technical terms, and formatting (e.g., code snippets, titles, questions). \\
+   - Ensure the anonymized request is actionable for the external LLM. \\
+   - Preserve numerical data (e.g., "15 units") and specific instructions (e.g., "write a 250-word introduction") without altering their meaning.
+
+4. \textbf{Quality Assurance}: \\
+   - Ensure the final response is free of PII, even if the external LLM infers details from the anonymized query. \\
+   - Avoid adding new information, assumptions, or speculative content not present in the original query. \\
+   - Use placeholders consistently for all PII, even if the query contains indirect references (e.g., "Premier of India" $\rightarrow$ "a political leader").
+
+\textbf{Example Workflow}: \\
+- \textbf{User Query}: "Write a 250-word introduction for the following essay: Change Proposal \#1: Foster Personal Connections to HHV Health and Human Values is a minor that aims to foster growth of individuals as they pursue careers in health and healthcare." \\
+- \textbf{Crafted Request}: "Write a 250-word introduction for the following essay: Change Proposal \#1: Foster Personal Connections to HHV is a program that aims to foster growth of individuals as they pursue careers in health and healthcare." \\
+- \textbf{Final Response}: Ensure no details about "HHV" (e.g., its structure, curriculum, or associated entities) are included, even if inferred from the query.
+
+\textbf{Notes for the Assistant}: \\
+- Use placeholders consistently for all PII, even if the query contains indirect references (e.g., "Premier of India" $\rightarrow$ "a political leader"). \\
+- Avoid retaining domain-specific terminology (e.g., "GARCH models," "stock exchange") unless it is critical to the query's intent. \\
+- Prioritize clarity and accuracy in anonymization to prevent ambiguity in the external LLM's response. \\
+- Do not infer or add information not explicitly stated in the user query (e.g., avoid replacing "HHV" with "the Minor" or adding terms like "program"). \\
+- Retain acronyms (e.g., "HHV") unless they are tied to PII or domain-specific details that could infer private information.
+
+\textbf{Key Niche Details to Include in Instructions}: \\
+- \textbf{Acronyms}: Retain acronyms (e.g., "HHV") unless they are explicitly tied to PII or domain-specific details that could infer private information. \\
+- \textbf{Numerical Data}: Preserve numerical values (e.g., "15 units") and formatting (e.g., titles, bullet points) without modification. \\
+- \textbf{Avoid Inferred Terms}: Never replace terms like "HHV" with inferred phrases (e.g., "the Minor") unless explicitly instructed. \\
+- \textbf{Technical Terms}: Maintain technical terms (e.g., "GARCH models") unless they are part of PII or domain-specific details that could infer private information. \\
+- \textbf{Consistency}: Use standardized placeholders (e.g., "a public figure," "a corporate executive") for all PII, even indirect references.
+\end{mdframed}
+
+\vspace{1em}
+\noindent \textbf{Rounds 6 \& 7 Observations} \\
+\textit{- Surrogate evaluated multiple generated subsets but correctly rejected candidates that lacked sufficient projected potential on unseen subsets, keeping the Best Val Acc locked at 0.8417.}
+
+\end{document}

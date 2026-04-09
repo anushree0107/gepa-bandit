@@ -1,0 +1,114 @@
+\chapter{Proposed Method: Surrogate-Guided Bandit GEPA}
+\label{ch:method}
+
+\section{Motivation}
+Baseline GEPA couples candidate generation with expensive evaluation: after reflective mutation proposes a new candidate, it is typically evaluated on a minibatch and/or tracked on validation. When many proposed mutations are low quality (common in prompt search), the optimizer spends a large fraction of the budget on candidates that are ultimately rejected. This effect becomes more pronounced when running across multiple datasets and multiple seeds, where total LLM calls and token usage dominate cost.
+
+\section{Approach Overview}
+We propose a \emph{multi-fidelity} modification to GEPA. The key change is to insert a cheap ranking/filtering stage between mutation generation and expensive validation:
+\begin{enumerate}
+    \item \textbf{Generate} a large set of mutated candidates from a set of strong parents.
+    \item \textbf{Score cheaply} using a learned surrogate predictor.
+    \item \textbf{Select under a budget} by validating only a small Top-$K$ subset with expensive evaluation.
+    \item \textbf{Update} the candidate pool and train the surrogate using newly collected labeled evaluations.
+\end{enumerate}
+This preserves broad exploration (large mutation set) while reducing expensive evaluations through budgeted selection.
+
+\section{Caching, Deduplication, and Batching}
+\subsection{Evaluation Cache}
+Repeated evaluation is common in iterative search (e.g., when strong parents are sampled frequently). We maintain a cache keyed by:
+\[
+(\Phi,\; \text{id}) \mapsto \text{score and/or model output}.
+\]
+If a candidate has already been evaluated on a given instance, the stored score/output is reused rather than re-calling the LLM.
+
+\subsection{Prompt Deduplication}
+Different mutation paths can yield identical prompts. Before surrogate scoring and expensive validation, we deduplicate candidates:
+\[
+\Phi_i = \Phi_j \Rightarrow \text{keep one representative}.
+\]
+This prevents wasting budget on duplicates and also improves the diversity of the Top-$K$ set.
+
+\subsection{Batching (When Supported)}
+If the inference interface supports batching, we batch evaluation requests across candidates or instances to reduce per-request overhead. This does not change the algorithmic decisions but improves throughput.
+
+\section{Surrogate Model for Candidate Ranking}
+\subsection{Model Definition}
+Let $g_\theta$ be a regression model that predicts the expected score of a candidate prompt $\Phi$ on a validation question $q$:
+\[
+\widehat{s} = g_\theta(\phi(\Phi,q)) \in [0,1],
+\]
+where $\phi(\Phi,q)$ is a feature representation (e.g., concatenated embeddings of the prompt and the question, or any task-specific features available).
+
+\subsection{Training Data Buffer}
+We maintain a supervised buffer
+\[
+\mathcal{B} = \{(\Phi, q, s)\},
+\]
+where $s$ is the true score obtained from expensive evaluation. Each time we validate candidates in Top-$K$, we append new labeled tuples to $\mathcal{B}$. The surrogate is trained periodically (or incrementally) to minimize a regression loss (e.g., MSE). Although the surrogate is trained as a regressor, its primary role is \emph{ranking}: selecting which candidates receive expensive validation.
+
+\subsection{Use in the Optimization Loop}
+For each round, we generate $N=n\cdot m$ candidates and compute surrogate scores $\widehat{s}(\Phi)$ cheaply. We then select a small subset for expensive validation:
+\[
+\mathcal{C}_K \leftarrow \text{Top-}K\{\widehat{s}(\Phi)\;:\;\Phi\in\mathcal{C}\}.
+\]
+This stage implements the multi-fidelity idea: surrogate scoring is cheap and applied to many candidates, while expensive validation is reserved for a small budgeted subset.
+
+\section{Budgeted Expensive Validation and Early Termination}
+Even within the expensive validation stage, we can reduce cost with standard budget-allocation strategies:
+\begin{itemize}
+    \item \textbf{Early termination:} evaluate a candidate on a small subset first; if it cannot exceed the current best under an optimistic bound, stop early.
+    \item \textbf{Adaptive evaluation:} allocate more validation effort to candidates that are predicted to be strong (or uncertain but promising), and less to candidates predicted to be weak.
+\end{itemize}
+These mechanisms reduce wasted evaluation while preserving fidelity for the most competitive candidates.
+
+\section{Parent Selection and Exploration}
+To reduce premature convergence, we do not always mutate only the single best prompt. Instead, we maintain a Top-$P$ parent set (by validation score) and sample parents from this set. This is consistent with standard population-based optimization: parent diversity increases the chance of generating qualitatively different mutations that improve on different subsets of instances.
+
+\subsection{Uncertainty-Aware Ranking (Optional)}
+If uncertainty estimates are available (e.g., via ensembles or dropout), candidates can be ranked using a standard upper-confidence bound (UCB) acquisition rule:
+\[
+\text{score}(\Phi) = \widehat{s}(\Phi) + \beta \sigma(\Phi),
+\]
+where $\sigma(\Phi)$ is predictive uncertainty and $\beta$ controls the exploration--exploitation trade-off. In the simplest configuration, we rank purely by $\widehat{s}(\Phi)$.
+
+\section{Monotonic Best-Prompt Tracking}
+We update the tracked best prompt only when the validation score improves. Test evaluation is triggered only on improvement. This reduces repeated test-set calls and ensures that the reported best validation score is non-decreasing across rounds, which simplifies analysis of optimization trajectories.
+
+\section{Algorithm}
+\begin{algorithm}[H]
+\caption{Surrogate-Guided Bandit GEPA}
+\label{alg:bandit_gepa}
+\begin{algorithmic}[1]
+\Require Train set $\mathcal{D}_{\text{train}}$, validation set $\mathcal{D}_{\text{val}}$, metric $\mu$, seed prompt $\Phi_0$
+\Require Top-$P$ size $p$, parents per round $n$, mutations per parent $m$, expensive validations per round $K$
+\Require Surrogate model $g_\theta$ and buffer $\mathcal{B}$
+
+\State Initialize pool $\mathcal{P}\leftarrow\{(\Phi_0,S_{\text{val}}(\Phi_0))\}$ and Top-$P$ set $\mathcal{T}$ from $\mathcal{P}$
+\State Best prompt $\Phi^\star \leftarrow \Phi_0$, best validation score $S^\star \leftarrow S_{\text{val}}(\Phi_0)$
+\While{budget not exhausted}
+    \State Sample $n$ parents from $\mathcal{T}$
+    \State Generate $N=n\cdot m$ mutations $\mathcal{C}$ using the reflection/proposer
+    \State Deduplicate $\mathcal{C}$ and apply cached evaluations when available
+    \State Compute surrogate scores $\widehat{s}(\Phi)$ (or UCB scores) for $\Phi\in\mathcal{C}$
+    \State Select Top-$K$ candidates $\mathcal{C}_K$ and expensively validate to obtain $s(\Phi)$
+    \State Add validated candidates to pool $\mathcal{P}$ and add labeled tuples to buffer $\mathcal{B}$
+    \State Update parent set $\mathcal{T}$ (Top-$P$ by validation score)
+    \If{$\max_{\Phi\in\mathcal{C}_K} s(\Phi) > S^\star$}
+        \State Update $\Phi^\star$ and $S^\star$; optionally run test evaluation
+    \EndIf
+    \State Train/update surrogate $g_\theta$ on buffer $\mathcal{B}$
+\EndWhile
+\State \Return $\Phi^\star$
+\end{algorithmic}
+\end{algorithm}
+
+\section{Cost Analysis (Simplified)}
+Baseline GEPA tends to evaluate most attempted mutations expensively. In the proposed method, each round generates $N=n m$ candidates but expensively validates only $K$ candidates, with $K \ll N$. The fraction of generated candidates that receive expensive validation is:
+\[
+\frac{K}{nm}.
+\]
+When $K$ is small relative to $nm$, most mutations are filtered by the surrogate and do not incur expensive evaluation. At the same time, Top-$P$ parent sampling and optional UCB-style ranking mitigate the risk of missing improvements due to surrogate misranking.
+
+\section{Summary}
+We presented a multi-fidelity GEPA variant that uses a learned surrogate to rank candidate mutations and performs expensive validation only for a budgeted Top-$K$ subset. We also described complementary efficiency optimizations (caching, deduplication, batching, and early termination) and a monotonic best-prompt rule for stable tracking. The next chapter describes the experimental setup used to evaluate quality and efficiency across datasets.
