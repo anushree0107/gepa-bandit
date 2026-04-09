@@ -1,0 +1,575 @@
+2026-04-04 20:59:40 | INFO     | Loading SciEval dataset...
+2026-04-04 20:59:52 | INFO     | Dataset sizes — Train: 50, Val: 30, Test: 50
+2026-04-04 20:59:52 | INFO     | Starting SurrogateBanditEngine...
+2026-04-04 20:59:52 | INFO     | ==========================================================================================
+2026-04-04 20:59:52 | INFO     | SciEval + Surrogate-Guided Bandit — OPTIMIZATION START
+2026-04-04 20:59:52 | INFO     | Config: {
+  "perfect_score": 1.0,
+  "seed": 42,
+  "track_best_outputs": true,
+  "bandit_config": {
+    "top_p": 5,
+    "n_parents": 2,
+    "m_mutations": 3,
+    "top_k": 2,
+    "ucb_exploration": 1.0
+  }
+}
+2026-04-04 20:59:52 | INFO     | ==========================================================================================
+2026-04-04 20:59:52 | INFO     | 
+  [SEED] Prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).
+2026-04-05 09:56:55 | INFO     | Loading SciEval dataset...
+2026-04-05 09:57:05 | INFO     | Dataset sizes — Train: 50, Val: 30, Test: 50
+2026-04-05 09:57:05 | INFO     | Starting SurrogateBanditEngine...
+2026-04-05 09:57:05 | INFO     | ==========================================================================================
+2026-04-05 09:57:05 | INFO     | SciEval + Surrogate-Guided Bandit — OPTIMIZATION START
+2026-04-05 09:57:05 | INFO     | Config: {
+  "perfect_score": 1.0,
+  "seed": 42,
+  "track_best_outputs": true,
+  "bandit_config": {
+    "top_p": 5,
+    "n_parents": 2,
+    "m_mutations": 3,
+    "top_k": 2,
+    "ucb_exploration": 1.0
+  }
+}
+2026-04-05 09:57:05 | INFO     | ==========================================================================================
+2026-04-05 09:57:05 | INFO     | 
+  [SEED] Prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).
+2026-04-05 10:07:57 | INFO     |   [SEED] Baseline Test Accuracy: 0.7800
+2026-04-05 10:13:45 | INFO     | Round 0: Seed valset score: 0.5667
+2026-04-05 10:13:45 | INFO     | Round 1: Selected 1 parents from Top-5: [0]
+2026-04-05 10:13:45 | INFO     | Iteration 1: Selected program 0 score: 0.5666666666666667
+2026-04-05 10:14:00 | INFO     | Iteration 1: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Use your knowledge of biological structures (e.g., chitin in fungal cell walls and arthropod exoskeletons), physical formulas (e.g., specific heat capacity calculations using q = mcΔT), and molecular biology (e.g., cellulose composed of glucose monomers). Apply logical elimination based on scientific principles, and respond with ONLY the letter of the correct answer.
+2026-04-05 10:14:09 | INFO     | Round 1: Generated mutation from parent 0 (subsample: before=3.00, after=3.00)
+2026-04-05 10:14:09 | INFO     | Iteration 1: Selected program 0 score: 0.5666666666666667
+2026-04-05 10:14:21 | INFO     | Iteration 1: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved, including domain-specific facts such as:  
+- Fungi and arthropods share chitin in cell walls/exoskeletons (Option B).  
+- Specific heat calculations require the formula $ c = \frac{q}{m \cdot \Delta T} $ (e.g., 770 J / (50.0 g × 110°C) = 0.14 J/g°C).  
+- Cellulose is composed of glucose monomers linked by beta-1,4-glycosidic bonds (Option D).  
+Respond with ONLY the letter of the correct answer. Avoid explanations or additional text.
+2026-04-05 10:14:28 | INFO     | Round 1: Generated mutation from parent 0 (subsample: before=3.00, after=3.00)
+2026-04-05 10:14:28 | INFO     | Iteration 1: Selected program 0 score: 0.5666666666666667
+2026-04-05 10:14:42 | INFO     | Iteration 1: Proposed new text for system_prompt: You are a science expert tasked with answering multiple-choice questions by selecting the correct option (A, B, C, or D). Follow these guidelines:  
+1. **Think critically** about the scientific concepts, formulas, or facts involved (e.g., biological structures like chitin in fungi/arthropods, thermodynamic calculations like specific heat using $ q = mc\Delta T $, or molecular composition of polymers like cellulose).  
+2. **Prioritize accuracy** by applying domain-specific knowledge (e.g., knowing that cellulose is composed of glucose units, or that mercury’s specific heat requires rearranging the energy formula).  
+3. **Respond only with the letter** of the correct answer (no explanations, calculations, or additional text).  
+4. **Avoid assumptions**—base your answer strictly on scientific principles, even if the question seems ambiguous.  
+5. **Use examples** from prior tasks (e.g., recognizing that chitin is a key shared trait in fungi and arthropods) to guide your reasoning.
+2026-04-05 10:14:51 | INFO     | Round 1: Generated mutation from parent 0 (subsample: before=3.00, after=3.00)
+2026-04-05 10:14:51 | INFO     | Round 1: Generated 3 total mutations
+2026-04-05 10:14:51 | INFO     | Round 1: Surrogate scores: min=0.5000, max=0.5000, mean=0.5000
+2026-04-05 10:14:51 | INFO     | 
+  [SURROGATE] Scored 3 candidates:
+2026-04-05 10:14:51 | INFO     |     #0: surrogate=0.5000, ucb=1.6774 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
+2026-04-05 10:14:51 | INFO     |     #1: surrogate=0.5000, ucb=1.6774 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
+2026-04-05 10:14:51 | INFO     |     #2: surrogate=0.5000, ucb=1.6774 | You are a science expert tasked with answering multiple-choice questions by selecting the correct op...
+2026-04-05 10:14:51 | INFO     | Round 1: Selected Top-2 from 3 by UCB: [0, 1]
+2026-04-05 10:14:51 | INFO     |   [BANDIT] Selected Top-2 from 3: indices=[0, 1]
+2026-04-05 10:14:51 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 3/3)
+2026-04-05 10:18:43 | INFO     | 
+  [ACCEPTED] Candidate #1 (val=0.5000, parents=[0])
+2026-04-05 10:18:43 | INFO     |   Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Use your knowledge of biological structures (e.g., chitin in fungal cell walls and arthropod exoskeletons), physical formulas (e.g., specific heat capacity calculations using q = mcΔT), and molecular biology (e.g., cellulose composed of glucose monomers). Apply logical elimination based on scientific principles, and respond with ONLY the letter of the correct answer.
+2026-04-05 10:18:43 | INFO     |   >> New best! val=0.5000
+2026-04-05 10:18:43 | INFO     | Iteration 1: Valset score for new program: 0.5 (coverage 30 / 30)
+2026-04-05 10:18:43 | INFO     | Iteration 1: Val aggregate for new program: 0.5
+2026-04-05 10:18:43 | INFO     | Iteration 1: Individual valset scores for new program: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 0.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 0.0, 25: 0.0, 26: 0.0, 27: 1.0, 28: 0.0, 29: 1.0}
+2026-04-05 10:18:43 | INFO     | Iteration 1: New valset pareto front scores: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 0.0, 25: 0.0, 26: 0.0, 27: 1.0, 28: 0.0, 29: 1.0}
+2026-04-05 10:18:43 | INFO     | Iteration 1: Valset pareto front aggregate score: 0.5666666666666667
+2026-04-05 10:18:43 | INFO     | Iteration 1: Updated valset pareto front programs: {0: {0, 1}, 1: {0, 1}, 2: {0, 1}, 3: {0, 1}, 4: {0, 1}, 5: {0, 1}, 6: {0, 1}, 7: {0, 1}, 8: {0, 1}, 9: {0, 1}, 10: {0}, 11: {0, 1}, 12: {0, 1}, 13: {0, 1}, 14: {0, 1}, 15: {0, 1}, 16: {0, 1}, 17: {0}, 18: {0, 1}, 19: {0, 1}, 20: {0, 1}, 21: {0, 1}, 22: {0, 1}, 23: {0, 1}, 24: {0, 1}, 25: {0, 1}, 26: {0, 1}, 27: {0, 1}, 28: {0, 1}, 29: {0, 1}}
+2026-04-05 10:18:43 | INFO     | Iteration 1: Best valset aggregate score so far: 0.5666666666666667
+2026-04-05 10:18:43 | INFO     | Iteration 1: Best program as per aggregate score on valset: 0
+2026-04-05 10:18:43 | INFO     | Iteration 1: Best score on valset: 0.5666666666666667
+2026-04-05 10:18:43 | INFO     | Iteration 1: Linear pareto front program index: 0
+2026-04-05 10:18:43 | INFO     | Iteration 1: New program candidate index: 1
+2026-04-05 10:18:43 | INFO     |   [ACCEPTED] Candidate #1 score=0.5000 parents=[0]
+2026-04-05 10:24:37 | INFO     | 
+  [ACCEPTED] Candidate #2 (val=0.5000, parents=[0])
+2026-04-05 10:24:37 | INFO     |   Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved, including domain-specific facts such as:  
+- Fungi and arthropods share chitin in cell walls/exoskeletons (Option B).  
+- Specific heat calculations require the formula $ c = \frac{q}{m \cdot \Delta T} $ (e.g., 770 J / (50.0 g × 110°C) = 0.14 J/g°C).  
+- Cellulose is composed of glucose monomers linked by beta-1,4-glycosidic bonds (Option D).  
+Respond with ONLY the letter of the correct answer. Avoid explanations or additional text.
+2026-04-05 10:24:37 | INFO     |   >> New best! val=0.5000
+2026-04-05 10:24:37 | INFO     | Iteration 1: Valset score for new program: 0.5 (coverage 30 / 30)
+2026-04-05 10:24:37 | INFO     | Iteration 1: Val aggregate for new program: 0.5
+2026-04-05 10:24:37 | INFO     | Iteration 1: Individual valset scores for new program: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 0.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 0.0, 25: 0.0, 26: 0.0, 27: 1.0, 28: 0.0, 29: 1.0}
+2026-04-05 10:24:37 | INFO     | Iteration 1: New valset pareto front scores: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 0.0, 25: 0.0, 26: 0.0, 27: 1.0, 28: 0.0, 29: 1.0}
+2026-04-05 10:24:37 | INFO     | Iteration 1: Valset pareto front aggregate score: 0.5666666666666667
+2026-04-05 10:24:37 | INFO     | Iteration 1: Updated valset pareto front programs: {0: {0, 1, 2}, 1: {0, 1, 2}, 2: {0, 1, 2}, 3: {0, 1, 2}, 4: {0, 1, 2}, 5: {0, 1, 2}, 6: {0, 1, 2}, 7: {0, 1, 2}, 8: {0, 1, 2}, 9: {0, 1, 2}, 10: {0}, 11: {0, 1, 2}, 12: {0, 1, 2}, 13: {0, 1, 2}, 14: {0, 1, 2}, 15: {0, 1}, 16: {0, 1, 2}, 17: {0, 2}, 18: {0, 1, 2}, 19: {0, 1, 2}, 20: {0, 1, 2}, 21: {0, 1, 2}, 22: {0, 1, 2}, 23: {0, 1, 2}, 24: {0, 1, 2}, 25: {0, 1, 2}, 26: {0, 1, 2}, 27: {0, 1, 2}, 28: {0, 1, 2}, 29: {0, 1, 2}}
+2026-04-05 10:24:37 | INFO     | Iteration 1: Best valset aggregate score so far: 0.5666666666666667
+2026-04-05 10:24:37 | INFO     | Iteration 1: Best program as per aggregate score on valset: 0
+2026-04-05 10:24:37 | INFO     | Iteration 1: Best score on valset: 0.5666666666666667
+2026-04-05 10:24:37 | INFO     | Iteration 1: Linear pareto front program index: 0
+2026-04-05 10:24:37 | INFO     | Iteration 1: New program candidate index: 2
+2026-04-05 10:24:37 | INFO     |   [ACCEPTED] Candidate #2 score=0.5000 parents=[0]
+2026-04-05 10:24:37 | INFO     | Round 1: ✗ No improvement. Best remains at 0.5667 (candidate #0)
+2026-04-05 10:24:38 | INFO     | Round 1: Surrogate retrained. MSE loss = 0.016744
+2026-04-05 10:24:38 | INFO     | 
+--------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 10:24:38 | INFO     | Rounds |  LLM Calls |    Val Acc |  Best Val Acc |  Test Acc (Selected) |  Surrogate Loss |  Avg Top-k |  Max Top-k |  Min Top-k
+2026-04-05 10:24:38 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 10:24:38 | INFO     |      1 |        108 |     0.5667 |        0.5667 |               0.7800 |        0.016949 |     0.5000 |     0.5000 |     0.5000
+2026-04-05 10:24:38 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 10:24:38 | INFO     | 
+Round 1 summary: best_val=0.5667, test=0.7800, llm_calls=108
+2026-04-05 10:24:38 | INFO     | Round 2: Selected 2 parents from Top-5: [0, 1]
+2026-04-05 10:24:38 | INFO     | Iteration 2: Selected program 0 score: 0.5666666666666667
+2026-04-05 10:24:58 | INFO     | Iteration 2: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved, and ensure your answer is based on accurate domain-specific knowledge. For example:  
+- **Percent error** measures the difference between an experimental value and the accepted value (not just consistency of results).  
+- **Nuclear fission** occurs when a heavy nucleus splits after absorbing a neutron, not due to decay or fusion.  
+- In medical cases, prioritize pathophysiological mechanisms (e.g., pulmonary edema in heart failure).  
+If multiple options seem plausible, use scientific reasoning to eliminate incorrect choices. Respond with ONLY the letter of the correct answer.
+2026-04-05 10:25:10 | INFO     | Round 2: Generated mutation from parent 0 (subsample: before=3.00, after=3.00)
+2026-04-05 10:25:10 | INFO     | Iteration 2: Selected program 0 score: 0.5666666666666667
+2026-04-05 10:25:30 | INFO     | Iteration 2: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved, and ensure your answer aligns with established principles. If the question or options are incomplete, prioritize eliminating incorrect choices based on domain knowledge. Always verify that your answer reflects accurate scientific definitions, formulas, or mechanisms. For example, when evaluating percent error/percent deviation, recall that percent error measures the discrepancy between an experimental value and a theoretical value, while percent deviation assesses consistency across measurements. Similarly, for nuclear fission, recognize that it involves splitting a heavy nucleus into smaller ones, releasing energy, rather than fusion or radioactive decay. Respond with ONLY the letter of the correct answer.
+2026-04-05 10:26:01 | INFO     | Round 2: Generated mutation from parent 0 (subsample: before=3.00, after=3.00)
+2026-04-05 10:26:01 | INFO     | Iteration 2: Selected program 0 score: 0.5666666666666667
+2026-04-05 10:26:19 | INFO     | Iteration 2: Proposed new text for system_prompt: You are a science expert tasked with answering multiple-choice questions by selecting the correct option (A, B, C, or D). Focus on applying scientific principles, medical knowledge, or domain-specific facts to determine the correct answer. If the question or options are incomplete, use logical reasoning and generalizable strategies (e.g., eliminating incorrect choices based on scientific consistency) to infer the correct response. Respond ONLY with the letter of the correct answer. The task may involve topics from physics, chemistry, biology, or medicine, and you must ensure your answer aligns with established scientific concepts even when options are partially provided.
+2026-04-05 10:26:31 | INFO     | Round 2: Generated mutation from parent 0 (subsample: before=3.00, after=3.00)
+2026-04-05 10:26:31 | INFO     | Iteration 2: Selected program 0 score: 0.5666666666666667
+2026-04-05 10:26:50 | INFO     | Iteration 2: Proposed new text for system_prompt: You are a science and medical expert. Answer multiple-choice questions by selecting the correct option (A, B, C, or D). Focus on scientific principles, medical knowledge, and logical elimination. If the question is incomplete or options are truncated, use your expertise to infer the most accurate answer. Prioritize domain-specific facts (e.g., definitions of terms like percent error, mechanisms of nuclear fission, or clinical symptoms) and avoid assumptions. Respond with ONLY the letter of the correct answer.
+2026-04-05 10:27:02 | INFO     | Round 2: Generated mutation from parent 1 (subsample: before=3.00, after=3.00)
+2026-04-05 10:27:02 | INFO     | Iteration 2: Selected program 0 score: 0.5666666666666667
+2026-04-05 10:27:18 | INFO     | Iteration 2: Proposed new text for system_prompt: You are a science expert tasked with answering multiple-choice questions by selecting the correct option (A, B, C, or D). The questions may involve scientific concepts from physics, chemistry, biology, earth science, or medical scenarios. Respond ONLY with the letter of the correct answer. 
+
+Key instructions:  
+1. **Focus on scientific principles**: Use your knowledge of fundamental science concepts (e.g., percent error calculations, nuclear reactions, physiological processes) to evaluate the options.  
+2. **Prioritize accuracy over assumptions**: If options are incomplete (e.g., cut-off text), infer the correct answer based on standard scientific definitions or context.  
+3. **Adapt to domain-specific details**: For medical questions, apply biological/clinical knowledge (e.g., diagnosing conditions based on symptoms).  
+4. **Avoid extra explanations**: Provide only the letter (A/B/C/D) as your final answer.  
+5. **Generalizable strategy**: If the correct answer relies on a common scientific framework (e.g., percent error = |experimental - theoretical| / theoretical × 100%), apply it systematically.
+2026-04-05 10:27:30 | INFO     | Round 2: Generated mutation from parent 1 (subsample: before=3.00, after=3.00)
+2026-04-05 10:27:30 | INFO     | Iteration 2: Selected program 0 score: 0.5666666666666667
+2026-04-05 10:27:54 | INFO     | Iteration 2: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Focus on applying foundational scientific principles (e.g., definitions of terms like *percent error*, *nuclear fission*, or *medical pathophysiology*) and domain-specific knowledge (e.g., physics, chemistry, biology, or clinical medicine). Use logical reasoning to eliminate incorrect options, and prioritize accuracy by aligning with established scientific concepts (e.g., recognizing that *percent error* measures deviation from a known value, or that *nuclear fission* involves splitting heavy nuclei). Respond with ONLY the letter of the correct answer.
+2026-04-05 10:28:08 | INFO     | Round 2: Generated mutation from parent 1 (subsample: before=3.00, after=3.00)
+2026-04-05 10:28:08 | INFO     | Round 2: Generated 6 total mutations
+2026-04-05 10:28:08 | INFO     | Round 2: Surrogate scores: min=0.3910, max=0.4624, mean=0.4189
+2026-04-05 10:28:08 | INFO     | 
+  [SURROGATE] Scored 6 candidates:
+2026-04-05 10:28:08 | INFO     |     #0: surrogate=0.4007, ucb=0.5905 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
+2026-04-05 10:28:08 | INFO     |     #1: surrogate=0.4092, ucb=0.5990 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
+2026-04-05 10:28:08 | INFO     |     #2: surrogate=0.4624, ucb=0.6522 | You are a science expert tasked with answering multiple-choice questions by selecting the correct op...
+2026-04-05 10:28:08 | INFO     |     #3: surrogate=0.4159, ucb=0.6057 | You are a science and medical expert. Answer multiple-choice questions by selecting the correct opti...
+2026-04-05 10:28:08 | INFO     |     #4: surrogate=0.3910, ucb=0.5808 | You are a science expert tasked with answering multiple-choice questions by selecting the correct op...
+2026-04-05 10:28:08 | INFO     |     #5: surrogate=0.4344, ucb=0.6242 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
+2026-04-05 10:28:08 | INFO     | Round 2: Selected Top-2 from 6 by UCB: [2, 5]
+2026-04-05 10:28:08 | INFO     |   [BANDIT] Selected Top-2 from 6: indices=[2, 5]
+2026-04-05 10:28:08 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 3/6)
+2026-04-05 10:28:08 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 4/6)
+2026-04-05 10:28:08 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 5/6)
+2026-04-05 10:28:08 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 6/6)
+2026-04-05 10:39:36 | INFO     | 
+  [ACCEPTED] Candidate #3 (val=0.5333, parents=[0])
+2026-04-05 10:39:36 | INFO     |   Prompt: You are a science expert tasked with answering multiple-choice questions by selecting the correct option (A, B, C, or D). Focus on applying scientific principles, medical knowledge, or domain-specific facts to determine the correct answer. If the question or options are incomplete, use logical reasoning and generalizable strategies (e.g., eliminating incorrect choices based on scientific consistency) to infer the correct response. Respond ONLY with the letter of the correct answer. The task may involve topics from physics, chemistry, biology, or medicine, and you must ensure your answer aligns with established scientific concepts even when options are partially provided.
+2026-04-05 10:39:36 | INFO     | Iteration 2: Valset score for new program: 0.5333333333333333 (coverage 30 / 30)
+2026-04-05 10:39:36 | INFO     | Iteration 2: Val aggregate for new program: 0.5333333333333333
+2026-04-05 10:39:36 | INFO     | Iteration 2: Individual valset scores for new program: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 0.0, 25: 0.0, 26: 0.0, 27: 1.0, 28: 0.0, 29: 1.0}
+2026-04-05 10:39:36 | INFO     | Iteration 2: New valset pareto front scores: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 0.0, 25: 0.0, 26: 0.0, 27: 1.0, 28: 0.0, 29: 1.0}
+2026-04-05 10:39:36 | INFO     | Iteration 2: Valset pareto front aggregate score: 0.5666666666666667
+2026-04-05 10:39:36 | INFO     | Iteration 2: Updated valset pareto front programs: {0: {0, 1, 2, 3}, 1: {0, 1, 2, 3}, 2: {0, 1, 2, 3}, 3: {0, 1, 2, 3}, 4: {0, 1, 2, 3}, 5: {0, 1, 2, 3}, 6: {0, 1, 2, 3}, 7: {0, 1, 2, 3}, 8: {0, 1, 2, 3}, 9: {0, 1, 2, 3}, 10: {0}, 11: {0, 1, 2, 3}, 12: {0, 1, 2, 3}, 13: {0, 1, 2, 3}, 14: {0, 1, 2, 3}, 15: {0, 1, 3}, 16: {0, 1, 2, 3}, 17: {0, 2, 3}, 18: {0, 1, 2, 3}, 19: {0, 1, 2, 3}, 20: {0, 1, 2, 3}, 21: {0, 1, 2, 3}, 22: {0, 1, 2, 3}, 23: {0, 1, 2, 3}, 24: {0, 1, 2, 3}, 25: {0, 1, 2, 3}, 26: {0, 1, 2, 3}, 27: {0, 1, 2, 3}, 28: {0, 1, 2, 3}, 29: {0, 1, 2, 3}}
+2026-04-05 10:39:36 | INFO     | Iteration 2: Best valset aggregate score so far: 0.5666666666666667
+2026-04-05 10:39:36 | INFO     | Iteration 2: Best program as per aggregate score on valset: 0
+2026-04-05 10:39:36 | INFO     | Iteration 2: Best score on valset: 0.5666666666666667
+2026-04-05 10:39:36 | INFO     | Iteration 2: Linear pareto front program index: 0
+2026-04-05 10:39:36 | INFO     | Iteration 2: New program candidate index: 3
+2026-04-05 10:39:36 | INFO     |   [ACCEPTED] Candidate #3 score=0.5333 parents=[0]
+2026-04-05 10:43:28 | INFO     | 
+  [ACCEPTED] Candidate #4 (val=0.5667, parents=[0])
+2026-04-05 10:43:28 | INFO     |   Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Focus on applying foundational scientific principles (e.g., definitions of terms like *percent error*, *nuclear fission*, or *medical pathophysiology*) and domain-specific knowledge (e.g., physics, chemistry, biology, or clinical medicine). Use logical reasoning to eliminate incorrect options, and prioritize accuracy by aligning with established scientific concepts (e.g., recognizing that *percent error* measures deviation from a known value, or that *nuclear fission* involves splitting heavy nuclei). Respond with ONLY the letter of the correct answer.
+2026-04-05 10:43:28 | INFO     | Iteration 2: Valset score for new program: 0.5666666666666667 (coverage 30 / 30)
+2026-04-05 10:43:28 | INFO     | Iteration 2: Val aggregate for new program: 0.5666666666666667
+2026-04-05 10:43:28 | INFO     | Iteration 2: Individual valset scores for new program: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 0.0, 25: 0.0, 26: 1.0, 27: 1.0, 28: 0.0, 29: 1.0}
+2026-04-05 10:43:28 | INFO     | Iteration 2: New valset pareto front scores: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 0.0, 25: 0.0, 26: 1.0, 27: 1.0, 28: 0.0, 29: 1.0}
+2026-04-05 10:43:28 | INFO     | Iteration 2: Valset pareto front aggregate score: 0.6
+2026-04-05 10:43:28 | INFO     | Iteration 2: Updated valset pareto front programs: {0: {0, 1, 2, 3, 4}, 1: {0, 1, 2, 3, 4}, 2: {0, 1, 2, 3, 4}, 3: {0, 1, 2, 3, 4}, 4: {0, 1, 2, 3, 4}, 5: {0, 1, 2, 3, 4}, 6: {0, 1, 2, 3, 4}, 7: {0, 1, 2, 3, 4}, 8: {0, 1, 2, 3, 4}, 9: {0, 1, 2, 3, 4}, 10: {0}, 11: {0, 1, 2, 3, 4}, 12: {0, 1, 2, 3, 4}, 13: {0, 1, 2, 3, 4}, 14: {0, 1, 2, 3, 4}, 15: {0, 1, 3, 4}, 16: {0, 1, 2, 3, 4}, 17: {0, 2, 3, 4}, 18: {0, 1, 2, 3, 4}, 19: {0, 1, 2, 3, 4}, 20: {0, 1, 2, 3, 4}, 21: {0, 1, 2, 3, 4}, 22: {0, 1, 2, 3, 4}, 23: {0, 1, 2, 3, 4}, 24: {0, 1, 2, 3, 4}, 25: {0, 1, 2, 3, 4}, 26: {4}, 27: {0, 1, 2, 3, 4}, 28: {0, 1, 2, 3, 4}, 29: {0, 1, 2, 3, 4}}
+2026-04-05 10:43:28 | INFO     | Iteration 2: Best valset aggregate score so far: 0.5666666666666667
+2026-04-05 10:43:28 | INFO     | Iteration 2: Best program as per aggregate score on valset: 0
+2026-04-05 10:43:28 | INFO     | Iteration 2: Best score on valset: 0.5666666666666667
+2026-04-05 10:43:28 | INFO     | Iteration 2: Linear pareto front program index: 0
+2026-04-05 10:43:28 | INFO     | Iteration 2: New program candidate index: 4
+2026-04-05 10:43:28 | INFO     |   [ACCEPTED] Candidate #4 score=0.5667 parents=[0]
+2026-04-05 10:43:28 | INFO     | Round 2: ✗ No improvement. Best remains at 0.5667 (candidate #0)
+2026-04-05 10:43:28 | INFO     | Round 2: Surrogate retrained. MSE loss = 0.283085
+2026-04-05 10:43:28 | INFO     | 
+--------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 10:43:28 | INFO     | Rounds |  LLM Calls |    Val Acc |  Best Val Acc |  Test Acc (Selected) |  Surrogate Loss |  Avg Top-k |  Max Top-k |  Min Top-k
+2026-04-05 10:43:28 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 10:43:28 | INFO     |      1 |        108 |     0.5667 |        0.5667 |               0.7800 |        0.016949 |     0.5000 |     0.5000 |     0.5000
+2026-04-05 10:43:28 | INFO     |      2 |        204 |     0.5667 |        0.5667 |               0.7800 |        0.239717 |     0.5500 |     0.5667 |     0.5333
+2026-04-05 10:43:28 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 10:43:28 | INFO     | 
+Round 2 summary: best_val=0.5667, test=0.7800, llm_calls=204
+2026-04-05 10:43:28 | INFO     | Round 3: Selected 2 parents from Top-5: [4, 2]
+2026-04-05 10:43:28 | INFO     | Iteration 3: Selected program 4 score: 0.5666666666666667
+2026-04-05 10:43:43 | INFO     | Iteration 3: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Focus on applying foundational scientific principles (e.g., definitions of terms like *percent error*, *nuclear fission*, *medical pathophysiology*, or *biochemical pathways*) and domain-specific knowledge (e.g., physics, chemistry, biology, clinical medicine, or public health). Use logical reasoning to eliminate incorrect options by cross-referencing with established scientific concepts (e.g., recognizing that *nuclear fission* involves splitting heavy nuclei, or that *percent error* quantifies deviation from an accepted value). If the correct answer is not explicitly listed among the options, explicitly state "Correct answer not listed." Prioritize accuracy by aligning with peer-reviewed knowledge and avoid assumptions not supported by evidence. Respond with ONLY the letter of the correct answer (A, B, C, or D) or "Correct answer not listed" if necessary.
+2026-04-05 10:43:59 | INFO     | Round 3: Generated mutation from parent 4 (subsample: before=2.00, after=2.00)
+2026-04-05 10:43:59 | INFO     | Iteration 3: Selected program 4 score: 0.5666666666666667
+2026-04-05 10:44:16 | INFO     | Iteration 3: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Focus on applying foundational scientific principles (e.g., definitions of terms like *percent error*, *nuclear fission*, or *medical pathophysiology*) and domain-specific knowledge (e.g., physics, chemistry, biology, or clinical medicine). Use logical reasoning to eliminate incorrect options by aligning with established scientific concepts (e.g., recognizing that *noble gases* have full valence shells and are inert, or that *schizophrenia* involves dopamine dysregulation). Prioritize accuracy by avoiding assumptions: if the question is incomplete, ambiguous, or lacks sufficient context (e.g., missing options, unclear scenarios), respond with "Question is incomplete/ambiguous" instead of guessing. Respond with ONLY the letter of the correct answer or the specified clarification.
+2026-04-05 10:44:27 | INFO     | Round 3: Generated mutation from parent 4 (subsample: before=2.00, after=2.00)
+2026-04-05 10:44:27 | INFO     | Iteration 3: Selected program 4 score: 0.5666666666666667
+2026-04-05 10:44:42 | INFO     | Iteration 3: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Focus on applying foundational scientific principles (e.g., definitions of terms like *percent error*, *nuclear fission*, or *medical pathophysiology*) and domain-specific knowledge (e.g., physics, chemistry, biology, or clinical medicine). Use logical reasoning to eliminate incorrect options by analyzing the question's context and aligning with established scientific concepts (e.g., recognizing that *nuclear fission* involves splitting heavy nuclei or that *percent error* quantifies deviation from a known value). Prioritize accuracy by cross-referencing with authoritative scientific frameworks. If the correct answer is not explicitly listed, infer based on principles, but only select from the provided options. Respond with **ONLY** the letter of the correct answer.
+2026-04-05 10:44:58 | INFO     | Round 3: Generated mutation from parent 4 (subsample: before=2.00, after=2.00)
+2026-04-05 10:44:58 | INFO     | Iteration 3: Selected program 4 score: 0.5666666666666667
+2026-04-05 10:45:14 | INFO     | Iteration 3: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Focus on applying foundational scientific principles (e.g., definitions of terms like *percent error*, *nuclear fission*, or *medical pathophysiology*) and domain-specific knowledge (e.g., physics, chemistry, biology, or clinical medicine). Use logical reasoning to eliminate incorrect options based on established scientific concepts (e.g., recognizing that *percent error* measures deviation from a known value, or that *nuclear fission* involves splitting heavy nuclei). If the correct answer is not explicitly listed among the options, select "no" or identify the most accurate choice despite incomplete options. Prioritize accuracy by aligning with scientific consensus and domain-specific facts, even if the question involves niche details (e.g., specific biochemical pathways, medical diagnoses, or physical laws). Respond with ONLY the letter of the correct answer or "no" if none of the options are valid.
+2026-04-05 10:45:27 | INFO     | Round 3: Generated mutation from parent 2 (subsample: before=2.00, after=3.00)
+2026-04-05 10:45:27 | INFO     | Iteration 3: Selected program 0 score: 0.5666666666666667
+2026-04-05 10:45:42 | INFO     | Iteration 3: Proposed new text for system_prompt: You are a versatile expert capable of answering multiple-choice questions across scientific, medical, and research domains. Select the correct answer (A, B, C, or D) by:  
+1. Carefully analyzing the question's context and domain (e.g., chemistry, medicine, methodology).  
+2. Applying domain-specific knowledge (e.g., noble gas properties, psychiatric diagnoses, study design principles).  
+3. Eliminating incorrect options based on scientific principles or factual evidence.  
+4. Using logical reasoning to identify the most accurate answer, even if the question is incomplete or ambiguous.  
+Respond ONLY with the letter of your prediction.
+2026-04-05 10:45:53 | INFO     | Round 3: Generated mutation from parent 2 (subsample: before=2.00, after=2.00)
+2026-04-05 10:45:53 | INFO     | Iteration 3: Selected program 4 score: 0.5666666666666667
+2026-04-05 10:46:13 | INFO     | Iteration 3: Proposed new text for system_prompt: You are a science expert tasked with answering multiple-choice questions by selecting the correct option (A, B, C, or D). Follow these guidelines to ensure accuracy:  
+1. **Apply foundational scientific principles**: Use definitions of key terms (e.g., *percent error* measures deviation from a known value, *nuclear fission* involves splitting heavy nuclei) and domain-specific knowledge (physics, chemistry, biology, clinical medicine).  
+2. **Prioritize logical elimination**: Disregard options that contradict established scientific concepts or defy logical reasoning (e.g., noble gases are inert due to complete valence shells, not reactivity).  
+3. **Align with established facts**: For medical questions, connect symptoms to pathophysiology (e.g., hallucinations in schizophrenia). For chemistry, use periodic trends or reaction mechanisms.  
+4. **Avoid assumptions**: Do not infer answers beyond given information; rely on explicit scientific principles.  
+5. **Generalizable strategies**: If the correct answer hinges on eliminating implausible options (e.g., "noble gases are inert" vs. "highly reactive"), explicitly state this reasoning.  
+Respond with ONLY the letter of the correct answer.
+2026-04-05 10:46:26 | INFO     | Round 3: Generated mutation from parent 2 (subsample: before=2.00, after=2.00)
+2026-04-05 10:46:26 | INFO     | Round 3: Generated 6 total mutations
+2026-04-05 10:46:26 | INFO     | Round 3: Surrogate scores: min=0.1779, max=0.2267, mean=0.1974
+2026-04-05 10:46:26 | INFO     | 
+  [SURROGATE] Scored 6 candidates:
+2026-04-05 10:46:26 | INFO     |     #0: surrogate=0.1798, ucb=0.3205 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
+2026-04-05 10:46:26 | INFO     |     #1: surrogate=0.2263, ucb=0.3671 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
+2026-04-05 10:46:26 | INFO     |     #2: surrogate=0.1792, ucb=0.3200 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
+2026-04-05 10:46:26 | INFO     |     #3: surrogate=0.1943, ucb=0.3351 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
+2026-04-05 10:46:26 | INFO     |     #4: surrogate=0.2267, ucb=0.3675 | You are a versatile expert capable of answering multiple-choice questions across scientific, medical...
+2026-04-05 10:46:26 | INFO     |     #5: surrogate=0.1779, ucb=0.3187 | You are a science expert tasked with answering multiple-choice questions by selecting the correct op...
+2026-04-05 10:46:26 | INFO     | Round 3: Selected Top-2 from 6 by UCB: [4, 1]
+2026-04-05 10:46:26 | INFO     |   [BANDIT] Selected Top-2 from 6: indices=[4, 1]
+2026-04-05 10:46:26 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 3/6)
+2026-04-05 10:46:26 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 4/6)
+2026-04-05 10:46:26 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 5/6)
+2026-04-05 10:46:26 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 6/6)
+2026-04-05 10:50:08 | INFO     | 
+  [ACCEPTED] Candidate #5 (val=0.5333, parents=[0])
+2026-04-05 10:50:08 | INFO     |   Prompt: You are a versatile expert capable of answering multiple-choice questions across scientific, medical, and research domains. Select the correct answer (A, B, C, or D) by:  
+1. Carefully analyzing the question's context and domain (e.g., chemistry, medicine, methodology).  
+2. Applying domain-specific knowledge (e.g., noble gas properties, psychiatric diagnoses, study design principles).  
+3. Eliminating incorrect options based on scientific principles or factual evidence.  
+4. Using logical reasoning to identify the most accurate answer, even if the question is incomplete or ambiguous.  
+Respond ONLY with the letter of your prediction.
+2026-04-05 10:50:08 | INFO     | Iteration 3: Valset score for new program: 0.5333333333333333 (coverage 30 / 30)
+2026-04-05 10:50:08 | INFO     | Iteration 3: Val aggregate for new program: 0.5333333333333333
+2026-04-05 10:50:08 | INFO     | Iteration 3: Individual valset scores for new program: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 0.0, 25: 0.0, 26: 0.0, 27: 1.0, 28: 0.0, 29: 1.0}
+2026-04-05 10:50:08 | INFO     | Iteration 3: New valset pareto front scores: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 0.0, 25: 0.0, 26: 1.0, 27: 1.0, 28: 0.0, 29: 1.0}
+2026-04-05 10:50:08 | INFO     | Iteration 3: Valset pareto front aggregate score: 0.6
+2026-04-05 10:50:08 | INFO     | Iteration 3: Updated valset pareto front programs: {0: {0, 1, 2, 3, 4, 5}, 1: {0, 1, 2, 3, 4, 5}, 2: {0, 1, 2, 3, 4, 5}, 3: {0, 1, 2, 3, 4, 5}, 4: {0, 1, 2, 3, 4, 5}, 5: {0, 1, 2, 3, 4, 5}, 6: {0, 1, 2, 3, 4, 5}, 7: {0, 1, 2, 3, 4, 5}, 8: {0, 1, 2, 3, 4, 5}, 9: {0, 1, 2, 3, 4, 5}, 10: {0}, 11: {0, 1, 2, 3, 4, 5}, 12: {0, 1, 2, 3, 4, 5}, 13: {0, 1, 2, 3, 4, 5}, 14: {0, 1, 2, 3, 4, 5}, 15: {0, 1, 3, 4, 5}, 16: {0, 1, 2, 3, 4, 5}, 17: {0, 2, 3, 4, 5}, 18: {0, 1, 2, 3, 4, 5}, 19: {0, 1, 2, 3, 4, 5}, 20: {0, 1, 2, 3, 4, 5}, 21: {0, 1, 2, 3, 4, 5}, 22: {0, 1, 2, 3, 4, 5}, 23: {0, 1, 2, 3, 4, 5}, 24: {0, 1, 2, 3, 4, 5}, 25: {0, 1, 2, 3, 4, 5}, 26: {4}, 27: {0, 1, 2, 3, 4, 5}, 28: {0, 1, 2, 3, 4, 5}, 29: {0, 1, 2, 3, 4, 5}}
+2026-04-05 10:50:08 | INFO     | Iteration 3: Best valset aggregate score so far: 0.5666666666666667
+2026-04-05 10:50:08 | INFO     | Iteration 3: Best program as per aggregate score on valset: 0
+2026-04-05 10:50:08 | INFO     | Iteration 3: Best score on valset: 0.5666666666666667
+2026-04-05 10:50:08 | INFO     | Iteration 3: Linear pareto front program index: 0
+2026-04-05 10:50:08 | INFO     | Iteration 3: New program candidate index: 5
+2026-04-05 10:50:08 | INFO     |   [ACCEPTED] Candidate #5 score=0.5333 parents=[0]
+2026-04-05 10:55:32 | INFO     | 
+  [ACCEPTED] Candidate #6 (val=0.5333, parents=[4])
+2026-04-05 10:55:32 | INFO     |   Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Focus on applying foundational scientific principles (e.g., definitions of terms like *percent error*, *nuclear fission*, or *medical pathophysiology*) and domain-specific knowledge (e.g., physics, chemistry, biology, or clinical medicine). Use logical reasoning to eliminate incorrect options by aligning with established scientific concepts (e.g., recognizing that *noble gases* have full valence shells and are inert, or that *schizophrenia* involves dopamine dysregulation). Prioritize accuracy by avoiding assumptions: if the question is incomplete, ambiguous, or lacks sufficient context (e.g., missing options, unclear scenarios), respond with "Question is incomplete/ambiguous" instead of guessing. Respond with ONLY the letter of the correct answer or the specified clarification.
+2026-04-05 10:55:32 | INFO     | Iteration 3: Valset score for new program: 0.5333333333333333 (coverage 30 / 30)
+2026-04-05 10:55:32 | INFO     | Iteration 3: Val aggregate for new program: 0.5333333333333333
+2026-04-05 10:55:32 | INFO     | Iteration 3: Individual valset scores for new program: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 0.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 0.0, 25: 0.0, 26: 1.0, 27: 1.0, 28: 0.0, 29: 1.0}
+2026-04-05 10:55:32 | INFO     | Iteration 3: New valset pareto front scores: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 0.0, 25: 0.0, 26: 1.0, 27: 1.0, 28: 0.0, 29: 1.0}
+2026-04-05 10:55:32 | INFO     | Iteration 3: Valset pareto front aggregate score: 0.6
+2026-04-05 10:55:32 | INFO     | Iteration 3: Updated valset pareto front programs: {0: {0, 1, 2, 3, 4, 5, 6}, 1: {0, 1, 2, 3, 4, 5, 6}, 2: {0, 1, 2, 3, 4, 5, 6}, 3: {0, 1, 2, 3, 4, 5, 6}, 4: {0, 1, 2, 3, 4, 5, 6}, 5: {0, 1, 2, 3, 4, 5, 6}, 6: {0, 1, 2, 3, 4, 5, 6}, 7: {0, 1, 2, 3, 4, 5, 6}, 8: {0, 1, 2, 3, 4, 5, 6}, 9: {0, 1, 2, 3, 4, 5, 6}, 10: {0}, 11: {0, 1, 2, 3, 4, 5, 6}, 12: {0, 1, 2, 3, 4, 5, 6}, 13: {0, 1, 2, 3, 4, 5, 6}, 14: {0, 1, 2, 3, 4, 5, 6}, 15: {0, 1, 3, 4, 5, 6}, 16: {0, 1, 2, 3, 4, 5, 6}, 17: {0, 2, 3, 4, 5}, 18: {0, 1, 2, 3, 4, 5, 6}, 19: {0, 1, 2, 3, 4, 5, 6}, 20: {0, 1, 2, 3, 4, 5, 6}, 21: {0, 1, 2, 3, 4, 5, 6}, 22: {0, 1, 2, 3, 4, 5, 6}, 23: {0, 1, 2, 3, 4, 5, 6}, 24: {0, 1, 2, 3, 4, 5, 6}, 25: {0, 1, 2, 3, 4, 5, 6}, 26: {4, 6}, 27: {0, 1, 2, 3, 4, 5, 6}, 28: {0, 1, 2, 3, 4, 5, 6}, 29: {0, 1, 2, 3, 4, 5, 6}}
+2026-04-05 10:55:32 | INFO     | Iteration 3: Best valset aggregate score so far: 0.5666666666666667
+2026-04-05 10:55:32 | INFO     | Iteration 3: Best program as per aggregate score on valset: 0
+2026-04-05 10:55:32 | INFO     | Iteration 3: Best score on valset: 0.5666666666666667
+2026-04-05 10:55:32 | INFO     | Iteration 3: Linear pareto front program index: 0
+2026-04-05 10:55:32 | INFO     | Iteration 3: New program candidate index: 6
+2026-04-05 10:55:32 | INFO     |   [ACCEPTED] Candidate #6 score=0.5333 parents=[4]
+2026-04-05 10:55:32 | INFO     | Round 3: ✗ No improvement. Best remains at 0.5667 (candidate #0)
+2026-04-05 10:55:33 | INFO     | Round 3: Surrogate retrained. MSE loss = 0.278228
+2026-04-05 10:55:33 | INFO     | 
+--------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 10:55:33 | INFO     | Rounds |  LLM Calls |    Val Acc |  Best Val Acc |  Test Acc (Selected) |  Surrogate Loss |  Avg Top-k |  Max Top-k |  Min Top-k
+2026-04-05 10:55:33 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 10:55:33 | INFO     |      1 |        108 |     0.5667 |        0.5667 |               0.7800 |        0.016949 |     0.5000 |     0.5000 |     0.5000
+2026-04-05 10:55:33 | INFO     |      2 |        204 |     0.5667 |        0.5667 |               0.7800 |        0.239717 |     0.5500 |     0.5667 |     0.5333
+2026-04-05 10:55:33 | INFO     |      3 |        300 |     0.5667 |        0.5667 |               0.7800 |        0.241100 |     0.5333 |     0.5333 |     0.5333
+2026-04-05 10:55:33 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 10:55:33 | INFO     | 
+Round 3 summary: best_val=0.5667, test=0.7800, llm_calls=300
+2026-04-05 10:55:33 | INFO     | Round 4: Selected 2 parents from Top-5: [4, 0]
+2026-04-05 10:55:33 | INFO     | Iteration 4: Selected program 0 score: 0.5666666666666667
+2026-04-05 10:56:03 | INFO     | Iteration 4: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved. Use your knowledge of scientific principles, formulas, and specific facts (e.g., the half-life of carbon-14 is 5.73 × 10³ years). Respond with ONLY the letter of the correct answer. Apply generalizable strategies such as dimensional analysis, conservation laws, or mathematical calculations when solving problems. Verify your answer against established scientific knowledge and avoid assumptions not supported by evidence.
+2026-04-05 10:56:15 | INFO     | Round 4: Generated mutation from parent 4 (subsample: before=2.00, after=2.00)
+2026-04-05 10:56:15 | INFO     | Iteration 4: Selected program 4 score: 0.5666666666666667
+2026-04-05 10:56:39 | INFO     | Iteration 4: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Focus on applying foundational scientific principles (e.g., definitions of terms like *percent error*, *nuclear fission*, or *medical pathophysiology*) and domain-specific knowledge (e.g., physics, chemistry, biology, or clinical medicine). Use logical reasoning to eliminate incorrect options, and prioritize accuracy by aligning with established scientific concepts. For questions requiring factual recall, rely on well-established values (e.g., the half-life of carbon-14 is **5,730 years**). Respond with ONLY the letter of the correct answer.
+2026-04-05 10:56:59 | INFO     | Round 4: Generated mutation from parent 4 (subsample: before=2.00, after=2.00)
+2026-04-05 10:56:59 | INFO     | Iteration 4: Selected program 0 score: 0.5666666666666667
+2026-04-05 10:57:13 | INFO     | Iteration 4: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved, including domain-specific facts (e.g., carbon-14 half-life = 5.73 × 10³ years) and generalizable strategies (e.g., applying formulas, analyzing units). Respond with ONLY the letter of the correct answer. Do not include any explanations or additional text.
+2026-04-05 10:57:27 | INFO     | Round 4: Generated mutation from parent 4 (subsample: before=2.00, after=2.00)
+2026-04-05 10:57:27 | INFO     | Iteration 4: Selected program 0 score: 0.5666666666666667
+2026-04-05 10:57:45 | INFO     | Iteration 4: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved, including domain-specific facts such as:  
+- The half-life of carbon-14 is **5.73 × 10³ years** (Example 3).  
+- Use physics formulas like energy calculations (e.g., power = voltage × current) to solve problems (Example 2).  
+Respond with ONLY the letter of the correct answer. Avoid explanations.
+2026-04-05 10:58:00 | INFO     | Round 4: Generated mutation from parent 0 (subsample: before=2.00, after=2.00)
+2026-04-05 10:58:00 | INFO     | Iteration 4: Selected program 4 score: 0.5666666666666667
+2026-04-05 10:58:28 | INFO     | Iteration 4: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Focus on applying foundational scientific principles, such as:  
+- **Percent error** = |(experimental value – accepted value)| / accepted value × 100% (measures deviation from a known value).  
+- **Nuclear fission** (splitting heavy nuclei like uranium-235) versus **fusion** (combining light nuclei like hydrogen).  
+- **Medical pathophysiology** (e.g., elevated cardiac troponin I [cTnI] indicates myocardial injury, not just stress).  
+- **Physics** (e.g., kinetic energy = ½mv², power = work/time).  
+- **Chemistry** (e.g., half-life of carbon-14 = 5.73 × 10³ years).  
+- **Biology** (e.g., homeostasis mechanisms, enzyme kinetics).  
+
+Use **logical elimination**: discard options that contradict established principles (e.g., "nuclear fission produces helium" is incorrect; fission produces fission products like barium and krypton). Prioritize **accuracy** by aligning with **peer-reviewed scientific consensus** (e.g., the half-life of carbon-14 is 5.73 × 10³ years, not 4.56 × 10³).  
+
+Respond with **ONLY the letter of the correct answer** (A, B, C, or D). Avoid explanations.
+2026-04-05 10:58:42 | INFO     | Round 4: Generated mutation from parent 0 (subsample: before=2.00, after=2.00)
+2026-04-05 10:58:42 | INFO     | Iteration 4: Selected program 0 score: 0.5666666666666667
+2026-04-05 10:58:57 | INFO     | Iteration 4: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Use your knowledge of scientific concepts, formulas, and domain-specific facts (e.g., the half-life of carbon-14 is 5,730 years) to determine the correct answer. Think carefully about the problem, apply relevant principles (e.g., physics equations, chemical reactions, biological processes), and respond with ONLY the letter of the correct answer.
+2026-04-05 10:59:16 | INFO     | Round 4: Generated mutation from parent 0 (subsample: before=2.00, after=2.00)
+2026-04-05 10:59:16 | INFO     | Round 4: Generated 6 total mutations
+2026-04-05 10:59:16 | INFO     | Round 4: Surrogate scores: min=0.2274, max=0.2872, mean=0.2607
+2026-04-05 10:59:16 | INFO     | 
+  [SURROGATE] Scored 6 candidates:
+2026-04-05 10:59:16 | INFO     |     #0: surrogate=0.2585, ucb=0.3775 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
+2026-04-05 10:59:16 | INFO     |     #1: surrogate=0.2817, ucb=0.4007 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
+2026-04-05 10:59:16 | INFO     |     #2: surrogate=0.2376, ucb=0.3566 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
+2026-04-05 10:59:16 | INFO     |     #3: surrogate=0.2721, ucb=0.3911 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
+2026-04-05 10:59:16 | INFO     |     #4: surrogate=0.2274, ucb=0.3464 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
+2026-04-05 10:59:16 | INFO     |     #5: surrogate=0.2872, ucb=0.4063 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
+2026-04-05 10:59:16 | INFO     | Round 4: Selected Top-2 from 6 by UCB: [5, 1]
+2026-04-05 10:59:16 | INFO     |   [BANDIT] Selected Top-2 from 6: indices=[5, 1]
+2026-04-05 10:59:16 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 3/6)
+2026-04-05 10:59:16 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 4/6)
+2026-04-05 10:59:16 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 5/6)
+2026-04-05 10:59:16 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 6/6)
+2026-04-05 11:08:58 | INFO     | 
+  [BEST] Candidate #7 (val=0.6000, parents=[0])
+2026-04-05 11:08:58 | INFO     |   Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Use your knowledge of scientific concepts, formulas, and domain-specific facts (e.g., the half-life of carbon-14 is 5,730 years) to determine the correct answer. Think carefully about the problem, apply relevant principles (e.g., physics equations, chemical reactions, biological processes), and respond with ONLY the letter of the correct answer.
+2026-04-05 11:08:58 | INFO     |   >> New best! val=0.6000
+2026-04-05 11:08:58 | INFO     | Round 4: Found a better program on the valset with score 0.6.
+2026-04-05 11:08:58 | INFO     | Iteration 4: Valset score for new program: 0.6 (coverage 30 / 30)
+2026-04-05 11:08:58 | INFO     | Iteration 4: Val aggregate for new program: 0.6
+2026-04-05 11:08:58 | INFO     | Iteration 4: Individual valset scores for new program: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 1.0, 25: 0.0, 26: 1.0, 27: 1.0, 28: 0.0, 29: 1.0}
+2026-04-05 11:08:58 | INFO     | Iteration 4: New valset pareto front scores: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 1.0, 25: 0.0, 26: 1.0, 27: 1.0, 28: 0.0, 29: 1.0}
+2026-04-05 11:08:58 | INFO     | Iteration 4: Valset pareto front aggregate score: 0.6333333333333333
+2026-04-05 11:08:58 | INFO     | Iteration 4: Updated valset pareto front programs: {0: {0, 1, 2, 3, 4, 5, 6, 7}, 1: {0, 1, 2, 3, 4, 5, 6, 7}, 2: {0, 1, 2, 3, 4, 5, 6, 7}, 3: {0, 1, 2, 3, 4, 5, 6, 7}, 4: {0, 1, 2, 3, 4, 5, 6, 7}, 5: {0, 1, 2, 3, 4, 5, 6, 7}, 6: {0, 1, 2, 3, 4, 5, 6, 7}, 7: {0, 1, 2, 3, 4, 5, 6, 7}, 8: {0, 1, 2, 3, 4, 5, 6, 7}, 9: {0, 1, 2, 3, 4, 5, 6, 7}, 10: {0}, 11: {0, 1, 2, 3, 4, 5, 6, 7}, 12: {0, 1, 2, 3, 4, 5, 6, 7}, 13: {0, 1, 2, 3, 4, 5, 6, 7}, 14: {0, 1, 2, 3, 4, 5, 6, 7}, 15: {0, 1, 3, 4, 5, 6, 7}, 16: {0, 1, 2, 3, 4, 5, 6, 7}, 17: {0, 2, 3, 4, 5, 7}, 18: {0, 1, 2, 3, 4, 5, 6, 7}, 19: {0, 1, 2, 3, 4, 5, 6, 7}, 20: {0, 1, 2, 3, 4, 5, 6, 7}, 21: {0, 1, 2, 3, 4, 5, 6, 7}, 22: {0, 1, 2, 3, 4, 5, 6, 7}, 23: {0, 1, 2, 3, 4, 5, 6, 7}, 24: {7}, 25: {0, 1, 2, 3, 4, 5, 6, 7}, 26: {4, 6, 7}, 27: {0, 1, 2, 3, 4, 5, 6, 7}, 28: {0, 1, 2, 3, 4, 5, 6, 7}, 29: {0, 1, 2, 3, 4, 5, 6, 7}}
+2026-04-05 11:08:58 | INFO     | Iteration 4: Best valset aggregate score so far: 0.6
+2026-04-05 11:08:58 | INFO     | Iteration 4: Best program as per aggregate score on valset: 7
+2026-04-05 11:08:58 | INFO     | Iteration 4: Best score on valset: 0.6
+2026-04-05 11:08:58 | INFO     | Iteration 4: Linear pareto front program index: 7
+2026-04-05 11:08:58 | INFO     | Iteration 4: New program candidate index: 7
+2026-04-05 11:08:58 | INFO     |   [ACCEPTED] Candidate #7 score=0.6000 parents=[0]
+2026-04-05 11:15:09 | INFO     | 
+  [ACCEPTED] Candidate #8 (val=0.5333, parents=[4])
+2026-04-05 11:15:09 | INFO     |   Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Focus on applying foundational scientific principles (e.g., definitions of terms like *percent error*, *nuclear fission*, or *medical pathophysiology*) and domain-specific knowledge (e.g., physics, chemistry, biology, or clinical medicine). Use logical reasoning to eliminate incorrect options, and prioritize accuracy by aligning with established scientific concepts. For questions requiring factual recall, rely on well-established values (e.g., the half-life of carbon-14 is **5,730 years**). Respond with ONLY the letter of the correct answer.
+2026-04-05 11:15:09 | INFO     | Iteration 4: Valset score for new program: 0.5333333333333333 (coverage 30 / 30)
+2026-04-05 11:15:09 | INFO     | Iteration 4: Val aggregate for new program: 0.5333333333333333
+2026-04-05 11:15:09 | INFO     | Iteration 4: Individual valset scores for new program: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 0.0, 25: 0.0, 26: 0.0, 27: 1.0, 28: 0.0, 29: 1.0}
+2026-04-05 11:15:09 | INFO     | Iteration 4: New valset pareto front scores: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 1.0, 25: 0.0, 26: 1.0, 27: 1.0, 28: 0.0, 29: 1.0}
+2026-04-05 11:15:09 | INFO     | Iteration 4: Valset pareto front aggregate score: 0.6333333333333333
+2026-04-05 11:15:09 | INFO     | Iteration 4: Updated valset pareto front programs: {0: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 1: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 2: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 3: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 4: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 5: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 6: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 7: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 8: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 9: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 10: {0}, 11: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 12: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 13: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 14: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 15: {0, 1, 3, 4, 5, 6, 7, 8}, 16: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 17: {0, 2, 3, 4, 5, 7, 8}, 18: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 19: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 20: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 21: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 22: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 23: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 24: {7}, 25: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 26: {4, 6, 7}, 27: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 28: {0, 1, 2, 3, 4, 5, 6, 7, 8}, 29: {0, 1, 2, 3, 4, 5, 6, 7, 8}}
+2026-04-05 11:15:09 | INFO     | Iteration 4: Best valset aggregate score so far: 0.6
+2026-04-05 11:15:09 | INFO     | Iteration 4: Best program as per aggregate score on valset: 7
+2026-04-05 11:15:09 | INFO     | Iteration 4: Best score on valset: 0.6
+2026-04-05 11:15:09 | INFO     | Iteration 4: Linear pareto front program index: 7
+2026-04-05 11:15:09 | INFO     | Iteration 4: New program candidate index: 8
+2026-04-05 11:15:09 | INFO     |   [ACCEPTED] Candidate #8 score=0.5333 parents=[4]
+2026-04-05 11:15:09 | INFO     | Round 4: ✓ IMPROVEMENT! 0.5667 → 0.6000 (candidate #7)
+2026-04-05 11:15:09 | INFO     | Round 4: Surrogate retrained. MSE loss = 0.184597
+2026-04-05 11:23:32 | INFO     | 
+--------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 11:23:32 | INFO     | Rounds |  LLM Calls |    Val Acc |  Best Val Acc |  Test Acc (Selected) |  Surrogate Loss |  Avg Top-k |  Max Top-k |  Min Top-k
+2026-04-05 11:23:32 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 11:23:32 | INFO     |      1 |        108 |     0.5667 |        0.5667 |               0.7800 |        0.016949 |     0.5000 |     0.5000 |     0.5000
+2026-04-05 11:23:32 | INFO     |      2 |        204 |     0.5667 |        0.5667 |               0.7800 |        0.239717 |     0.5500 |     0.5667 |     0.5333
+2026-04-05 11:23:32 | INFO     |      3 |        300 |     0.5667 |        0.5667 |               0.7800 |        0.241100 |     0.5333 |     0.5333 |     0.5333
+2026-04-05 11:23:32 | INFO     |      4 |        396 |     0.6000 |        0.6000 |               0.7800 |        0.132612 |     0.5667 |     0.6000 |     0.5333
+2026-04-05 11:23:32 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 11:23:32 | INFO     | 
+Round 4 summary: best_val=0.6000, test=0.7800, llm_calls=396
+2026-04-05 11:23:32 | INFO     | Round 5: Selected 2 parents from Top-5: [5, 7]
+2026-04-05 11:23:32 | INFO     | Iteration 5: Selected program 7 score: 0.6
+2026-04-05 11:23:56 | INFO     | Iteration 5: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Use your knowledge of scientific concepts, formulas, and domain-specific facts (e.g., the half-life of carbon-14 is 5,730 years, specific heat calculations using q = m*c*ΔT, or Newton’s laws of motion) to determine the correct answer. Apply principles from physics, chemistry, biology, or earth sciences as needed. If the question includes niche facts (e.g., chemical reaction stoichiometry, biological processes like cellular respiration, or physics equations like E=mc²), prioritize those over general knowledge. Think step-by-step: identify the key concept, apply relevant formulas or principles, and eliminate incorrect options. Respond with ONLY the letter of the correct answer.
+2026-04-05 11:24:09 | INFO     | Round 5: Generated mutation from parent 5 (subsample: before=1.00, after=1.00)
+2026-04-05 11:24:09 | INFO     | Iteration 5: Selected program 0 score: 0.5666666666666667
+2026-04-05 11:24:26 | INFO     | Iteration 5: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved, including principles from physics, chemistry, biology, and medicine. For calculation-based questions, apply the correct formulas (e.g., q=mcΔT for heat transfer). For medical case studies, use diagnostic reasoning and knowledge of symptoms/pathophysiology. Respond with ONLY the letter of the correct answer. Do not provide explanations.
+2026-04-05 11:24:39 | INFO     | Round 5: Generated mutation from parent 5 (subsample: before=1.00, after=1.00)
+2026-04-05 11:24:39 | INFO     | Iteration 5: Selected program 0 score: 0.5666666666666667
+2026-04-05 11:24:54 | INFO     | Iteration 5: Proposed new text for system_prompt: You are a science expert. Answer the following question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved, and apply domain-specific knowledge or logical reasoning to arrive at the answer. If the question involves calculations (e.g., thermodynamics, physics, chemistry), use formulas like $ q = mc\Delta T $ or stoichiometry. For medical or health-related questions, prioritize evidence-based clinical reasoning. Respond with ONLY the letter of the correct answer.
+2026-04-05 11:25:09 | INFO     | Round 5: Generated mutation from parent 5 (subsample: before=1.00, after=1.00)
+2026-04-05 11:25:09 | INFO     | Iteration 5: Selected program 7 score: 0.6
+2026-04-05 11:25:31 | INFO     | Iteration 5: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Use your knowledge of scientific concepts, formulas, and domain-specific facts (e.g., the half-life of carbon-14 is 5,730 years, the formula for specific heat is $ q = m \cdot c \cdot \Delta T $, or the structure of DNA as a double helix) to determine the correct answer. Think carefully about the problem, apply relevant principles (e.g., physics equations, chemical reactions, biological processes), and respond with ONLY the letter of the correct answer.  
+
+If the question involves calculations, use dimensional analysis, rearrange formulas, or substitute values into equations (e.g., for radioactive decay: $ N = N_0 \cdot e^{-kt} $). For medical or biological questions, consider pathophysiology, diagnostic criteria, or treatment protocols (e.g., GERD symptoms may indicate gastroesophageal reflux disease). Always verify your reasoning against domain-specific facts and avoid assumptions not supported by evidence.
+2026-04-05 11:25:45 | INFO     | Round 5: Generated mutation from parent 7 (subsample: before=1.00, after=1.00)
+2026-04-05 11:25:45 | INFO     | Iteration 5: Selected program 0 score: 0.5666666666666667
+2026-04-05 11:26:07 | INFO     | Iteration 5: Proposed new text for system_prompt: You are a science expert tasked with answering multiple-choice science questions by selecting the correct option (A, B, C, or D). Follow these guidelines:  
+1. **Think critically**: Analyze the question using scientific principles, formulas (e.g., thermodynamics, physics, chemistry equations), or domain-specific knowledge (e.g., medical diagnostics, biology).  
+2. **Prioritize accuracy**: If the question involves calculations (e.g., specific heat, energy, stoichiometry), use the correct formula and units. For medical cases, apply diagnostic reasoning (e.g., GERD symptoms → acid reflux).  
+3. **Avoid external assumptions**: Rely solely on the information provided in the question. If the question is incomplete (e.g., cut-off text), note that the answer cannot be determined.  
+4. **Respond concisely**: Provide only the letter of the correct answer (e.g., **C**) without explanations.  
+5. **Handle ambiguity**: If the question lacks sufficient data (e.g., missing values in a calculation), state that the answer cannot be determined.  
+6. **Domain-specific facts**: For medical questions, recognize conditions (e.g., retrosternal burning = GERD) and avoid generic guesses. For physics/chemistry, ensure unit consistency and formula application.
+2026-04-05 11:26:22 | INFO     | Round 5: Generated mutation from parent 7 (subsample: before=1.00, after=1.00)
+2026-04-05 11:26:22 | INFO     | Iteration 5: Selected program 7 score: 0.6
+2026-04-05 11:26:44 | INFO     | Iteration 5: Proposed new text for system_prompt: You are a science expert. Answer the following question by selecting the correct option (A, B, C, or D). Use your knowledge of scientific principles, formulas (e.g., $ q = m \cdot c \cdot \Delta T $), and domain-specific facts (e.g., the half-life of carbon-14 is 5,730 years, or medical diagnostic criteria for conditions like GERD) to determine the correct answer. Apply logical reasoning, eliminate incorrect options, and ensure your answer is grounded in scientific accuracy. Respond with ONLY the letter of the correct answer.
+2026-04-05 11:26:55 | INFO     | Round 5: Generated mutation from parent 7 (subsample: before=1.00, after=1.00)
+2026-04-05 11:26:55 | INFO     | Round 5: Generated 6 total mutations
+2026-04-05 11:26:55 | INFO     | Round 5: Surrogate scores: min=0.4045, max=0.4712, mean=0.4399
+2026-04-05 11:26:55 | INFO     | 
+  [SURROGATE] Scored 6 candidates:
+2026-04-05 11:26:55 | INFO     |     #0: surrogate=0.4045, ucb=0.5105 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
+2026-04-05 11:26:55 | INFO     |     #1: surrogate=0.4229, ucb=0.5289 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
+2026-04-05 11:26:55 | INFO     |     #2: surrogate=0.4712, ucb=0.5772 | You are a science expert. Answer the following question by selecting the correct option (A, B, C, or...
+2026-04-05 11:26:55 | INFO     |     #3: surrogate=0.4315, ucb=0.5375 | You are a science expert. Answer the following science question by selecting the correct option (A, ...
+2026-04-05 11:26:55 | INFO     |     #4: surrogate=0.4456, ucb=0.5516 | You are a science expert tasked with answering multiple-choice science questions by selecting the co...
+2026-04-05 11:26:55 | INFO     |     #5: surrogate=0.4639, ucb=0.5699 | You are a science expert. Answer the following question by selecting the correct option (A, B, C, or...
+2026-04-05 11:26:55 | INFO     | Round 5: Selected Top-2 from 6 by UCB: [2, 5]
+2026-04-05 11:26:55 | INFO     |   [BANDIT] Selected Top-2 from 6: indices=[2, 5]
+2026-04-05 11:26:55 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 3/6)
+2026-04-05 11:26:55 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 4/6)
+2026-04-05 11:26:55 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 5/6)
+2026-04-05 11:26:55 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 6/6)
+2026-04-05 11:37:20 | INFO     | 
+  [ACCEPTED] Candidate #9 (val=0.5667, parents=[0])
+2026-04-05 11:37:20 | INFO     |   Prompt: You are a science expert. Answer the following question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved, and apply domain-specific knowledge or logical reasoning to arrive at the answer. If the question involves calculations (e.g., thermodynamics, physics, chemistry), use formulas like $ q = mc\Delta T $ or stoichiometry. For medical or health-related questions, prioritize evidence-based clinical reasoning. Respond with ONLY the letter of the correct answer.
+2026-04-05 11:37:20 | INFO     | Iteration 5: Valset score for new program: 0.5666666666666667 (coverage 30 / 30)
+2026-04-05 11:37:20 | INFO     | Iteration 5: Val aggregate for new program: 0.5666666666666667
+2026-04-05 11:37:20 | INFO     | Iteration 5: Individual valset scores for new program: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 1.0, 25: 0.0, 26: 0.0, 27: 1.0, 28: 0.0, 29: 1.0}
+2026-04-05 11:37:20 | INFO     | Iteration 5: New valset pareto front scores: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 1.0, 25: 0.0, 26: 1.0, 27: 1.0, 28: 0.0, 29: 1.0}
+2026-04-05 11:37:20 | INFO     | Iteration 5: Valset pareto front aggregate score: 0.6333333333333333
+2026-04-05 11:37:20 | INFO     | Iteration 5: Updated valset pareto front programs: {0: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 1: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 2: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 3: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 4: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 5: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 6: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 7: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 8: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 9: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 10: {0}, 11: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 12: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 13: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 14: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 15: {0, 1, 3, 4, 5, 6, 7, 8, 9}, 16: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 17: {0, 2, 3, 4, 5, 7, 8, 9}, 18: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 19: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 20: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 21: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 22: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 23: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 24: {9, 7}, 25: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 26: {4, 6, 7}, 27: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 28: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 29: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}}
+2026-04-05 11:37:20 | INFO     | Iteration 5: Best valset aggregate score so far: 0.6
+2026-04-05 11:37:20 | INFO     | Iteration 5: Best program as per aggregate score on valset: 7
+2026-04-05 11:37:20 | INFO     | Iteration 5: Best score on valset: 0.6
+2026-04-05 11:37:20 | INFO     | Iteration 5: Linear pareto front program index: 7
+2026-04-05 11:37:20 | INFO     | Iteration 5: New program candidate index: 9
+2026-04-05 11:37:20 | INFO     |   [ACCEPTED] Candidate #9 score=0.5667 parents=[0]
+2026-04-05 11:43:26 | INFO     | 
+  [ACCEPTED] Candidate #10 (val=0.5333, parents=[7])
+2026-04-05 11:43:26 | INFO     |   Prompt: You are a science expert. Answer the following question by selecting the correct option (A, B, C, or D). Use your knowledge of scientific principles, formulas (e.g., $ q = m \cdot c \cdot \Delta T $), and domain-specific facts (e.g., the half-life of carbon-14 is 5,730 years, or medical diagnostic criteria for conditions like GERD) to determine the correct answer. Apply logical reasoning, eliminate incorrect options, and ensure your answer is grounded in scientific accuracy. Respond with ONLY the letter of the correct answer.
+2026-04-05 11:43:26 | INFO     | Iteration 5: Valset score for new program: 0.5333333333333333 (coverage 30 / 30)
+2026-04-05 11:43:26 | INFO     | Iteration 5: Val aggregate for new program: 0.5333333333333333
+2026-04-05 11:43:26 | INFO     | Iteration 5: Individual valset scores for new program: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 0.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 0.0, 25: 0.0, 26: 0.0, 27: 1.0, 28: 0.0, 29: 1.0}
+2026-04-05 11:43:26 | INFO     | Iteration 5: New valset pareto front scores: {0: 1.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 1.0, 5: 1.0, 6: 0.0, 7: 1.0, 8: 1.0, 9: 0.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 0.0, 17: 1.0, 18: 1.0, 19: 0.0, 20: 0.0, 21: 1.0, 22: 1.0, 23: 0.0, 24: 1.0, 25: 0.0, 26: 1.0, 27: 1.0, 28: 0.0, 29: 1.0}
+2026-04-05 11:43:26 | INFO     | Iteration 5: Valset pareto front aggregate score: 0.6333333333333333
+2026-04-05 11:43:26 | INFO     | Iteration 5: Updated valset pareto front programs: {0: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 1: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 2: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 3: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 4: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 5: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 6: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 7: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 8: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 9: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 10: {0}, 11: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 12: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 13: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 14: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 15: {0, 1, 3, 4, 5, 6, 7, 8, 9, 10}, 16: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 17: {0, 2, 3, 4, 5, 7, 8, 9, 10}, 18: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 19: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 20: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 21: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 22: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 23: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 24: {9, 7}, 25: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 26: {4, 6, 7}, 27: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 28: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 29: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}}
+2026-04-05 11:43:26 | INFO     | Iteration 5: Best valset aggregate score so far: 0.6
+2026-04-05 11:43:26 | INFO     | Iteration 5: Best program as per aggregate score on valset: 7
+2026-04-05 11:43:26 | INFO     | Iteration 5: Best score on valset: 0.6
+2026-04-05 11:43:26 | INFO     | Iteration 5: Linear pareto front program index: 7
+2026-04-05 11:43:26 | INFO     | Iteration 5: New program candidate index: 10
+2026-04-05 11:43:26 | INFO     |   [ACCEPTED] Candidate #10 score=0.5333 parents=[7]
+2026-04-05 11:43:26 | INFO     | Round 5: ✗ No improvement. Best remains at 0.6000 (candidate #7)
+2026-04-05 11:43:26 | INFO     | Round 5: Surrogate retrained. MSE loss = 0.154188
+2026-04-05 11:43:27 | INFO     | 
+--------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 11:43:27 | INFO     | Rounds |  LLM Calls |    Val Acc |  Best Val Acc |  Test Acc (Selected) |  Surrogate Loss |  Avg Top-k |  Max Top-k |  Min Top-k
+2026-04-05 11:43:27 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 11:43:27 | INFO     |      1 |        108 |     0.5667 |        0.5667 |               0.7800 |        0.016949 |     0.5000 |     0.5000 |     0.5000
+2026-04-05 11:43:27 | INFO     |      2 |        204 |     0.5667 |        0.5667 |               0.7800 |        0.239717 |     0.5500 |     0.5667 |     0.5333
+2026-04-05 11:43:27 | INFO     |      3 |        300 |     0.5667 |        0.5667 |               0.7800 |        0.241100 |     0.5333 |     0.5333 |     0.5333
+2026-04-05 11:43:27 | INFO     |      4 |        396 |     0.6000 |        0.6000 |               0.7800 |        0.132612 |     0.5667 |     0.6000 |     0.5333
+2026-04-05 11:43:27 | INFO     |      5 |        492 |     0.6000 |        0.6000 |               0.7800 |        0.118575 |     0.5500 |     0.5667 |     0.5333
+2026-04-05 11:43:27 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 11:43:27 | INFO     | 
+Round 5 summary: best_val=0.6000, test=0.7800, llm_calls=492
+2026-04-05 11:43:27 | INFO     | Round 6: Selected 2 parents from Top-5: [3, 9]
+2026-04-05 11:43:27 | INFO     | Iteration 6: Selected program 0 score: 0.5666666666666667
+2026-04-05 11:43:50 | INFO     | Iteration 6: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).  
+
+Key domain-specific facts to consider:  
+1. **Nuclear decay** primarily produces **radiation** (e.g., alpha, beta, gamma particles) and **heat**, not light, magnetic waves, or chemical energy.  
+2. **FSH (Follicle-Stimulating Hormone)** is a **heterodimer** composed of **alpha and beta subunits** (shared with other glycoproteins like LH).  
+3. **Radioactive carbon dating** (using C-14) is effective up to approximately **57,000 years** due to the half-life of C-14 (~5,730 years) and the limits of detection.  
+
+Use these facts to identify the correct answer. Only provide the letter (A–D) as your response.
+2026-04-05 11:44:07 | INFO     | Round 6: Generated mutation from parent 3 (subsample: before=3.00, after=3.00)
+2026-04-05 11:44:07 | INFO     | Iteration 6: Selected program 0 score: 0.5666666666666667
+2026-04-05 11:44:20 | INFO     | Iteration 6: Proposed new text for system_prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).
+2026-04-05 11:44:29 | INFO     | Round 6: Generated mutation from parent 3 (subsample: before=3.00, after=3.00)
+2026-04-05 11:44:29 | INFO     | Round 6: Generated 2 total mutations
+2026-04-05 11:44:29 | INFO     | Round 6: Surrogate scores: min=0.5336, max=0.5954, mean=0.5645
+2026-04-05 11:44:29 | INFO     | 
+  [SURROGATE] Scored 2 candidates:
+2026-04-05 11:44:29 | INFO     |     #0: surrogate=0.5336, ucb=0.6259 | You are a science expert. Answer the following science question by selecting the correct option. Thi...
+2026-04-05 11:44:29 | INFO     |     #1: surrogate=0.5954, ucb=0.6877 | You are a science expert. Answer the following science question by selecting the correct option. Thi...
+2026-04-05 11:44:29 | INFO     | Round 6: Selected Top-2 from 2 by UCB: [1, 0]
+2026-04-05 11:44:29 | INFO     |   [BANDIT] Selected Top-2 from 2: indices=[1, 0]
+2026-04-05 11:44:29 | INFO     | Round 6: ✗ No improvement. Best remains at 0.6000 (candidate #7)
+2026-04-05 11:44:29 | INFO     | Round 6: Surrogate retrained. MSE loss = 0.090706
+2026-04-05 11:44:29 | INFO     | 
+--------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 11:44:29 | INFO     | Rounds |  LLM Calls |    Val Acc |  Best Val Acc |  Test Acc (Selected) |  Surrogate Loss |  Avg Top-k |  Max Top-k |  Min Top-k
+2026-04-05 11:44:29 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 11:44:29 | INFO     |      1 |        108 |     0.5667 |        0.5667 |               0.7800 |        0.016949 |     0.5000 |     0.5000 |     0.5000
+2026-04-05 11:44:29 | INFO     |      2 |        204 |     0.5667 |        0.5667 |               0.7800 |        0.239717 |     0.5500 |     0.5667 |     0.5333
+2026-04-05 11:44:29 | INFO     |      3 |        300 |     0.5667 |        0.5667 |               0.7800 |        0.241100 |     0.5333 |     0.5333 |     0.5333
+2026-04-05 11:44:29 | INFO     |      4 |        396 |     0.6000 |        0.6000 |               0.7800 |        0.132612 |     0.5667 |     0.6000 |     0.5333
+2026-04-05 11:44:29 | INFO     |      5 |        492 |     0.6000 |        0.6000 |               0.7800 |        0.118575 |     0.5500 |     0.5667 |     0.5333
+2026-04-05 11:44:29 | INFO     |      6 |        504 |     0.6000 |        0.6000 |               0.7800 |        0.068629 |     0.0000 |     0.0000 |     0.0000
+2026-04-05 11:44:29 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 11:44:29 | INFO     | 
+Round 6 summary: best_val=0.6000, test=0.7800, llm_calls=504
+2026-04-05 11:44:29 | INFO     | 
+==========================================================================================
+2026-04-05 11:44:29 | INFO     | OPTIMIZATION COMPLETE
+2026-04-05 11:44:29 | INFO     | Total iterations: 6
+2026-04-05 11:44:29 | INFO     | Total metric calls: 504
+2026-04-05 11:44:29 | INFO     | Best candidate: #7
+2026-04-05 11:44:29 | INFO     | Best val score: 0.6000
+2026-04-05 11:44:29 | INFO     | Best test score: 0.7800
+2026-04-05 11:44:29 | INFO     | 
+Best Prompt:
+You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Use your knowledge of scientific concepts, formulas, and domain-specific facts (e.g., the half-life of carbon-14 is 5,730 years) to determine the correct answer. Think carefully about the problem, apply relevant principles (e.g., physics equations, chemical reactions, biological processes), and respond with ONLY the letter of the correct answer.
+2026-04-05 11:44:29 | INFO     | ==========================================================================================
+2026-04-05 11:44:29 | INFO     | 
+FINAL METRICS TABLE:
+2026-04-05 11:44:29 | INFO     | 
+--------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 11:44:29 | INFO     | Rounds |  LLM Calls |    Val Acc |  Best Val Acc |  Test Acc (Selected) |  Surrogate Loss |  Avg Top-k |  Max Top-k |  Min Top-k
+2026-04-05 11:44:29 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 11:44:29 | INFO     |      1 |        108 |     0.5667 |        0.5667 |               0.7800 |        0.016949 |     0.5000 |     0.5000 |     0.5000
+2026-04-05 11:44:29 | INFO     |      2 |        204 |     0.5667 |        0.5667 |               0.7800 |        0.239717 |     0.5500 |     0.5667 |     0.5333
+2026-04-05 11:44:29 | INFO     |      3 |        300 |     0.5667 |        0.5667 |               0.7800 |        0.241100 |     0.5333 |     0.5333 |     0.5333
+2026-04-05 11:44:29 | INFO     |      4 |        396 |     0.6000 |        0.6000 |               0.7800 |        0.132612 |     0.5667 |     0.6000 |     0.5333
+2026-04-05 11:44:29 | INFO     |      5 |        492 |     0.6000 |        0.6000 |               0.7800 |        0.118575 |     0.5500 |     0.5667 |     0.5333
+2026-04-05 11:44:29 | INFO     |      6 |        504 |     0.6000 |        0.6000 |               0.7800 |        0.068629 |     0.0000 |     0.0000 |     0.0000
+2026-04-05 11:44:29 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 11:44:29 | INFO     | 
+ALL CANDIDATES (11):
+2026-04-05 11:44:29 | INFO     |   #0: val_avg=0.5667 (over 30 examples)
+2026-04-05 11:44:29 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).
+2026-04-05 11:44:29 | INFO     |   #1: val_avg=0.5000 (over 30 examples)
+2026-04-05 11:44:29 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Use your knowledge of biological structures (e.g., chitin in fungal cell walls and arthropod exoskeletons), physical formulas (e.g., specific heat capacity calculations using q = mcΔT), and molecular biology (e.g., cellulose composed of glucose monomers). Apply logical elimination based on scientific principles, and respond with ONLY the letter of the correct answer.
+2026-04-05 11:44:29 | INFO     |   #2: val_avg=0.5000 (over 30 examples)
+2026-04-05 11:44:29 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved, including domain-specific facts such as:  
+- Fungi and arthropods share chitin in cell walls/exoskeletons (Option B).  
+- Specific heat calculations require the formula $ c = \frac{q}{m \cdot \Delta T} $ (e.g., 770 J / (50.0 g × 110°C) = 0.14 J/g°C).  
+- Cellulose is composed of glucose monomers linked by beta-1,4-glycosidic bonds (Option D).  
+Respond with ONLY the letter of the correct answer. Avoid explanations or additional text.
+2026-04-05 11:44:29 | INFO     |   #3: val_avg=0.5333 (over 30 examples)
+2026-04-05 11:44:29 | INFO     |     Prompt: You are a science expert tasked with answering multiple-choice questions by selecting the correct option (A, B, C, or D). Focus on applying scientific principles, medical knowledge, or domain-specific facts to determine the correct answer. If the question or options are incomplete, use logical reasoning and generalizable strategies (e.g., eliminating incorrect choices based on scientific consistency) to infer the correct response. Respond ONLY with the letter of the correct answer. The task may involve topics from physics, chemistry, biology, or medicine, and you must ensure your answer aligns with established scientific concepts even when options are partially provided.
+2026-04-05 11:44:29 | INFO     |   #4: val_avg=0.5667 (over 30 examples)
+2026-04-05 11:44:29 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Focus on applying foundational scientific principles (e.g., definitions of terms like *percent error*, *nuclear fission*, or *medical pathophysiology*) and domain-specific knowledge (e.g., physics, chemistry, biology, or clinical medicine). Use logical reasoning to eliminate incorrect options, and prioritize accuracy by aligning with established scientific concepts (e.g., recognizing that *percent error* measures deviation from a known value, or that *nuclear fission* involves splitting heavy nuclei). Respond with ONLY the letter of the correct answer.
+2026-04-05 11:44:29 | INFO     |   #5: val_avg=0.5333 (over 30 examples)
+2026-04-05 11:44:29 | INFO     |     Prompt: You are a versatile expert capable of answering multiple-choice questions across scientific, medical, and research domains. Select the correct answer (A, B, C, or D) by:  
+1. Carefully analyzing the question's context and domain (e.g., chemistry, medicine, methodology).  
+2. Applying domain-specific knowledge (e.g., noble gas properties, psychiatric diagnoses, study design principles).  
+3. Eliminating incorrect options based on scientific principles or factual evidence.  
+4. Using logical reasoning to identify the most accurate answer, even if the question is incomplete or ambiguous.  
+Respond ONLY with the letter of your prediction.
+2026-04-05 11:44:29 | INFO     |   #6: val_avg=0.5333 (over 30 examples)
+2026-04-05 11:44:29 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Focus on applying foundational scientific principles (e.g., definitions of terms like *percent error*, *nuclear fission*, or *medical pathophysiology*) and domain-specific knowledge (e.g., physics, chemistry, biology, or clinical medicine). Use logical reasoning to eliminate incorrect options by aligning with established scientific concepts (e.g., recognizing that *noble gases* have full valence shells and are inert, or that *schizophrenia* involves dopamine dysregulation). Prioritize accuracy by avoiding assumptions: if the question is incomplete, ambiguous, or lacks sufficient context (e.g., missing options, unclear scenarios), respond with "Question is incomplete/ambiguous" instead of guessing. Respond with ONLY the letter of the correct answer or the specified clarification.
+2026-04-05 11:44:29 | INFO     |   #7: val_avg=0.6000 (over 30 examples)
+2026-04-05 11:44:29 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Use your knowledge of scientific concepts, formulas, and domain-specific facts (e.g., the half-life of carbon-14 is 5,730 years) to determine the correct answer. Think carefully about the problem, apply relevant principles (e.g., physics equations, chemical reactions, biological processes), and respond with ONLY the letter of the correct answer.
+2026-04-05 11:44:29 | INFO     |   #8: val_avg=0.5333 (over 30 examples)
+2026-04-05 11:44:29 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Focus on applying foundational scientific principles (e.g., definitions of terms like *percent error*, *nuclear fission*, or *medical pathophysiology*) and domain-specific knowledge (e.g., physics, chemistry, biology, or clinical medicine). Use logical reasoning to eliminate incorrect options, and prioritize accuracy by aligning with established scientific concepts. For questions requiring factual recall, rely on well-established values (e.g., the half-life of carbon-14 is **5,730 years**). Respond with ONLY the letter of the correct answer.
+2026-04-05 11:44:29 | INFO     |   #9: val_avg=0.5667 (over 30 examples)
+2026-04-05 11:44:29 | INFO     |     Prompt: You are a science expert. Answer the following question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved, and apply domain-specific knowledge or logical reasoning to arrive at the answer. If the question involves calculations (e.g., thermodynamics, physics, chemistry), use formulas like $ q = mc\Delta T $ or stoichiometry. For medical or health-related questions, prioritize evidence-based clinical reasoning. Respond with ONLY the letter of the correct answer.
+2026-04-05 11:44:29 | INFO     |   #10: val_avg=0.5333 (over 30 examples)
+2026-04-05 11:44:29 | INFO     |     Prompt: You are a science expert. Answer the following question by selecting the correct option (A, B, C, or D). Use your knowledge of scientific principles, formulas (e.g., $ q = m \cdot c \cdot \Delta T $), and domain-specific facts (e.g., the half-life of carbon-14 is 5,730 years, or medical diagnostic criteria for conditions like GERD) to determine the correct answer. Apply logical reasoning, eliminate incorrect options, and ensure your answer is grounded in scientific accuracy. Respond with ONLY the letter of the correct answer.
+2026-04-05 11:44:29 | INFO     | Optimisation complete. Best candidate #7 with val score 0.6000
+2026-04-05 11:44:29 | INFO     | 
+Final state: 11 candidates, 504 total evals

@@ -3,18 +3,18 @@
     "i": 0,
     "selected_program_candidate": 0,
     "subsample_ids": [
-      25,
-      23,
-      19
+      65,
+      134,
+      98
     ],
     "subsample_scores": [
       1.0,
-      1.0,
+      0.0,
       1.0
     ],
     "new_subsample_scores": [
       1.0,
-      1.0,
+      0.0,
       1.0
     ]
   },
@@ -22,9 +22,9 @@
     "i": 1,
     "selected_program_candidate": 2,
     "subsample_ids": [
-      11,
-      4,
-      45
+      117,
+      67,
+      38
     ],
     "subsample_scores": [
       1.0,
@@ -39,68 +39,11 @@
   },
   {
     "i": 2,
-    "selected_program_candidate": 0,
+    "selected_program_candidate": 3,
     "subsample_ids": [
-      26,
-      9,
-      29
-    ],
-    "subsample_scores": [
-      1.0,
-      1.0,
-      0.0
-    ],
-    "new_subsample_scores": [
-      1.0,
-      1.0,
-      0.0
-    ]
-  },
-  {
-    "i": 3,
-    "selected_program_candidate": 2,
-    "subsample_ids": [
-      16,
-      31,
-      21
-    ],
-    "subsample_scores": [
-      0.0,
-      1.0,
-      1.0
-    ],
-    "new_subsample_scores": [
-      0.0,
-      1.0,
-      1.0
-    ]
-  },
-  {
-    "i": 4,
-    "selected_program_candidate": 2,
-    "subsample_ids": [
-      12,
-      3,
-      39
-    ],
-    "subsample_scores": [
-      1.0,
-      0.0,
-      0.0
-    ],
-    "new_subsample_scores": [
-      1.0,
-      0.0,
-      0.0
-    ]
-  },
-  {
-    "i": 5,
-    "selected_program_candidate": 0,
-    "subsample_ids": [
-      38,
-      10,
-      24
+      18,
+      30,
+      111
     ],
     "subsample_scores": [
       1.0,

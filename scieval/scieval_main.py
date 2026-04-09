@@ -91,13 +91,13 @@ from gepa.proposer.reflective_mutation.reflective_mutation import ReflectiveMuta
 # ---------------------------------------------------------------------------
 OLLAMA_URL = "http://103.42.50.203:11534/api/generate"
 OLLAMA_MODEL = "qwen3:8b"
-TRAIN_SIZE = 50
-VAL_SIZE = 30
-TEST_SIZE = 50
+TRAIN_SIZE = 150
+VAL_SIZE = 80
+TEST_SIZE = 150
 MAX_METRIC_CALLS = 500
 
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "outputs")
-LOG_FILE = os.path.join(OUTPUT_DIR, "run_log.txt")
+LOG_FILE = os.path.join(OUTPUT_DIR, "run_log_final.txt")
 
 
 # ---------------------------------------------------------------------------

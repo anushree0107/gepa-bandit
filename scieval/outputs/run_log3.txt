@@ -1,0 +1,156 @@
+2026-04-05 11:53:24 | INFO     | Loading SciEval dataset...
+2026-04-05 11:53:34 | INFO     | Dataset sizes — Train: 50, Val: 50, Test: 70
+2026-04-05 11:53:34 | INFO     | Starting SurrogateBanditEngine...
+2026-04-05 11:53:34 | INFO     | ==========================================================================================
+2026-04-05 11:53:34 | INFO     | SciEval + Surrogate-Guided Bandit — OPTIMIZATION START
+2026-04-05 11:53:34 | INFO     | Config: {
+  "perfect_score": 1.0,
+  "seed": 42,
+  "track_best_outputs": true,
+  "bandit_config": {
+    "top_p": 5,
+    "n_parents": 2,
+    "m_mutations": 3,
+    "top_k": 2,
+    "ucb_exploration": 1.0
+  }
+}
+2026-04-05 11:53:34 | INFO     | ==========================================================================================
+2026-04-05 11:53:34 | INFO     | 
+  [SEED] Prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).
+2026-04-05 12:07:21 | INFO     |   [SEED] Baseline Test Accuracy: 0.7714
+2026-04-05 12:16:11 | INFO     | Loading gepa state from run dir
+2026-04-05 12:16:11 | INFO     | Round 0: Seed valset score: 0.5667
+2026-04-05 12:16:11 | INFO     | 
+==========================================================================================
+2026-04-05 12:16:11 | INFO     | OPTIMIZATION COMPLETE
+2026-04-05 12:16:11 | INFO     | Total iterations: 6
+2026-04-05 12:16:11 | INFO     | Total metric calls: 504
+2026-04-05 12:16:11 | INFO     | Best candidate: #0
+2026-04-05 12:16:11 | INFO     | Best val score: 0.0000
+2026-04-05 12:16:11 | INFO     | Best test score: 0.7714
+2026-04-05 12:16:11 | INFO     | 
+Best Prompt:
+You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).
+2026-04-05 12:16:11 | INFO     | ==========================================================================================
+2026-04-05 12:16:11 | INFO     | 
+FINAL METRICS TABLE:
+2026-04-05 12:16:11 | INFO     | 
+--------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 12:16:11 | INFO     | Rounds |  LLM Calls |    Val Acc |  Best Val Acc |  Test Acc (Selected) |  Surrogate Loss |  Avg Top-k |  Max Top-k |  Min Top-k
+2026-04-05 12:16:11 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 12:16:11 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 12:16:11 | INFO     | 
+ALL CANDIDATES (11):
+2026-04-05 12:16:11 | INFO     |   #0: val_avg=0.5667 (over 30 examples)
+2026-04-05 12:16:11 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).
+2026-04-05 12:16:11 | INFO     |   #1: val_avg=0.5000 (over 30 examples)
+2026-04-05 12:16:11 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Use your knowledge of biological structures (e.g., chitin in fungal cell walls and arthropod exoskeletons), physical formulas (e.g., specific heat capacity calculations using q = mcΔT), and molecular biology (e.g., cellulose composed of glucose monomers). Apply logical elimination based on scientific principles, and respond with ONLY the letter of the correct answer.
+2026-04-05 12:16:11 | INFO     |   #2: val_avg=0.5000 (over 30 examples)
+2026-04-05 12:16:11 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved, including domain-specific facts such as:  
+- Fungi and arthropods share chitin in cell walls/exoskeletons (Option B).  
+- Specific heat calculations require the formula $ c = \frac{q}{m \cdot \Delta T} $ (e.g., 770 J / (50.0 g × 110°C) = 0.14 J/g°C).  
+- Cellulose is composed of glucose monomers linked by beta-1,4-glycosidic bonds (Option D).  
+Respond with ONLY the letter of the correct answer. Avoid explanations or additional text.
+2026-04-05 12:16:11 | INFO     |   #3: val_avg=0.5333 (over 30 examples)
+2026-04-05 12:16:11 | INFO     |     Prompt: You are a science expert tasked with answering multiple-choice questions by selecting the correct option (A, B, C, or D). Focus on applying scientific principles, medical knowledge, or domain-specific facts to determine the correct answer. If the question or options are incomplete, use logical reasoning and generalizable strategies (e.g., eliminating incorrect choices based on scientific consistency) to infer the correct response. Respond ONLY with the letter of the correct answer. The task may involve topics from physics, chemistry, biology, or medicine, and you must ensure your answer aligns with established scientific concepts even when options are partially provided.
+2026-04-05 12:16:11 | INFO     |   #4: val_avg=0.5667 (over 30 examples)
+2026-04-05 12:16:11 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Focus on applying foundational scientific principles (e.g., definitions of terms like *percent error*, *nuclear fission*, or *medical pathophysiology*) and domain-specific knowledge (e.g., physics, chemistry, biology, or clinical medicine). Use logical reasoning to eliminate incorrect options, and prioritize accuracy by aligning with established scientific concepts (e.g., recognizing that *percent error* measures deviation from a known value, or that *nuclear fission* involves splitting heavy nuclei). Respond with ONLY the letter of the correct answer.
+2026-04-05 12:16:11 | INFO     |   #5: val_avg=0.5333 (over 30 examples)
+2026-04-05 12:16:11 | INFO     |     Prompt: You are a versatile expert capable of answering multiple-choice questions across scientific, medical, and research domains. Select the correct answer (A, B, C, or D) by:  
+1. Carefully analyzing the question's context and domain (e.g., chemistry, medicine, methodology).  
+2. Applying domain-specific knowledge (e.g., noble gas properties, psychiatric diagnoses, study design principles).  
+3. Eliminating incorrect options based on scientific principles or factual evidence.  
+4. Using logical reasoning to identify the most accurate answer, even if the question is incomplete or ambiguous.  
+Respond ONLY with the letter of your prediction.
+2026-04-05 12:16:11 | INFO     |   #6: val_avg=0.5333 (over 30 examples)
+2026-04-05 12:16:11 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Focus on applying foundational scientific principles (e.g., definitions of terms like *percent error*, *nuclear fission*, or *medical pathophysiology*) and domain-specific knowledge (e.g., physics, chemistry, biology, or clinical medicine). Use logical reasoning to eliminate incorrect options by aligning with established scientific concepts (e.g., recognizing that *noble gases* have full valence shells and are inert, or that *schizophrenia* involves dopamine dysregulation). Prioritize accuracy by avoiding assumptions: if the question is incomplete, ambiguous, or lacks sufficient context (e.g., missing options, unclear scenarios), respond with "Question is incomplete/ambiguous" instead of guessing. Respond with ONLY the letter of the correct answer or the specified clarification.
+2026-04-05 12:16:11 | INFO     |   #7: val_avg=0.6000 (over 30 examples)
+2026-04-05 12:16:11 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Use your knowledge of scientific concepts, formulas, and domain-specific facts (e.g., the half-life of carbon-14 is 5,730 years) to determine the correct answer. Think carefully about the problem, apply relevant principles (e.g., physics equations, chemical reactions, biological processes), and respond with ONLY the letter of the correct answer.
+2026-04-05 12:16:11 | INFO     |   #8: val_avg=0.5333 (over 30 examples)
+2026-04-05 12:16:11 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Focus on applying foundational scientific principles (e.g., definitions of terms like *percent error*, *nuclear fission*, or *medical pathophysiology*) and domain-specific knowledge (e.g., physics, chemistry, biology, or clinical medicine). Use logical reasoning to eliminate incorrect options, and prioritize accuracy by aligning with established scientific concepts. For questions requiring factual recall, rely on well-established values (e.g., the half-life of carbon-14 is **5,730 years**). Respond with ONLY the letter of the correct answer.
+2026-04-05 12:16:11 | INFO     |   #9: val_avg=0.5667 (over 30 examples)
+2026-04-05 12:16:11 | INFO     |     Prompt: You are a science expert. Answer the following question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved, and apply domain-specific knowledge or logical reasoning to arrive at the answer. If the question involves calculations (e.g., thermodynamics, physics, chemistry), use formulas like $ q = mc\Delta T $ or stoichiometry. For medical or health-related questions, prioritize evidence-based clinical reasoning. Respond with ONLY the letter of the correct answer.
+2026-04-05 12:16:11 | INFO     |   #10: val_avg=0.5333 (over 30 examples)
+2026-04-05 12:16:11 | INFO     |     Prompt: You are a science expert. Answer the following question by selecting the correct option (A, B, C, or D). Use your knowledge of scientific principles, formulas (e.g., $ q = m \cdot c \cdot \Delta T $), and domain-specific facts (e.g., the half-life of carbon-14 is 5,730 years, or medical diagnostic criteria for conditions like GERD) to determine the correct answer. Apply logical reasoning, eliminate incorrect options, and ensure your answer is grounded in scientific accuracy. Respond with ONLY the letter of the correct answer.
+2026-04-05 12:16:11 | INFO     | Optimisation complete. Best candidate #0 with val score 0.5667
+2026-04-05 12:16:11 | INFO     | 
+Final state: 11 candidates, 504 total evals
+2026-04-05 12:26:30 | INFO     | Loading SciEval dataset...
+2026-04-05 12:26:41 | INFO     | Dataset sizes — Train: 70, Val: 50, Test: 70
+2026-04-05 12:26:41 | INFO     | Starting SurrogateBanditEngine...
+2026-04-05 12:26:41 | INFO     | ==========================================================================================
+2026-04-05 12:26:41 | INFO     | SciEval + Surrogate-Guided Bandit — OPTIMIZATION START
+2026-04-05 12:26:41 | INFO     | Config: {
+  "perfect_score": 1.0,
+  "seed": 42,
+  "track_best_outputs": true,
+  "bandit_config": {
+    "top_p": 5,
+    "n_parents": 2,
+    "m_mutations": 3,
+    "top_k": 2,
+    "ucb_exploration": 1.0
+  }
+}
+2026-04-05 12:26:41 | INFO     | ==========================================================================================
+2026-04-05 12:26:41 | INFO     | 
+  [SEED] Prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).
+2026-04-05 12:40:27 | INFO     |   [SEED] Baseline Test Accuracy: 0.7714
+2026-04-05 12:47:03 | INFO     | Loading gepa state from run dir
+2026-04-05 12:47:03 | INFO     | Round 0: Seed valset score: 0.5667
+2026-04-05 12:47:03 | INFO     | 
+==========================================================================================
+2026-04-05 12:47:03 | INFO     | OPTIMIZATION COMPLETE
+2026-04-05 12:47:03 | INFO     | Total iterations: 6
+2026-04-05 12:47:03 | INFO     | Total metric calls: 504
+2026-04-05 12:47:03 | INFO     | Best candidate: #0
+2026-04-05 12:47:03 | INFO     | Best val score: 0.0000
+2026-04-05 12:47:03 | INFO     | Best test score: 0.7714
+2026-04-05 12:47:03 | INFO     | 
+Best Prompt:
+You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).
+2026-04-05 12:47:03 | INFO     | ==========================================================================================
+2026-04-05 12:47:03 | INFO     | 
+FINAL METRICS TABLE:
+2026-04-05 12:47:03 | INFO     | 
+--------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 12:47:03 | INFO     | Rounds |  LLM Calls |    Val Acc |  Best Val Acc |  Test Acc (Selected) |  Surrogate Loss |  Avg Top-k |  Max Top-k |  Min Top-k
+2026-04-05 12:47:03 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 12:47:03 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-05 12:47:03 | INFO     | 
+ALL CANDIDATES (11):
+2026-04-05 12:47:03 | INFO     |   #0: val_avg=0.5667 (over 30 examples)
+2026-04-05 12:47:03 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).
+2026-04-05 12:47:03 | INFO     |   #1: val_avg=0.5000 (over 30 examples)
+2026-04-05 12:47:03 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Use your knowledge of biological structures (e.g., chitin in fungal cell walls and arthropod exoskeletons), physical formulas (e.g., specific heat capacity calculations using q = mcΔT), and molecular biology (e.g., cellulose composed of glucose monomers). Apply logical elimination based on scientific principles, and respond with ONLY the letter of the correct answer.
+2026-04-05 12:47:03 | INFO     |   #2: val_avg=0.5000 (over 30 examples)
+2026-04-05 12:47:03 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved, including domain-specific facts such as:  
+- Fungi and arthropods share chitin in cell walls/exoskeletons (Option B).  
+- Specific heat calculations require the formula $ c = \frac{q}{m \cdot \Delta T} $ (e.g., 770 J / (50.0 g × 110°C) = 0.14 J/g°C).  
+- Cellulose is composed of glucose monomers linked by beta-1,4-glycosidic bonds (Option D).  
+Respond with ONLY the letter of the correct answer. Avoid explanations or additional text.
+2026-04-05 12:47:03 | INFO     |   #3: val_avg=0.5333 (over 30 examples)
+2026-04-05 12:47:03 | INFO     |     Prompt: You are a science expert tasked with answering multiple-choice questions by selecting the correct option (A, B, C, or D). Focus on applying scientific principles, medical knowledge, or domain-specific facts to determine the correct answer. If the question or options are incomplete, use logical reasoning and generalizable strategies (e.g., eliminating incorrect choices based on scientific consistency) to infer the correct response. Respond ONLY with the letter of the correct answer. The task may involve topics from physics, chemistry, biology, or medicine, and you must ensure your answer aligns with established scientific concepts even when options are partially provided.
+2026-04-05 12:47:03 | INFO     |   #4: val_avg=0.5667 (over 30 examples)
+2026-04-05 12:47:03 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Focus on applying foundational scientific principles (e.g., definitions of terms like *percent error*, *nuclear fission*, or *medical pathophysiology*) and domain-specific knowledge (e.g., physics, chemistry, biology, or clinical medicine). Use logical reasoning to eliminate incorrect options, and prioritize accuracy by aligning with established scientific concepts (e.g., recognizing that *percent error* measures deviation from a known value, or that *nuclear fission* involves splitting heavy nuclei). Respond with ONLY the letter of the correct answer.
+2026-04-05 12:47:03 | INFO     |   #5: val_avg=0.5333 (over 30 examples)
+2026-04-05 12:47:03 | INFO     |     Prompt: You are a versatile expert capable of answering multiple-choice questions across scientific, medical, and research domains. Select the correct answer (A, B, C, or D) by:  
+1. Carefully analyzing the question's context and domain (e.g., chemistry, medicine, methodology).  
+2. Applying domain-specific knowledge (e.g., noble gas properties, psychiatric diagnoses, study design principles).  
+3. Eliminating incorrect options based on scientific principles or factual evidence.  
+4. Using logical reasoning to identify the most accurate answer, even if the question is incomplete or ambiguous.  
+Respond ONLY with the letter of your prediction.
+2026-04-05 12:47:03 | INFO     |   #6: val_avg=0.5333 (over 30 examples)
+2026-04-05 12:47:03 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Focus on applying foundational scientific principles (e.g., definitions of terms like *percent error*, *nuclear fission*, or *medical pathophysiology*) and domain-specific knowledge (e.g., physics, chemistry, biology, or clinical medicine). Use logical reasoning to eliminate incorrect options by aligning with established scientific concepts (e.g., recognizing that *noble gases* have full valence shells and are inert, or that *schizophrenia* involves dopamine dysregulation). Prioritize accuracy by avoiding assumptions: if the question is incomplete, ambiguous, or lacks sufficient context (e.g., missing options, unclear scenarios), respond with "Question is incomplete/ambiguous" instead of guessing. Respond with ONLY the letter of the correct answer or the specified clarification.
+2026-04-05 12:47:03 | INFO     |   #7: val_avg=0.6000 (over 30 examples)
+2026-04-05 12:47:03 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Use your knowledge of scientific concepts, formulas, and domain-specific facts (e.g., the half-life of carbon-14 is 5,730 years) to determine the correct answer. Think carefully about the problem, apply relevant principles (e.g., physics equations, chemical reactions, biological processes), and respond with ONLY the letter of the correct answer.
+2026-04-05 12:47:03 | INFO     |   #8: val_avg=0.5333 (over 30 examples)
+2026-04-05 12:47:03 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Focus on applying foundational scientific principles (e.g., definitions of terms like *percent error*, *nuclear fission*, or *medical pathophysiology*) and domain-specific knowledge (e.g., physics, chemistry, biology, or clinical medicine). Use logical reasoning to eliminate incorrect options, and prioritize accuracy by aligning with established scientific concepts. For questions requiring factual recall, rely on well-established values (e.g., the half-life of carbon-14 is **5,730 years**). Respond with ONLY the letter of the correct answer.
+2026-04-05 12:47:03 | INFO     |   #9: val_avg=0.5667 (over 30 examples)
+2026-04-05 12:47:03 | INFO     |     Prompt: You are a science expert. Answer the following question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved, and apply domain-specific knowledge or logical reasoning to arrive at the answer. If the question involves calculations (e.g., thermodynamics, physics, chemistry), use formulas like $ q = mc\Delta T $ or stoichiometry. For medical or health-related questions, prioritize evidence-based clinical reasoning. Respond with ONLY the letter of the correct answer.
+2026-04-05 12:47:03 | INFO     |   #10: val_avg=0.5333 (over 30 examples)
+2026-04-05 12:47:03 | INFO     |     Prompt: You are a science expert. Answer the following question by selecting the correct option (A, B, C, or D). Use your knowledge of scientific principles, formulas (e.g., $ q = m \cdot c \cdot \Delta T $), and domain-specific facts (e.g., the half-life of carbon-14 is 5,730 years, or medical diagnostic criteria for conditions like GERD) to determine the correct answer. Apply logical reasoning, eliminate incorrect options, and ensure your answer is grounded in scientific accuracy. Respond with ONLY the letter of the correct answer.
+2026-04-05 12:47:03 | INFO     | Optimisation complete. Best candidate #0 with val score 0.5667
+2026-04-05 12:47:03 | INFO     | 
+Final state: 11 candidates, 504 total evals

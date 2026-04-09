@@ -1,0 +1,636 @@
+
+2026-04-09 09:29:22 | INFO     | Loading SciEval dataset...
+2026-04-09 09:29:32 | INFO     | Dataset sizes — Train: 150, Val: 80, Test: 150
+2026-04-09 09:29:32 | INFO     | Starting SurrogateBanditEngine...
+2026-04-09 09:29:32 | INFO     | ==========================================================================================
+2026-04-09 09:29:32 | INFO     | SciEval + Surrogate-Guided Bandit — OPTIMIZATION START
+2026-04-09 09:29:32 | INFO     | Config: {
+  "perfect_score": 1.0,
+  "seed": 42,
+  "track_best_outputs": true,
+  "bandit_config": {
+    "top_p": 5,
+    "n_parents": 2,
+    "m_mutations": 3,
+    "top_k": 2,
+    "ucb_exploration": 1.0
+  }
+}
+2026-04-09 09:29:32 | INFO     | ==========================================================================================
+2026-04-09 09:29:32 | INFO     | 
+  [SEED] Prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).
+2026-04-09 09:57:11 | INFO     |   [SEED] Baseline Test Accuracy: 0.7467
+2026-04-09 10:17:55 | INFO     | Loading gepa state from run dir
+2026-04-09 10:17:55 | INFO     | Round 0: Seed valset score: 0.5667
+2026-04-09 10:17:55 | INFO     | 
+==========================================================================================
+2026-04-09 10:17:55 | INFO     | OPTIMIZATION COMPLETE
+2026-04-09 10:17:55 | INFO     | Total iterations: 6
+2026-04-09 10:17:55 | INFO     | Total metric calls: 504
+2026-04-09 10:17:55 | INFO     | Best candidate: #0
+2026-04-09 10:17:55 | INFO     | Best val score: 0.0000
+2026-04-09 10:17:55 | INFO     | Best test score: 0.7467
+2026-04-09 10:17:55 | INFO     | 
+Best Prompt:
+You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).
+2026-04-09 10:17:55 | INFO     | ==========================================================================================
+2026-04-09 10:17:55 | INFO     | 
+FINAL METRICS TABLE:
+2026-04-09 10:17:55 | INFO     | 
+--------------------------------------------------------------------------------------------------------------------------------
+2026-04-09 10:17:55 | INFO     | Rounds |  LLM Calls |    Val Acc |  Best Val Acc |  Test Acc (Selected) |  Surrogate Loss |  Avg Top-k |  Max Top-k |  Min Top-k
+2026-04-09 10:17:55 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-09 10:17:55 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-09 10:17:55 | INFO     | 
+ALL CANDIDATES (11):
+2026-04-09 10:17:55 | INFO     |   #0: val_avg=0.5667 (over 30 examples)
+2026-04-09 10:17:55 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).
+2026-04-09 10:17:55 | INFO     |   #1: val_avg=0.5667 (over 30 examples)
+2026-04-09 10:17:55 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved. Use domain-specific knowledge (e.g., biological structures like chitin in fungi/arthropods, physical formulas like specific heat capacity, or chemical compositions like cellulose monomers) and generalizable problem-solving strategies (e.g., formula rearrangement, process of elimination) to arrive at the answer. Respond with ONLY the letter of the correct answer.
+2026-04-09 10:17:55 | INFO     |   #2: val_avg=0.5667 (over 30 examples)
+2026-04-09 10:17:55 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).  
+**Task Details:**  
+1. **Format:** Each question provides four options (A–D). Your answer must be the single correct letter.  
+2. **Scientific Knowledge Required:** Use domain-specific facts (e.g., biological structures like chitin, thermodynamic calculations, or molecular biology).  
+3. **Generalizable Strategy:** Apply foundational scientific principles (e.g., specific heat formula $ q = mc\Delta T $, cellular respiration processes, or polymer composition) to deduce the answer.  
+4. **No Explanations:** Output only the letter (A–D) corresponding to the correct choice.
+2026-04-09 10:17:55 | INFO     |   #3: val_avg=0.5333 (over 30 examples)
+2026-04-09 10:17:55 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option (A–D). Use domain-specific knowledge (e.g., statistical formulas like percent error $ \text{Percent Error} = \frac{|\text{Experimental} - \text{Theoretical}|}{\text{Theoretical}} \times 100 $, nuclear fission mechanisms (induced by neutron absorption), or medical diagnostics (e.g., pulmonary edema symptoms: dyspnea, crackles, hypoxia)). Apply foundational principles (e.g., thermodynamics, cellular respiration, polymer structures) to deduce the answer. Respond with ONLY the letter corresponding to the correct choice.
+2026-04-09 10:17:55 | INFO     |   #4: val_avg=0.5667 (over 30 examples)
+2026-04-09 10:17:55 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).  
+**Task Details:**  
+1. **Format:** Each question provides four options (A–D). Your answer must be the single correct letter.  
+2. **Scientific Knowledge Required:** Use domain-specific facts (e.g., biological structures like chitin, thermodynamic calculations, molecular biology, or medical pathophysiology). For example, recognize that percent error is calculated using $ \text{Percent Error} = \frac{|\text{Experimental} - \text{Theoretical}|}{|\text{Theoretical}|} \times 100\% $, or that nuclear fission involves neutron-induced splitting of heavy nuclei.  
+3. **Generalizable Strategy:** Apply foundational principles (e.g., specific heat formula $ q = mc\Delta T $, cellular respiration stoichiometry, or polymer composition rules) to deduce answers even if the question is incomplete. For medical cases, use diagnostic reasoning (e.g., linking symptoms like dyspnea to conditions like pulmonary embolism or heart failure).  
+4. **No Explanations:** Output only the letter (A–D) corresponding to the correct choice.
+2026-04-09 10:17:55 | INFO     |   #5: val_avg=0.5000 (over 30 examples)
+2026-04-09 10:17:55 | INFO     |     Prompt: You are a science expert. Answer the following question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer. If the correct answer is not explicitly provided in the feedback (e.g., "Correct: no"), prioritize selecting the most scientifically valid option based on your knowledge. Avoid adding explanations or additional text. Ensure your response adheres to the format of a single letter (A, B, C, or D).
+2026-04-09 10:17:55 | INFO     |   #6: val_avg=0.5333 (over 30 examples)
+2026-04-09 10:17:55 | INFO     |     Prompt: You are to act as a science and reasoning expert, selecting the correct answer (A, B, C, or D) from multiple-choice questions. Follow these guidelines:  
+1. **Scientific Knowledge**: Use domain-specific facts (e.g., chemistry, biology, physics) and logical reasoning to evaluate options.  
+2. **Answer Format**: Respond *only* with the letter of the correct answer (A, B, C, or D). Do not provide explanations.  
+3. **No Correct Answer**: If the question is unanswerable or none of the options are correct, respond with **"no"**.  
+4. **Generalizable Strategy**: Prioritize eliminating clearly incorrect options, then deduce the best choice based on evidence.  
+5. **Domain Flexibility**: Apply reasoning to questions in science, medicine, social sciences, or other fields, ensuring alignment with factual accuracy.
+2026-04-09 10:17:55 | INFO     |   #7: val_avg=0.5333 (over 30 examples)
+2026-04-09 10:17:55 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved, including domain-specific facts (e.g., carbon-14's half-life is 5,730 years). Respond with ONLY the letter of the correct answer. If the question requires calculations (e.g., energy, motion, or decay), apply relevant formulas (e.g., E=V*I*t for electrical work, N(t)=N₀e^(-λt) for radioactive decay) and use precise numerical reasoning. Avoid unnecessary explanations.
+2026-04-09 10:17:55 | INFO     |   #8: val_avg=0.5333 (over 30 examples)
+2026-04-09 10:17:55 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option (A, B, C, or D). Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D). If the question is incomplete, use your generalizable scientific knowledge to infer the correct answer. Apply principles from physics, chemistry, biology, or other domains as needed. Do not provide explanations, only the letter. For example, know that the half-life of carbon-14 is 5.73 × 10³ years (option B in such cases).
+2026-04-09 10:17:55 | INFO     |   #9: val_avg=0.6000 (over 30 examples)
+2026-04-09 10:17:55 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).  
+**Task Details:**  
+1. **Format:** Each question provides four options (A–D). Your answer must be the single correct letter.  
+2. **Scientific Knowledge Required:** Use domain-specific facts (e.g., biological structures like chitin, thermodynamic calculations, molecular biology, or medical pathophysiology). For example, recognize that percent error is calculated using $ \text{Percent Error} = \frac{|\text{Experimental} - \text{Theoretical}|}{|\text{Theoretical}|} \times 100\% $, or that nuclear fission involves neutron-induced splitting of heavy nuclei.  
+3. **Generalizable Strategy:** Apply foundational principles (e.g., specific heat formula $ q = mc\Delta T $, cellular respiration stoichiometry, polymer composition rules) to deduce answers even if the question is incomplete. For medical cases, use diagnostic reasoning (e.g., linking symptoms like retrosternal burning to conditions like gastroesophageal reflux disease or peptic ulcer disease).  
+4. **No Explanations:** Output only the letter (A–D) corresponding to the correct choice.  
+**Key Concepts to Prioritize:**  
+- Thermodynamic calculations (e.g., heat transfer, energy changes).  
+- Molecular biology (e.g., DNA/RNA structure, enzyme kinetics).  
+- Medical diagnostics (e.g., symptom-to-pathology associations, lab result interpretation).  
+- Stoichiometric relationships in chemical reactions.  
+- Polymer chemistry (e.g., monomer-unit composition, polymerization mechanisms).  
+- Physical science principles (e.g., Newton’s laws, wave-particle duality).  
+**Note:** If the question is incomplete or ambiguous, use generalizable strategies (e.g., dimensional analysis, conservation laws, or standard diagnostic frameworks) to infer the correct answer.
+2026-04-09 10:17:55 | INFO     |   #10: val_avg=0.5000 (over 30 examples)
+2026-04-09 10:17:55 | INFO     |     Prompt: You are a science expert. Answer the following question by selecting the correct option (A–D). Use domain-specific scientific facts (e.g., thermodynamic formulas, biological processes, or polymer properties) and apply generalizable principles (e.g., $ q = mc\Delta T $, cellular respiration, or molecular structure) to deduce the answer. Respond ONLY with the letter of the correct choice.
+2026-04-09 10:17:55 | INFO     | Optimisation complete. Best candidate #0 with val score 0.5667
+2026-04-09 10:17:55 | INFO     | 
+Final state: 11 candidates, 504 total evals
+
+
+
+
+
+
+
+
+
+
+2026-04-09 10:28:09 | INFO     | Loading SciEval dataset...
+2026-04-09 10:28:19 | INFO     | Dataset sizes — Train: 150, Val: 80, Test: 150
+2026-04-09 10:28:19 | INFO     | Starting SurrogateBanditEngine...
+2026-04-09 10:28:19 | INFO     | ==========================================================================================
+2026-04-09 10:28:19 | INFO     | SciEval + Surrogate-Guided Bandit — OPTIMIZATION START
+2026-04-09 10:28:19 | INFO     | Config: {
+  "perfect_score": 1.0,
+  "seed": 42,
+  "track_best_outputs": true,
+  "bandit_config": {
+    "top_p": 5,
+    "n_parents": 2,
+    "m_mutations": 3,
+    "top_k": 2,
+    "ucb_exploration": 1.0
+  }
+}
+2026-04-09 10:28:19 | INFO     | ==========================================================================================
+2026-04-09 10:28:19 | INFO     | 
+  [SEED] Prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).
+2026-04-09 10:30:16 | INFO     | Loading SciEval dataset...
+2026-04-09 10:30:24 | INFO     | Dataset sizes — Train: 150, Val: 80, Test: 150
+2026-04-09 10:30:24 | INFO     | Starting SurrogateBanditEngine...
+2026-04-09 10:30:24 | INFO     | ==========================================================================================
+2026-04-09 10:30:24 | INFO     | SciEval + Surrogate-Guided Bandit — OPTIMIZATION START
+2026-04-09 10:30:24 | INFO     | Config: {
+  "perfect_score": 1.0,
+  "seed": 42,
+  "track_best_outputs": true,
+  "bandit_config": {
+    "top_p": 5,
+    "n_parents": 2,
+    "m_mutations": 3,
+    "top_k": 2,
+    "ucb_exploration": 1.0
+  }
+}
+2026-04-09 10:30:24 | INFO     | ==========================================================================================
+2026-04-09 10:30:24 | INFO     | 
+  [SEED] Prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).
+2026-04-09 10:40:29 | INFO     | Loading SciEval dataset...
+2026-04-09 10:40:37 | INFO     | Dataset sizes — Train: 150, Val: 80, Test: 150
+2026-04-09 10:40:37 | INFO     | Starting SurrogateBanditEngine...
+2026-04-09 10:40:37 | INFO     | ==========================================================================================
+2026-04-09 10:40:37 | INFO     | SciEval + Surrogate-Guided Bandit — OPTIMIZATION START
+2026-04-09 10:40:37 | INFO     | Config: {
+  "perfect_score": 1.0,
+  "seed": 42,
+  "track_best_outputs": true,
+  "bandit_config": {
+    "top_p": 5,
+    "n_parents": 2,
+    "m_mutations": 3,
+    "top_k": 2,
+    "ucb_exploration": 1.0
+  }
+}
+2026-04-09 10:40:37 | INFO     | ==========================================================================================
+2026-04-09 10:40:37 | INFO     | 
+  [SEED] Prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).
+2026-04-09 11:08:12 | INFO     |   [SEED] Baseline Test Accuracy: 0.7467
+2026-04-09 11:28:59 | INFO     | Round 0: Seed valset score: 0.8125
+2026-04-09 11:28:59 | INFO     | Round 1: Selected 1 parents from Top-5: [0]
+2026-04-09 11:28:59 | INFO     | Iteration 1: Selected program 0 score: 0.8125
+2026-04-09 11:29:36 | INFO     | Iteration 1: Proposed new text for system_prompt: You are a medical expert specializing in differential diagnosis and clinical reasoning. Answer the following multiple-choice question by selecting the correct option (A, B, C, or D). Use your knowledge of pathophysiology, clinical presentations, and diagnostic criteria to determine the most likely diagnosis. Consider key symptoms, patient history, and red flags (e.g., neurological deficits, respiratory distress, cardiovascular symptoms). If the question involves a specific condition, recall its hallmark features (e.g., stroke symptoms like dysphasia and drooling in Example 1, or chronic cough in Example 3). Prioritize options that align with evidence-based guidelines and exclude those inconsistent with the clinical context. Respond with ONLY the letter of the correct answer.
+2026-04-09 11:30:00 | INFO     | Round 1: Generated mutation from parent 0 (subsample: before=2.00, after=2.00)
+2026-04-09 11:30:00 | INFO     | Iteration 1: Selected program 0 score: 0.8125
+2026-04-09 11:30:35 | INFO     | Iteration 1: Proposed new text for system_prompt: You are a medical science expert. Answer the following multiple-choice question by selecting the correct option (A, B, C, or D). The question will describe a patient case with clinical symptoms, and you must apply your knowledge of pathology, physiology, pharmacology, or diagnostics to determine the most likely diagnosis, treatment, or underlying mechanism. Focus on key symptoms, differential diagnoses, and evidence-based reasoning. Respond with ONLY the letter of the correct answer (A, B, C, or D).
+2026-04-09 11:31:02 | INFO     | Round 1: Generated mutation from parent 0 (subsample: before=2.00, after=1.00)
+2026-04-09 11:31:02 | INFO     | Iteration 1: Selected program 0 score: 0.8125
+2026-04-09 11:31:39 | INFO     | Iteration 1: Proposed new text for system_prompt: You are a science expert tasked with answering medical diagnosis questions by selecting the correct option (A, B, C, or D). Analyze the patient's symptoms, medical history, and clinical context to apply scientific concepts such as pathophysiology, diagnostic criteria, and differential diagnosis. Prioritize domain-specific knowledge (e.g., cardiovascular, neurological, respiratory conditions) and eliminate incorrect options based on symptomatology and disease associations. Respond with ONLY the letter of the correct answer.
+2026-04-09 11:32:06 | INFO     | Round 1: Generated mutation from parent 0 (subsample: before=2.00, after=2.00)
+2026-04-09 11:32:06 | INFO     | Round 1: Generated 3 total mutations
+2026-04-09 11:32:06 | INFO     | Round 1: Surrogate scores: min=0.5000, max=0.5000, mean=0.5000
+2026-04-09 11:32:06 | INFO     | 
+  [SURROGATE] Scored 3 candidates:
+2026-04-09 11:32:06 | INFO     |     #0: surrogate=0.5000, ucb=1.6774 | You are a medical expert specializing in differential diagnosis and clinical reasoning. Answer the f...
+2026-04-09 11:32:06 | INFO     |     #1: surrogate=0.5000, ucb=1.6774 | You are a medical science expert. Answer the following multiple-choice question by selecting the cor...
+2026-04-09 11:32:06 | INFO     |     #2: surrogate=0.5000, ucb=1.6774 | You are a science expert tasked with answering medical diagnosis questions by selecting the correct ...
+2026-04-09 11:32:06 | INFO     | Round 1: Selected Top-2 from 3 by UCB: [0, 1]
+2026-04-09 11:32:06 | INFO     |   [BANDIT] Selected Top-2 from 3: indices=[0, 1]
+2026-04-09 11:32:06 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 3/3)
+2026-04-09 11:40:52 | INFO     | 
+  [BEST] Candidate #1 (val=0.8375, parents=[0])
+2026-04-09 11:40:52 | INFO     |   Prompt: You are a medical expert specializing in differential diagnosis and clinical reasoning. Answer the following multiple-choice question by selecting the correct option (A, B, C, or D). Use your knowledge of pathophysiology, clinical presentations, and diagnostic criteria to determine the most likely diagnosis. Consider key symptoms, patient history, and red flags (e.g., neurological deficits, respiratory distress, cardiovascular symptoms). If the question involves a specific condition, recall its hallmark features (e.g., stroke symptoms like dysphasia and drooling in Example 1, or chronic cough in Example 3). Prioritize options that align with evidence-based guidelines and exclude those inconsistent with the clinical context. Respond with ONLY the letter of the correct answer.
+2026-04-09 11:40:52 | INFO     |   >> New best! val=0.8375
+2026-04-09 11:40:52 | INFO     | Round 1: Found a better program on the valset with score 0.8375.
+2026-04-09 11:40:52 | INFO     | Iteration 1: Valset score for new program: 0.8375 (coverage 80 / 80)
+2026-04-09 11:40:52 | INFO     | Iteration 1: Val aggregate for new program: 0.8375
+2026-04-09 11:40:52 | INFO     | Iteration 1: Individual valset scores for new program: {0: 1.0, 1: 1.0, 2: 1.0, 3: 1.0, 4: 1.0, 5: 0.0, 6: 1.0, 7: 1.0, 8: 0.0, 9: 1.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 1.0, 17: 1.0, 18: 1.0, 19: 1.0, 20: 0.0, 21: 1.0, 22: 0.0, 23: 1.0, 24: 1.0, 25: 1.0, 26: 1.0, 27: 1.0, 28: 1.0, 29: 1.0, 30: 1.0, 31: 1.0, 32: 1.0, 33: 1.0, 34: 1.0, 35: 0.0, 36: 1.0, 37: 1.0, 38: 1.0, 39: 0.0, 40: 0.0, 41: 1.0, 42: 1.0, 43: 1.0, 44: 1.0, 45: 0.0, 46: 1.0, 47: 1.0, 48: 0.0, 49: 1.0, 50: 1.0, 51: 1.0, 52: 1.0, 53: 1.0, 54: 0.0, 55: 1.0, 56: 1.0, 57: 1.0, 58: 1.0, 59: 1.0, 60: 1.0, 61: 1.0, 62: 1.0, 63: 1.0, 64: 0.0, 65: 1.0, 66: 1.0, 67: 1.0, 68: 1.0, 69: 1.0, 70: 1.0, 71: 1.0, 72: 0.0, 73: 1.0, 74: 1.0, 75: 1.0, 76: 1.0, 77: 1.0, 78: 1.0, 79: 0.0}
+2026-04-09 11:40:52 | INFO     | Iteration 1: New valset pareto front scores: {0: 1.0, 1: 1.0, 2: 1.0, 3: 1.0, 4: 1.0, 5: 0.0, 6: 1.0, 7: 1.0, 8: 0.0, 9: 1.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 1.0, 17: 1.0, 18: 1.0, 19: 1.0, 20: 0.0, 21: 1.0, 22: 0.0, 23: 1.0, 24: 1.0, 25: 1.0, 26: 1.0, 27: 1.0, 28: 1.0, 29: 1.0, 30: 1.0, 31: 1.0, 32: 1.0, 33: 1.0, 34: 1.0, 35: 0.0, 36: 1.0, 37: 1.0, 38: 1.0, 39: 0.0, 40: 0.0, 41: 1.0, 42: 1.0, 43: 1.0, 44: 1.0, 45: 0.0, 46: 1.0, 47: 1.0, 48: 0.0, 49: 1.0, 50: 1.0, 51: 1.0, 52: 1.0, 53: 1.0, 54: 0.0, 55: 1.0, 56: 1.0, 57: 1.0, 58: 1.0, 59: 1.0, 60: 1.0, 61: 1.0, 62: 1.0, 63: 1.0, 64: 0.0, 65: 1.0, 66: 1.0, 67: 1.0, 68: 1.0, 69: 1.0, 70: 1.0, 71: 1.0, 72: 0.0, 73: 1.0, 74: 1.0, 75: 1.0, 76: 1.0, 77: 1.0, 78: 1.0, 79: 0.0}
+2026-04-09 11:40:52 | INFO     | Iteration 1: Valset pareto front aggregate score: 0.8375
+2026-04-09 11:40:52 | INFO     | Iteration 1: Updated valset pareto front programs: {0: {0, 1}, 1: {0, 1}, 2: {0, 1}, 3: {0, 1}, 4: {0, 1}, 5: {0, 1}, 6: {0, 1}, 7: {0, 1}, 8: {0, 1}, 9: {0, 1}, 10: {0, 1}, 11: {0, 1}, 12: {0, 1}, 13: {0, 1}, 14: {0, 1}, 15: {0, 1}, 16: {0, 1}, 17: {0, 1}, 18: {0, 1}, 19: {0, 1}, 20: {0, 1}, 21: {0, 1}, 22: {0, 1}, 23: {0, 1}, 24: {0, 1}, 25: {0, 1}, 26: {0, 1}, 27: {0, 1}, 28: {0, 1}, 29: {0, 1}, 30: {0, 1}, 31: {0, 1}, 32: {0, 1}, 33: {0, 1}, 34: {0, 1}, 35: {0, 1}, 36: {0, 1}, 37: {0, 1}, 38: {0, 1}, 39: {0, 1}, 40: {0, 1}, 41: {0, 1}, 42: {0, 1}, 43: {0, 1}, 44: {0, 1}, 45: {0, 1}, 46: {0, 1}, 47: {0, 1}, 48: {0, 1}, 49: {0, 1}, 50: {1}, 51: {0, 1}, 52: {0, 1}, 53: {0, 1}, 54: {0, 1}, 55: {0, 1}, 56: {0, 1}, 57: {0, 1}, 58: {0, 1}, 59: {0, 1}, 60: {0, 1}, 61: {0, 1}, 62: {0, 1}, 63: {0, 1}, 64: {0, 1}, 65: {0, 1}, 66: {0, 1}, 67: {0, 1}, 68: {1}, 69: {0, 1}, 70: {0, 1}, 71: {0, 1}, 72: {0, 1}, 73: {0, 1}, 74: {0, 1}, 75: {0, 1}, 76: {0, 1}, 77: {0, 1}, 78: {0, 1}, 79: {0, 1}}
+2026-04-09 11:40:52 | INFO     | Iteration 1: Best valset aggregate score so far: 0.8375
+2026-04-09 11:40:52 | INFO     | Iteration 1: Best program as per aggregate score on valset: 1
+2026-04-09 11:40:52 | INFO     | Iteration 1: Best score on valset: 0.8375
+2026-04-09 11:40:52 | INFO     | Iteration 1: Linear pareto front program index: 1
+2026-04-09 11:40:52 | INFO     | Iteration 1: New program candidate index: 1
+2026-04-09 11:40:52 | INFO     |   [ACCEPTED] Candidate #1 score=0.8375 parents=[0]
+2026-04-09 11:50:11 | INFO     | 
+  [BEST] Candidate #2 (val=0.8500, parents=[0])
+2026-04-09 11:50:11 | INFO     |   Prompt: You are a medical science expert. Answer the following multiple-choice question by selecting the correct option (A, B, C, or D). The question will describe a patient case with clinical symptoms, and you must apply your knowledge of pathology, physiology, pharmacology, or diagnostics to determine the most likely diagnosis, treatment, or underlying mechanism. Focus on key symptoms, differential diagnoses, and evidence-based reasoning. Respond with ONLY the letter of the correct answer (A, B, C, or D).
+2026-04-09 11:50:11 | INFO     |   >> New best! val=0.8500
+2026-04-09 11:50:11 | INFO     | Round 1: Found a better program on the valset with score 0.85.
+2026-04-09 11:50:11 | INFO     | Iteration 1: Valset score for new program: 0.85 (coverage 80 / 80)
+2026-04-09 11:50:11 | INFO     | Iteration 1: Val aggregate for new program: 0.85
+2026-04-09 11:50:11 | INFO     | Iteration 1: Individual valset scores for new program: {0: 1.0, 1: 1.0, 2: 1.0, 3: 1.0, 4: 1.0, 5: 0.0, 6: 1.0, 7: 1.0, 8: 0.0, 9: 1.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 1.0, 17: 1.0, 18: 1.0, 19: 1.0, 20: 1.0, 21: 1.0, 22: 0.0, 23: 1.0, 24: 1.0, 25: 1.0, 26: 1.0, 27: 1.0, 28: 1.0, 29: 1.0, 30: 1.0, 31: 1.0, 32: 1.0, 33: 1.0, 34: 1.0, 35: 0.0, 36: 1.0, 37: 1.0, 38: 1.0, 39: 0.0, 40: 0.0, 41: 1.0, 42: 1.0, 43: 1.0, 44: 1.0, 45: 0.0, 46: 1.0, 47: 1.0, 48: 0.0, 49: 1.0, 50: 1.0, 51: 1.0, 52: 1.0, 53: 1.0, 54: 0.0, 55: 1.0, 56: 1.0, 57: 1.0, 58: 1.0, 59: 1.0, 60: 1.0, 61: 1.0, 62: 1.0, 63: 1.0, 64: 0.0, 65: 1.0, 66: 1.0, 67: 1.0, 68: 1.0, 69: 1.0, 70: 1.0, 71: 1.0, 72: 0.0, 73: 1.0, 74: 1.0, 75: 1.0, 76: 1.0, 77: 1.0, 78: 1.0, 79: 0.0}
+2026-04-09 11:50:11 | INFO     | Iteration 1: New valset pareto front scores: {0: 1.0, 1: 1.0, 2: 1.0, 3: 1.0, 4: 1.0, 5: 0.0, 6: 1.0, 7: 1.0, 8: 0.0, 9: 1.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 1.0, 17: 1.0, 18: 1.0, 19: 1.0, 20: 1.0, 21: 1.0, 22: 0.0, 23: 1.0, 24: 1.0, 25: 1.0, 26: 1.0, 27: 1.0, 28: 1.0, 29: 1.0, 30: 1.0, 31: 1.0, 32: 1.0, 33: 1.0, 34: 1.0, 35: 0.0, 36: 1.0, 37: 1.0, 38: 1.0, 39: 0.0, 40: 0.0, 41: 1.0, 42: 1.0, 43: 1.0, 44: 1.0, 45: 0.0, 46: 1.0, 47: 1.0, 48: 0.0, 49: 1.0, 50: 1.0, 51: 1.0, 52: 1.0, 53: 1.0, 54: 0.0, 55: 1.0, 56: 1.0, 57: 1.0, 58: 1.0, 59: 1.0, 60: 1.0, 61: 1.0, 62: 1.0, 63: 1.0, 64: 0.0, 65: 1.0, 66: 1.0, 67: 1.0, 68: 1.0, 69: 1.0, 70: 1.0, 71: 1.0, 72: 0.0, 73: 1.0, 74: 1.0, 75: 1.0, 76: 1.0, 77: 1.0, 78: 1.0, 79: 0.0}
+2026-04-09 11:50:11 | INFO     | Iteration 1: Valset pareto front aggregate score: 0.85
+2026-04-09 11:50:11 | INFO     | Iteration 1: Updated valset pareto front programs: {0: {0, 1, 2}, 1: {0, 1, 2}, 2: {0, 1, 2}, 3: {0, 1, 2}, 4: {0, 1, 2}, 5: {0, 1, 2}, 6: {0, 1, 2}, 7: {0, 1, 2}, 8: {0, 1, 2}, 9: {0, 1, 2}, 10: {0, 1, 2}, 11: {0, 1, 2}, 12: {0, 1, 2}, 13: {0, 1, 2}, 14: {0, 1, 2}, 15: {0, 1, 2}, 16: {0, 1, 2}, 17: {0, 1, 2}, 18: {0, 1, 2}, 19: {0, 1, 2}, 20: {2}, 21: {0, 1, 2}, 22: {0, 1, 2}, 23: {0, 1, 2}, 24: {0, 1, 2}, 25: {0, 1, 2}, 26: {0, 1, 2}, 27: {0, 1, 2}, 28: {0, 1, 2}, 29: {0, 1, 2}, 30: {0, 1, 2}, 31: {0, 1, 2}, 32: {0, 1, 2}, 33: {0, 1, 2}, 34: {0, 1, 2}, 35: {0, 1, 2}, 36: {0, 1, 2}, 37: {0, 1, 2}, 38: {0, 1, 2}, 39: {0, 1, 2}, 40: {0, 1, 2}, 41: {0, 1, 2}, 42: {0, 1, 2}, 43: {0, 1, 2}, 44: {0, 1, 2}, 45: {0, 1, 2}, 46: {0, 1, 2}, 47: {0, 1, 2}, 48: {0, 1, 2}, 49: {0, 1, 2}, 50: {1, 2}, 51: {0, 1, 2}, 52: {0, 1, 2}, 53: {0, 1, 2}, 54: {0, 1, 2}, 55: {0, 1, 2}, 56: {0, 1, 2}, 57: {0, 1, 2}, 58: {0, 1, 2}, 59: {0, 1, 2}, 60: {0, 1, 2}, 61: {0, 1, 2}, 62: {0, 1, 2}, 63: {0, 1, 2}, 64: {0, 1, 2}, 65: {0, 1, 2}, 66: {0, 1, 2}, 67: {0, 1, 2}, 68: {1, 2}, 69: {0, 1, 2}, 70: {0, 1, 2}, 71: {0, 1, 2}, 72: {0, 1, 2}, 73: {0, 1, 2}, 74: {0, 1, 2}, 75: {0, 1, 2}, 76: {0, 1, 2}, 77: {0, 1, 2}, 78: {0, 1, 2}, 79: {0, 1, 2}}
+2026-04-09 11:50:11 | INFO     | Iteration 1: Best valset aggregate score so far: 0.85
+2026-04-09 11:50:11 | INFO     | Iteration 1: Best program as per aggregate score on valset: 2
+2026-04-09 11:50:11 | INFO     | Iteration 1: Best score on valset: 0.85
+2026-04-09 11:50:11 | INFO     | Iteration 1: Linear pareto front program index: 2
+2026-04-09 11:50:11 | INFO     | Iteration 1: New program candidate index: 2
+2026-04-09 11:50:11 | INFO     |   [ACCEPTED] Candidate #2 score=0.8500 parents=[0]
+2026-04-09 11:50:11 | INFO     | Round 1: ✓ IMPROVEMENT! 0.8125 → 0.8500 (candidate #2)
+2026-04-09 11:50:11 | INFO     | Round 1: Surrogate retrained. MSE loss = 0.004722
+2026-04-09 12:13:01 | INFO     | 
+--------------------------------------------------------------------------------------------------------------------------------
+2026-04-09 12:13:01 | INFO     | Rounds |  LLM Calls |    Val Acc |  Best Val Acc |  Test Acc (Selected) |  Surrogate Loss |  Avg Top-k |  Max Top-k |  Min Top-k
+2026-04-09 12:13:01 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-09 12:13:01 | INFO     |      1 |        258 |     0.8500 |        0.8500 |               0.7400 |        0.004983 |     0.8438 |     0.8500 |     0.8375
+2026-04-09 12:13:01 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-09 12:13:01 | INFO     | 
+Round 1 summary: best_val=0.8500, test=0.7400, llm_calls=258
+2026-04-09 12:13:01 | INFO     | Round 2: Selected 2 parents from Top-5: [2, 1]
+2026-04-09 12:13:01 | INFO     | Iteration 2: Selected program 2 score: 0.85
+2026-04-09 12:13:22 | INFO     | Iteration 2: Proposed new text for system_prompt: You are a medical science expert. Answer the following multiple-choice question by selecting the correct option (A, B, C, or D). The question will describe a patient case with clinical symptoms, and you must apply your knowledge of pathology, physiology, pharmacology, or diagnostics to determine the most likely diagnosis, treatment, or underlying mechanism. Focus on key symptoms, differential diagnoses, and evidence-based reasoning. Respond with ONLY the letter of the correct answer (A, B, C, or D). 
+
+Key strategies: 
+1. Prioritize high-yield diagnostic criteria (e.g., red flags for stroke vs. TIA). 
+2. Use pharmacologic principles (e.g., drug mechanisms, side effects). 
+3. Apply pathophysiology (e.g., ischemia vs. hemorrhage in stroke). 
+4. Consider clinical guidelines (e.g., ACE guidelines for hypertension management). 
+
+Domain-specific facts: 
+- Invasive ductal carcinoma is the most common breast cancer (60-70% of cases). 
+- Estrogen receptor positivity correlates with hormone therapy response. 
+- Isotope calculations require atomic number (protons) and mass number (protons + neutrons). 
+- Nuclear decay energy includes ionizing radiation (alpha, beta, gamma).
+2026-04-09 12:13:36 | INFO     | Round 2: Generated mutation from parent 2 (subsample: before=3.00, after=3.00)
+2026-04-09 12:13:36 | INFO     | Iteration 2: Selected program 2 score: 0.85
+2026-04-09 12:13:56 | INFO     | Iteration 2: Proposed new text for system_prompt: You are a scientific expert. Answer the following multiple-choice question by selecting the correct option (A, B, C, or D). The question will describe a scenario, concept, or problem, and you must apply your knowledge of science, including but not limited to biology, chemistry, physics, and medicine, to determine the most accurate answer. Focus on key elements, differential reasoning, and evidence-based analysis. Respond with ONLY the letter of the correct answer (A, B, C, or D).
+2026-04-09 12:14:08 | INFO     | Round 2: Generated mutation from parent 2 (subsample: before=3.00, after=3.00)
+2026-04-09 12:14:08 | INFO     | Iteration 2: Selected program 2 score: 0.85
+2026-04-09 12:14:27 | INFO     | Iteration 2: Proposed new text for system_prompt: You are a medical science expert. Answer the following multiple-choice question by selecting the correct option (A, B, C, or D). The question will describe a patient case with clinical symptoms, and you must apply your knowledge of pathology, physiology, pharmacology, or diagnostics to determine the most likely diagnosis, treatment, or underlying mechanism. Focus on key symptoms, differential diagnoses, and evidence-based reasoning. Respond with ONLY the letter of the correct answer (A, B, C, or D). 
+
+For medical cases, prioritize understanding pathophysiological mechanisms (e.g., hormone receptor status in breast cancer, ischemia in myocardial infarction), diagnostic criteria (e.g., imaging findings, biopsy results), and treatment guidelines (e.g., ER-positive breast cancer management). For non-medical questions (e.g., nuclear decay, isotopes), apply principles of physics/chemistry, ensuring accuracy in atomic structure, energy types, or isotopic calculations. Use differential diagnoses to eliminate incorrect options, and rely on clinical evidence (e.g., biopsy results, lab values) to select the best answer. Avoid speculation; base all conclusions on established medical or scientific principles.
+2026-04-09 12:14:42 | INFO     | Round 2: Generated mutation from parent 2 (subsample: before=3.00, after=3.00)
+2026-04-09 12:14:42 | INFO     | Iteration 2: Selected program 2 score: 0.85
+2026-04-09 12:15:03 | INFO     | Iteration 2: Proposed new text for system_prompt: You are a medical science expert. Answer the following multiple-choice question by selecting the correct option (A, B, C, or D). The question will describe a patient case with clinical symptoms, or a scientific scenario requiring analysis. Apply your knowledge of pathology, physiology, pharmacology, diagnostics, or relevant scientific principles to determine the most likely diagnosis, treatment, or underlying mechanism. Focus on key symptoms, differential diagnoses, and evidence-based reasoning. For medical cases, prioritize clinical guidelines, diagnostic criteria, and pathophysiology. For scientific questions, ensure accuracy by referencing established theories, formulas, or experimental evidence. Respond with ONLY the letter of the correct answer (A, B, C, or D).
+2026-04-09 12:15:19 | INFO     | Round 2: Generated mutation from parent 1 (subsample: before=3.00, after=3.00)
+2026-04-09 12:15:19 | INFO     | Iteration 2: Selected program 2 score: 0.85
+2026-04-09 12:15:37 | INFO     | Iteration 2: Proposed new text for system_prompt: You are a medical science expert. Answer the following multiple-choice question by selecting the correct option (A, B, C, or D). The question will describe a patient case with clinical symptoms, and you must apply your knowledge of pathology, physiology, pharmacology, or diagnostics to determine the most likely diagnosis, treatment, or underlying mechanism. Focus on key symptoms, differential diagnoses, and evidence-based reasoning. Prioritize domain-specific factual knowledge (e.g., specific biomarkers, tumor types, pharmacologic agents, or diagnostic criteria) and avoid over-reliance on vague assumptions. If the correct answer requires specialized information (e.g., estrogen receptor status in breast cancer, isotopic properties in nuclear medicine, or radiation types in decay processes), explicitly state the relevant mechanism or guideline. Respond with ONLY the letter of the correct answer (A, B, C, or D).
+2026-04-09 12:16:05 | INFO     | Round 2: Generated mutation from parent 1 (subsample: before=3.00, after=3.00)
+2026-04-09 12:16:05 | INFO     | Iteration 2: Selected program 2 score: 0.85
+2026-04-09 12:16:28 | INFO     | Iteration 2: Proposed new text for system_prompt: You are a medical science expert. Answer the following multiple-choice question by selecting the correct option (A, B, C, or D). The question will describe a patient case with clinical symptoms, diagnostic findings, or ask about medical concepts (e.g., isotopes, cancer subtypes, nuclear decay mechanisms). Apply your knowledge of pathology, physiology, pharmacology, and diagnostics to determine the most likely diagnosis, treatment, or underlying mechanism. Focus on key symptoms, differential diagnoses, and evidence-based reasoning. Respond with ONLY the letter of the correct answer.  
+
+**Domain-Specific Guidance:**  
+1. For patient cases: Prioritize clinical presentations (e.g., tumor markers, imaging findings, lab results) and standard diagnostic protocols (e.g., biopsy, staging criteria for cancers).  
+2. For medical concepts: Use established facts (e.g., isotopic composition rules, energy types from nuclear decay, receptor-specific cancer therapies).  
+3. Avoid assumptions; rely on diagnostic criteria (e.g., estrogen receptor positivity in breast cancer) and pharmacologic mechanisms (e.g., chemotherapy agents targeting specific pathways).  
+
+**Generalizable Strategies:**  
+- Eliminate implausible options using process of elimination.  
+- Cross-reference symptoms with known disease patterns (e.g., invasive ductal carcinoma vs. lobular carcinoma).  
+- Ensure answers align with current medical guidelines (e.g., treatment for estrogen receptor-positive breast cancer).  
+- For isotopes or nuclear decay questions, apply atomic structure principles (e.g., atomic number = protons, mass number = protons + neutrons).
+2026-04-09 12:16:42 | INFO     | Round 2: Generated mutation from parent 1 (subsample: before=3.00, after=3.00)
+2026-04-09 12:16:42 | INFO     | Round 2: Generated 6 total mutations
+2026-04-09 12:16:43 | INFO     | Round 2: Surrogate scores: min=0.7884, max=0.8632, mean=0.8424
+2026-04-09 12:16:43 | INFO     | 
+  [SURROGATE] Scored 6 candidates:
+2026-04-09 12:16:43 | INFO     |     #0: surrogate=0.8559, ucb=0.9727 | You are a medical science expert. Answer the following multiple-choice question by selecting the cor...
+2026-04-09 12:16:43 | INFO     |     #1: surrogate=0.7884, ucb=0.9053 | You are a scientific expert. Answer the following multiple-choice question by selecting the correct ...
+2026-04-09 12:16:43 | INFO     |     #2: surrogate=0.8555, ucb=0.9723 | You are a medical science expert. Answer the following multiple-choice question by selecting the cor...
+2026-04-09 12:16:43 | INFO     |     #3: surrogate=0.8426, ucb=0.9595 | You are a medical science expert. Answer the following multiple-choice question by selecting the cor...
+2026-04-09 12:16:43 | INFO     |     #4: surrogate=0.8489, ucb=0.9657 | You are a medical science expert. Answer the following multiple-choice question by selecting the cor...
+2026-04-09 12:16:43 | INFO     |     #5: surrogate=0.8632, ucb=0.9801 | You are a medical science expert. Answer the following multiple-choice question by selecting the cor...
+2026-04-09 12:16:43 | INFO     | Round 2: Selected Top-2 from 6 by UCB: [5, 0]
+2026-04-09 12:16:43 | INFO     |   [BANDIT] Selected Top-2 from 6: indices=[5, 0]
+2026-04-09 12:16:43 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 3/6)
+2026-04-09 12:16:43 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 4/6)
+2026-04-09 12:16:43 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 5/6)
+2026-04-09 12:16:43 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 6/6)
+2026-04-09 12:26:23 | INFO     | 
+  [BEST] Candidate #3 (val=0.8625, parents=[2])
+2026-04-09 12:26:23 | INFO     |   Prompt: You are a medical science expert. Answer the following multiple-choice question by selecting the correct option (A, B, C, or D). The question will describe a patient case with clinical symptoms, diagnostic findings, or ask about medical concepts (e.g., isotopes, cancer subtypes, nuclear decay mechanisms). Apply your knowledge of pathology, physiology, pharmacology, and diagnostics to determine the most likely diagnosis, treatment, or underlying mechanism. Focus on key symptoms, differential diagnoses, and evidence-based reasoning. Respond with ONLY the letter of the correct answer.  
+
+**Domain-Specific Guidance:**  
+1. For patient cases: Prioritize clinical presentations (e.g., tumor markers, imaging findings, lab results) and standard diagnostic protocols (e.g., biopsy, staging criteria for cancers).  
+2. For medical concepts: Use established facts (e.g., isotopic composition rules, energy types from nuclear decay, receptor-specific cancer therapies).  
+3. Avoid assumptions; rely on diagnostic criteria (e.g., estrogen receptor positivity in breast cancer) and pharmacologic mechanisms (e.g., chemotherapy agents targeting specific pathways).  
+
+**Generalizable Strategies:**  
+- Eliminate implausible options using process of elimination.  
+- Cross-reference symptoms with known disease patterns (e.g., invasive ductal carcinoma vs. lobular carcinoma).  
+- Ensure answers align with current medical guidelines (e.g., treatment for estrogen receptor-positive breast cancer).  
+- For isotopes or nuclear decay questions, apply atomic structure principles (e.g., atomic number = protons, mass number = protons + neutrons).
+2026-04-09 12:26:23 | INFO     |   >> New best! val=0.8625
+2026-04-09 12:26:23 | INFO     | Round 2: Found a better program on the valset with score 0.8625.
+2026-04-09 12:26:23 | INFO     | Iteration 2: Valset score for new program: 0.8625 (coverage 80 / 80)
+2026-04-09 12:26:23 | INFO     | Iteration 2: Val aggregate for new program: 0.8625
+2026-04-09 12:26:23 | INFO     | Iteration 2: Individual valset scores for new program: {0: 1.0, 1: 1.0, 2: 1.0, 3: 1.0, 4: 1.0, 5: 0.0, 6: 1.0, 7: 1.0, 8: 0.0, 9: 1.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 1.0, 17: 1.0, 18: 1.0, 19: 1.0, 20: 1.0, 21: 1.0, 22: 0.0, 23: 1.0, 24: 1.0, 25: 1.0, 26: 1.0, 27: 1.0, 28: 1.0, 29: 1.0, 30: 1.0, 31: 1.0, 32: 1.0, 33: 1.0, 34: 1.0, 35: 0.0, 36: 1.0, 37: 1.0, 38: 1.0, 39: 1.0, 40: 0.0, 41: 1.0, 42: 1.0, 43: 1.0, 44: 1.0, 45: 0.0, 46: 1.0, 47: 1.0, 48: 0.0, 49: 1.0, 50: 1.0, 51: 1.0, 52: 1.0, 53: 1.0, 54: 0.0, 55: 1.0, 56: 1.0, 57: 1.0, 58: 1.0, 59: 1.0, 60: 1.0, 61: 1.0, 62: 1.0, 63: 1.0, 64: 0.0, 65: 1.0, 66: 1.0, 67: 1.0, 68: 1.0, 69: 1.0, 70: 1.0, 71: 1.0, 72: 0.0, 73: 1.0, 74: 1.0, 75: 1.0, 76: 1.0, 77: 1.0, 78: 1.0, 79: 0.0}
+2026-04-09 12:26:23 | INFO     | Iteration 2: New valset pareto front scores: {0: 1.0, 1: 1.0, 2: 1.0, 3: 1.0, 4: 1.0, 5: 0.0, 6: 1.0, 7: 1.0, 8: 0.0, 9: 1.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 1.0, 17: 1.0, 18: 1.0, 19: 1.0, 20: 1.0, 21: 1.0, 22: 0.0, 23: 1.0, 24: 1.0, 25: 1.0, 26: 1.0, 27: 1.0, 28: 1.0, 29: 1.0, 30: 1.0, 31: 1.0, 32: 1.0, 33: 1.0, 34: 1.0, 35: 0.0, 36: 1.0, 37: 1.0, 38: 1.0, 39: 1.0, 40: 0.0, 41: 1.0, 42: 1.0, 43: 1.0, 44: 1.0, 45: 0.0, 46: 1.0, 47: 1.0, 48: 0.0, 49: 1.0, 50: 1.0, 51: 1.0, 52: 1.0, 53: 1.0, 54: 0.0, 55: 1.0, 56: 1.0, 57: 1.0, 58: 1.0, 59: 1.0, 60: 1.0, 61: 1.0, 62: 1.0, 63: 1.0, 64: 0.0, 65: 1.0, 66: 1.0, 67: 1.0, 68: 1.0, 69: 1.0, 70: 1.0, 71: 1.0, 72: 0.0, 73: 1.0, 74: 1.0, 75: 1.0, 76: 1.0, 77: 1.0, 78: 1.0, 79: 0.0}
+2026-04-09 12:26:23 | INFO     | Iteration 2: Valset pareto front aggregate score: 0.8625
+2026-04-09 12:26:23 | INFO     | Iteration 2: Updated valset pareto front programs: {0: {0, 1, 2, 3}, 1: {0, 1, 2, 3}, 2: {0, 1, 2, 3}, 3: {0, 1, 2, 3}, 4: {0, 1, 2, 3}, 5: {0, 1, 2, 3}, 6: {0, 1, 2, 3}, 7: {0, 1, 2, 3}, 8: {0, 1, 2, 3}, 9: {0, 1, 2, 3}, 10: {0, 1, 2, 3}, 11: {0, 1, 2, 3}, 12: {0, 1, 2, 3}, 13: {0, 1, 2, 3}, 14: {0, 1, 2, 3}, 15: {0, 1, 2, 3}, 16: {0, 1, 2, 3}, 17: {0, 1, 2, 3}, 18: {0, 1, 2, 3}, 19: {0, 1, 2, 3}, 20: {2, 3}, 21: {0, 1, 2, 3}, 22: {0, 1, 2, 3}, 23: {0, 1, 2, 3}, 24: {0, 1, 2, 3}, 25: {0, 1, 2, 3}, 26: {0, 1, 2, 3}, 27: {0, 1, 2, 3}, 28: {0, 1, 2, 3}, 29: {0, 1, 2, 3}, 30: {0, 1, 2, 3}, 31: {0, 1, 2, 3}, 32: {0, 1, 2, 3}, 33: {0, 1, 2, 3}, 34: {0, 1, 2, 3}, 35: {0, 1, 2, 3}, 36: {0, 1, 2, 3}, 37: {0, 1, 2, 3}, 38: {0, 1, 2, 3}, 39: {3}, 40: {0, 1, 2, 3}, 41: {0, 1, 2, 3}, 42: {0, 1, 2, 3}, 43: {0, 1, 2, 3}, 44: {0, 1, 2, 3}, 45: {0, 1, 2, 3}, 46: {0, 1, 2, 3}, 47: {0, 1, 2, 3}, 48: {0, 1, 2, 3}, 49: {0, 1, 2, 3}, 50: {1, 2, 3}, 51: {0, 1, 2, 3}, 52: {0, 1, 2, 3}, 53: {0, 1, 2, 3}, 54: {0, 1, 2, 3}, 55: {0, 1, 2, 3}, 56: {0, 1, 2, 3}, 57: {0, 1, 2, 3}, 58: {0, 1, 2, 3}, 59: {0, 1, 2, 3}, 60: {0, 1, 2, 3}, 61: {0, 1, 2, 3}, 62: {0, 1, 2, 3}, 63: {0, 1, 2, 3}, 64: {0, 1, 2, 3}, 65: {0, 1, 2, 3}, 66: {0, 1, 2, 3}, 67: {0, 1, 2, 3}, 68: {1, 2, 3}, 69: {0, 1, 2, 3}, 70: {0, 1, 2, 3}, 71: {0, 1, 2, 3}, 72: {0, 1, 2, 3}, 73: {0, 1, 2, 3}, 74: {0, 1, 2, 3}, 75: {0, 1, 2, 3}, 76: {0, 1, 2, 3}, 77: {0, 1, 2, 3}, 78: {0, 1, 2, 3}, 79: {0, 1, 2, 3}}
+2026-04-09 12:26:23 | INFO     | Iteration 2: Best valset aggregate score so far: 0.8625
+2026-04-09 12:26:23 | INFO     | Iteration 2: Best program as per aggregate score on valset: 3
+2026-04-09 12:26:23 | INFO     | Iteration 2: Best score on valset: 0.8625
+2026-04-09 12:26:23 | INFO     | Iteration 2: Linear pareto front program index: 3
+2026-04-09 12:26:23 | INFO     | Iteration 2: New program candidate index: 3
+2026-04-09 12:26:23 | INFO     |   [ACCEPTED] Candidate #3 score=0.8625 parents=[2]
+2026-04-09 12:40:29 | INFO     | 
+  [ACCEPTED] Candidate #4 (val=0.8500, parents=[2])
+2026-04-09 12:40:29 | INFO     |   Prompt: You are a medical science expert. Answer the following multiple-choice question by selecting the correct option (A, B, C, or D). The question will describe a patient case with clinical symptoms, and you must apply your knowledge of pathology, physiology, pharmacology, or diagnostics to determine the most likely diagnosis, treatment, or underlying mechanism. Focus on key symptoms, differential diagnoses, and evidence-based reasoning. Respond with ONLY the letter of the correct answer (A, B, C, or D). 
+
+Key strategies: 
+1. Prioritize high-yield diagnostic criteria (e.g., red flags for stroke vs. TIA). 
+2. Use pharmacologic principles (e.g., drug mechanisms, side effects). 
+3. Apply pathophysiology (e.g., ischemia vs. hemorrhage in stroke). 
+4. Consider clinical guidelines (e.g., ACE guidelines for hypertension management). 
+
+Domain-specific facts: 
+- Invasive ductal carcinoma is the most common breast cancer (60-70% of cases). 
+- Estrogen receptor positivity correlates with hormone therapy response. 
+- Isotope calculations require atomic number (protons) and mass number (protons + neutrons). 
+- Nuclear decay energy includes ionizing radiation (alpha, beta, gamma).
+2026-04-09 12:40:29 | INFO     | Iteration 2: Valset score for new program: 0.85 (coverage 80 / 80)
+2026-04-09 12:40:29 | INFO     | Iteration 2: Val aggregate for new program: 0.85
+2026-04-09 12:40:29 | INFO     | Iteration 2: Individual valset scores for new program: {0: 1.0, 1: 1.0, 2: 1.0, 3: 1.0, 4: 1.0, 5: 0.0, 6: 1.0, 7: 1.0, 8: 0.0, 9: 1.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 1.0, 17: 1.0, 18: 1.0, 19: 1.0, 20: 1.0, 21: 1.0, 22: 0.0, 23: 1.0, 24: 1.0, 25: 1.0, 26: 1.0, 27: 1.0, 28: 1.0, 29: 1.0, 30: 1.0, 31: 1.0, 32: 1.0, 33: 1.0, 34: 1.0, 35: 0.0, 36: 1.0, 37: 1.0, 38: 1.0, 39: 0.0, 40: 0.0, 41: 1.0, 42: 1.0, 43: 1.0, 44: 1.0, 45: 0.0, 46: 1.0, 47: 1.0, 48: 0.0, 49: 1.0, 50: 1.0, 51: 1.0, 52: 1.0, 53: 1.0, 54: 0.0, 55: 1.0, 56: 1.0, 57: 1.0, 58: 1.0, 59: 1.0, 60: 1.0, 61: 1.0, 62: 1.0, 63: 1.0, 64: 0.0, 65: 1.0, 66: 1.0, 67: 1.0, 68: 1.0, 69: 1.0, 70: 1.0, 71: 1.0, 72: 0.0, 73: 1.0, 74: 1.0, 75: 1.0, 76: 1.0, 77: 1.0, 78: 1.0, 79: 0.0}
+2026-04-09 12:40:29 | INFO     | Iteration 2: New valset pareto front scores: {0: 1.0, 1: 1.0, 2: 1.0, 3: 1.0, 4: 1.0, 5: 0.0, 6: 1.0, 7: 1.0, 8: 0.0, 9: 1.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 1.0, 17: 1.0, 18: 1.0, 19: 1.0, 20: 1.0, 21: 1.0, 22: 0.0, 23: 1.0, 24: 1.0, 25: 1.0, 26: 1.0, 27: 1.0, 28: 1.0, 29: 1.0, 30: 1.0, 31: 1.0, 32: 1.0, 33: 1.0, 34: 1.0, 35: 0.0, 36: 1.0, 37: 1.0, 38: 1.0, 39: 1.0, 40: 0.0, 41: 1.0, 42: 1.0, 43: 1.0, 44: 1.0, 45: 0.0, 46: 1.0, 47: 1.0, 48: 0.0, 49: 1.0, 50: 1.0, 51: 1.0, 52: 1.0, 53: 1.0, 54: 0.0, 55: 1.0, 56: 1.0, 57: 1.0, 58: 1.0, 59: 1.0, 60: 1.0, 61: 1.0, 62: 1.0, 63: 1.0, 64: 0.0, 65: 1.0, 66: 1.0, 67: 1.0, 68: 1.0, 69: 1.0, 70: 1.0, 71: 1.0, 72: 0.0, 73: 1.0, 74: 1.0, 75: 1.0, 76: 1.0, 77: 1.0, 78: 1.0, 79: 0.0}
+2026-04-09 12:40:29 | INFO     | Iteration 2: Valset pareto front aggregate score: 0.8625
+2026-04-09 12:40:29 | INFO     | Iteration 2: Updated valset pareto front programs: {0: {0, 1, 2, 3, 4}, 1: {0, 1, 2, 3, 4}, 2: {0, 1, 2, 3, 4}, 3: {0, 1, 2, 3, 4}, 4: {0, 1, 2, 3, 4}, 5: {0, 1, 2, 3, 4}, 6: {0, 1, 2, 3, 4}, 7: {0, 1, 2, 3, 4}, 8: {0, 1, 2, 3, 4}, 9: {0, 1, 2, 3, 4}, 10: {0, 1, 2, 3, 4}, 11: {0, 1, 2, 3, 4}, 12: {0, 1, 2, 3, 4}, 13: {0, 1, 2, 3, 4}, 14: {0, 1, 2, 3, 4}, 15: {0, 1, 2, 3, 4}, 16: {0, 1, 2, 3, 4}, 17: {0, 1, 2, 3, 4}, 18: {0, 1, 2, 3, 4}, 19: {0, 1, 2, 3, 4}, 20: {2, 3, 4}, 21: {0, 1, 2, 3, 4}, 22: {0, 1, 2, 3, 4}, 23: {0, 1, 2, 3, 4}, 24: {0, 1, 2, 3, 4}, 25: {0, 1, 2, 3, 4}, 26: {0, 1, 2, 3, 4}, 27: {0, 1, 2, 3, 4}, 28: {0, 1, 2, 3, 4}, 29: {0, 1, 2, 3, 4}, 30: {0, 1, 2, 3, 4}, 31: {0, 1, 2, 3, 4}, 32: {0, 1, 2, 3, 4}, 33: {0, 1, 2, 3, 4}, 34: {0, 1, 2, 3, 4}, 35: {0, 1, 2, 3, 4}, 36: {0, 1, 2, 3, 4}, 37: {0, 1, 2, 3, 4}, 38: {0, 1, 2, 3, 4}, 39: {3}, 40: {0, 1, 2, 3, 4}, 41: {0, 1, 2, 3, 4}, 42: {0, 1, 2, 3, 4}, 43: {0, 1, 2, 3, 4}, 44: {0, 1, 2, 3, 4}, 45: {0, 1, 2, 3, 4}, 46: {0, 1, 2, 3, 4}, 47: {0, 1, 2, 3, 4}, 48: {0, 1, 2, 3, 4}, 49: {0, 1, 2, 3, 4}, 50: {1, 2, 3, 4}, 51: {0, 1, 2, 3, 4}, 52: {0, 1, 2, 3, 4}, 53: {0, 1, 2, 3, 4}, 54: {0, 1, 2, 3, 4}, 55: {0, 1, 2, 3, 4}, 56: {0, 1, 2, 3, 4}, 57: {0, 1, 2, 3, 4}, 58: {0, 1, 2, 3, 4}, 59: {0, 1, 2, 3, 4}, 60: {0, 1, 2, 3, 4}, 61: {0, 1, 2, 3, 4}, 62: {0, 1, 2, 3, 4}, 63: {0, 1, 2, 3, 4}, 64: {0, 1, 2, 3, 4}, 65: {0, 1, 2, 3, 4}, 66: {0, 1, 2, 3, 4}, 67: {0, 1, 2, 3, 4}, 68: {1, 2, 3, 4}, 69: {0, 1, 2, 3, 4}, 70: {0, 1, 2, 3, 4}, 71: {0, 1, 2, 3, 4}, 72: {0, 1, 2, 3, 4}, 73: {0, 1, 2, 3, 4}, 74: {0, 1, 2, 3, 4}, 75: {0, 1, 2, 3, 4}, 76: {0, 1, 2, 3, 4}, 77: {0, 1, 2, 3, 4}, 78: {0, 1, 2, 3, 4}, 79: {0, 1, 2, 3, 4}}
+2026-04-09 12:40:30 | INFO     | Iteration 2: Best valset aggregate score so far: 0.8625
+2026-04-09 12:40:30 | INFO     | Iteration 2: Best program as per aggregate score on valset: 3
+2026-04-09 12:40:30 | INFO     | Iteration 2: Best score on valset: 0.8625
+2026-04-09 12:40:30 | INFO     | Iteration 2: Linear pareto front program index: 3
+2026-04-09 12:40:30 | INFO     | Iteration 2: New program candidate index: 4
+2026-04-09 12:40:30 | INFO     |   [ACCEPTED] Candidate #4 score=0.8500 parents=[2]
+2026-04-09 12:40:30 | INFO     | Round 2: ✓ IMPROVEMENT! 0.8500 → 0.8625 (candidate #3)
+2026-04-09 12:40:30 | INFO     | Round 2: Surrogate retrained. MSE loss = 0.075746
+2026-04-09 13:00:56 | INFO     | 
+--------------------------------------------------------------------------------------------------------------------------------
+2026-04-09 13:00:56 | INFO     | Rounds |  LLM Calls |    Val Acc |  Best Val Acc |  Test Acc (Selected) |  Surrogate Loss |  Avg Top-k |  Max Top-k |  Min Top-k
+2026-04-09 13:00:56 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-09 13:00:56 | INFO     |      1 |        258 |     0.8500 |        0.8500 |               0.7400 |        0.004983 |     0.8438 |     0.8500 |     0.8375
+2026-04-09 13:00:56 | INFO     |      2 |        454 |     0.8625 |        0.8625 |               0.7333 |        0.063971 |     0.8562 |     0.8625 |     0.8500
+2026-04-09 13:00:56 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-09 13:00:56 | INFO     | 
+Round 2 summary: best_val=0.8625, test=0.7333, llm_calls=454
+2026-04-09 13:00:56 | INFO     | Round 3: Selected 2 parents from Top-5: [2, 0]
+2026-04-09 13:00:56 | INFO     | Iteration 3: Selected program 3 score: 0.8625
+2026-04-09 13:01:27 | INFO     | Iteration 3: Proposed new text for system_prompt: You are a medical science expert. Answer the following multiple-choice question by selecting the correct option (A, B, C, or D). The question will describe a patient case with clinical symptoms, diagnostic findings, or ask about medical concepts (e.g., isotopes, cancer subtypes, nuclear decay mechanisms). Apply your knowledge of pathology, physiology, pharmacology, and diagnostics to determine the most likely diagnosis, treatment, or underlying mechanism. Focus on key symptoms, differential diagnoses, and evidence-based reasoning. Respond with ONLY the letter of the correct answer.  
+
+**Domain-Specific Guidance:**  
+1. For patient cases: Prioritize clinical presentations (e.g., tumor markers like CA-125, imaging findings like mammographic microcalcifications, lab results like elevated PSA), and standard diagnostic protocols (e.g., biopsy for histopathology, staging criteria for cancers like TNM classification for breast cancer). Use established diagnostic criteria (e.g., estrogen receptor positivity in hormone receptor-positive breast cancer, HER2 status in gastric adenocarcinoma).  
+2. For medical concepts: Use established facts (e.g., isotopic decay series rules, energy types from nuclear decay like alpha/beta particles, receptor-specific cancer therapies like trastuzumab for HER2-positive tumors). For pharmacology, reference mechanisms (e.g., chemotherapy agents targeting DNA replication, such as platinum-based drugs disrupting DNA cross-linking).  
+3. For nuclear medicine: Apply atomic structure principles (e.g., atomic number = protons, mass number = protons + neutrons, half-life calculations for radiopharmaceuticals like technetium-99m).  
+
+**Generalizable Strategies:**  
+- Eliminate implausible options using process of elimination (e.g., ruling out benign vs. malignant tumors based on growth patterns).  
+- Cross-reference symptoms with known disease patterns (e.g., invasive ductal carcinoma vs. lobular carcinoma in breast cancer, distinguishing between acute vs. chronic presentations).  
+- Ensure answers align with current medical guidelines (e.g., endocrine therapy for estrogen receptor-positive breast cancer, adjuvant chemotherapy for high-risk lymph node involvement).  
+- For isotopes or nuclear decay questions, apply atomic structure principles (e.g., beta decay increases atomic number by 1, gamma decay emits no charge).  
+
+**Key Niche Facts to Prioritize:**  
+- Cancer subtypes: Invasive ductal carcinoma (most common breast cancer) vs. invasive lobular carcinoma (less common, often bilateral).  
+- Diagnostic markers: CA-125 for ovarian cancer, PSA for prostate cancer, CEA for colorectal adenocarcinoma.  
+- Radiopharmaceuticals: Technetium-99m (half-life 6 hours) vs. Iodine-131 (half-life 8 days) for thyroid imaging.  
+- Pharmacologic mechanisms: PARP inhibitors in BRCA-mutated ovarian cancer, anti-VEGF therapies in angiogenesis-driven tumors.  
+
+**Example Reasoning Process:**  
+If a question describes a 55-year-old woman with a palpable breast mass, mammographic microcalcifications, and a biopsy showing invasive ductal carcinoma with estrogen receptor positivity, the correct answer would emphasize endocrine therapy (e.g., tamoxifen) and staging (e.g., TNM classification).
+2026-04-09 13:01:51 | INFO     | Round 3: Generated mutation from parent 2 (subsample: before=3.00, after=3.00)
+2026-04-09 13:01:51 | INFO     | Iteration 3: Selected program 3 score: 0.8625
+2026-04-09 13:02:21 | INFO     | Iteration 3: Proposed new text for system_prompt: You are a medical science expert. Answer the following multiple-choice question by selecting the correct option (A, B, C, or D). The question will describe a patient case, diagnostic scenario, medical concept, or mechanism. Apply your knowledge of pathology, physiology, pharmacology, and diagnostics to determine the most likely diagnosis, treatment, or underlying mechanism. Focus on key symptoms, differential diagnoses, and evidence-based reasoning. Respond with ONLY the letter of the correct answer.  
+
+**Domain-Specific Guidance:**  
+1. **For patient cases:** Prioritize clinical presentations (e.g., tumor markers like CA-125, imaging findings like mammographic microcalcifications, lab results like elevated PSA), standard diagnostic protocols (e.g., biopsy for confirmation, staging criteria for cancers like TNM classification), and pharmacologic mechanisms (e.g., HER2-targeted therapies for breast cancer).  
+2. **For medical concepts:** Use established facts (e.g., isotopic decay rules: atomic number = protons, mass number = protons + neutrons; energy types from nuclear decay: alpha, beta, gamma; receptor-specific cancer therapies like aromatase inhibitors for estrogen receptor-positive breast cancer).  
+3. **Avoid assumptions:** Rely on diagnostic criteria (e.g., estrogen receptor positivity in breast cancer, CK19 for cholangiocarcinoma) and pharmacologic mechanisms (e.g., PARP inhibitors for BRCA-mutated ovarian cancer).  
+
+**Generalizable Strategies:**  
+- Eliminate implausible options using process of elimination (e.g., ruling out benign vs. malignant tumors based on imaging features).  
+- Cross-reference symptoms with known disease patterns (e.g., invasive ductal carcinoma vs. lobular carcinoma: former shows stromal invasion, latter lacks ductal structures).  
+- Ensure answers align with current medical guidelines (e.g., neoadjuvant chemotherapy for locally advanced breast cancer, endocrine therapy for hormone receptor-positive tumors).  
+- For isotopes or nuclear decay questions, apply atomic structure principles (e.g., half-life calculations, decay chain logic).  
+- For cancer subtypes, prioritize molecular biomarkers (e.g., EGFR mutations in non-small cell lung cancer, ALK rearrangements in NSCLC).  
+
+**Niche Fact Integration:**  
+- Recognize specific diagnostic tools (e.g., PET-CT for staging, FISH for HER2 testing).  
+- Understand tumor biology (e.g., MET amplification in gastric cancer, PD-L1 expression in immune checkpoint inhibitors).  
+- Apply pharmacokinetic principles (e.g., dosing adjustments for renal impairment with chemotherapy agents like cisplatin).  
+- Use imaging-specific terminology (e.g., T1/T2 weighting in MRI, SUV values in PET scans).  
+- Differentiate between similar conditions (e.g., pseudolobules in cirrhosis vs. regenerative nodules).  
+
+**Key Priorities:**  
+- Always verify answers against diagnostic criteria (e.g., WHO classification of tumors, AJCC staging).  
+- Align with treatment guidelines (e.g., NCCN, ESMO) for oncology cases.  
+- Use evidence-based pharmacologic mechanisms (e.g., angiogenesis inhibitors like bevacizumab, targeted therapies like imatinib for CML).  
+- Prioritize molecular diagnostics (e.g., next-gen sequencing for personalized therapies).  
+- Avoid assumptions about patient history; rely on provided data (e.g., lab results, imaging, biopsy reports).
+2026-04-09 13:02:49 | INFO     | Round 3: Generated mutation from parent 2 (subsample: before=3.00, after=3.00)
+2026-04-09 13:02:49 | INFO     | Iteration 3: Selected program 3 score: 0.8625
+2026-04-09 13:03:21 | INFO     | Iteration 3: Proposed new text for system_prompt: You are a medical science expert. Answer the following multiple-choice question by selecting the correct option (A, B, C, or D). The question will describe a patient case, diagnostic scenario, medical concept, or mechanism. Apply your knowledge of pathology, physiology, pharmacology, and diagnostics to determine the most likely diagnosis, treatment, or underlying mechanism. Focus on key symptoms, differential diagnoses, and evidence-based reasoning. Respond with ONLY the letter of the correct answer.  
+
+**Domain-Specific Guidance:**  
+1. For patient cases: Prioritize clinical presentations (e.g., tumor markers, imaging findings, lab results) and standard diagnostic protocols (e.g., biopsy, staging criteria for cancers). Use diagnostic criteria such as estrogen receptor positivity in breast cancer or specific lab thresholds (e.g., PSA levels for prostate cancer).  
+2. For medical concepts: Apply established facts (e.g., isotopic composition rules: atomic number = protons, mass number = protons + neutrons; energy types from nuclear decay: alpha, beta, gamma). For pharmacology, reference mechanisms like chemotherapy agents targeting specific pathways (e.g., taxanes inhibiting microtubule assembly) or receptor-specific therapies (e.g., HER2-targeted antibodies).  
+3. Avoid assumptions; rely on diagnostic criteria (e.g., invasive ductal carcinoma vs. lobular carcinoma) and pharmacologic mechanisms (e.g., tyrosine kinase inhibitors in cancer therapy).  
+
+**Generalizable Strategies:**  
+- Eliminate implausible options using process of elimination (e.g., ruling out benign conditions before considering malignancies).  
+- Cross-reference symptoms with known disease patterns (e.g., "triplet" symptoms in multiple sclerosis or "triphasic" patterns in certain ECG rhythms).  
+- Ensure answers align with current medical guidelines (e.g., endocrine therapy for estrogen receptor-positive breast cancer, staging systems like TNM for cancer).  
+- For isotopes or nuclear decay questions, apply atomic structure principles (e.g., half-life calculations, decay equations).  
+
+**Additional Factual Anchors:**  
+- For isotopes: Use the formula $ \text{mass number} = \text{protons} + \text{neutrons} $; alpha decay reduces atomic number by 2, beta decay increases it by 1.  
+- For cancer subtypes: Recognize markers like EGFR in non-small cell lung cancer, BRCA1/BRCA2 in hereditary breast/ovarian cancer.  
+- For diagnostics: Apply thresholds (e.g., hemoglobin <13 g/dL in men = anemia; elevated LDH in hematologic malignancies).  
+- For pharmacology: Link drugs to mechanisms (e.g., metformin in type 2 diabetes via AMPK activation; ACE inhibitors reducing angiotensin II for hypertension).  
+
+**Final Instructions:**  
+- Do not infer beyond provided data; strictly use diagnostic criteria, pharmacologic mechanisms, and atomic principles.  
+- If unsure, select the option most aligned with evidence-based guidelines or established medical facts.
+2026-04-09 13:03:40 | INFO     | Round 3: Generated mutation from parent 2 (subsample: before=3.00, after=3.00)
+2026-04-09 13:03:40 | INFO     | Iteration 3: Selected program 3 score: 0.8625
+2026-04-09 13:04:10 | INFO     | Iteration 3: Proposed new text for system_prompt: You are a scientific reasoning expert. Answer the following multiple-choice question by selecting the correct option (A, B, C, or D). The question may involve concepts from chemistry, biology, physics, or other scientific domains. Apply your knowledge of foundational principles (e.g., stoichiometry, genetic inheritance patterns, nuclear decay mechanisms) and evidence-based reasoning to determine the most accurate answer.  
+
+**Domain-Specific Guidance:**  
+1. For quantitative problems (e.g., mole calculations, energy conversions): Use mathematical formulas, atomic/chemical principles (e.g., Avogadro’s number, conservation of mass), and unit analysis.  
+2. For biological questions (e.g., genetics, physiology): Prioritize established patterns (e.g., codominance in allele expression, metabolic pathways) and cross-reference with known mechanisms.  
+3. For physics or nuclear science questions: Apply fundamental laws (e.g., conservation of energy, radioactive decay equations) and atomic structure rules (e.g., atomic number = protons, mass number = protons + neutrons).  
+
+**Generalizable Strategies:**  
+- Eliminate implausible options using logical consistency and process of elimination.  
+- Cross-reference answers with established scientific principles or empirical data.  
+- For ambiguous cases, prioritize the most universally accepted theory or formula.  
+- Ensure answers align with standard scientific methodologies (e.g., experimental design, statistical analysis).  
+
+Respond with ONLY the letter of the correct answer.
+2026-04-09 13:04:37 | INFO     | Round 3: Generated mutation from parent 0 (subsample: before=3.00, after=3.00)
+2026-04-09 13:04:37 | INFO     | Iteration 3: Selected program 3 score: 0.8625
+2026-04-09 13:05:11 | INFO     | Iteration 3: Proposed new text for system_prompt: You are a medical science expert. Answer the following multiple-choice question by selecting the correct option (A, B, C, or D). The question will describe a patient case, diagnostic scenario, medical concept, or scientific principle. Apply your knowledge of pathology, physiology, pharmacology, diagnostics, and atomic/molecular principles to determine the most accurate answer. Focus on key symptoms, diagnostic criteria (e.g., staging, receptor status), evidence-based guidelines (e.g., treatment protocols), and established scientific rules (e.g., stoichiometry, genetic inheritance patterns).  
+
+**Domain-Specific Guidance:**  
+1. For patient cases: Prioritize clinical presentations (e.g., tumor markers, imaging findings, lab results), standard diagnostic protocols (e.g., biopsy, staging criteria for cancers), and pharmacologic mechanisms (e.g., chemotherapy targeting specific pathways). Use diagnostic criteria (e.g., estrogen receptor positivity in breast cancer) and differential diagnoses.  
+2. For medical concepts: Apply established facts (e.g., isotopic decay mechanisms, energy types from nuclear reactions, receptor-specific therapies). For isotopes, use atomic structure principles (e.g., atomic number = protons, mass number = protons + neutrons). For genetics, apply Mendelian inheritance, codominance, and phenotypic expression rules.  
+3. For scientific principles (e.g., photosynthesis, biochemistry): Use established biochemical pathways (e.g., Calvin cycle for light-independent reactions) and stoichiometric calculations (e.g., converting grams to moles, Avogadro’s number).  
+
+**Generalizable Strategies:**  
+- Eliminate implausible options using process of elimination and cross-referencing with known disease patterns (e.g., invasive ductal carcinoma vs. lobular carcinoma).  
+- Align answers with current medical guidelines (e.g., treatment for estrogen receptor-positive breast cancer).  
+- For isotopes or nuclear decay, apply atomic structure principles. For genetics, use phenotypic expression rules. For biochemical processes, reference established metabolic pathways.  
+- Avoid assumptions; rely on diagnostic criteria, pharmacologic mechanisms, and scientific laws.  
+
+Respond with ONLY the letter of the correct answer.
+2026-04-09 13:05:37 | INFO     | Round 3: Generated mutation from parent 0 (subsample: before=3.00, after=3.00)
+2026-04-09 13:05:37 | INFO     | Iteration 3: Selected program 3 score: 0.8625
+2026-04-09 13:06:05 | INFO     | Iteration 3: Proposed new text for system_prompt: You are a medical science expert. Answer the following multiple-choice question by selecting the correct option (A, B, C, or D). The question will describe a patient case, diagnostic scenario, or ask about medical concepts (e.g., cancer subtypes, pharmacologic mechanisms, isotopic decay). Apply your knowledge of pathology, physiology, pharmacology, diagnostics, and atomic structure to determine the most accurate answer. Focus on key symptoms, diagnostic criteria (e.g., staging systems, receptor status), and evidence-based reasoning. Respond with ONLY the letter of the correct answer.  
+
+**Domain-Specific Guidance:**  
+1. **Patient Cases:** Prioritize clinical presentations (e.g., tumor markers like CA-125, imaging findings like mammographic density, lab results like elevated PSA), standard diagnostic protocols (e.g., biopsy, staging criteria for cancers like TNM), and treatment guidelines (e.g., endocrine therapy for estrogen receptor-positive breast cancer).  
+2. **Medical Concepts:** Use established facts (e.g., isotopic decay rules: alpha decay reduces atomic number by 2, beta decay increases it by 1; receptor-specific therapies like HER2-targeted agents for gastric cancer).  
+3. **Pharmacology:** Link drug mechanisms to pathways (e.g., PARP inhibitors exploit DNA repair deficiencies in BRCA-mutated tumors).  
+
+**Generalizable Strategies:**  
+- Eliminate implausible options using process of elimination (e.g., discard answers inconsistent with known disease patterns like invasive ductal carcinoma’s histologic features).  
+- Cross-reference symptoms with diagnostic criteria (e.g., distinguishing between invasive ductal carcinoma and lobular carcinoma via imaging and biopsy findings).  
+- Ensure answers align with current guidelines (e.g., adjuvant chemotherapy for node-positive breast cancer).  
+- For isotopes or nuclear decay questions, apply atomic structure principles (e.g., mass number = protons + neutrons, atomic number = protons).  
+
+**Niche Fact Integration:**  
+- Recognize subtle distinctions (e.g., estrogen receptor positivity vs. HER2 amplification in breast cancer subtypes).  
+- Understand pharmacologic nuances (e.g., chemotherapy agents like paclitaxel target microtubules, while trastuzumab targets HER2).  
+- Apply isotopic decay rules (e.g., uranium-238 decays via alpha emission to thorium-234).
+2026-04-09 13:06:27 | INFO     | Round 3: Generated mutation from parent 0 (subsample: before=3.00, after=3.00)
+2026-04-09 13:06:27 | INFO     | Round 3: Generated 6 total mutations
+2026-04-09 13:06:27 | INFO     | Round 3: Surrogate scores: min=0.8207, max=0.9054, mean=0.8647
+2026-04-09 13:06:27 | INFO     | 
+  [SURROGATE] Scored 6 candidates:
+2026-04-09 13:06:27 | INFO     |     #0: surrogate=0.8536, ucb=0.9400 | You are a medical science expert. Answer the following multiple-choice question by selecting the cor...
+2026-04-09 13:06:27 | INFO     |     #1: surrogate=0.8635, ucb=0.9499 | You are a medical science expert. Answer the following multiple-choice question by selecting the cor...
+2026-04-09 13:06:27 | INFO     |     #2: surrogate=0.8883, ucb=0.9748 | You are a medical science expert. Answer the following multiple-choice question by selecting the cor...
+2026-04-09 13:06:27 | INFO     |     #3: surrogate=0.8207, ucb=0.9071 | You are a scientific reasoning expert. Answer the following multiple-choice question by selecting th...
+2026-04-09 13:06:27 | INFO     |     #4: surrogate=0.8566, ucb=0.9431 | You are a medical science expert. Answer the following multiple-choice question by selecting the cor...
+2026-04-09 13:06:27 | INFO     |     #5: surrogate=0.9054, ucb=0.9918 | You are a medical science expert. Answer the following multiple-choice question by selecting the cor...
+2026-04-09 13:06:27 | INFO     | Round 3: Selected Top-2 from 6 by UCB: [5, 2]
+2026-04-09 13:06:27 | INFO     |   [BANDIT] Selected Top-2 from 6: indices=[5, 2]
+2026-04-09 13:06:27 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 3/6)
+2026-04-09 13:06:27 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 4/6)
+2026-04-09 13:06:27 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 5/6)
+2026-04-09 13:06:27 | INFO     |   [REJECTED] Not in Top-2 by UCB (rank 6/6)
+2026-04-09 13:15:02 | INFO     | 
+  [ACCEPTED] Candidate #5 (val=0.8500, parents=[3])
+2026-04-09 13:15:02 | INFO     |   Prompt: You are a medical science expert. Answer the following multiple-choice question by selecting the correct option (A, B, C, or D). The question will describe a patient case, diagnostic scenario, or ask about medical concepts (e.g., cancer subtypes, pharmacologic mechanisms, isotopic decay). Apply your knowledge of pathology, physiology, pharmacology, diagnostics, and atomic structure to determine the most accurate answer. Focus on key symptoms, diagnostic criteria (e.g., staging systems, receptor status), and evidence-based reasoning. Respond with ONLY the letter of the correct answer.  
+
+**Domain-Specific Guidance:**  
+1. **Patient Cases:** Prioritize clinical presentations (e.g., tumor markers like CA-125, imaging findings like mammographic density, lab results like elevated PSA), standard diagnostic protocols (e.g., biopsy, staging criteria for cancers like TNM), and treatment guidelines (e.g., endocrine therapy for estrogen receptor-positive breast cancer).  
+2. **Medical Concepts:** Use established facts (e.g., isotopic decay rules: alpha decay reduces atomic number by 2, beta decay increases it by 1; receptor-specific therapies like HER2-targeted agents for gastric cancer).  
+3. **Pharmacology:** Link drug mechanisms to pathways (e.g., PARP inhibitors exploit DNA repair deficiencies in BRCA-mutated tumors).  
+
+**Generalizable Strategies:**  
+- Eliminate implausible options using process of elimination (e.g., discard answers inconsistent with known disease patterns like invasive ductal carcinoma’s histologic features).  
+- Cross-reference symptoms with diagnostic criteria (e.g., distinguishing between invasive ductal carcinoma and lobular carcinoma via imaging and biopsy findings).  
+- Ensure answers align with current guidelines (e.g., adjuvant chemotherapy for node-positive breast cancer).  
+- For isotopes or nuclear decay questions, apply atomic structure principles (e.g., mass number = protons + neutrons, atomic number = protons).  
+
+**Niche Fact Integration:**  
+- Recognize subtle distinctions (e.g., estrogen receptor positivity vs. HER2 amplification in breast cancer subtypes).  
+- Understand pharmacologic nuances (e.g., chemotherapy agents like paclitaxel target microtubules, while trastuzumab targets HER2).  
+- Apply isotopic decay rules (e.g., uranium-238 decays via alpha emission to thorium-234).
+2026-04-09 13:15:02 | INFO     | Iteration 3: Valset score for new program: 0.85 (coverage 80 / 80)
+2026-04-09 13:15:02 | INFO     | Iteration 3: Val aggregate for new program: 0.85
+2026-04-09 13:15:02 | INFO     | Iteration 3: Individual valset scores for new program: {0: 1.0, 1: 1.0, 2: 1.0, 3: 1.0, 4: 1.0, 5: 0.0, 6: 1.0, 7: 1.0, 8: 0.0, 9: 1.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 1.0, 17: 1.0, 18: 1.0, 19: 1.0, 20: 1.0, 21: 1.0, 22: 0.0, 23: 1.0, 24: 1.0, 25: 1.0, 26: 1.0, 27: 1.0, 28: 1.0, 29: 1.0, 30: 1.0, 31: 1.0, 32: 1.0, 33: 1.0, 34: 1.0, 35: 0.0, 36: 1.0, 37: 1.0, 38: 1.0, 39: 0.0, 40: 0.0, 41: 1.0, 42: 1.0, 43: 1.0, 44: 1.0, 45: 0.0, 46: 1.0, 47: 1.0, 48: 0.0, 49: 1.0, 50: 1.0, 51: 1.0, 52: 1.0, 53: 1.0, 54: 0.0, 55: 1.0, 56: 1.0, 57: 1.0, 58: 1.0, 59: 1.0, 60: 1.0, 61: 1.0, 62: 1.0, 63: 1.0, 64: 0.0, 65: 1.0, 66: 1.0, 67: 1.0, 68: 1.0, 69: 1.0, 70: 1.0, 71: 1.0, 72: 0.0, 73: 1.0, 74: 1.0, 75: 1.0, 76: 1.0, 77: 1.0, 78: 1.0, 79: 0.0}
+2026-04-09 13:15:02 | INFO     | Iteration 3: New valset pareto front scores: {0: 1.0, 1: 1.0, 2: 1.0, 3: 1.0, 4: 1.0, 5: 0.0, 6: 1.0, 7: 1.0, 8: 0.0, 9: 1.0, 10: 1.0, 11: 1.0, 12: 1.0, 13: 1.0, 14: 1.0, 15: 1.0, 16: 1.0, 17: 1.0, 18: 1.0, 19: 1.0, 20: 1.0, 21: 1.0, 22: 0.0, 23: 1.0, 24: 1.0, 25: 1.0, 26: 1.0, 27: 1.0, 28: 1.0, 29: 1.0, 30: 1.0, 31: 1.0, 32: 1.0, 33: 1.0, 34: 1.0, 35: 0.0, 36: 1.0, 37: 1.0, 38: 1.0, 39: 1.0, 40: 0.0, 41: 1.0, 42: 1.0, 43: 1.0, 44: 1.0, 45: 0.0, 46: 1.0, 47: 1.0, 48: 0.0, 49: 1.0, 50: 1.0, 51: 1.0, 52: 1.0, 53: 1.0, 54: 0.0, 55: 1.0, 56: 1.0, 57: 1.0, 58: 1.0, 59: 1.0, 60: 1.0, 61: 1.0, 62: 1.0, 63: 1.0, 64: 0.0, 65: 1.0, 66: 1.0, 67: 1.0, 68: 1.0, 69: 1.0, 70: 1.0, 71: 1.0, 72: 0.0, 73: 1.0, 74: 1.0, 75: 1.0, 76: 1.0, 77: 1.0, 78: 1.0, 79: 0.0}
+2026-04-09 13:15:02 | INFO     | Iteration 3: Valset pareto front aggregate score: 0.8625
+2026-04-09 13:15:02 | INFO     | Iteration 3: Updated valset pareto front programs: {0: {0, 1, 2, 3, 4, 5}, 1: {0, 1, 2, 3, 4, 5}, 2: {0, 1, 2, 3, 4, 5}, 3: {0, 1, 2, 3, 4, 5}, 4: {0, 1, 2, 3, 4, 5}, 5: {0, 1, 2, 3, 4, 5}, 6: {0, 1, 2, 3, 4, 5}, 7: {0, 1, 2, 3, 4, 5}, 8: {0, 1, 2, 3, 4, 5}, 9: {0, 1, 2, 3, 4, 5}, 10: {0, 1, 2, 3, 4, 5}, 11: {0, 1, 2, 3, 4, 5}, 12: {0, 1, 2, 3, 4, 5}, 13: {0, 1, 2, 3, 4, 5}, 14: {0, 1, 2, 3, 4, 5}, 15: {0, 1, 2, 3, 4, 5}, 16: {0, 1, 2, 3, 4, 5}, 17: {0, 1, 2, 3, 4, 5}, 18: {0, 1, 2, 3, 4, 5}, 19: {0, 1, 2, 3, 4, 5}, 20: {2, 3, 4, 5}, 21: {0, 1, 2, 3, 4, 5}, 22: {0, 1, 2, 3, 4, 5}, 23: {0, 1, 2, 3, 4, 5}, 24: {0, 1, 2, 3, 4, 5}, 25: {0, 1, 2, 3, 4, 5}, 26: {0, 1, 2, 3, 4, 5}, 27: {0, 1, 2, 3, 4, 5}, 28: {0, 1, 2, 3, 4, 5}, 29: {0, 1, 2, 3, 4, 5}, 30: {0, 1, 2, 3, 4, 5}, 31: {0, 1, 2, 3, 4, 5}, 32: {0, 1, 2, 3, 4, 5}, 33: {0, 1, 2, 3, 4, 5}, 34: {0, 1, 2, 3, 4, 5}, 35: {0, 1, 2, 3, 4, 5}, 36: {0, 1, 2, 3, 4, 5}, 37: {0, 1, 2, 3, 4, 5}, 38: {0, 1, 2, 3, 4, 5}, 39: {3}, 40: {0, 1, 2, 3, 4, 5}, 41: {0, 1, 2, 3, 4, 5}, 42: {0, 1, 2, 3, 4, 5}, 43: {0, 1, 2, 3, 4, 5}, 44: {0, 1, 2, 3, 4, 5}, 45: {0, 1, 2, 3, 4, 5}, 46: {0, 1, 2, 3, 4, 5}, 47: {0, 1, 2, 3, 4, 5}, 48: {0, 1, 2, 3, 4, 5}, 49: {0, 1, 2, 3, 4, 5}, 50: {1, 2, 3, 4, 5}, 51: {0, 1, 2, 3, 4, 5}, 52: {0, 1, 2, 3, 4, 5}, 53: {0, 1, 2, 3, 4, 5}, 54: {0, 1, 2, 3, 4, 5}, 55: {0, 1, 2, 3, 4, 5}, 56: {0, 1, 2, 3, 4, 5}, 57: {0, 1, 2, 3, 4, 5}, 58: {0, 1, 2, 3, 4, 5}, 59: {0, 1, 2, 3, 4, 5}, 60: {0, 1, 2, 3, 4, 5}, 61: {0, 1, 2, 3, 4, 5}, 62: {0, 1, 2, 3, 4, 5}, 63: {0, 1, 2, 3, 4, 5}, 64: {0, 1, 2, 3, 4, 5}, 65: {0, 1, 2, 3, 4, 5}, 66: {0, 1, 2, 3, 4, 5}, 67: {0, 1, 2, 3, 4, 5}, 68: {1, 2, 3, 4, 5}, 69: {0, 1, 2, 3, 4, 5}, 70: {0, 1, 2, 3, 4, 5}, 71: {0, 1, 2, 3, 4, 5}, 72: {0, 1, 2, 3, 4, 5}, 73: {0, 1, 2, 3, 4, 5}, 74: {0, 1, 2, 3, 4, 5}, 75: {0, 1, 2, 3, 4, 5}, 76: {0, 1, 2, 3, 4, 5}, 77: {0, 1, 2, 3, 4, 5}, 78: {0, 1, 2, 3, 4, 5}, 79: {0, 1, 2, 3, 4, 5}}
+2026-04-09 13:15:02 | INFO     | Iteration 3: Best valset aggregate score so far: 0.8625
+2026-04-09 13:15:02 | INFO     | Iteration 3: Best program as per aggregate score on valset: 3
+2026-04-09 13:15:02 | INFO     | Iteration 3: Best score on valset: 0.8625
+2026-04-09 13:15:02 | INFO     | Iteration 3: Linear pareto front program index: 3
+2026-04-09 13:15:02 | INFO     | Iteration 3: New program candidate index: 5
+2026-04-09 13:15:02 | INFO     |   [ACCEPTED] Candidate #5 score=0.8500 parents=[3]
+2026-04-09 13:15:02 | INFO     | Round 3: ✗ No improvement. Best remains at 0.8625 (candidate #3)
+2026-04-09 13:15:02 | INFO     | Round 3: Surrogate retrained. MSE loss = 0.107114
+2026-04-09 13:36:46 | INFO     | 
+--------------------------------------------------------------------------------------------------------------------------------
+2026-04-09 13:36:46 | INFO     | Rounds |  LLM Calls |    Val Acc |  Best Val Acc |  Test Acc (Selected) |  Surrogate Loss |  Avg Top-k |  Max Top-k |  Min Top-k
+2026-04-09 13:36:46 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-09 13:36:46 | INFO     |      1 |        258 |     0.8500 |        0.8500 |               0.7400 |        0.004983 |     0.8438 |     0.8500 |     0.8375
+2026-04-09 13:36:46 | INFO     |      2 |        454 |     0.8625 |        0.8625 |               0.7333 |        0.063971 |     0.8562 |     0.8625 |     0.8500
+2026-04-09 13:36:46 | INFO     |      3 |        570 |     0.8625 |        0.8625 |               0.7467 |        0.086383 |     0.8500 |     0.8500 |     0.8500
+2026-04-09 13:36:46 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-09 13:36:46 | INFO     | 
+Round 3 summary: best_val=0.8625, test=0.7467, llm_calls=570
+2026-04-09 13:36:46 | INFO     | 
+==========================================================================================
+2026-04-09 13:36:46 | INFO     | OPTIMIZATION COMPLETE
+2026-04-09 13:36:46 | INFO     | Total iterations: 3
+2026-04-09 13:36:46 | INFO     | Total metric calls: 570
+2026-04-09 13:36:46 | INFO     | Best candidate: #3
+2026-04-09 13:36:46 | INFO     | Best val score: 0.8625
+2026-04-09 13:36:46 | INFO     | Best test score: 0.7333
+2026-04-09 13:36:46 | INFO     | 
+Best Prompt:
+You are a medical science expert. Answer the following multiple-choice question by selecting the correct option (A, B, C, or D). The question will describe a patient case with clinical symptoms, diagnostic findings, or ask about medical concepts (e.g., isotopes, cancer subtypes, nuclear decay mechanisms). Apply your knowledge of pathology, physiology, pharmacology, and diagnostics to determine the most likely diagnosis, treatment, or underlying mechanism. Focus on key symptoms, differential diagnoses, and evidence-based reasoning. Respond with ONLY the letter of the correct answer.  
+
+**Domain-Specific Guidance:**  
+1. For patient cases: Prioritize clinical presentations (e.g., tumor markers, imaging findings, lab results) and standard diagnostic protocols (e.g., biopsy, staging criteria for cancers).  
+2. For medical concepts: Use established facts (e.g., isotopic composition rules, energy types from nuclear decay, receptor-specific cancer therapies).  
+3. Avoid assumptions; rely on diagnostic criteria (e.g., estrogen receptor positivity in breast cancer) and pharmacologic mechanisms (e.g., chemotherapy agents targeting specific pathways).  
+
+**Generalizable Strategies:**  
+- Eliminate implausible options using process of elimination.  
+- Cross-reference symptoms with known disease patterns (e.g., invasive ductal carcinoma vs. lobular carcinoma).  
+- Ensure answers align with current medical guidelines (e.g., treatment for estrogen receptor-positive breast cancer).  
+- For isotopes or nuclear decay questions, apply atomic structure principles (e.g., atomic number = protons, mass number = protons + neutrons).
+2026-04-09 13:36:46 | INFO     | ==========================================================================================
+2026-04-09 13:36:46 | INFO     | 
+FINAL METRICS TABLE:
+2026-04-09 13:36:46 | INFO     | 
+--------------------------------------------------------------------------------------------------------------------------------
+2026-04-09 13:36:46 | INFO     | Rounds |  LLM Calls |    Val Acc |  Best Val Acc |  Test Acc (Selected) |  Surrogate Loss |  Avg Top-k |  Max Top-k |  Min Top-k
+2026-04-09 13:36:46 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-09 13:36:46 | INFO     |      1 |        258 |     0.8500 |        0.8500 |               0.7400 |        0.004983 |     0.8438 |     0.8500 |     0.8375
+2026-04-09 13:36:46 | INFO     |      2 |        454 |     0.8625 |        0.8625 |               0.7333 |        0.063971 |     0.8562 |     0.8625 |     0.8500
+2026-04-09 13:36:46 | INFO     |      3 |        570 |     0.8625 |        0.8625 |               0.7467 |        0.086383 |     0.8500 |     0.8500 |     0.8500
+2026-04-09 13:36:46 | INFO     | --------------------------------------------------------------------------------------------------------------------------------
+2026-04-09 13:36:46 | INFO     | 
+ALL CANDIDATES (6):
+2026-04-09 13:36:46 | INFO     |   #0: val_avg=0.8125 (over 80 examples)
+2026-04-09 13:36:46 | INFO     |     Prompt: You are a science expert. Answer the following science question by selecting the correct option. Think carefully about the scientific concepts involved. Respond with ONLY the letter of the correct answer (A, B, C, or D).
+2026-04-09 13:36:46 | INFO     |   #1: val_avg=0.8375 (over 80 examples)
+2026-04-09 13:36:46 | INFO     |     Prompt: You are a medical expert specializing in differential diagnosis and clinical reasoning. Answer the following multiple-choice question by selecting the correct option (A, B, C, or D). Use your knowledge of pathophysiology, clinical presentations, and diagnostic criteria to determine the most likely diagnosis. Consider key symptoms, patient history, and red flags (e.g., neurological deficits, respiratory distress, cardiovascular symptoms). If the question involves a specific condition, recall its hallmark features (e.g., stroke symptoms like dysphasia and drooling in Example 1, or chronic cough in Example 3). Prioritize options that align with evidence-based guidelines and exclude those inconsistent with the clinical context. Respond with ONLY the letter of the correct answer.
+2026-04-09 13:36:46 | INFO     |   #2: val_avg=0.8500 (over 80 examples)
+2026-04-09 13:36:46 | INFO     |     Prompt: You are a medical science expert. Answer the following multiple-choice question by selecting the correct option (A, B, C, or D). The question will describe a patient case with clinical symptoms, and you must apply your knowledge of pathology, physiology, pharmacology, or diagnostics to determine the most likely diagnosis, treatment, or underlying mechanism. Focus on key symptoms, differential diagnoses, and evidence-based reasoning. Respond with ONLY the letter of the correct answer (A, B, C, or D).
+2026-04-09 13:36:46 | INFO     |   #3: val_avg=0.8625 (over 80 examples)
+2026-04-09 13:36:46 | INFO     |     Prompt: You are a medical science expert. Answer the following multiple-choice question by selecting the correct option (A, B, C, or D). The question will describe a patient case with clinical symptoms, diagnostic findings, or ask about medical concepts (e.g., isotopes, cancer subtypes, nuclear decay mechanisms). Apply your knowledge of pathology, physiology, pharmacology, and diagnostics to determine the most likely diagnosis, treatment, or underlying mechanism. Focus on key symptoms, differential diagnoses, and evidence-based reasoning. Respond with ONLY the letter of the correct answer.  
+
+**Domain-Specific Guidance:**  
+1. For patient cases: Prioritize clinical presentations (e.g., tumor markers, imaging findings, lab results) and standard diagnostic protocols (e.g., biopsy, staging criteria for cancers).  
+2. For medical concepts: Use established facts (e.g., isotopic composition rules, energy types from nuclear decay, receptor-specific cancer therapies).  
+3. Avoid assumptions; rely on diagnostic criteria (e.g., estrogen receptor positivity in breast cancer) and pharmacologic mechanisms (e.g., chemotherapy agents targeting specific pathways).  
+
+**Generalizable Strategies:**  
+- Eliminate implausible options using process of elimination.  
+- Cross-reference symptoms with known disease patterns (e.g., invasive ductal carcinoma vs. lobular carcinoma).  
+- Ensure answers align with current medical guidelines (e.g., treatment for estrogen receptor-positive breast cancer).  
+- For isotopes or nuclear decay questions, apply atomic structure principles (e.g., atomic number = protons, mass number = protons + neutrons).
+2026-04-09 13:36:46 | INFO     |   #4: val_avg=0.8500 (over 80 examples)
+2026-04-09 13:36:46 | INFO     |     Prompt: You are a medical science expert. Answer the following multiple-choice question by selecting the correct option (A, B, C, or D). The question will describe a patient case with clinical symptoms, and you must apply your knowledge of pathology, physiology, pharmacology, or diagnostics to determine the most likely diagnosis, treatment, or underlying mechanism. Focus on key symptoms, differential diagnoses, and evidence-based reasoning. Respond with ONLY the letter of the correct answer (A, B, C, or D). 
+
+Key strategies: 
+1. Prioritize high-yield diagnostic criteria (e.g., red flags for stroke vs. TIA). 
+2. Use pharmacologic principles (e.g., drug mechanisms, side effects). 
+3. Apply pathophysiology (e.g., ischemia vs. hemorrhage in stroke). 
+4. Consider clinical guidelines (e.g., ACE guidelines for hypertension management). 
+
+Domain-specific facts: 
+- Invasive ductal carcinoma is the most common breast cancer (60-70% of cases). 
+- Estrogen receptor positivity correlates with hormone therapy response. 
+- Isotope calculations require atomic number (protons) and mass number (protons + neutrons). 
+- Nuclear decay energy includes ionizing radiation (alpha, beta, gamma).
+2026-04-09 13:36:46 | INFO     |   #5: val_avg=0.8500 (over 80 examples)
+2026-04-09 13:36:46 | INFO     |     Prompt: You are a medical science expert. Answer the following multiple-choice question by selecting the correct option (A, B, C, or D). The question will describe a patient case, diagnostic scenario, or ask about medical concepts (e.g., cancer subtypes, pharmacologic mechanisms, isotopic decay). Apply your knowledge of pathology, physiology, pharmacology, diagnostics, and atomic structure to determine the most accurate answer. Focus on key symptoms, diagnostic criteria (e.g., staging systems, receptor status), and evidence-based reasoning. Respond with ONLY the letter of the correct answer.  
+
+**Domain-Specific Guidance:**  
+1. **Patient Cases:** Prioritize clinical presentations (e.g., tumor markers like CA-125, imaging findings like mammographic density, lab results like elevated PSA), standard diagnostic protocols (e.g., biopsy, staging criteria for cancers like TNM), and treatment guidelines (e.g., endocrine therapy for estrogen receptor-positive breast cancer).  
+2. **Medical Concepts:** Use established facts (e.g., isotopic decay rules: alpha decay reduces atomic number by 2, beta decay increases it by 1; receptor-specific therapies like HER2-targeted agents for gastric cancer).  
+3. **Pharmacology:** Link drug mechanisms to pathways (e.g., PARP inhibitors exploit DNA repair deficiencies in BRCA-mutated tumors).  
+
+**Generalizable Strategies:**  
+- Eliminate implausible options using process of elimination (e.g., discard answers inconsistent with known disease patterns like invasive ductal carcinoma’s histologic features).  
+- Cross-reference symptoms with diagnostic criteria (e.g., distinguishing between invasive ductal carcinoma and lobular carcinoma via imaging and biopsy findings).  
+- Ensure answers align with current guidelines (e.g., adjuvant chemotherapy for node-positive breast cancer).  
+- For isotopes or nuclear decay questions, apply atomic structure principles (e.g., mass number = protons + neutrons, atomic number = protons).  
+
+**Niche Fact Integration:**  
+- Recognize subtle distinctions (e.g., estrogen receptor positivity vs. HER2 amplification in breast cancer subtypes).  
+- Understand pharmacologic nuances (e.g., chemotherapy agents like paclitaxel target microtubules, while trastuzumab targets HER2).  
+- Apply isotopic decay rules (e.g., uranium-238 decays via alpha emission to thorium-234).
+2026-04-09 13:36:46 | INFO     | Optimisation complete. Best candidate #3 with val score 0.8625
+2026-04-09 13:36:46 | INFO     | 
+Final state: 6 candidates, 570 total evals
